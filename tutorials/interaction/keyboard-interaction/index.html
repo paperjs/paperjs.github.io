@@ -1,0 +1,157 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"/><link rel="stylesheet" href="/assets/css/style.css"/><link rel="icon" href="/assets/favicon.ico" type="image/x-icon"/><link rel="shortcut icon" href="/assets/favicon.ico"/><script src="/assets/js/jquery.js"></script><script src="/assets/js/paper.js"></script><script src="/assets/js/codemirror.js"></script><script src="/assets/js/scripts.js"></script><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-10082945-6']);
+_gaq.push(['_trackPageview']);
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script><title>Paper.js - Paper.js</title></head><body><nav><h1><a href="/">Paper.js</a></h1><ul><li><a href="/about/">About</a></li><li><a href="/features/">Features</a></li><li class="spacer"></li><li><a href="/examples/">Examples</a></li><li><a href="/showcase/">Showcase</a></li><li class="spacer"></li><li><a href="/tutorials/">Tutorials</a><ul></ul></li><li><a href="/reference/">Reference</a></li><li class="spacer"></li><li><a href="/download/">Download</a></li><li><a href="/donation/">Donation</a></li><li><a href="/license/">License</a></li><li class="spacer"></li><li><a href="http://groups.google.com/group/paperjs" target="_blank">Mailing List</a></li><li><a href="http://twitter.com/PaperJS" target="_blank">Follow on Twitter</a></li><li><a href="http://github.com/paperjs/paper.js" target="_blank">Watch on Github</a></li></ul></nav><article class="tutorial"><h1>Keyboard Interaction</h1><p>
+Paper.js allows you to interact with the keyboard in two ways: You can either intercept key events and respond to these, or you can check the state of a given key at any moment, to see if it is pressed or not. This tutorial explains both approaches.
+</p>
+<section id="receiving-key-events"><a name="receiving-key-events" title="Receiving Key Events" class="anchor"><h2>Receiving Key Events</h2></a></section>
+<p>
+To receive information about key presses, define an <tt>onKeyDown</tt> or <tt>onKeyUp</tt> handler function in your script. 
+</p>
+<p>
+In the following example, we give feedback to the user about which key was pressed / released by creating a text item and changing its content:
+</p>
+<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-1">
+// Create a centered text item at the center of the view:
+var text = new PointText({
+	point: view.center,
+	content: 'Click here to focus and then press some keys.',
+	justification: 'center',
+	fontSize: 15
+});
+
+function onKeyDown(event) {
+	// When a key is pressed, set the content of the text item:
+	text.content = 'The ' + event.key + ' key was pressed!';
+}
+
+function onKeyUp(event) {
+	// When a key is released, set the content of the text item:
+	text.content = 'The ' + event.key + ' key was released!';
+}
+</script><div class="canvas"><canvas height="100" id="canvas-1" width="540"></canvas></div>
+</div><br><br>
+<div class="note"><b>Please note:</b><p>
+The <tt>onKeyDown</tt> event is fired continuously while a key is held down.
+</p><div class="text-end"></div></div>
+<section id="the-event-object"><a name="the-event-object" title="The Event Object" class="anchor"><h2>The Event Object</h2></a></section>
+<p>
+The example above uses the <tt><a href="/reference/keyevent#key">event.key</a></tt> property to see which key was pressed. The <tt><a href="/reference/keyevent">event</a></tt> object contains several properties that describe the key event:
+</p>
+<p>
+<tt><a href="/reference/keyevent#key">event.key</a></tt>: the key that was pressed.
+</p>
+<p>
+<tt><a href="/reference/keyevent#key">event.character</a></tt>: the character that the key press generated. This will, for example show a capitalized A when both shift and a are pressed.
+</p>
+<p>
+<tt><a href="/reference/keyevent#key">event.type</a></tt>: the type of key event, either <tt>&apos;keydown&apos;</tt> or <tt>&apos;keyup&apos;</tt>
+</p>
+<section id="is-that-key-pressed"><a name="is-that-key-pressed" title="Is that Key Pressed?" class="anchor"><h2>Checking Whether a Key is Pressed</h2></a></section>
+<p>
+To check whether a key is currently being held down, we can use the <tt><a href="/reference/ui/key#key-isdown-key">Key.isDown(key)</a></tt> function.
+</p>
+<p>
+In the following example we create a path and add segments to it while the user drags the mouse. When the &apos;a&apos; key is pressed while dragging, instead of adding new segments, we move the last segment to the position of the mouse.
+</p>
+<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-2">
+var path;
+function onMouseDown(event) {
+	path = new Path();
+	path.strokeColor = 'black';
+	path.add(event.point);
+}
+
+function onMouseDrag(event) {
+	if(Key.isDown('a')) {
+		// If the 'a' key is down, change the point of
+		// the last segment to the position of the mouse:
+		path.lastSegment.point = event.point;
+	} else {
+		// If the a key is not down, add a segment
+		// to the path at the position of the mouse:
+		path.add(event.point);
+	}
+}
+</script><div class="canvas"><canvas height="200" id="canvas-2" width="540"></canvas></div>
+</div><br><br>
+<section id="modifier-keys"><a name="modifier-keys" title="Modifier Keys" class="anchor"><h2>Modifier Keys</h2></a></section>
+<p>
+The <tt><a href="/reference/toolevent">event</a></tt> object that is passed to mouse event handlers such as <tt><a href="/reference/tool#onmousedown">onMouseDown</a></tt> also contain information about which modifier keys were pressed. Modifier keys are keys that don&apos;t directly produce a character: <tt>capsLock, command, control, option, shift</tt>
+</p>
+<p>
+The <tt><a href="/reference/toolevent#modifiers">event.modifiers</a></tt> property is an object with boolean values for the different modifier keys. So for example, to check if the shift key is down you would do:
+</p>
+<pre class="code">
+function onMouseDrag(event) {
+	if (event.modifiers.shift) {
+		// Do something when the shift key is down
+	}
+}
+</pre>
+<p>
+For example if we wanted to make the same example script as above, but using the shift key:
+</p>
+<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-3">
+var path;
+function onMouseDown(event) {
+	path = new Path();
+	path.strokeColor = 'black';
+	path.add(event.point, event.point);
+}
+
+function onMouseDrag(event) {
+	if(event.modifiers.shift) {
+		// If the shift key is down, change the point of
+		// the last segment to the position of the mouse:
+		path.lastSegment.point = event.point;
+	} else {
+		// If the shift key is not down, add a segment
+		// to the path at the position of the mouse:
+		path.add(event.point);
+	}
+}
+</script><div class="canvas"><canvas height="200" id="canvas-3" width="540"></canvas></div>
+</div><br><br>
+<section id="having-fun-with-keys"><a name="having-fun-with-keys" title="Having Fun with Keys" class="anchor"><h2>Having Fun with Keys</h2></a></section>
+<p>
+The following example creates a path on execution and then adds segment points to it when you press one of <b>wasd</b> keys in the direction of the key.
+</p>
+<p>
+Click in the view below so it gets keyboard focus and press one of the <b>wasd</b> keys.
+</p>
+<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-4">
+// The starting position of the line
+var position = new Point(100, 100);
+
+// The amount we will move when one of the keys is pressed:
+var step = 10;
+
+var path = new Path();
+path.strokeColor = 'black';
+path.add(position);
+
+function onKeyDown(event) {
+	if(event.key == 'a') {
+		position.x -= step;
+	}
+
+	if(event.key == 'd') {
+		position.x += step;
+	}
+
+	if(event.key == 'w') {
+		position.y -= step;
+	}
+
+	if(event.key == 's') {
+		position.y += step;
+	}
+	path.add(position);
+}
+</script><div class="canvas"><canvas height="200" id="canvas-4" width="540"></canvas></div>
+</div><br><br></article><aside><h1>Index</h1><ul class="tutorial-index"><li class="expandable-list undefined"><b><a href="/tutorials/getting-started/">Getting Started</a></b><ul class="tutorial-index"><li><a href="/tutorials/getting-started/working-with-paper-js/">Working with Paper.js</a></li><li><a href="/tutorials/getting-started/using-javascript-directly/">Using JavaScript Directly</a></li><li><a href="/tutorials/getting-started/paperscript-interoperability/">PaperScript Interoperability</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/geometry/">Geometry</a></b><ul class="tutorial-index"><li><a href="/tutorials/geometry/point-size-and-rectangle/">Point, Size and Rectangle</a></li><li><a href="/tutorials/geometry/object-conversion/">Object Conversion</a></li><li><a href="/tutorials/geometry/mathematical-operations/">Mathematical Operations</a></li><li><a href="/tutorials/geometry/vector-geometry/">Vector Geometry</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/paths/">Paths</a></b><ul class="tutorial-index"><li><a href="/tutorials/paths/working-with-path-items/">Working with Path Items</a></li><li><a href="/tutorials/paths/creating-predefined-shapes/">Creating Predefined Shapes</a></li><li><a href="/tutorials/paths/using-color-and-style/">Using Color and Style</a></li><li><a href="/tutorials/paths/smoothing-simplifying-flattening/">Smoothing, Simplifying &amp; Flattening</a></li></ul></li><li class="expandable-list expanded"><b><a href="/tutorials/interaction/">Interaction</a></b><ul class="tutorial-index"><li><a href="/tutorials/interaction/creating-mouse-tools/">Creating Mouse Tools</a></li><li><a href="/tutorials/interaction/mouse-tool-events/">Mouse Tool Events</a></li><li><a href="/tutorials/interaction/working-with-mouse-vectors/">Working with Mouse Vectors</a></li><li class="active"><span>Keyboard Interaction</span></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/project-items/">Project &amp; Items</a></b><ul class="tutorial-index"><li><a href="/tutorials/project-items/working-with-items/">Working with Items</a></li><li><a href="/tutorials/project-items/transforming-items/">Transforming Items</a></li><li><a href="/tutorials/project-items/project-hierarchy/">Project Hierarchy</a></li><li><a href="/tutorials/project-items/working-with-symbols/">Working with Symbols</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/images/">Images</a></b><ul class="tutorial-index"><li><a href="/tutorials/images/working-with-rasters/">Working with Rasters</a></li><li><a href="/tutorials/images/using-pixel-colors/">Using Pixel Colors</a></li><li><a href="/tutorials/images/color-averaging-image-areas/">Color Averaging Image Areas</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/animation/">Animation</a></b><ul class="tutorial-index"><li><a href="/tutorials/animation/creating-animations/">Creating Animations</a></li></ul></li></ul><div class="sticky"><h1>Content</h1><ul class="toc"></ul></div></aside></body></html>

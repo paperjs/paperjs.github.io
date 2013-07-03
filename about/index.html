@@ -1,0 +1,57 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"/><link rel="stylesheet" href="/assets/css/style.css"/><link rel="icon" href="/assets/favicon.ico" type="image/x-icon"/><link rel="shortcut icon" href="/assets/favicon.ico"/><script src="/assets/js/jquery.js"></script><script src="/assets/js/paper.js"></script><script src="/assets/js/codemirror.js"></script><script src="/assets/js/scripts.js"></script><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-10082945-6']);
+_gaq.push(['_trackPageview']);
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script><title>Paper.js - Paper.js</title></head><body><nav><h1><a href="/">Paper.js</a></h1><ul><li class="active"><a href="/about/">About</a><ul><li><a href="/about/faq/">FAQ</a></li><li><a href="/about/roadmap/">Roadmap</a></li></ul></li><li><a href="/features/">Features</a></li><li class="spacer"></li><li><a href="/examples/">Examples</a></li><li><a href="/showcase/">Showcase</a></li><li class="spacer"></li><li><a href="/tutorials/">Tutorials</a></li><li><a href="/reference/">Reference</a></li><li class="spacer"></li><li><a href="/download/">Download</a></li><li><a href="/donation/">Donation</a></li><li><a href="/license/">License</a></li><li class="spacer"></li><li><a href="http://groups.google.com/group/paperjs" target="_blank">Mailing List</a></li><li><a href="http://twitter.com/PaperJS" target="_blank">Follow on Twitter</a></li><li><a href="http://github.com/paperjs/paper.js" target="_blank">Watch on Github</a></li></ul></nav><article class="page"><section id="about"><a name="about" title="About" class="anchor"><h1>About</h1></a></section>
+<p>
+Paper.js &mdash; The Swiss Army Knife of Vector Graphics Scripting.
+</p>
+<div class="resource-block"><div class="resource"><img src="/about/paper-js.gif" width="146" height="146"></img></div><div class="resource-text"><p>
+Paper.js is an open source vector graphics scripting framework that runs on top of the HTML5 Canvas. It offers a clean Scene Graph / Document Object Model and a lot of powerful functionality to create and work with vector graphics and bezier curves, all neatly wrapped up in a well designed, consistent and clean programming interface.
+</p></div><div class="clear"></div></div>
+<div class="resource-block"><div class="resource"><img src="/about/scriptographer.jpg" width="146" height="146"></img></div><div class="resource-text"><p>
+Paper.js is based on and largely compatible with <a href="http://scriptographer.org" target="_blank">Scriptographer</a>, a scripting environment for Adobe Illustrator with an active community of scripters and more than 10 years of development.
+</p></div><div class="clear"></div></div>
+<p>
+Paper.js is easy to learn for beginners and has lots to master for intermediate and advanced users.
+</p>
+<p>
+Paper.js is developed by <a href="http://lehni.org" target="_blank">J&uuml;rg Lehni</a> &amp; <a href="http://jonathanpuckey.com" target="_blank">Jonathan Puckey</a>, and distributed under the permissive <a href="/license/">MIT License</a>.
+</p>
+<section id="getting-started"><a name="getting-started" title="Getting Started" class="anchor"><h2>Getting Started</h2></a></section>
+<p>
+<ul class="list"><li>First of all, take a look at some of our <a href="/examples/">examples</a>.<br></li>
+<li><a href="/download/">Download</a> Paper.js or check out the latest version from our <a href="http://github.com/paperjs/paper.js" target="_blank">Github Repository</a>.<br></li>
+<li>Want to learn Paper.js? Why not start now with one our <a href="/tutorials/">Tutorials</a>.<br></li>
+<li>If you have any questions or comments, please join the <a href="http://groups.google.com/group/paperjs" target="_blank">mailing list</a>.<br></li>
+<li>To to stay up to date, <a href="http://twitter.com/paperjs" target="_blank">follow us on Twitter</a>.</li>
+</ul>
+</p>
+<section id="overview"><a name="overview" title="Overview" class="anchor"><h2>Overview</h2></a></section>
+<p>
+Paper.js is not simply a wrapper around the Canvas, it offers much more:
+</p>
+<p>
+<ul class="list"><li>A Scene Graph / Document Object Model for vector graphics: Work with nested layers, groups, paths, compound paths, rasters, symbols etc.<br></li>
+<li>The handling and drawing of these graphic items is automatic and optimised, allowing you to construct or modify your items and styles and leave the drawing commands to Paper.js.<br></li>
+<li>A well designed and battle hardened Programming Interface.<br></li>
+<li>There is a good reason for the word Vector in Vector Graphics. Paper.js offers best of breed Vector Mathematics through its core types such as <tt><a href="/reference/point">Point</a></tt>, <tt><a href="/reference/size">Size</a></tt> and <tt><a href="/reference/rectangle">Rectangle</a></tt>.<br></li>
+<li>PaperScript, a simple extension of JavaScript allows the scoped execution of scripts without polluting the global scope, the execution of multiple scripts per page in their separate sand-boxed scopes while sharing the library code, and the manipulation of <tt><a href="/reference/point">Point</a></tt> and <tt><a href="/reference/size">Size</a></tt> objects using direct math operations as if they were plain numbers.<br></li>
+<li>Simple, yet elaborate mouse and keyboard interaction.<br></li>
+<li>Construct paths and manipulate their curves and segments in very convenient ways.<br></li>
+<li>Inspect and manipulate the precise bounding box of any item, supporting complicated stroke styles with square ends and miter limits.<br></li>
+<li>Smoothen curves, simplify path segments by fitting curves through points.<br></li>
+<li>Simulate dashed strokes which are currently lacking from the Canvas object, at near native drawing speed.<br></li>
+<li>Most blend modes known from Illustrator and Photoshop supported through emulation in JavaScript: multiply, screen, overlay, soft-light, hard-light, color-dodge, color-burn, darken, lighten, difference, exclusion, hue, saturation, luminosity, color, add, subtract, average &amp; negation.</li>
+</ul>
+</p>
+<p>
+Read our <a href="/tutorials/">tutorials</a> to learn more about the features of Paper.js.
+</p>
+<section id="browser-support"><a name="browser-support" title="Browser Support" class="anchor"><h2>Browser Support</h2></a></section>
+<p>
+Paper.js is aimed at modern browsers with support for the Canvas object and EcmaScript 5. Even though in theory it is possible to write code that works in older browsers (Yes Explorer 8 and below, we are looking at you!), we currently do not support them out of the box. Let&rsquo;s go forward!
+</p></article><aside><div class="fixed"><h1>Index</h1><ul class="toc"></ul></div></aside></body></html>

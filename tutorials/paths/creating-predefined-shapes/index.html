@@ -1,0 +1,85 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"/><link rel="stylesheet" href="/assets/css/style.css"/><link rel="icon" href="/assets/favicon.ico" type="image/x-icon"/><link rel="shortcut icon" href="/assets/favicon.ico"/><script src="/assets/js/jquery.js"></script><script src="/assets/js/paper.js"></script><script src="/assets/js/codemirror.js"></script><script src="/assets/js/scripts.js"></script><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-10082945-6']);
+_gaq.push(['_trackPageview']);
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script><title>Paper.js - Paper.js</title></head><body><nav><h1><a href="/">Paper.js</a></h1><ul><li><a href="/about/">About</a></li><li><a href="/features/">Features</a></li><li class="spacer"></li><li><a href="/examples/">Examples</a></li><li><a href="/showcase/">Showcase</a></li><li class="spacer"></li><li><a href="/tutorials/">Tutorials</a><ul></ul></li><li><a href="/reference/">Reference</a></li><li class="spacer"></li><li><a href="/download/">Download</a></li><li><a href="/donation/">Donation</a></li><li><a href="/license/">License</a></li><li class="spacer"></li><li><a href="http://groups.google.com/group/paperjs" target="_blank">Mailing List</a></li><li><a href="http://twitter.com/PaperJS" target="_blank">Follow on Twitter</a></li><li><a href="http://github.com/paperjs/paper.js" target="_blank">Watch on Github</a></li></ul></nav><article class="tutorial"><h1>Creating Predefined Shapes</h1><p>
+Paper.js allows you to create path items with predefined shapes of variable dimensions.
+</p>
+<p>
+In the same way that the <tt><a href="/reference/path#path">new Path()</a></tt> constructor creates an empty path with no points, we have constructors such as <tt><a href="/reference/path#path-circle-center-radius">new Path.Circle(center, radius)</a></tt> and <tt><a href="/reference/path#path-rectangle-point-size">new Path.Rectangle(point, size)</a></tt> that create paths and automatically add segments to them to create predefined shapes.<br>
+Paper.js allows you to create path items with predefined shapes of variable dimensions.
+</p>
+<p>
+In the same way that the <tt><a href="/reference/path#path">new Path()</a></tt> constructor creates an empty path with no points, we have constructors such as <tt><a href="/reference/path#path-circle-center-radius">new Path.Circle(center, radius)</a></tt> and <tt><a href="/reference/path#path-rectangle-point-size">new Path.Rectangle(point, size)</a></tt> that create paths and automatically add segments to them to create predefined shapes.
+</p>
+<section id="circle-shaped-paths"><a name="circle-shaped-paths" title="Circle Shaped Paths" class="anchor"><h2>Circle Shaped Paths</h2></a></section>
+<p>
+Using the <tt><a href="/reference/path#path-circle-center-radius">new Path.Circle(center, radius)</a></tt> constructor, we can produces circle shaped paths.
+</p>
+<p>
+The following code produces a circle shaped path with a center point at <tt>{x: 100, y: 70}</tt> and a radius of 50 pt:
+</p>
+<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-1">
+var myCircle = new Path.Circle(new Point(100, 70), 50);
+myCircle.fillColor = 'black';
+</script><div class="canvas"><canvas height="140" id="canvas-1" width="540"></canvas></div>
+</div><br><br>
+<section id="rectangular-shaped-paths"><a name="rectangular-shaped-paths" title="Rectangular Shaped Paths" class="anchor"><h2>Rectangular Shaped Paths</h2></a></section>
+<p>
+To create a rectangular shaped path you can pass a <tt><a href="/reference/rectangle">Rectangle</a></tt> to the <tt><a href="/reference/path#path-rectangle-rect">new Path.Rectangle(rect)</a></tt> constructor.
+</p>
+<div class="note"><b>Please note:</b><p>
+A <tt><a href="/reference/rectangle">Rectangle</a></tt> object is an abstract representation of a rectangle. Please read the <a href="/tutorials/geometry/point-size-and-rectangle/">Point, Size and Rectangle</a> tutorial to find out how to work with the <tt>Rectangle</tt> object.
+</p><div class="text-end"></div></div>
+<p>
+For example, let&apos;s make a <tt>Rectangle</tt> between <tt>{x: 0, y: 0}</tt> and <tt>{x: 50, y: 50}</tt> and then use the <tt><a href="/reference/path#path-rectangle-rect">new Path.Rectangle(rect)</a></tt> constructor to create a path with the shape that it describes:
+</p>
+<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-2">
+var rectangle = new Rectangle(new Point(50, 50), new Point(150, 100));
+var path = new Path.Rectangle(rectangle);
+path.fillColor = '#e9e9ff';
+path.selected = true;
+</script><div class="canvas"><canvas width="540" height="140" id="canvas-2"></canvas></div>
+</div><br><br>
+<section id="rounded-rectangles"><a name="rounded-rectangles" title="Rounded Rectangles" class="anchor"><h2>Rectangular Shaped Paths with Rounded Corners</h2></a></section>
+<p>
+To create rectangular shaped paths with rounded corners, we use the <tt><a href="/reference/path#path-roundedrectangle-rect-size">new Path.RoundedRectangle(rect, size)</a></tt> constructor. The <tt>rect</tt> parameter describes the <tt><a href="/reference/rectangle">Rectangle</a></tt> and the <tt>size</tt> parameter describes the <tt><a href="/reference/size">Size</a></tt> of the rounded corners.
+</p>
+<p>
+For example, the following script creates a rectangular shaped path with 20 pt * 20 pt corners:
+</p>
+<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-3">
+var rectangle = new Rectangle(new Point(50, 50), new Point(150, 100));
+var cornerSize = new Size(20, 20);
+var path = new Path.RoundRectangle(rectangle, cornerSize);
+path.fillColor = 'black';
+</script><div class="canvas"><canvas height="140" id="canvas-3" width="540"></canvas></div>
+</div><br><br>
+<section id="regular-polygon-shaped-paths"><a name="regular-polygon-shaped-paths" title="Regular Polygon Shaped Paths" class="anchor"><h2>Regular Polygon Shaped Paths</h2></a></section>
+<p>
+To create regular polygon shaped paths, we use the <tt><a href="/reference/path#path-regularpolygon-center-numsides-radius">new Path.RegularPolygon(center, numSides, radius)</a></tt> constructor.
+</p>
+<p>
+The <tt><a href="/reference/point">center</a></tt> parameter describes the center point of the polygon, the <tt>numSides</tt> parameter describes the amount of sides the polygon has and the <tt>radius</tt> parameter describes the radius of the polygon.
+</p>
+<p>
+For example, lets create a triangle shaped path and a decahedron shaped path:
+</p>
+<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-4">
+// Create a triangle shaped path 
+var triangle = new Path.RegularPolygon(new Point(80, 70), 3, 50);
+triangle.fillColor = '#e9e9ff';
+triangle.selected = true;
+
+// Create a decahedron shaped path 
+var decahedron = new Path.RegularPolygon(new Point(200, 70), 10, 50);
+decahedron.fillColor = '#e9e9ff';
+decahedron.selected = true;
+</script><div class="canvas"><canvas height="140" id="canvas-4" width="540"></canvas></div>
+</div><br><br>
+<div class="note"><b>Did you know?</b><p>
+You can check the constructors section of the <tt><a href="/reference/path">Path reference</a></tt> for a full list of Path constructors.
+</p><div class="text-end"></div></div></article><aside><h1>Index</h1><ul class="tutorial-index"><li class="expandable-list undefined"><b><a href="/tutorials/getting-started/">Getting Started</a></b><ul class="tutorial-index"><li><a href="/tutorials/getting-started/working-with-paper-js/">Working with Paper.js</a></li><li><a href="/tutorials/getting-started/using-javascript-directly/">Using JavaScript Directly</a></li><li><a href="/tutorials/getting-started/paperscript-interoperability/">PaperScript Interoperability</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/geometry/">Geometry</a></b><ul class="tutorial-index"><li><a href="/tutorials/geometry/point-size-and-rectangle/">Point, Size and Rectangle</a></li><li><a href="/tutorials/geometry/object-conversion/">Object Conversion</a></li><li><a href="/tutorials/geometry/mathematical-operations/">Mathematical Operations</a></li><li><a href="/tutorials/geometry/vector-geometry/">Vector Geometry</a></li></ul></li><li class="expandable-list expanded"><b><a href="/tutorials/paths/">Paths</a></b><ul class="tutorial-index"><li><a href="/tutorials/paths/working-with-path-items/">Working with Path Items</a></li><li class="active"><span>Creating Predefined Shapes</span></li><li><a href="/tutorials/paths/using-color-and-style/">Using Color and Style</a></li><li><a href="/tutorials/paths/smoothing-simplifying-flattening/">Smoothing, Simplifying &amp; Flattening</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/interaction/">Interaction</a></b><ul class="tutorial-index"><li><a href="/tutorials/interaction/creating-mouse-tools/">Creating Mouse Tools</a></li><li><a href="/tutorials/interaction/mouse-tool-events/">Mouse Tool Events</a></li><li><a href="/tutorials/interaction/working-with-mouse-vectors/">Working with Mouse Vectors</a></li><li><a href="/tutorials/interaction/keyboard-interaction/">Keyboard Interaction</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/project-items/">Project &amp; Items</a></b><ul class="tutorial-index"><li><a href="/tutorials/project-items/working-with-items/">Working with Items</a></li><li><a href="/tutorials/project-items/transforming-items/">Transforming Items</a></li><li><a href="/tutorials/project-items/project-hierarchy/">Project Hierarchy</a></li><li><a href="/tutorials/project-items/working-with-symbols/">Working with Symbols</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/images/">Images</a></b><ul class="tutorial-index"><li><a href="/tutorials/images/working-with-rasters/">Working with Rasters</a></li><li><a href="/tutorials/images/using-pixel-colors/">Using Pixel Colors</a></li><li><a href="/tutorials/images/color-averaging-image-areas/">Color Averaging Image Areas</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/animation/">Animation</a></b><ul class="tutorial-index"><li><a href="/tutorials/animation/creating-animations/">Creating Animations</a></li></ul></li></ul><div class="sticky"><h1>Content</h1><ul class="toc"></ul></div></aside></body></html>

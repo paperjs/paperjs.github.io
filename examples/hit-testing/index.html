@@ -1,0 +1,99 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"/><link rel="stylesheet" href="/assets/css/style.css"/><link rel="icon" href="/assets/favicon.ico" type="image/x-icon"/><link rel="shortcut icon" href="/assets/favicon.ico"/><script src="/assets/js/jquery.js"></script><script src="/assets/js/paper.js"></script><script src="/assets/js/codemirror.js"></script><script src="/assets/js/scripts.js"></script><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-10082945-6']);
+_gaq.push(['_trackPageview']);
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script><title>Paper.js - Paper.js</title></head><body class="fullscreen"><nav><h1><a href="/">Paper.js</a></h1><ul><li><a href="/about/">About</a></li><li><a href="/features/">Features</a></li><li class="spacer"></li><li><a href="/examples/">Examples</a><ul><li><a href="/examples/chain/">Chain</a></li><li><a href="/examples/tadpoles/">Tadpoles</a></li><li><a href="/examples/nyan-rainbow/">Nyan Rainbow</a></li><li><a href="/examples/rounded-rectangles/">Rounded Rectangles</a></li><li><a href="/examples/radial-rainbows/">Radial Rainbows</a></li><li><a href="/examples/meta-balls/">Meta Balls</a></li><li><a href="/examples/voronoi/">Voronoi</a></li><li><a href="/examples/future-splash/">Future Splash</a></li><li><a href="/examples/smoothing/">Smoothing</a></li><li><a href="/examples/spiral-raster/">Spiral Raster</a></li><li><a href="/examples/division-raster/">Division Raster</a></li><li><a href="/examples/q-bertify/">Q-bertify</a></li><li><a href="/examples/path-intersections/">Path Intersections</a></li><li><a href="/examples/path-simplification/">Path Simplification</a></li><li class="active"><a href="/examples/hit-testing/">Hit Testing</a></li><li><a href="/examples/bouncing-balls/">Bouncing Balls</a></li></ul></li><li><a href="/showcase/">Showcase</a></li><li class="spacer"></li><li><a href="/tutorials/">Tutorials</a></li><li><a href="/reference/">Reference</a></li><li class="spacer"></li><li><a href="/download/">Download</a></li><li><a href="/donation/">Donation</a></li><li><a href="/license/">License</a></li><li class="spacer"></li><li><a href="http://groups.google.com/group/paperjs" target="_blank">Mailing List</a></li><li><a href="http://twitter.com/PaperJS" target="_blank">Follow on Twitter</a></li><li><a href="http://github.com/paperjs/paper.js" target="_blank">Watch on Github</a></li></ul></nav><article><div class="paperscript"><div class="buttons"><div class="button run">Source</div><div class="explain"></div></div><script type="text/paperscript" canvas="canvas-1">
+var values = {
+	paths: 50,
+	minPoints: 5,
+	maxPoints: 15,
+	minRadius: 30,
+	maxRadius: 90
+};
+
+var hitOptions = {
+	segments: true,
+	stroke: true,
+	fill: true,
+	tolerance: 5
+};
+
+createPaths();
+
+function createPaths() {
+	var radiusDelta = values.maxRadius - values.minRadius;
+	var pointsDelta = values.maxPoints - values.minPoints;
+	for (var i = 0; i < values.paths; i++) {
+		var radius = values.minRadius + Math.random() * radiusDelta;
+		var points = values.minPoints + Math.floor(Math.random() * pointsDelta);
+		var path = createBlob(view.size * Point.random(), radius, points);
+		var lightness = (Math.random() - 0.5) * 0.4 + 0.4;
+		var hue = Math.random() * 360;
+		path.fillColor = { hue: hue, saturation: 1, lightness: lightness };
+		path.strokeColor = 'black';
+	};
+}
+
+function createBlob(center, maxRadius, points) {
+	var path = new Path();
+	path.closed = true;
+	for (var i = 0; i < points; i++) {
+		var delta = new Point({
+			length: (maxRadius * 0.5) + (Math.random() * maxRadius * 0.5),
+			angle: (360 / points) * i
+		});
+		path.add(center + delta);
+	}
+	path.smooth();
+	return path;
+}
+
+var segment, path;
+var movePath = false;
+function onMouseDown(event) {
+	segment = path = null;
+	var hitResult = project.hitTest(event.point, hitOptions);
+	if (!hitResult)
+		return;
+
+	if (event.modifiers.shift) {
+		if (hitResult.type == 'segment') {
+			hitResult.segment.remove();
+		};
+		return;
+	}
+
+	if (hitResult) {
+		path = hitResult.item;
+		if (hitResult.type == 'segment') {
+			segment = hitResult.segment;
+		} else if (hitResult.type == 'stroke') {
+			var location = hitResult.location;
+			segment = path.insert(location.index + 1, event.point);
+			path.smooth();
+		}
+	}
+	movePath = hitResult.type == 'fill';
+	if (movePath)
+		project.activeLayer.addChild(hitResult.item);
+}
+
+function onMouseMove(event) {
+	project.activeLayer.selected = false;
+	if (event.item)
+		event.item.selected = true;
+}
+
+function onMouseDrag(event) {
+	if (segment) {
+		segment.point = event.point;
+		path.smooth();
+	}
+
+	if (movePath)
+		path.position += event.delta;
+}
+</script><div class="canvas"><canvas resize="true" id="canvas-1" style="background:black"></canvas></div></div></article></body></html>

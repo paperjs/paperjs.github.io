@@ -1,0 +1,166 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"/><link rel="stylesheet" href="/assets/css/style.css"/><link rel="icon" href="/assets/favicon.ico" type="image/x-icon"/><link rel="shortcut icon" href="/assets/favicon.ico"/><script src="/assets/js/jquery.js"></script><script src="/assets/js/paper.js"></script><script src="/assets/js/codemirror.js"></script><script src="/assets/js/scripts.js"></script><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-10082945-6']);
+_gaq.push(['_trackPageview']);
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script><title>Paper.js - Paper.js</title></head><body><nav><h1><a href="/">Paper.js</a></h1><ul><li><a href="/about/">About</a></li><li><a href="/features/">Features</a></li><li class="spacer"></li><li><a href="/examples/">Examples</a></li><li><a href="/showcase/">Showcase</a></li><li class="spacer"></li><li><a href="/tutorials/">Tutorials</a><ul></ul></li><li><a href="/reference/">Reference</a></li><li class="spacer"></li><li><a href="/download/">Download</a></li><li><a href="/donation/">Donation</a></li><li><a href="/license/">License</a></li><li class="spacer"></li><li><a href="http://groups.google.com/group/paperjs" target="_blank">Mailing List</a></li><li><a href="http://twitter.com/PaperJS" target="_blank">Follow on Twitter</a></li><li><a href="http://github.com/paperjs/paper.js" target="_blank">Watch on Github</a></li></ul></nav><article class="tutorial"><h1>Mouse Tool Events</h1><p>
+The mouse handler functions receive an event object which contains information about the mouse event. In this tutorial we will go through the different properties that it contains.
+</p>
+<div class="note"><b>Please note:</b><p>
+We advise you to read the <a href="/tutorials/interaction/creating-mouse-tools/">Creating Mouse Tools</a> first, if you haven&apos;t done so yet.
+</p><div class="text-end"></div></div>
+<section id="mouse-position"><a name="mouse-position" title="Mouse Position" class="anchor"><h2>Mouse Position</h2></a></section>
+<p>
+The <tt><a href="/reference/toolevent">event</a></tt> object contains several properties that describe the position of the mouse and how it has moved:
+</p>
+<p>
+<tt><a href="/reference/toolevent#point">event.point</a></tt> describes the position of the mouse when the event was fired.
+</p>
+<p>
+For example, if we would want to create a tool that draws a line between the position when the mouse was pressed and the position when it was released:
+</p>
+<pre class="code">
+var path;
+function onMouseDown(event) {
+	// Create a path:
+	path = new Path();
+	path.strokeColor = &apos;black&apos;;
+	// Add the mouse down position:
+	path.add(event.point);
+}
+
+function onMouseUp(event) {
+	// Add the mouse up position:
+	path.add(event.point);
+}
+</pre>
+<p>
+Try it out by clicking, dragging and releasing in the following example:
+</p>
+<div class="paperscript"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-1">
+var path;
+function onMouseDown(event) {
+	// Create a path:
+	path = new Path();
+	path.strokeColor = 'black';
+	// Add the mouse down position:
+	path.add(event.point);
+}
+
+function onMouseUp(event) {
+	// Add the mouse up position:
+	path.add(event.point);
+}
+</script><div class="canvas"><canvas height="320" width="540" style="background:#e4e1e1" id="canvas-1"></canvas></div>
+</div><br><br>
+<p>
+<tt><a href="/reference/toolevent#point">event.downPoint</a></tt> describes the position of the mouse when the mouse button was last clicked. We could use it to simplify the example above:
+</p>
+<pre class="code">
+function onMouseUp(event) {
+	// Create a path:
+	var path = new Path();
+
+	// Add the mouse down position:
+	path.add(event.downPoint);
+
+	// Add the mouse up position:
+	path.add(event.point);
+}
+</pre>
+<p>
+<tt><a href="/reference/toolevent#lastpoint">event.lastPoint</a></tt> describes the position of the mouse when the previous mouse event was fired.
+</p>
+<p>
+<tt><a href="/reference/toolevent#lastpoint">event.middlePoint</a></tt> describes the point in the middle between <tt>event.lastPoint</tt> and <tt>event.point</tt>. This is a useful position to use when creating artwork based on the moving direction of the mouse, as returned by <tt>event.delta</tt>.
+</p>
+<p>
+<tt><a href="/reference/toolevent#delta">event.delta</a></tt> describes the vector between the current position and the last position of the mouse when the event was fired. In case of the mouse-up event, the vector to the mouse-down position is returned.
+</p>
+<div class="note"><b>Please note:</b><p>
+You can read more about vectors in the <a href="/tutorials/geometry/vector-geometry/">Vector Geometry</a> tutorial.
+</p><div class="text-end"></div></div>
+<pre class="code">
+// The mouse has to be moved at least 10 pt
+// before the next onMouseDrag event is called:
+tool.minDistance = 10;
+
+function onMouseDrag(event) {
+	var path = new Path();
+	path.fillColor = &apos;black&apos;;
+	var vector = event.delta;
+
+	// rotate the vector by 90 degrees:
+	vector.angle += 90;
+
+	// change its length to 5 pt:
+	vector.length = 5;
+	
+	path.add(event.middlePoint + vector);
+	path.add(event.middlePoint - vector);
+}
+</pre>
+<p>
+Try it out by clicking, dragging and releasing in the following example:
+</p>
+<div class="paperscript"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-2">
+// The mouse has to be moved at least 10 pt
+// before the next onMouseDrag event is called:
+tool.minDistance = 10;
+
+function onMouseDrag(event) {
+	var path = new Path();
+	path.strokeColor = 'black';
+	var vector = event.delta;
+
+	// rotate the vector by 90 degrees:
+	vector.angle += 90;
+
+	// change its length to 5 pt:
+	vector.length = 5;
+	
+	path.add(event.middlePoint + vector);
+	path.add(event.middlePoint - vector);
+}
+</script><div class="canvas"><canvas height="320" width="540" style="background:#e4e1e1" id="canvas-2"></canvas></div>
+</div><br><br>
+<p>
+The following example creates circles while you drag the mouse. Their size depends on the <tt><a href="/reference/point#length">point.length</a></tt> of <tt><a href="/reference/toolevent#delta">event.delta</a></tt> and therefore they all connect:
+</p>
+<pre class="code">
+function onMouseDrag(event) {
+	var radius = event.delta.length / 2;
+	var circle = new Path.Circle(event.middlePoint, radius);
+	circle.fillColor = &apos;black&apos;;
+}
+</pre>
+<div class="paperscript"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-3">
+function onMouseDrag(event) {
+	var radius = event.delta.length / 2;
+	var circle = new Path.Circle(event.middlePoint, radius);
+	circle.fillColor = 'black';
+}
+</script><div class="canvas"><canvas height="320" width="540" style="background:#e4e1e1" id="canvas-3"></canvas></div>
+</div><br><br><br><br>
+<section id="counting-mouse-events"><a name="counting-mouse-events" title="Counting Mouse Events" class="anchor"><h2>Counting Mouse Events</h2></a></section>
+<p>
+<tt><a href="/reference/toolevent#count">event.count</a></tt> describes the amount of times the related mouse handler was fired.
+</p>
+<pre class="code">
+function onMouseDown(event) {
+	// The amount of times the mouse has been pressed:
+	console.log(event.count);
+}
+
+function onMouseDrag(event) {
+	// The amount of drag events fired since the mouse was pressed:
+	console.log(event.count);
+}
+
+function onMouseUp(event) {
+	// The amount of times the mouse has been released:
+	console.log(event.count);
+}
+</pre></article><aside><h1>Index</h1><ul class="tutorial-index"><li class="expandable-list undefined"><b><a href="/tutorials/getting-started/">Getting Started</a></b><ul class="tutorial-index"><li><a href="/tutorials/getting-started/working-with-paper-js/">Working with Paper.js</a></li><li><a href="/tutorials/getting-started/using-javascript-directly/">Using JavaScript Directly</a></li><li><a href="/tutorials/getting-started/paperscript-interoperability/">PaperScript Interoperability</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/geometry/">Geometry</a></b><ul class="tutorial-index"><li><a href="/tutorials/geometry/point-size-and-rectangle/">Point, Size and Rectangle</a></li><li><a href="/tutorials/geometry/object-conversion/">Object Conversion</a></li><li><a href="/tutorials/geometry/mathematical-operations/">Mathematical Operations</a></li><li><a href="/tutorials/geometry/vector-geometry/">Vector Geometry</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/paths/">Paths</a></b><ul class="tutorial-index"><li><a href="/tutorials/paths/working-with-path-items/">Working with Path Items</a></li><li><a href="/tutorials/paths/creating-predefined-shapes/">Creating Predefined Shapes</a></li><li><a href="/tutorials/paths/using-color-and-style/">Using Color and Style</a></li><li><a href="/tutorials/paths/smoothing-simplifying-flattening/">Smoothing, Simplifying &amp; Flattening</a></li></ul></li><li class="expandable-list expanded"><b><a href="/tutorials/interaction/">Interaction</a></b><ul class="tutorial-index"><li><a href="/tutorials/interaction/creating-mouse-tools/">Creating Mouse Tools</a></li><li class="active"><span>Mouse Tool Events</span></li><li><a href="/tutorials/interaction/working-with-mouse-vectors/">Working with Mouse Vectors</a></li><li><a href="/tutorials/interaction/keyboard-interaction/">Keyboard Interaction</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/project-items/">Project &amp; Items</a></b><ul class="tutorial-index"><li><a href="/tutorials/project-items/working-with-items/">Working with Items</a></li><li><a href="/tutorials/project-items/transforming-items/">Transforming Items</a></li><li><a href="/tutorials/project-items/project-hierarchy/">Project Hierarchy</a></li><li><a href="/tutorials/project-items/working-with-symbols/">Working with Symbols</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/images/">Images</a></b><ul class="tutorial-index"><li><a href="/tutorials/images/working-with-rasters/">Working with Rasters</a></li><li><a href="/tutorials/images/using-pixel-colors/">Using Pixel Colors</a></li><li><a href="/tutorials/images/color-averaging-image-areas/">Color Averaging Image Areas</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/animation/">Animation</a></b><ul class="tutorial-index"><li><a href="/tutorials/animation/creating-animations/">Creating Animations</a></li></ul></li></ul><div class="sticky"><h1>Content</h1><ul class="toc"></ul></div></aside></body></html>

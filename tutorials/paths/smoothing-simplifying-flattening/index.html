@@ -1,0 +1,149 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"/><link rel="stylesheet" href="/assets/css/style.css"/><link rel="icon" href="/assets/favicon.ico" type="image/x-icon"/><link rel="shortcut icon" href="/assets/favicon.ico"/><script src="/assets/js/jquery.js"></script><script src="/assets/js/paper.js"></script><script src="/assets/js/codemirror.js"></script><script src="/assets/js/scripts.js"></script><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-10082945-6']);
+_gaq.push(['_trackPageview']);
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script><title>Paper.js - Paper.js</title></head><body><nav><h1><a href="/">Paper.js</a></h1><ul><li><a href="/about/">About</a></li><li><a href="/features/">Features</a></li><li class="spacer"></li><li><a href="/examples/">Examples</a></li><li><a href="/showcase/">Showcase</a></li><li class="spacer"></li><li><a href="/tutorials/">Tutorials</a><ul></ul></li><li><a href="/reference/">Reference</a></li><li class="spacer"></li><li><a href="/download/">Download</a></li><li><a href="/donation/">Donation</a></li><li><a href="/license/">License</a></li><li class="spacer"></li><li><a href="http://groups.google.com/group/paperjs" target="_blank">Mailing List</a></li><li><a href="http://twitter.com/PaperJS" target="_blank">Follow on Twitter</a></li><li><a href="http://github.com/paperjs/paper.js" target="_blank">Watch on Github</a></li></ul></nav><article class="tutorial"><h1>Smoothing, Simplifying & Flattening</h1><p>
+Paper.js offers two different ways to smooth a path.
+</p>
+<p>
+<tt><a href="/reference/path#smooth">path.smooth()</a></tt> smooths a path by changing its segment handles without adding or removing segment points.
+</p>
+<p>
+<tt><a href="/reference/path#simplify">path.simplify()</a></tt> smooths a path by analyzing its <tt><a href="/reference/path#segments">path.segments</a></tt> array and replacing it with a more optimal set of segments, reducing memory usage and speeding up drawing.
+</p>
+<section id="smoothing-paths"><a name="smoothing-paths" title="Smoothing Paths" class="anchor"><h2>Smoothing Paths</h2></a></section>
+<p>
+Paper.js allows you to automatically smooth paths using the <tt><a href="/reference/path#smooth">path.smooth()</a></tt> function. This function calculates the optimal values for the handles of the path&apos;s segment points to create curves that flow smoothly through them. The segments are not moved and the current handle settings of the path&apos;s segments are ignored.
+</p>
+<p>
+In the following example, we create a rectangle shaped path, create a copy of it and smooth the copy. As you can see, only the handle positions are changed. The segment points remain unchanged.
+</p>
+<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-1">
+var path = new Path({
+	segments: [[30, 75], [30, 25], [80, 25], [80, 75]],
+	strokeColor: 'black',
+	closed: true
+});
+
+// Select the path, so we can see its handles:
+path.fullySelected = true;
+
+// Create a copy of the path and move it 100pt to the right:
+var copy = path.clone();
+copy.fullySelected = true;
+copy.position.x += 100;
+
+// Smooth the segments of the copy:
+copy.smooth();
+</script><div class="canvas"><canvas height="100" id="canvas-1" width="540"></canvas></div>
+</div><br><br>
+<p>
+Click and drag in the view below to draw a line, when you release the mouse, the path is smoothed using <tt><a href="/reference/path#smooth">path.smooth()</a></tt>:
+</p>
+<div class="paperscript"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-2">
+var path;
+
+// The mouse has to drag at least 10pt
+// before the next drag event is fired:
+tool.minDistance = 20;
+
+function onMouseDown(event) {
+	if (path) {
+		path.selected = false;
+	};
+	path = new Path();
+	path.strokeColor = 'black';
+	path.fullySelected = true;
+}
+
+function onMouseDrag(event) {
+	path.add(event.point);
+}
+
+function onMouseUp(event) {
+	path.selected = false;
+	path.smooth();
+}
+</script><div class="canvas border"><canvas height="318" id="canvas-2" width="538"></canvas></div>
+</div><br><br>
+<section id="simplifying-paths"><a name="simplifying-paths" title="Simplifying Paths" class="anchor"><h2>Simplifying Paths</h2></a></section>
+<p>
+<tt><a href="/reference/path#simplify">path.simplify()</a></tt> smooths a path by simplifying it. The path.segments array is analyzed and replaced by a more optimal set of segments, reducing memory usage and speeding up drawing.
+</p>
+<div class="paperscript"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-3">
+var path;
+
+var textItem = new PointText(new Point(20, 30));
+textItem.fillColor = 'black';
+textItem.content = 'Click and drag to draw a line.';
+
+function onMouseDown(event) {
+	// If we produced a path before, deselect it:
+	if (path) {
+		path.selected = false;
+	}
+
+	path = new Path();
+	path.strokeColor = 'black';
+	
+	// Select the path, so we can see its segment points:
+	path.fullySelected = true;
+}
+
+function onMouseDrag(event) {
+	// Every drag event, add a point to the path at the current
+	// position of the mouse:
+	path.add(event.point);
+	
+	textItem.content = 'Segment count: ' + path.segments.length;
+}
+
+function onMouseUp(event) {
+	var segmentCount = path.segments.length;
+	
+	// When the mouse is released, simplify it:
+	path.simplify();
+	
+	// Select the path, so we can see its segments:
+	path.selected = true;
+	
+	var newSegmentCount = path.segments.length;
+	var difference = segmentCount - newSegmentCount;
+	var percentage = 100 - Math.round(newSegmentCount / segmentCount * 100);
+	textItem.content = difference + ' of the ' + segmentCount + ' segments were removed. Saving ' + percentage + '%';
+
+}
+</script><div class="canvas border"><canvas height="318" id="canvas-3" width="538"></canvas></div>
+</div><br><br>
+<p>
+The <tt><a href="/reference/path#simplify">path.simplify()</a></tt> function has an optional <tt>tolerance</tt> parameter, which specifies the maximum distance the simplifying algorithm is allowed to deviate from the original path. This value is set to <tt>2.5</tt> by default. Setting it to a lower value, produces a more correct path but with more segment points. Setting it to a higher value leads to a smoother curve and less segment points, but the shape of the path will be more different than the original.
+</p>
+<section id="flattening-paths"><a name="flattening-paths" title="Flattening Paths" class="anchor"><h2>Flattening Paths</h2></a></section>
+<p>
+<tt><a href="/reference/path#flatten-maxdistance">path.flatten(maxDistance)</a></tt> converts the curves in a path to straight lines with an even distribution of points. The distance between the produced segments is as close as possible to the value specified by the <tt>maxDistance</tt> parameter.
+</p>
+<p>
+In the following example, we create a circle shaped path and straighten it using <tt><a href="/reference/path#flatten-maxdistance">path.flatten(20)</a></tt>:
+</p>
+<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-4">
+// Create a circle shaped path at { x: 80, y: 50 }
+// with a radius of 35:
+var path = new Path.Circle({
+	center: [80, 50],
+	radius: 35
+});
+
+// Select the path, so we can inspect its segments:
+path.selected = true;
+
+// Create a copy of the path and move it 150 points to the right:
+var copy = path.clone();
+copy.position.x += 150;
+
+// Flatten the path, with a max distance of 20:
+copy.flatten(20);
+</script><div class="canvas"><canvas height="100" id="canvas-4" width="540"></canvas></div>
+</div><br><br></article><aside><h1>Index</h1><ul class="tutorial-index"><li class="expandable-list undefined"><b><a href="/tutorials/getting-started/">Getting Started</a></b><ul class="tutorial-index"><li><a href="/tutorials/getting-started/working-with-paper-js/">Working with Paper.js</a></li><li><a href="/tutorials/getting-started/using-javascript-directly/">Using JavaScript Directly</a></li><li><a href="/tutorials/getting-started/paperscript-interoperability/">PaperScript Interoperability</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/geometry/">Geometry</a></b><ul class="tutorial-index"><li><a href="/tutorials/geometry/point-size-and-rectangle/">Point, Size and Rectangle</a></li><li><a href="/tutorials/geometry/object-conversion/">Object Conversion</a></li><li><a href="/tutorials/geometry/mathematical-operations/">Mathematical Operations</a></li><li><a href="/tutorials/geometry/vector-geometry/">Vector Geometry</a></li></ul></li><li class="expandable-list expanded"><b><a href="/tutorials/paths/">Paths</a></b><ul class="tutorial-index"><li><a href="/tutorials/paths/working-with-path-items/">Working with Path Items</a></li><li><a href="/tutorials/paths/creating-predefined-shapes/">Creating Predefined Shapes</a></li><li><a href="/tutorials/paths/using-color-and-style/">Using Color and Style</a></li><li class="active"><span>Smoothing, Simplifying &amp; Flattening</span></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/interaction/">Interaction</a></b><ul class="tutorial-index"><li><a href="/tutorials/interaction/creating-mouse-tools/">Creating Mouse Tools</a></li><li><a href="/tutorials/interaction/mouse-tool-events/">Mouse Tool Events</a></li><li><a href="/tutorials/interaction/working-with-mouse-vectors/">Working with Mouse Vectors</a></li><li><a href="/tutorials/interaction/keyboard-interaction/">Keyboard Interaction</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/project-items/">Project &amp; Items</a></b><ul class="tutorial-index"><li><a href="/tutorials/project-items/working-with-items/">Working with Items</a></li><li><a href="/tutorials/project-items/transforming-items/">Transforming Items</a></li><li><a href="/tutorials/project-items/project-hierarchy/">Project Hierarchy</a></li><li><a href="/tutorials/project-items/working-with-symbols/">Working with Symbols</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/images/">Images</a></b><ul class="tutorial-index"><li><a href="/tutorials/images/working-with-rasters/">Working with Rasters</a></li><li><a href="/tutorials/images/using-pixel-colors/">Using Pixel Colors</a></li><li><a href="/tutorials/images/color-averaging-image-areas/">Color Averaging Image Areas</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/animation/">Animation</a></b><ul class="tutorial-index"><li><a href="/tutorials/animation/creating-animations/">Creating Animations</a></li></ul></li></ul><div class="sticky"><h1>Content</h1><ul class="toc"></ul></div></aside></body></html>

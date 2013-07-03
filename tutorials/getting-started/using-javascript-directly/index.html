@@ -1,0 +1,241 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"/><link rel="stylesheet" href="/assets/css/style.css"/><link rel="icon" href="/assets/favicon.ico" type="image/x-icon"/><link rel="shortcut icon" href="/assets/favicon.ico"/><script src="/assets/js/jquery.js"></script><script src="/assets/js/paper.js"></script><script src="/assets/js/codemirror.js"></script><script src="/assets/js/scripts.js"></script><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-10082945-6']);
+_gaq.push(['_trackPageview']);
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script><title>Paper.js - Paper.js</title></head><body><nav><h1><a href="/">Paper.js</a></h1><ul><li><a href="/about/">About</a></li><li><a href="/features/">Features</a></li><li class="spacer"></li><li><a href="/examples/">Examples</a></li><li><a href="/showcase/">Showcase</a></li><li class="spacer"></li><li><a href="/tutorials/">Tutorials</a><ul></ul></li><li><a href="/reference/">Reference</a></li><li class="spacer"></li><li><a href="/download/">Download</a></li><li><a href="/donation/">Donation</a></li><li><a href="/license/">License</a></li><li class="spacer"></li><li><a href="http://groups.google.com/group/paperjs" target="_blank">Mailing List</a></li><li><a href="http://twitter.com/PaperJS" target="_blank">Follow on Twitter</a></li><li><a href="http://github.com/paperjs/paper.js" target="_blank">Watch on Github</a></li></ul></nav><article class="tutorial"><h1>Using JavaScript Directly</h1>
+<section id="paper.js-architecture"><a name="paper.js-architecture" title="Paper.js Architecture" class="anchor"><h2>Paper.js Architecture</h2></a></section>
+<p>
+To understand how to work with Paper.js directly from JavaScript, without the use of the PaperScript automatisms, we first need to explain a little about the architecture of Paper.js. When working with PaperScript, each script is run in its own scope, a <tt><a href="/reference/paperscope">PaperScope</a></tt> object. The global <tt><a href="/reference/global#paper">paper</a></tt> object through which the library is exposed is also such a <tt><a href="/reference/paperscope">PaperScope</a></tt> object. It helps to think of these scopes as execution contexts.
+</p>
+<p>
+Scopes were introduced as a way to have separate PaperScript contexts on a page with many examples, each having its own view and project, without seeing each other but still sharing the library code. They could be seen as sandboxed &apos;plugins&apos; with shared code.
+</p>
+<p>
+Each scope or context holds a row of objects that describe its state, such as a list of open <tt><a href="/reference/paperscope#projects">projects</a></tt>, a reference to the active <tt><a href="/reference/paperscope#project">project</a></tt>, a list of <tt><a href="/reference/paperscope#views">views</a></tt> that each represent a canvas element, the currently active <tt><a href="/reference/paperscope#view">view</a></tt>, a list of mouse <tt><a href="/reference/paperscope#tools">tools</a></tt>, the currently active <tt><a href="/reference/paperscope#tool">tool</a></tt>, etc.
+</p>
+<p>
+To explain the relation between scopes, projects, views and tools: Each scope can hold one ore multiple projects, which are displayed through one or multiple views (each representing a Paper.js canvas). Views are not associated with a specific project, but in fact render all visible projects that have items within the visible area. Tools can work on any project within any view, as long as they belong to the same scope.
+</p>
+<section id="setting-up-a-scope"><a name="setting-up-a-scope" title="Setting Up a Scope" class="anchor"><h2>Setting Up a Scope</h2></a></section>
+<p>
+When working with JavaScript directly, in most cases one scope will be all that is required. Within this scope, one can still work with multiple projects or views by creating them using the <tt><a href="/reference/project#project">new Project()</a></tt> and <tt><a href="/reference/view#view-canvas">new View(canvas)</a></tt> constructors.
+</p>
+<p>
+The easiest way is to use the existing <tt><a href="/reference/global#paper">paper</a></tt> object, and use its <tt><a href="/reference/paperscope#setup-canvas">paperScope.setup(canvas)</a></tt> method to initialize an empty project and a view for us. We reuse the example from <a href="/tutorials/getting-started/working-with-paper-js/">Working with Paper.js</a> in order to see what is additionally required when working from JavaScript directly:
+</p>
+<pre class="code" mode="text/html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;!-- Load the Paper.js library --&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;js/paper.js&quot;&gt;&lt;/script&gt;
+&lt;!-- Define inlined JavaScript --&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+	// Only executed our code once the DOM is ready.
+	window.onload = function() {
+		// Get a reference to the canvas object
+		var canvas = document.getElementById(&apos;myCanvas&apos;);
+		// Create an empty project and a view for the canvas:
+		paper.setup(canvas);
+		// Create a Paper.js Path to draw a line into it:
+		var path = new paper.Path();
+		// Give the stroke a color
+		path.strokeColor = &apos;black&apos;;
+		var start = new paper.Point(100, 100);
+		// Move to start and draw a line from there
+		path.moveTo(start);
+		// Note that the plus operator on Point objects does not work
+		// in JavaScript. Instead, we need to call the add() function:
+		path.lineTo(start.add([ 200, -50 ]));
+		// Draw the view now:
+		paper.view.draw();
+	}
+&lt;/paperscript&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;canvas id=&quot;myCanvas&quot; resize&gt;&lt;/canvas&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p>
+So if we compare this example to the one written in PaperScript, we see a row of differences. In addition to the code from the previous example, we need to:<br>
+<ul class="list"><li>Register a handler for when the DOM is ready, since we cannot work with the canvas before that.<br></li>
+<li>Tell the <tt>paper</tt> object to setup a <tt>Project</tt> and a <tt>View</tt> for our canvas. Instead of passing the canvas object, we can also pass the canvas element&apos;s ID as a String. In PaperScript, this happens automatically through the <tt>canvas=&quot;ID&quot;</tt> attribute.<br></li>
+<li>Access all Paper.js classes and objects through the <tt>paper</tt> object, since they are no longer global.<br></li>
+<li>Use Math functions instead of operators on <tt><a href="/reference/point">Point</a></tt> and <tt><a href="/reference/size">Size</a></tt>.<br></li>
+<li>Draw the view at the end, since that is now only automatically handled when a <tt><a href="/reference/view#onframe">view.onFrame</a></tt> handler is installed.</li>
+</ul>
+</p>
+<div class="note"><b>Please note:</b><p>
+All the examples in tutorials and reference assume you are using PaperScript. If you work with JavaScript directly, you need to keep these differences in mind.
+</p><div class="text-end"></div></div>
+<div class="note"><b>Please note:</b><p>
+In the code above we use <tt>window.onload = handler</tt> to get a callback for when the DOM is ready. If you are working with a framework such as jQuery, you can register for the DOM-Ready event using <tt>$(document).ready(handler)</tt>, which fires before onload.
+</p><div class="text-end"></div></div>
+<section id="making-the-scope-global"><a name="making-the-scope-global" title="Making the Scope Global" class="anchor"><h2>Making the Scope Global</h2></a></section>
+<p>
+It might not seem so practical to access all classes and objects through the <tt>paper</tt> object, so here two strategies for circumventing that.
+</p>
+<p>
+The most straight forward approach is to copy over all fields from the <tt>paper</tt> object into the global scope. This could be done manually, which would work well as long as there is only one project, view and tool. But with multiples of these, the global references to the active ones (<tt><a href="/reference/paperscope#project">project</a></tt>, <tt><a href="/reference/paperscope#view">view</a></tt> and <tt><a href="/reference/paperscope#tool">tool</a></tt>) would not be kept up to date. Luckily there is a method for us that internally performs some JavaScript trickery so these references are kept in sync: <tt><a href="/reference/paperscope#install-scope">paper.install(window)</a></tt>. Equipped with this we can rewrite the code of the above example:
+</p>
+<pre class="code">
+// Make the paper scope global, by injecting it into window:
+paper.install(window);
+window.onload = function() {
+	// Setup directly from canvas id:
+	paper.setup(&apos;myCanvas&apos;);
+	var path = new Path();
+	path.strokeColor = &apos;black&apos;;
+	var start = new Point(100, 100);
+	path.moveTo(start);
+	path.lineTo(start.add([ 200, -50 ]));
+	view.draw();
+}
+</pre>
+<p>
+If polluting the global scope is really not an option, the second strategy circumvents that by using the dreaded <tt>with()</tt> statement. This is one half of the trickery that Paper.js applies internally for scoping each PaperScript in its own PaperScope object:
+</p>
+<pre class="code">
+window.onload = function() {
+	paper.setup(&apos;myCanvas&apos;);
+	with (paper) {
+		var path = new Path();
+		path.strokeColor = &apos;black&apos;;
+		var start = new Point(100, 100);
+		path.moveTo(start);
+		path.lineTo(start.add([ 200, -50 ]));
+		view.draw();
+	}
+}
+</pre>
+<section id="installing-event-handlers"><a name="installing-event-handlers" title="Installing Event Handlers" class="anchor"><h2>Installing Event Handlers</h2></a></section>
+<p>
+PaperScript recognises a couple of special event handlers when they are declared as global functions, while in JavaScript, these need to be manually installed on the appropriate object. Two such handlers are <tt><a href="/reference/view#onframe">onFrame</a></tt> and <tt><a href="/reference/view#onresize">onResize</a></tt>, which both belong to the <tt><a href="/reference/view">View</a></tt> class. view is automatically created for us if we use the <tt><a href="/reference/paperscope#setup-canvas">paperScope.setup(canvas)</a></tt> function as in the examples above. So all we have to do is install these handlers on the existing <tt><a href="/reference/paperscope#view">view</a></tt> object:
+</p>
+<pre class="code" mode="text/html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;js/paper.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+	paper.install(window);
+	window.onload = function() {
+		paper.setup(&apos;myCanvas&apos;);
+		var path = new Path.Rectangle([75, 75], [100, 100]);
+		path.strokeColor = &apos;black&apos;;
+
+		view.onFrame = function(event) {
+			// On each frame, rotate the path by 3 degrees:
+			path.rotate(3);
+		}
+	}
+&lt;/paperscript&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;canvas id=&quot;myCanvas&quot; resize&gt;&lt;/canvas&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<div class="note"><b>Did you know?</b><p>
+You can read more about animations in the tutorial <a href="/tutorials/animation/creating-animations/">Creating Animations</a>.
+</p><div class="text-end"></div></div>
+<section id="working-with-tools"><a name="working-with-tools" title="Working with Tools" class="anchor"><h2>Working with Tools</h2></a></section>
+<p>
+Just like with the view handlers, PaperScript simplifies and hides the dealing with <tt><a href="/reference/tool">Tool</a></tt> objects by making the tool handlers seem global and by creation a tool for us on the fly if any of these handlers are present: <tt><a href="/reference/tool#onmousedown">onMouseDown</a></tt>, <tt><a href="/reference/tool#onmouseup">onMouseUp</a></tt>, <tt><a href="/reference/tool#onmouseup">onMouseDrag</a></tt>, <tt><a href="/reference/tool#onmouseup">onMouseMove</a></tt>, etc.
+</p>
+<p>
+In JavaScript we need to create the tool ourselves, and we need to manually install handlers on it. The advantage of this approach is that things are more transparent, and the handling of multiple tools will be less of a surprise.
+</p>
+<pre class="code" mode="text/html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;js/paper.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+	paper.install(window);
+	window.onload = function() {
+		paper.setup(&apos;myCanvas&apos;);
+		// Create a simple drawing tool:
+		var tool = new Tool();
+		var path;
+
+		// Define a mousedown and mousedrag handler
+		tool.onMouseDown = function(event) {
+			path = new Path();
+			path.strokeColor = &apos;black&apos;;
+			path.add(event.point);
+		}
+
+		tool.onMouseDrag = function(event) {
+			path.add(event.point);
+		}
+	}
+&lt;/paperscript&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;canvas id=&quot;myCanvas&quot; resize&gt;&lt;/canvas&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<div class="note"><b>Did you know?</b><p>
+You can read more about mouse tools in the tutorial <a href="/tutorials/interaction/creating-mouse-tools/">Creating Mouse Tools</a>.
+</p><div class="text-end"></div></div>
+<section id="multiple-tools"><a name="multiple-tools" title="Multiple Tools" class="anchor"><h2>Multiple Tools</h2></a></section>
+<p>
+The next example illustrates how easy it is to create multiple drawing tools and switch between them using some simple UI, in this case just two HTML links that activate one tool or the other:
+</p>
+<pre class="code" mode="text/html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;js/paper.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+	paper.install(window);
+	// Keep global references to both tools, so the HTML
+	// links below can access them.
+	var tool1, tool2;
+
+	window.onload = function() {
+		paper.setup(&apos;myCanvas&apos;);
+
+		// Create two drawing tools.
+		// tool1 will draw straight lines,
+		// tool2 will draw clouds.
+
+		// Both share the mouseDown event:
+		var path;
+		function onMouseDown(event) {
+			path = new Path();
+			path.strokeColor = &apos;black&apos;;
+			path.add(event.point);
+		}
+
+		tool1 = new Tool();
+		tool1.onMouseDown = onMouseDown;
+
+		tool1.onMouseDrag = function(event) {
+			path.add(event.point);
+		}
+
+		tool2 = new Tool();
+		tool2.minDistance = 20;
+		tool2.onMouseDown = onMouseDown;
+
+		tool2.onMouseDrag = function(event) {
+			// Use the arcTo command to draw cloudy lines
+			path.arcTo(event.point);
+		}
+	}
+&lt;/paperscript&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;a href=&quot;javascript:tool1.activate();&quot;&gt;Lines&lt;/a&gt;
+	&lt;a href=&quot;javascript:tool2.activate();&quot;&gt;Clouds&lt;/a&gt;
+	&lt;canvas id=&quot;myCanvas&quot; resize&gt;&lt;/canvas&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></article><aside><h1>Index</h1><ul class="tutorial-index"><li class="expandable-list expanded"><b><a href="/tutorials/getting-started/">Getting Started</a></b><ul class="tutorial-index"><li><a href="/tutorials/getting-started/working-with-paper-js/">Working with Paper.js</a></li><li class="active"><span>Using JavaScript Directly</span></li><li><a href="/tutorials/getting-started/paperscript-interoperability/">PaperScript Interoperability</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/geometry/">Geometry</a></b><ul class="tutorial-index"><li><a href="/tutorials/geometry/point-size-and-rectangle/">Point, Size and Rectangle</a></li><li><a href="/tutorials/geometry/object-conversion/">Object Conversion</a></li><li><a href="/tutorials/geometry/mathematical-operations/">Mathematical Operations</a></li><li><a href="/tutorials/geometry/vector-geometry/">Vector Geometry</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/paths/">Paths</a></b><ul class="tutorial-index"><li><a href="/tutorials/paths/working-with-path-items/">Working with Path Items</a></li><li><a href="/tutorials/paths/creating-predefined-shapes/">Creating Predefined Shapes</a></li><li><a href="/tutorials/paths/using-color-and-style/">Using Color and Style</a></li><li><a href="/tutorials/paths/smoothing-simplifying-flattening/">Smoothing, Simplifying &amp; Flattening</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/interaction/">Interaction</a></b><ul class="tutorial-index"><li><a href="/tutorials/interaction/creating-mouse-tools/">Creating Mouse Tools</a></li><li><a href="/tutorials/interaction/mouse-tool-events/">Mouse Tool Events</a></li><li><a href="/tutorials/interaction/working-with-mouse-vectors/">Working with Mouse Vectors</a></li><li><a href="/tutorials/interaction/keyboard-interaction/">Keyboard Interaction</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/project-items/">Project &amp; Items</a></b><ul class="tutorial-index"><li><a href="/tutorials/project-items/working-with-items/">Working with Items</a></li><li><a href="/tutorials/project-items/transforming-items/">Transforming Items</a></li><li><a href="/tutorials/project-items/project-hierarchy/">Project Hierarchy</a></li><li><a href="/tutorials/project-items/working-with-symbols/">Working with Symbols</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/images/">Images</a></b><ul class="tutorial-index"><li><a href="/tutorials/images/working-with-rasters/">Working with Rasters</a></li><li><a href="/tutorials/images/using-pixel-colors/">Using Pixel Colors</a></li><li><a href="/tutorials/images/color-averaging-image-areas/">Color Averaging Image Areas</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/animation/">Animation</a></b><ul class="tutorial-index"><li><a href="/tutorials/animation/creating-animations/">Creating Animations</a></li></ul></li></ul><div class="sticky"><h1>Content</h1><ul class="toc"></ul></div></aside></body></html>

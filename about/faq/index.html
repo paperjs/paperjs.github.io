@@ -1,0 +1,36 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"/><link rel="stylesheet" href="/assets/css/style.css"/><link rel="icon" href="/assets/favicon.ico" type="image/x-icon"/><link rel="shortcut icon" href="/assets/favicon.ico"/><script src="/assets/js/jquery.js"></script><script src="/assets/js/paper.js"></script><script src="/assets/js/codemirror.js"></script><script src="/assets/js/scripts.js"></script><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-10082945-6']);
+_gaq.push(['_trackPageview']);
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script><title>Paper.js - Paper.js</title></head><body><nav><h1><a href="/">Paper.js</a></h1><ul><li><a href="/about/">About</a><ul><li class="active"><a href="/about/faq/">FAQ</a></li><li><a href="/about/roadmap/">Roadmap</a></li></ul></li><li><a href="/features/">Features</a></li><li class="spacer"></li><li><a href="/examples/">Examples</a></li><li><a href="/showcase/">Showcase</a></li><li class="spacer"></li><li><a href="/tutorials/">Tutorials</a></li><li><a href="/reference/">Reference</a></li><li class="spacer"></li><li><a href="/download/">Download</a></li><li><a href="/donation/">Donation</a></li><li><a href="/license/">License</a></li><li class="spacer"></li><li><a href="http://groups.google.com/group/paperjs" target="_blank">Mailing List</a></li><li><a href="http://twitter.com/PaperJS" target="_blank">Follow on Twitter</a></li><li><a href="http://github.com/paperjs/paper.js" target="_blank">Watch on Github</a></li></ul></nav><article class="tutorial"><h1>FAQ</h1>
+<section id="implement-feature-x"><a name="implement-feature-x" title="Implement feature X?" class="anchor"><h2>Our project needs feature X, could you implement it?</h2></a></section>
+<p>
+If we think it is a useful feature to have, we would be open to adding it to our <a href="/about/roadmap/">roadmap</a>. If you need it implemented in the short term, contact us to discuss ways to sponsor the development process.
+</p>
+<section id="why-not-base-it-on-svg"><a name="why-not-base-it-on-svg" title="Why not base it on SVG?" class="anchor"><h2>Why not base it on SVG?</h2></a></section>
+<p>
+We have decided to use the Canvas object as the main backend for now because it is faster than SVG and allows us to implement and optimize our own Scene Graph / Document Object Model. We will be offering SVG (and hopefully PDF) importing and exporting in the future.
+</p>
+<section id="vector-graphics-export"><a name="vector-graphics-export" title="Vector graphics export?" class="anchor"><h2>How do I export as vector graphics?</h2></a></section>
+<p>
+Export to SVG and PDF is planned, but our first priority was to focus on display performance.
+</p>
+<section id="cluttering-global-namespace"><a name="cluttering-global-namespace" title="Cluttering global namespace?" class="anchor"><h2>Aren&apos;t you cluttering the global namespace with lots of variables?</h2></a></section>
+<p>
+Don&apos;t worry, all of Paper.js is compiled in its own scope and housed within a global <b><tt>paper</tt></b> variable. Paper.js runs each of your PaperScript scripts within their own scope, which at the time of the execution appears to be the global scope but is in fact that <tt>paper</tt> object. If you choose to not use PaperScript and prefer plain JavaScript instead, you will lose the added benefit of expressing vector mathematics with <tt>Point</tt> and <tt>Size</tt> objects through simple math operators, and you will have to access all your prototypes on this <tt>paper</tt> object. You could  choose to pollute the global scope by calling <tt>paper.install(window)</tt>, injecting all the Paper.js prototypes into it and removing the need to access everything through the <tt>paper</tt> object.
+</p>
+<section id="what-about-the-competition"><a name="what-about-the-competition" title="What about the competition?" class="anchor"><h2>What about the competition? Aren&apos;t there quite a few libraries out there that wrap around the Canvas already?</h2></a></section>
+<p>
+We are aware of the many Canvas wrappers out there, but we see Paper.js as much more than that. It is an extensive library that comes out of years of experience with vector graphics and API design for <a href="http://scriptographer.org" target="_blank">Scriptographer</a>. It offers many highly useful tools to work with vector graphics that canvas lacks: A well designed scene graph and DOM, highly optimised and accurate mathematical calculations for lots of bezier related things, such as bounding box calculations (with and without stroke expansion, including all different stroke styles, even miter limits), curve and path length (using  Gauss-Legendre numerical integration), path time parametrisation (finding bezier parameters at a given offset / length, using Newton-Raphson root finding), curve fitting, and fast path flattening, allowing us for example to replace Canvas&apos; missing dashed line support with our own at near-native speed.
+</p>
+<section id="why-not-canvas-directly"><a name="why-not-canvas-directly" title="Why not Canvas directly?" class="anchor"><h2>Why not just work with the HTML5 Canvas directly?</h2></a></section>
+<p>
+See the previous question for a list of added benefits of working with Paper.js
+</p>
+<section id="use-without-paperscript"><a name="use-without-paperscript" title="Use without PaperScript?" class="anchor"><h2>Can you use Paper.js without writing PaperScript?</h2></a></section>
+<p>
+Yes you can, but you loose some advantages such as auto-scoping and operator overloading, while winning others, e.g. easier debugging and slightly higher performance. Both can also be mixed. Documentation about this will follow.
+</p></article><aside><div class="sticky"><h1>Content</h1><ul class="toc"></ul></div></aside></body></html>

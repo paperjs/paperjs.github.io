@@ -1,0 +1,196 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"/><link rel="stylesheet" href="/assets/css/style.css"/><link rel="icon" href="/assets/favicon.ico" type="image/x-icon"/><link rel="shortcut icon" href="/assets/favicon.ico"/><script src="/assets/js/jquery.js"></script><script src="/assets/js/paper.js"></script><script src="/assets/js/codemirror.js"></script><script src="/assets/js/scripts.js"></script><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-10082945-6']);
+_gaq.push(['_trackPageview']);
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script><title>Paper.js - Paper.js</title></head><body><nav><h1><a href="/">Paper.js</a></h1><ul><li><a href="/about/">About</a></li><li><a href="/features/">Features</a></li><li class="spacer"></li><li><a href="/examples/">Examples</a></li><li><a href="/showcase/">Showcase</a></li><li class="spacer"></li><li><a href="/tutorials/">Tutorials</a><ul></ul></li><li><a href="/reference/">Reference</a></li><li class="spacer"></li><li><a href="/download/">Download</a></li><li><a href="/donation/">Donation</a></li><li><a href="/license/">License</a></li><li class="spacer"></li><li><a href="http://groups.google.com/group/paperjs" target="_blank">Mailing List</a></li><li><a href="http://twitter.com/PaperJS" target="_blank">Follow on Twitter</a></li><li><a href="http://github.com/paperjs/paper.js" target="_blank">Watch on Github</a></li></ul></nav><article class="tutorial"><h1>Point, Size and Rectangle</h1><p>
+In Paper.js, basic types such as <tt><a href="/reference/point">Point</a></tt>, <tt><a href="/reference/size">Size</a></tt> and <tt><a href="/reference/rectangle">Rectangle</a></tt> are objects that describe geometric attributes of graphical items. They are an abstract representation of geometric values such as location and dimension, but do not directly represent a graphical item within a project.
+</p>
+<div class="note"><b>Please note:</b><p>
+Graphical items in a Paper.js project are items that appear in the layer list and visually in the project. An analogy can be drawn to &apos;physical&apos; items in the real world. To describe their location and dimension, Paper.js deploys different basic types, which are merely containers for numeric values that describe their geometric qualities.
+</p><div class="text-end"></div></div>
+<p>
+This means that when we create a <tt><a href="/reference/point">Point</a></tt> object in code, we are in fact only creating a description of a location in the view, but we are not creating a path item that contains this point as a segment:
+</p>
+<pre class="code">
+var myPoint = new Point(10, 20); 
+console.log(myPoint); // { x: 10, y: 20 }
+</pre>
+<p>
+In order to create a path item that contains this point as a segment, we would need to explicitly use the <tt><a href="/reference/path#path">new Path()</a></tt> constructor to create a path and add the point as a first segment to it. The <a href="/tutorials/paths/working-with-path-items/">Working with Path Items</a> tutorial describes paths and segments in more detail.
+</p>
+<pre class="code" start="3">
+var myPath = new Path();
+myPath.add(myPoint);
+</pre>
+<p>
+Running this script would produce a &apos;physical&apos; path item in the Paper.js project with one segment at the location of <tt>myPoint</tt>.
+</p>
+<div class="note"><b>Please note:</b><p>
+Again, the &apos;physically&apos; appearing segment of <tt>myPath</tt> and the point called <tt>myPoint</tt> are not the same. <tt>myPoint</tt> is simply describing the coordinates that were used to produce the first segment of <tt>myPath</tt>. Modifying <tt>myPoint</tt> would not change that segment after it was created.
+</p><div class="text-end"></div></div>
+<section id="point"><a name="point" title="Point" class="anchor"><h2>Point</h2></a></section>
+<p>
+The <tt><a href="/reference/point">Point</a></tt> object describes a two dimensional location. It has two properties <tt><a href="/reference/point#x">x</a></tt> and <tt><a href="/reference/point#y">y</a></tt>, representing the <tt>x</tt> and <tt>y</tt> coordinate of the location.
+</p>
+<p>
+Point objects can be created either by directly providing the coordinates for <tt>x</tt> and <tt>y</tt> or by omitting them, in which case they are initialized with 0. The x and y coordinate properties can be accessed and changed separately too.
+</p>
+<p>
+Here we are creating a new point without providing values for <tt>x</tt> and <tt>y</tt>, and then change the values after. <tt>The console.log()</tt> function is used to log the resulting values to the console.
+</p>
+<pre class="code">
+var myPoint = new Point();
+console.log(myPoint); // { x: 0, y: 0 }
+
+// Now let&apos;s change the x coordinate to 10...
+myPoint.x = 10;
+
+// ...and the y coordinate to x + 10
+myPoint.y = myPoint.x + 10;
+console.log(myPoint); // { x: 10, y: 20 }
+</pre>
+<div class="note"><b>Did you know?</b><p>
+The <tt>console.log()</tt> function sends text to the console of the browser and is very useful to debug scripts.
+</p><div class="text-end"></div></div>
+<p>
+Here we are creating a new point with defined coordinates, which are then modified.
+</p>
+<pre class="code">
+var myPoint = new Point(20, 40);
+console.log(myPoint); // { x: 20, y: 40 }
+
+// Now we are doubling the x coordinate by multiplying it with 2.
+myPoint.x = myPoint.x * 2;
+console.log(myPoint); // { x: 40, y: 40 }
+</pre>
+<p>
+Another way of creating a point object is by passing its constructor an existing point, of which the new point the becomes a copy. Changing the new point will not modify the original point:
+</p>
+<pre class="code">
+var firstPoint = new Point(20, 40);
+var secondPoint = new Point(firstPoint);
+console.log(secondPoint); // { x: 20, y: 40 }
+
+secondPoint.y = 20;
+console.log(secondPoint); // { x: 20, y: 20 }
+
+// Note that firstPoint has not changed:
+console.log(firstPoint); // { x: 20, y: 40 }
+
+</pre>
+<p>
+This is not the same as a simple variable reference, which does not make a copy:
+</p>
+<pre class="code">
+var firstPoint = new Point(20, 40);
+var secondPoint = firstPoint;
+secondPoint.y = 20;
+console.log(secondPoint); // { x: 20, y: 20 }
+
+// Note that firstPoint has changed as well:
+console.log(firstPoint); // { x: 20, y: 20 }
+</pre>
+<div class="note"><b>Please note:</b><p>
+All basic types in Paper.js offer such a copying constructor. An easier way of making copies of objects in order to avoid modifying variables references is by calling the <tt><a href="/reference/point#clone">clone()</a></tt> function on any object:
+</p>
+<pre class="code">
+var firstPoint = new Point(20, 40);
+var secondPoint = firstPoint.clone();
+</pre><div class="text-end"></div></div>
+<p>
+The Point object offers an alternative numeric way of describing the location, in opposition to the cartesian coordinate <tt>x</tt>, <tt>y</tt>: The properties <tt><a href="/reference/point#angle">angle</a></tt> and <tt><a href="/reference/point#length">length</a></tt>, which describe the location in the polar coordinate system, defined by the distance (length) and angle to the coordinate sytstem&apos;s origin.
+</p>
+<section id="size"><a name="size" title="Size" class="anchor"><h2>Size</h2></a></section>
+<p>
+The <tt><a href="/reference/size">Size</a></tt> object describes abstract dimensions in two dimensional space. It has two properties <tt><a href="/reference/size#width">width</a></tt> and <tt><a href="/reference/size#height">height</a></tt>, representing the width and height values of the size.
+</p>
+<p>
+Just like with Point objects, Size objects can be created either by directly providing the values for width and height or by omitting them, in which case they are initialized with 0. The width and height properties can be accessed and changed separately too. As an example, the same steps from the Point object are executed with a Size object here.  Anything that was said about the Point object applies to the Size object too, the only difference being the different property names.
+</p>
+<pre class="code">
+var mySize = new Size();
+console.log(mySize); // { width: 0, height: 0 }
+
+mySize.width = 10;
+mySize.height = mySize.width + 10;
+console.log(mySize); // { width: 10, height: 20 }
+</pre>
+<pre class="code">
+var mySize = new Size(20, 40);
+console.log(mySize); // { width: 20, height: 40 }
+
+mySize.width = mySize.width * 2;
+console.log(mySize); // { width: 40, height: 40 }
+</pre>
+<section id="rectangle"><a name="rectangle" title="Rectangle" class="anchor"><h2>Rectangle</h2></a></section>
+<p>
+The <tt><a href="/reference/rectangle">Rectangle</a></tt> object can be described as the combination of a Point object and a Size object, describing both a two dimensional location and a size. Therefore it posseses the four properties <tt><a href="/reference/rectangle#x">x</a></tt>, <tt><a href="/reference/rectangle#y">y</a></tt>, <tt><a href="/reference/rectangle#width">width</a></tt> and <tt><a href="/reference/rectangle#height">height</a></tt>. The properties <tt>x</tt> and <tt>y</tt> describe the coordinates of the top left point of the rectangle, width and height describe its dimensions. Additionally, it also defines the <tt><a href="/reference/rectangle#point">point</a></tt> and <tt><a href="/reference/rectangle#size">size</a></tt> properties, giving access to these values in form of Point and Size objects.
+</p>
+<p>
+Rectangle objects can be created in a multitude of ways. One possibility is to pass a Point and a Size object to the <tt><a href="/reference/rectangle#rectangle-point-size">new Rectangle(point, size)</a></tt> constructor:
+</p>
+<pre class="code">
+var topLeft = new Point(10, 20);
+var rectSize = new Size(200, 100);
+var rect = new Rectangle(topLeft, rectSize);
+console.log(rect); // { x: 10, y: 20, width: 200, height: 100 }
+console.log(rect.point); // { x: 10, y: 20 }
+console.log(rect.size); // { width: 200, height: 100 }
+</pre>
+<p>
+The same Rectangle object can be created using the <tt><a href="/reference/rectangle#rectangle-x-y-width-height">new Rectangle(x, y, width, height)</a></tt> constructor:
+</p>
+<pre class="code">
+var rect = new Rectangle(10, 20, 200, 100);
+console.log(rect); // { x: 10, y: 20, width: 200, height: 100 }
+</pre>
+<p>
+A third possibility is to use the <tt><a href="/reference/rectangle#rectangle-point1-point2">new Rectangle(point1, point2)</a></tt>  constructor, which receives two corner points of the Rectangle object. These do not necessarily need to be the top left and bottom right corners, the constructor figures out how to fit a rectangle between them:
+</p>
+<pre class="code">
+var bottomLeft = new Point(10, 120);
+var topRight = new Point(210, 20);
+var rect = new Rectangle(bottomLeft, topRight);
+console.log(rect); // { x: 10, y: 20, width: 200, height: 100 }
+</pre>
+<div class="note"><b>Please note:</b><p>
+Newly created basic types do not necessarily need to be put into named variables every time. We could also nest constructor calls and pass them directly to the rectangle constructor.
+</p>
+<pre class="code">
+var rect = new Rectangle(new Point(10, 120),
+		new Point(210, 20));
+</pre><div class="text-end"></div></div>
+<section id="rectangle-properties"><a name="rectangle-properties" title="Rectangle Properties" class="anchor"><h2>Rectangle Properties</h2></a></section>
+<p>
+The Rectangle object is a bit more complex than Point and Size objects and exposes a series of additional center and corner point objects: <tt><a href="/reference/rectangle#center">center</a></tt>, <tt><a href="/reference/rectangle#topleft">topLeft</a></tt>, <tt><a href="/reference/rectangle#topright">topRight</a></tt>, <tt><a href="/reference/rectangle#bottomleft">bottomLeft</a></tt>, <tt><a href="/reference/rectangle#bottomright">bottomRight</a></tt>, <tt><a href="/reference/rectangle#leftcenter">leftCenter</a></tt>, <tt><a href="/reference/rectangle#topcenter">topCenter</a></tt>, <tt><a href="/reference/rectangle#rightcenter">rightCenter</a></tt> and <tt><a href="/reference/rectangle#bottomcenter">bottomCenter</a></tt>.
+</p>
+<p>
+All these values can be changed after a rectangle is created, offering an easy ways to specify the geometric qualities of rectangles:
+</p>
+<pre class="code">
+// We start by creating a rectangle of dimension and
+// location set to 0
+var rect = new Rectangle();
+console.log(rect); // { x: 0, y: 0, width: 0, height: 0 }
+
+// Now we can for example define its size...
+rect.size = new Size(100, 200);
+
+// and its center
+rect.center = new Point(100, 100);
+console.log(rect); // { x: 50, y: 0, width: 100, height: 200 }
+</pre>
+<p>
+As an alternative numeric way to define the rectangle&apos;s dimensions, the Rectangle object also exposes the following properties, in opposition to <tt>x</tt>, <tt>y</tt>, <tt>width</tt> and <tt>height</tt>: <tt><a href="/reference/rectangle#left">left</a></tt>, <tt><a href="/reference/rectangle#top">top</a></tt>, <tt><a href="/reference/rectangle#right">right</a></tt> and <tt><a href="/reference/rectangle#bottom">bottom</a></tt>:
+</p>
+<pre class="code">
+var rect = new Rectangle();
+rect.left = 100;
+rect.right = 200;
+rect.bottom = 400;
+rect.top = 200;
+console.log(rect); // { x: 100, y: 200, width: 100, height: 200 }
+</pre></article><aside><h1>Index</h1><ul class="tutorial-index"><li class="expandable-list undefined"><b><a href="/tutorials/getting-started/">Getting Started</a></b><ul class="tutorial-index"><li><a href="/tutorials/getting-started/working-with-paper-js/">Working with Paper.js</a></li><li><a href="/tutorials/getting-started/using-javascript-directly/">Using JavaScript Directly</a></li><li><a href="/tutorials/getting-started/paperscript-interoperability/">PaperScript Interoperability</a></li></ul></li><li class="expandable-list expanded"><b><a href="/tutorials/geometry/">Geometry</a></b><ul class="tutorial-index"><li class="active"><span>Point, Size and Rectangle</span></li><li><a href="/tutorials/geometry/object-conversion/">Object Conversion</a></li><li><a href="/tutorials/geometry/mathematical-operations/">Mathematical Operations</a></li><li><a href="/tutorials/geometry/vector-geometry/">Vector Geometry</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/paths/">Paths</a></b><ul class="tutorial-index"><li><a href="/tutorials/paths/working-with-path-items/">Working with Path Items</a></li><li><a href="/tutorials/paths/creating-predefined-shapes/">Creating Predefined Shapes</a></li><li><a href="/tutorials/paths/using-color-and-style/">Using Color and Style</a></li><li><a href="/tutorials/paths/smoothing-simplifying-flattening/">Smoothing, Simplifying &amp; Flattening</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/interaction/">Interaction</a></b><ul class="tutorial-index"><li><a href="/tutorials/interaction/creating-mouse-tools/">Creating Mouse Tools</a></li><li><a href="/tutorials/interaction/mouse-tool-events/">Mouse Tool Events</a></li><li><a href="/tutorials/interaction/working-with-mouse-vectors/">Working with Mouse Vectors</a></li><li><a href="/tutorials/interaction/keyboard-interaction/">Keyboard Interaction</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/project-items/">Project &amp; Items</a></b><ul class="tutorial-index"><li><a href="/tutorials/project-items/working-with-items/">Working with Items</a></li><li><a href="/tutorials/project-items/transforming-items/">Transforming Items</a></li><li><a href="/tutorials/project-items/project-hierarchy/">Project Hierarchy</a></li><li><a href="/tutorials/project-items/working-with-symbols/">Working with Symbols</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/images/">Images</a></b><ul class="tutorial-index"><li><a href="/tutorials/images/working-with-rasters/">Working with Rasters</a></li><li><a href="/tutorials/images/using-pixel-colors/">Using Pixel Colors</a></li><li><a href="/tutorials/images/color-averaging-image-areas/">Color Averaging Image Areas</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/animation/">Animation</a></b><ul class="tutorial-index"><li><a href="/tutorials/animation/creating-animations/">Creating Animations</a></li></ul></li></ul><div class="sticky"><h1>Content</h1><ul class="toc"></ul></div></aside></body></html>

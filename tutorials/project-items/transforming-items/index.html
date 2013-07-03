@@ -1,0 +1,326 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"/><link rel="stylesheet" href="/assets/css/style.css"/><link rel="icon" href="/assets/favicon.ico" type="image/x-icon"/><link rel="shortcut icon" href="/assets/favicon.ico"/><script src="/assets/js/jquery.js"></script><script src="/assets/js/paper.js"></script><script src="/assets/js/codemirror.js"></script><script src="/assets/js/scripts.js"></script><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-10082945-6']);
+_gaq.push(['_trackPageview']);
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script><title>Paper.js - Paper.js</title></head><body><nav><h1><a href="/">Paper.js</a></h1><ul><li><a href="/about/">About</a></li><li><a href="/features/">Features</a></li><li class="spacer"></li><li><a href="/examples/">Examples</a></li><li><a href="/showcase/">Showcase</a></li><li class="spacer"></li><li><a href="/tutorials/">Tutorials</a><ul></ul></li><li><a href="/reference/">Reference</a></li><li class="spacer"></li><li><a href="/download/">Download</a></li><li><a href="/donation/">Donation</a></li><li><a href="/license/">License</a></li><li class="spacer"></li><li><a href="http://groups.google.com/group/paperjs" target="_blank">Mailing List</a></li><li><a href="http://twitter.com/PaperJS" target="_blank">Follow on Twitter</a></li><li><a href="http://github.com/paperjs/paper.js" target="_blank">Watch on Github</a></li></ul></nav><article class="tutorial"><h1>Transforming Items</h1><p>
+This tutorial explains how to move, scale and rotate items in your Paper.js project.
+</p>
+<div class="note"><b>Please note:</b><p>
+To be able to show the difference before and after transforming items in the following examples, we create a copy of the original item which we then transform. We use <tt><a href="/reference/item#clone">item.clone()</a></tt> to create a copy of an item. The original items have a black stroke and the copies have a red stroke.
+</p><div class="text-end"></div></div>
+<section id="changing-item-position"><a name="changing-item-position" title="Changing Item Position" class="anchor"><h2>Changing the Position of an Item</h2></a></section>
+<p>
+You can move an item around in the project by changing its <tt><a href="/reference/item#position">item.position</a></tt> property. This moves the item by its center point.
+</p>
+<p>
+For example let&apos;s make a path and then move it to another position:
+</p>
+<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-1">
+var circlePath = new Path.Circle(new Point(50, 50), 25);
+circlePath.strokeColor = 'black';
+
+// Make a copy of the path and set its stroke color to red:
+var copy = circlePath.clone();
+copy.strokeColor = 'red';
+
+// Move the copy to {x: 100, y: 100}
+copy.position = new Point(100, 100);
+</script><div class="canvas"><canvas height="200" id="canvas-1" width="540"></canvas></div>
+</div><br><br>
+<p>
+Let&apos;s quickly go through the code above. In the first line we create a circle shaped path with its center point at <tt>{x: 50, y: 50}</tt> with a radius of 25 pt. In the second line we change the position (the center point) of the circle shaped path to <tt>{x: 100, y: 100}</tt>
+</p>
+<p>
+We can also move an item by a certain amount using the <tt>+=</tt> operator.
+</p>
+<p>
+The following example creates the same path as above, but instead of moving it to an absolute position, moves it 10pt to the right and 20pt down.
+</p>
+<pre class="code">
+var circlePath = new Path.Circle(new Point(50, 50), 25);
+circlePath.fillColor = &apos;black&apos;
+circlePath.position += new Point(10, 20);
+</pre>
+<p>
+To make an item follow the mouse, we can simply set its position to the position of the mouse. Move your mouse over the view below, to see how the item follows your mouse.
+</p>
+<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-2">
+var circlePath = new Path.Circle(new Point(50, 50), 25);
+circlePath.fillColor = 'black'
+
+function onMouseMove(event) {
+	circlePath.position = event.point;
+}
+</script><div class="canvas"><canvas height="200" width="540" id="canvas-2"></canvas></div>
+</div><br><br><br>
+<section id="the-bounding-rectangle"><a name="the-bounding-rectangle" title="The Bounding Rectangle" class="anchor"><h2>The Bounding Rectangle of an Item</h2></a></section>
+<p>
+When you select an item in a vector graphics application like Illustrator and select the transform tool it draws a rectangle around the item which describes its boundaries:
+</p>
+<p>
+<img src="/tutorials/project-items/transforming-items/transform-controls.gif" width="116" height="100"></img>
+</p>
+<p>
+In Paper.js we can find out the dimensions of this bounding rectangle by looking at the <tt><a href="/reference/item#bounds">item.bounds</a></tt> property of item.
+</p>
+<div class="note"><b>Please note:</b><p>
+The <tt><a href="/reference/item#bounds">item.bounds</a></tt> property is a <tt><a href="/reference/rectangle">Rectangle</a></tt>. Rectangles are described in detail in the <a href="/tutorials/geometry/point-size-and-rectangle/">Point, Size and Rectangle</a> tutorial.
+</p><div class="text-end"></div></div>
+<p>
+For example if want to know the width and height of an item, we can query the <tt><a href="/reference/item#bounds">item.bounds</a></tt> property for <tt><a href="/reference/rectangle#width">width</a></tt> and <tt><a href="/reference/rectangle#height">height</a></tt>:
+</p>
+<pre class="code">
+var circlePath = new Path.Circle(new Point(50, 50), 25);
+console.log(circlePath.bounds.width); // 50
+console.log(circlePath.bounds.height); // 50
+</pre>
+<p>
+<img src="/tutorials/project-items/transforming-items/bounds-width-height.gif" width="255" height="134"></img>
+</p>
+<p>
+We can also find the position of the corner points of the bounding rectangle:
+</p>
+<pre class="code">
+var circlePath = new Path.Circle(new Point(50, 50), 25);
+console.log(circlePath.bounds.topLeft); // { x: 25.0, y: 25.0 }
+console.log(circlePath.bounds.topRight); // { x: 75.0, y: 25.0 }
+console.log(circlePath.bounds.bottomRight); // { x: 75.0, y: 75.0 }
+console.log(circlePath.bounds.bottomLeft); // { x: 25.0, y: 75.0 }
+</pre>
+<p>
+<img src="/tutorials/project-items/transforming-items/bounds-corner-points.gif" width="377" height="162"></img>
+</p>
+<section id="scaling-items"><a name="scaling-items" title="Scaling Items" class="anchor"><h2>Scaling Items</h2></a></section>
+<p>
+To scale both the width and height of an item by the same amount, you can call the <tt><a href="/reference/item#scale-scale">item.scale(scale)</a></tt> of the item.
+</p>
+<p>
+Let&apos;s make a path and then scale it by 50%:
+</p>
+<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-3">
+var circlePath = new Path.Circle(new Point(75, 50), 25);
+circlePath.style = {
+	fillColor: 'white',
+	strokeColor: 'black'
+};
+
+// Make a copy of the path and set its stroke color to red:
+var copy = circlePath.clone();
+copy.strokeColor = 'red';
+
+// Scale the copy by 50%:
+copy.scale(0.5);
+</script><div class="canvas"><canvas height="100" id="canvas-3" width="540"></canvas></div>
+</div><br><br>
+<section id="scaling-around-a-point"><a name="scaling-around-a-point" title="Scaling Around a Point" class="anchor"><h2>Scaling an Item Around a Center Point</h2></a></section>
+<p>
+By default the <tt><a href="/reference/item#scale-scale">item.scale(scale)</a></tt> function scales an item around its center point. If you want to scale around a specific position, you can pass the scale function an optional center point: <tt><a href="/reference/item#scale-scale">item.scale(scale, point)</a></tt>.
+</p>
+<p>
+Let&apos;s make a path and then scale it by 50% from <tt>{x: 0, y: 0}</tt>:
+</p>
+<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-4">
+var circlePath = new Path.Circle(new Point(50, 50), 25);
+circlePath.style = {
+	fillColor: 'white',
+	strokeColor: 'black'
+};
+
+// Make a copy of the path and set its stroke color to red:
+var copy = circlePath.clone();
+copy.strokeColor = 'red';
+
+// Scale the copy by 50% around {x: 0, y: 0}:
+copy.scale(0.5, new Point(0, 0));
+</script><div class="canvas"><canvas height="100" id="canvas-4" width="540"></canvas></div>
+</div><br><br>
+<p>
+Since the corner positions of the <tt><a href="/reference/item#bounds">item.bounds</a></tt> bounding rectangle are also points, we can also pass them to the <tt><a href="/reference/item#scale-scale">item.scale(scale, point)</a></tt> function to act as a center point for the scale transformation.
+</p>
+<p>
+For example, if we would want to scale an item by 50% using the top right position of the bounding rectangle:
+</p>
+<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-5">
+var circlePath = new Path.Circle(new Point(50, 50), 25);
+circlePath.style = {
+	fillColor: 'white',
+	strokeColor: 'black'
+};
+
+// Make a copy of the path and set its stroke color to red:
+var copy = circlePath.clone();
+copy.strokeColor = 'red';
+
+// Scale the copy by 50% around the top right
+// point of its bounding box:
+copy.scale(0.5, circlePath.bounds.topRight);
+</script><div class="canvas"><canvas height="100" id="canvas-5" width="540"></canvas></div>
+</div><br><br>
+<p>
+Items can also be scaled with different horizontal and vertical scales. To do this we pass two numbers to scale using <tt><a href="/reference/item#scale-sx-sy">item.scale(sx, sy)</a></tt>.
+</p>
+<p>
+For example, we can create a path and scale it horizontally by 500% and vertically by 150%:
+</p>
+<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-6">
+var circlePath = new Path.Circle(new Point(270, 50), 25);
+circlePath.style = {
+	fillColor: 'white',
+	strokeColor: 'black'
+};
+
+// Make a copy of the path and set its stroke color to red:
+var copy = circlePath.clone();
+copy.strokeColor = 'red';
+
+// Scale the copy:
+copy.scale(5, 1.5);
+</script><div class="canvas"><canvas height="100" width="540" id="canvas-6"></canvas></div>
+</div><br><br>
+<section id="rotating-items"><a name="rotating-items" title="Rotating Items" class="anchor"><h2>Rotating Items</h2></a></section>
+<p>
+To rotate an item we call the <tt><a href="/reference/item#rotate-angle">item.rotate(angle)</a></tt> function and pass it the angle we want to rotate by in degrees. This will rotate the item by the angle in a clockwise direction.
+</p>
+<p>
+Now, let&apos;s create a rectangle shaped path and rotate it by 45 degrees:
+</p>
+<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-7">
+var path = new Path.Rectangle(new Point(50, 50), new Size(100, 50));
+path.style = {
+	fillColor: 'white',
+	strokeColor: 'black'
+};
+
+// Create a copy of the path and set its stroke color to red:
+var copy = path.clone();
+copy.strokeColor = 'red';
+
+// Rotate the copy by 45 degrees:
+copy.rotate(45);
+</script><div class="canvas"><canvas width="540" height="150" id="canvas-7"></canvas></div>
+</div><br><br>
+<p>
+To rotate in a counter-clockwise direction we pass a negative angle to the <tt><a href="/reference/item#rotate-angle">item.rotate(angle)</a></tt> function:
+</p>
+<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-8">
+var path = new Path.Rectangle(new Point(50, 50), new Size(100, 50));
+path.style = {
+	fillColor: 'white',
+	strokeColor: 'black'
+};
+
+// Create a copy of the path and set its stroke color to red:
+var copy = path.clone();
+copy.strokeColor = 'red';
+
+// Rotate the copy by -45 degrees:
+copy.rotate(-45);
+</script><div class="canvas"><canvas width="540" height="150" id="canvas-8"></canvas></div>
+</div><br><br>
+<p>
+We can repeatedly rotate the path in an <tt>onFrame</tt> handler to make an animation:
+</p>
+<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-9">
+var path = new Path.Rectangle(new Point(50, 50), new Size(100, 50));
+path.style = {
+	fillColor: 'white',
+	strokeColor: 'black'
+};
+
+// Create a copy of the path and set its stroke color to red:
+var copy = path.clone();
+copy.strokeColor = 'red';
+
+function onFrame(event) {
+	// Each frame, rotate the copy by 1 degree:
+	copy.rotate(1);
+}
+</script><div class="canvas"><canvas width="540" height="150" id="canvas-9"></canvas></div>
+</div><br><br>
+<section id="rotating-around-a-point"><a name="rotating-around-a-point" title="Rotating Around a Point" class="anchor"><h2>Rotating Around a Point</h2></a></section>
+<p>
+In the same way as you can pass a point to the scale function to scale around, you can also pass a point to the rotate function to rotate around.
+</p>
+<p>
+For example, let&apos;s rotate around the bottom left point of the bounding rectangle:
+</p>
+<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-10">
+var path = new Path.Rectangle(new Point(80, 50), new Size(100, 50));
+path.style = {
+	fillColor: 'white',
+	strokeColor: 'black'
+};
+
+
+// Create a copy of the path and set its stroke color to red:
+var copy = path.clone();
+copy.strokeColor = 'red';
+
+// Save the bottom left position of the path's bounding box:
+var point = copy.bounds.bottomLeft;
+
+function onFrame(event) {
+	// Each frame, rotate the path 3 degrees around the point
+	// we defined earlier:
+	copy.rotate(3, point);
+}
+</script><div class="canvas"><canvas width="540" height="150" id="canvas-10"></canvas></div>
+</div><br><br>
+<section id="advanced-example"><a name="advanced-example" title="Advanced Example" class="anchor"><h2>Advanced Example</h2></a></section>
+<p>
+Lets write a more advanced script that clones an item multiple times in a loop and rotates the clones by different angles.
+</p>
+<div class="note"><b>Please note:</b><p>
+Cloning (copying) items is described at the end of the <a href="/tutorials/project-items/working-with-items/">Working with Items</a> tutorial.
+</p><div class="text-end"></div></div>
+<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-11">
+var circlePath = new Path.Circle(new Point(280, 100), 25);
+circlePath.strokeColor = 'black';
+circlePath.fillColor = 'white';
+
+var clones = 30;
+var angle = 360 / clones;
+
+for(var i = 0; i < clones; i++) {
+	var clonedPath = circlePath.clone();
+	clonedPath.rotate(angle * i, circlePath.bounds.topLeft);
+};
+</script><div class="canvas"><canvas height="150" width="540" id="canvas-11"></canvas></div>
+</div><br><br>
+<p>
+Let&apos;s go through this script line by line.
+</p>
+<p>
+First we create the path that we will be cloning and we make a variable called <tt>clones</tt> where we store the amount of clones that we want:
+</p>
+<pre class="code">
+var circlePath = new Path.Circle(new Point(150, 150), 25);
+circlePath.strokeColor = &apos;black&apos;;
+circlePath.fillColor = &apos;white&apos;;
+var clones = 30;
+</pre>
+<p>
+In the third line, we make a variable called <tt>angle</tt> and pass it 360 degrees (a full rotation) divided by the amount of clones we will be making:
+</p>
+<pre class="code" start="6">
+var angle = 360 / clones;
+</pre>
+<p>
+Next, we loop the amount of times we defined in the <tt>clones</tt> variable:
+</p>
+<pre class="code" start="8">
+for (var i = 0; i &lt; clones; i++) {
+</pre>
+<p>
+Basically what this line does is make a variable called <tt>i</tt> and start it with <tt>0</tt>. Then it executes the block of code that is in between the { } brackets. After executing, it adds <tt>1</tt> to <tt>i</tt> and compares <tt>i</tt> to the <tt>clones</tt> variable. If <tt>i</tt> is still smaller then the <tt>clones</tt> variable, it executes the code block again.
+</p>
+<p>
+Within the loop we clone the path using <tt><a href="/reference/item#clone">item.clone()</a></tt> and rotate it by <tt>angle * i</tt> from the top left point of its bounding rectangle. This means that when <tt>i</tt> is <tt>0</tt>, the cloned path is rotated by <tt>0</tt> * <tt>angle</tt> and when <tt>i</tt> is <tt>5</tt> it  rotates the cloned path by <tt>5</tt> * <tt>angle</tt>:
+</p>
+<pre class="code" start="9">
+	var clonedPath = circlePath.clone();
+	clonedPath.rotate(angle * i, circlePath.bounds.topLeft);
+</pre></article><aside><h1>Index</h1><ul class="tutorial-index"><li class="expandable-list undefined"><b><a href="/tutorials/getting-started/">Getting Started</a></b><ul class="tutorial-index"><li><a href="/tutorials/getting-started/working-with-paper-js/">Working with Paper.js</a></li><li><a href="/tutorials/getting-started/using-javascript-directly/">Using JavaScript Directly</a></li><li><a href="/tutorials/getting-started/paperscript-interoperability/">PaperScript Interoperability</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/geometry/">Geometry</a></b><ul class="tutorial-index"><li><a href="/tutorials/geometry/point-size-and-rectangle/">Point, Size and Rectangle</a></li><li><a href="/tutorials/geometry/object-conversion/">Object Conversion</a></li><li><a href="/tutorials/geometry/mathematical-operations/">Mathematical Operations</a></li><li><a href="/tutorials/geometry/vector-geometry/">Vector Geometry</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/paths/">Paths</a></b><ul class="tutorial-index"><li><a href="/tutorials/paths/working-with-path-items/">Working with Path Items</a></li><li><a href="/tutorials/paths/creating-predefined-shapes/">Creating Predefined Shapes</a></li><li><a href="/tutorials/paths/using-color-and-style/">Using Color and Style</a></li><li><a href="/tutorials/paths/smoothing-simplifying-flattening/">Smoothing, Simplifying &amp; Flattening</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/interaction/">Interaction</a></b><ul class="tutorial-index"><li><a href="/tutorials/interaction/creating-mouse-tools/">Creating Mouse Tools</a></li><li><a href="/tutorials/interaction/mouse-tool-events/">Mouse Tool Events</a></li><li><a href="/tutorials/interaction/working-with-mouse-vectors/">Working with Mouse Vectors</a></li><li><a href="/tutorials/interaction/keyboard-interaction/">Keyboard Interaction</a></li></ul></li><li class="expandable-list expanded"><b><a href="/tutorials/project-items/">Project &amp; Items</a></b><ul class="tutorial-index"><li><a href="/tutorials/project-items/working-with-items/">Working with Items</a></li><li class="active"><span>Transforming Items</span></li><li><a href="/tutorials/project-items/project-hierarchy/">Project Hierarchy</a></li><li><a href="/tutorials/project-items/working-with-symbols/">Working with Symbols</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/images/">Images</a></b><ul class="tutorial-index"><li><a href="/tutorials/images/working-with-rasters/">Working with Rasters</a></li><li><a href="/tutorials/images/using-pixel-colors/">Using Pixel Colors</a></li><li><a href="/tutorials/images/color-averaging-image-areas/">Color Averaging Image Areas</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/animation/">Animation</a></b><ul class="tutorial-index"><li><a href="/tutorials/animation/creating-animations/">Creating Animations</a></li></ul></li></ul><div class="sticky"><h1>Content</h1><ul class="toc"></ul></div></aside></body></html>

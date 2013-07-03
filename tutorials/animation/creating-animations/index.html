@@ -1,0 +1,215 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"/><link rel="stylesheet" href="/assets/css/style.css"/><link rel="icon" href="/assets/favicon.ico" type="image/x-icon"/><link rel="shortcut icon" href="/assets/favicon.ico"/><script src="/assets/js/jquery.js"></script><script src="/assets/js/paper.js"></script><script src="/assets/js/codemirror.js"></script><script src="/assets/js/scripts.js"></script><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-10082945-6']);
+_gaq.push(['_trackPageview']);
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script><title>Paper.js - Paper.js</title></head><body><nav><h1><a href="/">Paper.js</a></h1><ul><li><a href="/about/">About</a></li><li><a href="/features/">Features</a></li><li class="spacer"></li><li><a href="/examples/">Examples</a></li><li><a href="/showcase/">Showcase</a></li><li class="spacer"></li><li><a href="/tutorials/">Tutorials</a><ul></ul></li><li><a href="/reference/">Reference</a></li><li class="spacer"></li><li><a href="/download/">Download</a></li><li><a href="/donation/">Donation</a></li><li><a href="/license/">License</a></li><li class="spacer"></li><li><a href="http://groups.google.com/group/paperjs" target="_blank">Mailing List</a></li><li><a href="http://twitter.com/PaperJS" target="_blank">Follow on Twitter</a></li><li><a href="http://github.com/paperjs/paper.js" target="_blank">Watch on Github</a></li></ul></nav><article class="tutorial"><section id="creating-animations"><a name="creating-animations" title="Creating Animations" class="anchor"><h1>Creating Animations</h1></a></section>
+<p>
+To create animations in Paper.js, we use the <tt><a href="/reference/global#onframe">onFrame</a></tt> handler. When this function is defined, it is called up to 60 times a second by Paper.js. The view is redrawn automatically after the <tt>onFrame</tt> function has been executed.
+</p>
+<pre class="code">
+function onFrame(event) {
+	// Your animation code goes in here
+}
+</pre>
+<section id="the-event-object"><a name="the-event-object" title="The Event Object" class="anchor"><h2>The Event Object</h2></a></section>
+<p>
+The <tt><a href="/reference/global#onframe">onFrame</a></tt> handler function receives an event object which contains information about the event:
+</p>
+<p>
+<b>event.count</b>: the number of times the frame event was fired.<br>
+<b>event.time</b>: the total amount of time passed since the first frame event in seconds.<br>
+<b>event.delta</b>: the time passed in seconds since the last frame event.
+</p>
+<pre class="code">
+function onFrame(event) {
+	// the number of times the frame event was fired:
+	console.log(event.count);
+
+	// The total amount of time passed since
+	// the first frame event in seconds:
+	console.log(event.time);
+
+	// The time passed in seconds since the last frame event:
+	console.log(event.delta);
+}
+</pre>
+<section id="examples"><a name="examples" title="Examples" class="anchor"><h2>Examples</h2></a></section>
+<p>
+The following are a number of examples that make use of the <tt>onFrame</tt> handler to create animations.
+</p>
+<section id="rotating-an-item"><a name="rotating-an-item" title="Rotating an Item" class="anchor"><h2>Rotating an Item</h2></a></section>
+<p>
+In the following example, a rectangle shaped path is created on execution and each frame it is rotated by 3 degrees:
+</p>
+<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-1">
+// Create a rectangle shaped path with its top left point at
+// {x: 75, y: 75} and a size of {width: 75, height: 75}
+var path = new Path.Rectangle({
+	point: [75, 75],
+	size: [75, 75],
+	strokeColor: 'black'
+});
+
+function onFrame(event) {
+	// Each frame, rotate the path by 3 degrees:
+	path.rotate(3);
+}
+</script><div class="canvas"><canvas height="200" id="canvas-1" width="540"></canvas></div>
+</div><br><br>
+<section id="animating-colors"><a name="animating-colors" title="Animating Colors" class="anchor"><h2>Animating Colors</h2></a></section>
+<p>
+The following script creates a circle shaped path item with a red fill color. Then, each frame it slightly changes the hue of the color:
+</p>
+<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-2">
+// Create a circle shaped path at the center of the view,
+// with a radius of 70:
+var path = new Path.Circle({
+	center: view.center,
+	radius: 70,
+	fillColor: 'red'
+});
+
+function onFrame(event) {
+	// Each frame, change the fill color of the path slightly by
+	// adding 1 to its hue:
+	path.fillColor.hue += 1;
+}
+</script><div class="canvas"><canvas height="200" id="canvas-2" width="540"></canvas></div>
+</div><br><br>
+<section id="moving-an-item"><a name="moving-an-item" title="Moving an Item" class="anchor"><h2>Moving an Item</h2></a></section>
+<p>
+The following script creates a text item and moves it smoothly to a random destination point in the view. When the text item comes near the position, another random destination point is created. The contents of the text item is the distance between its current position and that of the destination point.
+</p>
+<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-3">
+// Create a centered text item at the center of the view:
+var text = new PointText({
+	point: view.center,
+	justification: 'center',
+	fontSize: 30,
+	fillColor: 'white'
+});
+
+// Define a random point in the view, which we will be moving
+// the text item towards.
+var destination = Point.random() * view.size;
+
+function onFrame(event) {
+	// Each frame, move the path 1/30th of the difference in position
+	// between it and the destination.
+	
+	// The vector is the difference between the position of
+	// the text item and the destination point:
+	var vector = destination - text.position;
+	
+	// We add 1/30th of the vector to the position property
+	// of the text item, to move it in the direction of the
+	// destination point:
+	text.position += vector / 30;
+	
+	// Set the content of the text item to be the length of the vector.
+	// I.e. the distance it has to travel still:
+	text.content = Math.round(vector.length);
+	
+	// If the distance between the path and the destination is less
+	// than 5, we define a new random point in the view to move the
+	// path to:
+	if (vector.length < 5) {
+		destination = Point.random() * view.size;
+	}
+}
+</script><div class="canvas"><canvas height="200" id="canvas-3" width="540" style="background:black"></canvas></div>
+</div><br><br>
+<section id="moving-multiple-items"><a name="moving-multiple-items" title="Moving Multiple Items" class="anchor"><h2>Moving Multiple Items</h2></a></section>
+<p>
+The following example shows a star field like animation. The speed that the circles move depends on their width. When a star leaves the view, it is moved back to left of the view.
+</p>
+<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-4">
+// The amount of circles we want to make:
+var count = 150;
+
+// Create a symbol, which we will use to place instances of later:
+var path = new Path.Circle({
+	center: [0, 0],
+	radius: 10,
+	fillColor: 'white',
+	strokeColor: 'black'
+});
+
+var symbol = new Symbol(path);
+
+// Place the instances of the symbol:
+for (var i = 0; i < count; i++) {
+	// The center position is a random point in the view:
+	var center = Point.random() * view.size;
+	var placedSymbol = symbol.place(center);
+	placedSymbol.scale(i / count);
+}
+
+// The onFrame function is called up to 60 times a second:
+function onFrame(event) {
+	// Run through the active layer's children list and change
+	// the position of the placed symbols:
+	for (var i = 0; i < count; i++) {
+		var item = project.activeLayer.children[i];
+		
+		// Move the item 1/20th of its width to the right. This way
+		// larger circles move faster than smaller circles:
+		item.position.x += item.bounds.width / 20;
+
+		// If the item has left the view on the right, move it back
+		// to the left:
+		if (item.bounds.left > view.size.width) {
+			item.position.x = -item.bounds.width;
+		}
+	}
+}
+</script><div class="canvas"><canvas height="200" id="canvas-4" width="540" style="background:black"></canvas></div>
+</div><br><br>
+<section id="animating-path-segments"><a name="animating-path-segments" title="Animating Path Segments" class="anchor"><h2>Animating Path Segments</h2></a></section>
+<p>
+The following script creates a path and then changes the position of its segment points in the <tt>onFrame</tt> handler:
+</p>
+<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-5">
+// The amount of segment points we want to create:
+var amount = 5;
+
+// The maximum height of the wave:
+var height = 60;
+
+// Create a new path and style it:
+var path = new Path({
+	// 80% black:
+	strokeColor: [0.8],
+	strokeWidth: 30,
+	strokeCap: 'square'
+});
+
+// Add 5 segment points to the path spread out
+// over the width of the view:
+for (var i = 0; i <= amount; i++) {
+	path.add(new Point(i / amount, 1) * view.size);
+}
+
+// Select the path, so we can see how it is constructed:
+path.selected = true;
+
+function onFrame(event) {
+	// Loop through the segments of the path:
+	for (var i = 0; i <= amount; i++) {
+		var segment = path.segments[i];
+
+		// A cylic value between -1 and 1
+		var sinus = Math.sin(event.time * 3 + i);
+		
+		// Change the y position of the segment point:
+		segment.point.y = sinus * height + 100;
+	}
+	// Uncomment the following line and run the script again
+	// to smooth the path:
+	// path.smooth();
+}
+</script><div class="canvas"><canvas height="200" id="canvas-5" width="540"></canvas></div>
+</div><br><br></article><aside><h1>Index</h1><ul class="tutorial-index"><li class="expandable-list undefined"><b><a href="/tutorials/getting-started/">Getting Started</a></b><ul class="tutorial-index"><li><a href="/tutorials/getting-started/working-with-paper-js/">Working with Paper.js</a></li><li><a href="/tutorials/getting-started/using-javascript-directly/">Using JavaScript Directly</a></li><li><a href="/tutorials/getting-started/paperscript-interoperability/">PaperScript Interoperability</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/geometry/">Geometry</a></b><ul class="tutorial-index"><li><a href="/tutorials/geometry/point-size-and-rectangle/">Point, Size and Rectangle</a></li><li><a href="/tutorials/geometry/object-conversion/">Object Conversion</a></li><li><a href="/tutorials/geometry/mathematical-operations/">Mathematical Operations</a></li><li><a href="/tutorials/geometry/vector-geometry/">Vector Geometry</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/paths/">Paths</a></b><ul class="tutorial-index"><li><a href="/tutorials/paths/working-with-path-items/">Working with Path Items</a></li><li><a href="/tutorials/paths/creating-predefined-shapes/">Creating Predefined Shapes</a></li><li><a href="/tutorials/paths/using-color-and-style/">Using Color and Style</a></li><li><a href="/tutorials/paths/smoothing-simplifying-flattening/">Smoothing, Simplifying &amp; Flattening</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/interaction/">Interaction</a></b><ul class="tutorial-index"><li><a href="/tutorials/interaction/creating-mouse-tools/">Creating Mouse Tools</a></li><li><a href="/tutorials/interaction/mouse-tool-events/">Mouse Tool Events</a></li><li><a href="/tutorials/interaction/working-with-mouse-vectors/">Working with Mouse Vectors</a></li><li><a href="/tutorials/interaction/keyboard-interaction/">Keyboard Interaction</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/project-items/">Project &amp; Items</a></b><ul class="tutorial-index"><li><a href="/tutorials/project-items/working-with-items/">Working with Items</a></li><li><a href="/tutorials/project-items/transforming-items/">Transforming Items</a></li><li><a href="/tutorials/project-items/project-hierarchy/">Project Hierarchy</a></li><li><a href="/tutorials/project-items/working-with-symbols/">Working with Symbols</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/images/">Images</a></b><ul class="tutorial-index"><li><a href="/tutorials/images/working-with-rasters/">Working with Rasters</a></li><li><a href="/tutorials/images/using-pixel-colors/">Using Pixel Colors</a></li><li><a href="/tutorials/images/color-averaging-image-areas/">Color Averaging Image Areas</a></li></ul></li><li class="expandable-list expanded"><b><a href="/tutorials/animation/">Animation</a></b><ul class="tutorial-index"><li class="active"><span>Creating Animations</span></li></ul></li></ul><div class="sticky"><h1>Content</h1><ul class="toc"></ul></div></aside></body></html>

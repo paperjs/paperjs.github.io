@@ -1,0 +1,489 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"/><link rel="stylesheet" href="/assets/css/style.css"/><link rel="icon" href="/assets/favicon.ico" type="image/x-icon"/><link rel="shortcut icon" href="/assets/favicon.ico"/><script src="/assets/js/jquery.js"></script><script src="/assets/js/paper.js"></script><script src="/assets/js/codemirror.js"></script><script src="/assets/js/scripts.js"></script><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-10082945-6']);
+_gaq.push(['_trackPageview']);
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script><title>Paper.js - Paper.js</title></head><body><nav><h1><a href="/">Paper.js</a></h1><ul><li><a href="/about/">About</a></li><li><a href="/features/">Features</a></li><li class="spacer"></li><li><a href="/examples/">Examples</a></li><li><a href="/showcase/">Showcase</a></li><li class="spacer"></li><li><a href="/tutorials/">Tutorials</a></li><li><a href="/reference/">Reference</a></li><li class="spacer"></li><li><a href="/download/">Download</a></li><li><a href="/donation/">Donation</a></li><li><a href="/license/">License</a></li><li class="spacer"></li><li><a href="http://groups.google.com/group/paperjs" target="_blank">Mailing List</a></li><li><a href="http://twitter.com/PaperJS" target="_blank">Follow on Twitter</a></li><li><a href="http://github.com/paperjs/paper.js" target="_blank">Watch on Github</a></li></ul></nav><article><h1>CurveLocation</h1><div class="reference"><div class="reference-class">
+
+
+<p>CurveLocation objects describe a location on <a href="/reference/curve"><tt>Curve</tt></a>
+objects, as defined by the curve <a href="/reference/curvelocation#parameter" onclick="return toggleMember('parameter', true);"><tt>parameter</tt></a>, a value between
+<tt>0</tt> (beginning of the curve) and <tt>1</tt> (end of the curve). If
+the curve is part of a <a href="/reference/path"><tt>Path</tt></a> item, its <a href="/reference/curvelocation#index" onclick="return toggleMember('index', true);"><tt>index</tt></a> inside the
+<a href="/reference/path#curves"><tt>path.curves</tt></a> array is also provided.</p>
+<p>The class is in use in many places, such as
+{@link Path#getLocationAt(offset, isParameter)},
+<a href="/reference/path#getlocationof-point"><tt>path.getLocationOf(point)</tt></a>,
+{@link Path#getNearestLocation(point),
+<a href="/reference/pathitem#getintersections-path"><tt>pathItem.getIntersections(path)</tt></a>,
+etc.</p>
+
+</div>
+
+<!-- ============================== constructors ========================= -->
+<div class="reference-members"><h2>Constructors</h2>
+	
+		
+<div id="curvelocation-curve-parameter-point-_curve2-_parameter2-_point2-_distance" class="member">
+<div class="member-link">
+<a name="curvelocation-curve-parameter-point-_curve2-_parameter2-_point2-_distance" href="#curvelocation-curve-parameter-point-_curve2-_parameter2-_point2-_distance"><tt><b>CurveLocation</b>(curve, parameter, point)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+<p>Creates a new CurveLocation object.</p>
+
+<ul><b>Parameters:</b>
+
+<li>
+<tt>curve:</tt> 
+<a href="/reference/curve"><tt>Curve</tt></a>
+
+
+</li>
+
+<li>
+<tt>parameter:</tt> 
+<tt>Number</tt>
+
+
+</li>
+
+<li>
+<tt>point:</tt> 
+<a href="/reference/point"><tt>Point</tt></a>
+
+
+</li>
+
+</ul>
+
+
+
+
+</div>
+</div>
+</div>
+	
+</div>
+
+
+
+
+
+	<div class="reference-members"><h2>Properties</h2>
+		
+			
+<div id="segment" class="member">
+<div class="member-link">
+<a name="segment" href="#segment"><tt><b>segment</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The segment of the curve which is closer to the described location.</p>
+	
+		<p>Read only.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<a href="/reference/segment"><tt>Segment</tt></a>
+	</li>
+	</ul>
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
+<div id="curve" class="member">
+<div class="member-link">
+<a name="curve" href="#curve"><tt><b>curve</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The curve by which the location is defined.</p>
+	
+		<p>Read only.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<a href="/reference/curve"><tt>Curve</tt></a>
+	</li>
+	</ul>
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
+<div id="intersection" class="member">
+<div class="member-link">
+<a name="intersection" href="#intersection"><tt><b>intersection</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The curve location on the intersecting curve, if this location is the
+result of a call to <a href="/reference/pathitem#getintersections-path"><tt>pathItem.getIntersections(path)</tt></a> /
+<tt>Curve#getIntersections(curve)</tt>.</p>
+	
+		<p>Read only.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<a href="/reference/curvelocation"><tt>CurveLocation</tt></a>
+	</li>
+	</ul>
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
+<div id="path" class="member">
+<div class="member-link">
+<a name="path" href="#path"><tt><b>path</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The path this curve belongs to, if any.</p>
+	
+		<p>Read only.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<a href="/reference/item"><tt>Item</tt></a>
+	</li>
+	</ul>
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
+<div id="index" class="member">
+<div class="member-link">
+<a name="index" href="#index"><tt><b>index</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The index of the curve within the <a href="/reference/path#curves"><tt>path.curves</tt></a> list, if the
+curve is part of a <a href="/reference/path"><tt>Path</tt></a> item.</p>
+	
+		<p>Read only.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<tt>Index</tt>
+	</li>
+	</ul>
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
+<div id="offset" class="member">
+<div class="member-link">
+<a name="offset" href="#offset"><tt><b>offset</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The length of the path from its beginning up to the location described
+by this object.</p>
+	
+		<p>Read only.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<tt>Number</tt>
+	</li>
+	</ul>
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
+<div id="curveoffset" class="member">
+<div class="member-link">
+<a name="curveoffset" href="#curveoffset"><tt><b>curveOffset</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The length of the curve from its beginning up to the location described
+by this object.</p>
+	
+		<p>Read only.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<tt>Number</tt>
+	</li>
+	</ul>
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
+<div id="parameter" class="member">
+<div class="member-link">
+<a name="parameter" href="#parameter"><tt><b>parameter</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The curve parameter, as used by various bezier curve calculations. It is
+value between <tt>0</tt> (beginning of the curve) and <tt>1</tt> (end of
+the curve).</p>
+	
+		<p>Read only.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<tt>Number</tt>
+	</li>
+	</ul>
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
+<div id="point" class="member">
+<div class="member-link">
+<a name="point" href="#point"><tt><b>point</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The point which is defined by the <a href="/reference/curvelocation#curve" onclick="return toggleMember('curve', true);"><tt>curve</tt></a> and
+<a href="/reference/curvelocation#parameter" onclick="return toggleMember('parameter', true);"><tt>parameter</tt></a>.</p>
+	
+		<p>Read only.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<a href="/reference/point"><tt>Point</tt></a>
+	</li>
+	</ul>
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
+<div id="tangent" class="member">
+<div class="member-link">
+<a name="tangent" href="#tangent"><tt><b>tangent</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The tangential vector to the <a href="/reference/curvelocation#curve" onclick="return toggleMember('curve', true);"><tt>curve</tt></a> at the given location.</p>
+	
+		<p>Read only.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<a href="/reference/point"><tt>Point</tt></a>
+	</li>
+	</ul>
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
+<div id="normal" class="member">
+<div class="member-link">
+<a name="normal" href="#normal"><tt><b>normal</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The normal vector to the <a href="/reference/curvelocation#curve" onclick="return toggleMember('curve', true);"><tt>curve</tt></a> at the given location.</p>
+	
+		<p>Read only.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<a href="/reference/point"><tt>Point</tt></a>
+	</li>
+	</ul>
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
+<div id="distance" class="member">
+<div class="member-link">
+<a name="distance" href="#distance"><tt><b>distance</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The distance from the queried point to the returned location.</p>
+	
+		<p>Read only.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<tt>Number</tt>
+	</li>
+	</ul>
+	
+	
+</div>
+
+</div>
+</div>
+		
+	</div>
+
+
+
+<!-- ============================== methods ================================ -->
+	<div class="reference-members"><h2>Methods</h2>
+		
+			
+<div id="tostring" class="member">
+<div class="member-link">
+<a name="tostring" href="#tostring"><tt><b>toString</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	
+	
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>String</tt></tt>&nbsp;&mdash;&nbsp;A string representation of the curve location.
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+		
+	</div>
+
+
+
+</div></article><aside><h1>Index</h1><div class="reference"><ul class="reference-classes"><li><a href="/reference/global">Global Scope</a></li>
+<li>
+<h2>Basic Types</h2>
+<ul>
+<li><a href="/reference/point">Point</a></li>
+<li><a href="/reference/size">Size</a></li>
+<li><a href="/reference/rectangle">Rectangle</a></li>
+<li><a href="/reference/matrix">Matrix</a></li>
+</ul>
+<li>
+<h2>Projects</h2>
+<ul>
+<li><a href="/reference/project">Project</a></li>
+<li><a href="/reference/symbol">Symbol</a></li>
+</ul>
+<li>
+<h2>Items</h2>
+<ul>
+<li><a href="/reference/item">Item</a></li>
+<li><a href="/reference/layer">Layer</a></li>
+<li><a href="/reference/group">Group</a></li>
+<li><a href="/reference/shape">Shape</a></li>
+<li><a href="/reference/raster">Raster</a></li>
+<li><a href="/reference/placedsymbol">PlacedSymbol</a></li>
+<li><hr /></li>
+<li><a href="/reference/hitresult">HitResult</a></li>
+</ul>
+<li>
+<h2>Paths</h2>
+<ul>
+<li><a href="/reference/pathitem">PathItem</a></li>
+<li><a href="/reference/path">Path</a></li>
+<li><a href="/reference/compoundpath">CompoundPath</a></li>
+<li><a href="/reference/segment">Segment</a></li>
+<li><a href="/reference/curve">Curve</a></li>
+<li><hr /></li>
+<li><a href="/reference/curvelocation">CurveLocation</a></li>
+</ul>
+<li>
+<h2>Styling</h2>
+<ul>
+<li><a href="/reference/style">Style</a></li>
+<li><a href="/reference/color">Color</a></li>
+<li><a href="/reference/gradient">Gradient</a></li>
+<li><a href="/reference/gradientstop">GradientStop</a></li>
+</ul>
+<li>
+<h2>Typography</h2>
+<ul>
+<li><a href="/reference/textitem">TextItem</a></li>
+<li><a href="/reference/pointtext">PointText</a></li>
+</ul>
+<li>
+<h2>User Interfaces</h2>
+<ul>
+<li><a href="/reference/view">View</a></li>
+<li><a href="/reference/tool">Tool</a></li>
+<li><a href="/reference/toolevent">ToolEvent</a></li>
+<li><a href="/reference/palette">Palette</a></li>
+<li><a href="/reference/component">Component</a></li>
+<li><a href="/reference/key">Key</a></li>
+<li><a href="/reference/keyevent">KeyEvent</a></li>
+</ul>
+<li>
+<h2>JavaScript</h2>
+<ul>
+<li><a href="/reference/paperscope">PaperScope</a></li>
+<li><a href="/reference/paperscript">PaperScript</a></li>
+</ul>
+</ul></div></aside></body></html>

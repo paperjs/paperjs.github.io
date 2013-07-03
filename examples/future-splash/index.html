@@ -1,0 +1,119 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"/><link rel="stylesheet" href="/assets/css/style.css"/><link rel="icon" href="/assets/favicon.ico" type="image/x-icon"/><link rel="shortcut icon" href="/assets/favicon.ico"/><script src="/assets/js/jquery.js"></script><script src="/assets/js/paper.js"></script><script src="/assets/js/codemirror.js"></script><script src="/assets/js/scripts.js"></script><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-10082945-6']);
+_gaq.push(['_trackPageview']);
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script><title>Paper.js - Paper.js</title></head><body class="fullscreen"><nav><h1><a href="/">Paper.js</a></h1><ul><li><a href="/about/">About</a></li><li><a href="/features/">Features</a></li><li class="spacer"></li><li><a href="/examples/">Examples</a><ul><li><a href="/examples/chain/">Chain</a></li><li><a href="/examples/tadpoles/">Tadpoles</a></li><li><a href="/examples/nyan-rainbow/">Nyan Rainbow</a></li><li><a href="/examples/rounded-rectangles/">Rounded Rectangles</a></li><li><a href="/examples/radial-rainbows/">Radial Rainbows</a></li><li><a href="/examples/meta-balls/">Meta Balls</a></li><li><a href="/examples/voronoi/">Voronoi</a></li><li class="active"><a href="/examples/future-splash/">Future Splash</a></li><li><a href="/examples/smoothing/">Smoothing</a></li><li><a href="/examples/spiral-raster/">Spiral Raster</a></li><li><a href="/examples/division-raster/">Division Raster</a></li><li><a href="/examples/q-bertify/">Q-bertify</a></li><li><a href="/examples/path-intersections/">Path Intersections</a></li><li><a href="/examples/path-simplification/">Path Simplification</a></li><li><a href="/examples/hit-testing/">Hit Testing</a></li><li><a href="/examples/bouncing-balls/">Bouncing Balls</a></li></ul></li><li><a href="/showcase/">Showcase</a></li><li class="spacer"></li><li><a href="/tutorials/">Tutorials</a></li><li><a href="/reference/">Reference</a></li><li class="spacer"></li><li><a href="/download/">Download</a></li><li><a href="/donation/">Donation</a></li><li><a href="/license/">License</a></li><li class="spacer"></li><li><a href="http://groups.google.com/group/paperjs" target="_blank">Mailing List</a></li><li><a href="http://twitter.com/PaperJS" target="_blank">Follow on Twitter</a></li><li><a href="http://github.com/paperjs/paper.js" target="_blank">Watch on Github</a></li></ul></nav><article><div class="paperscript"><div class="buttons"><div class="button run">Source</div><div class="explain"></div></div><script type="text/paperscript" canvas="canvas-1">
+// Code ported to Paper.js from http://the389.com/9/1/
+// with permission.
+
+var values = {
+	friction: 0.8,
+	timeStep: 0.01,
+	amount: 15,
+	mass: 2,
+	count: 0
+};
+values.invMass = 1 / values.mass;
+
+var path, springs;
+var size = view.size * [1.2, 1];
+
+var Spring = function(a, b, strength, restLength) {
+	this.a = a;
+	this.b = b;
+	this.restLength = restLength || 80;
+	this.strength = strength ? strength : 0.55;
+	this.mamb = values.invMass * values.invMass;
+};
+
+Spring.prototype.update = function() {
+	var delta = this.b - this.a;
+	var dist = delta.length;
+	var normDistStrength = (dist - this.restLength) /
+			(dist * this.mamb) * this.strength;
+	delta.y *= normDistStrength * values.invMass * 0.2;
+	if (!this.a.fixed)
+		this.a.y += delta.y;
+	if (!this.b.fixed)
+		this.b.y -= delta.y;
+};
+
+
+function createPath(strength) {
+	var path = new Path({
+		fillColor: 'black'
+	});
+	springs = [];
+	for (var i = 0; i <= values.amount; i++) {
+		var segment = path.add(new Point(i / values.amount, 0.5) * size);
+		var point = segment.point;
+		if (i == 0 || i == values.amount)
+			point.y += size.height;
+		point.px = point.x;
+		point.py = point.y;
+		// The first two and last two points are fixed:
+		point.fixed = i < 2 || i > values.amount - 2;
+		if (i > 0) {
+			var spring = new Spring(segment.previous.point, point, strength);
+			springs.push(spring);
+		}
+	}
+	path.position.x -= size.width / 4;
+	return path;
+}
+
+function onResize() {
+	if (path)
+		path.remove();
+	size = view.bounds.size * [2, 1];
+	path = createPath(0.1);
+}
+
+function onMouseMove(event) {
+	var location = path.getNearestLocation(event.point);
+	var segment = location.segment;
+	var point = segment.point;
+
+	if (!point.fixed && location.distance < size.height / 4) {
+		var y = event.point.y;
+		point.y += (y - point.y) / 6;
+		if (segment.previous && !segment.previous.fixed) {
+			var previous = segment.previous.point;
+			previous.y += (y - previous.y) / 24;
+		}
+		if (segment.next && !segment.next.fixed) {
+			var next = segment.next.point;
+			next.y += (y - next.y) / 24;
+		}
+	}
+}
+
+function onFrame(event) {
+	updateWave(path);
+}
+
+function updateWave(path) {
+	var force = 1 - values.friction * values.timeStep * values.timeStep;
+	for (var i = 0, l = path.segments.length; i < l; i++) {
+		var point = path.segments[i].point;
+		var dy = (point.y - point.py) * force;
+		point.py = point.y;
+		point.y = Math.max(point.y + dy, 0);
+	}
+
+	for (var j = 0, l = springs.length; j < l; j++) {
+		springs[j].update();
+	}
+	path.smooth();
+}
+
+function onKeyDown(event) {
+	if (event.key == 'space') {
+		path.fullySelected = !path.fullySelected;
+		path.fillColor = path.fullySelected ? null : 'black';
+	}
+}
+</script><div class="canvas"><canvas resize="true" id="canvas-1"></canvas></div></div></article></body></html>

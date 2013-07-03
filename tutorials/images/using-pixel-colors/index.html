@@ -1,0 +1,123 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"/><link rel="stylesheet" href="/assets/css/style.css"/><link rel="icon" href="/assets/favicon.ico" type="image/x-icon"/><link rel="shortcut icon" href="/assets/favicon.ico"/><script src="/assets/js/jquery.js"></script><script src="/assets/js/paper.js"></script><script src="/assets/js/codemirror.js"></script><script src="/assets/js/scripts.js"></script><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-10082945-6']);
+_gaq.push(['_trackPageview']);
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script><title>Paper.js - Paper.js</title></head><body><nav><h1><a href="/">Paper.js</a></h1><ul><li><a href="/about/">About</a></li><li><a href="/features/">Features</a></li><li class="spacer"></li><li><a href="/examples/">Examples</a></li><li><a href="/showcase/">Showcase</a></li><li class="spacer"></li><li><a href="/tutorials/">Tutorials</a><ul></ul></li><li><a href="/reference/">Reference</a></li><li class="spacer"></li><li><a href="/download/">Download</a></li><li><a href="/donation/">Donation</a></li><li><a href="/license/">License</a></li><li class="spacer"></li><li><a href="http://groups.google.com/group/paperjs" target="_blank">Mailing List</a></li><li><a href="http://twitter.com/PaperJS" target="_blank">Follow on Twitter</a></li><li><a href="http://github.com/paperjs/paper.js" target="_blank">Watch on Github</a></li></ul></nav><article class="tutorial"><h1>Using Pixel Colors</h1><p>
+Using Paper.js you can easily work with the colors of individual pixels of <tt><a href="/reference/raster">Raster</a></tt> items.
+</p>
+<section id="raster-size"><a name="raster-size" title="Raster Size" class="anchor"><h2>Raster Size</h2></a></section>
+<p>
+The <tt><a href="/reference/raster#size">raster.size</a></tt> property of a raster specifies its size in pixels as a <tt><a href="/reference/size">Size</a></tt> object. It doesn&apos;t matter if you transform an image, its size in pixels will stay the same. Changing this size means that the image will be re-interpolated. This will come in handy later when we want to iterate through the individual pixels of an image, since the average size of an image contains way too many pixels.
+</p>
+<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-1">
+// Create a raster item using the image tag with id='mona'
+var raster = new Raster('mona');
+
+// Downsize the raster to 80 pixels wide and 60 pixels high:
+raster.size = new Size(80, 60);
+
+// Move the raster to the center of the view
+raster.position = view.center;
+</script><div class="canvas"><canvas height="100" id="canvas-1" width="540"></canvas></div>
+</div><br><br>
+<section id="colors-of-pixels"><a name="colors-of-pixels" title="Colors of Pixels" class="anchor"><h2>Colors of Pixels</h2></a></section>
+<p>
+To find the color of a specific pixel in a raster, we use <tt><a href="/reference/raster#getpixel-x-y">raster.getPixel(x, y)</a></tt> and pass it the x and y offset of the pixel we want to look at. The <tt><a href="/reference/raster#getpixel-x-y">raster.getPixel(x, y)</a></tt> function returns the color of the pixel as an <tt><a href="/reference/color">Color</a></tt>.
+</p>
+<p>
+The following script loops through the pixels of the selected raster and creates a circle shaped path for each of them and fills them with the color of the pixels.
+</p>
+<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-2">
+// Create a raster item using the image tag with id='mona'
+var raster = new Raster('mona');
+
+// Since the example image we're using is much too large,
+// and therefore has way too many pixels, lets downsize it to
+// 40 pixels wide and 30 pixels high:
+raster.size = new Size(40, 30);
+
+// Hide the raster:
+raster.visible = false;
+
+// The size of our grid cells:
+var gridSize = 12;
+
+// Space the cells by 120%:
+var spacing = 1.2;
+
+for (var y = 0; y < raster.height; y++) {
+	for(var x = 0; x < raster.width; x++) {
+		// Get the color of the pixel:
+		var color = raster.getPixel(x, y);
+
+		// Create a circle shaped path:
+		var path = new Path.Circle({
+			center: new Point(x, y) * gridSize,
+			radius: gridSize / 2 / spacing
+		});
+
+		// Set the fill color of the path to the color
+		// of the pixel:
+		path.fillColor = color;
+	}
+}
+
+// Move the active layer to the center of the view:
+project.activeLayer.position = view.center;
+</script><div class="canvas"><canvas height="400" id="canvas-2" width="540"></canvas></div>
+</div><br><br>
+<section id="using-color-channel-values"><a name="using-color-channel-values" title="Using Color Channel Values" class="anchor"><h2>Using Color Channel Values</h2></a></section>
+<p>
+Instead of directly using the colors returned from <tt><a href="/reference/raster#getpixel-x-y">raster.getPixel(x, y)</a></tt>, we can also use the values of their individual channels to do different things. The color channels of a color contain a value between 0 and 1.
+</p>
+<p>
+The following script loops through the pixels of the selected raster and creates a grid of circle shaped paths of varying sizes depending on the <tt>gray</tt> value of their colors.
+</p>
+<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-3">
+// Create a raster item using the image tag with id='mona'
+var raster = new Raster('mona');
+
+// Since the example image we're using is much too large,
+// and therefore has way too many pixels, lets downsize it to
+// 40 pixels wide and 30 pixels high:
+raster.size = new Size(40, 30);
+
+// Hide the raster:
+raster.visible = false;
+
+// The size of our grid cells:
+var gridSize = 12;
+
+// Space the cells by 120%:
+var spacing = 1.2;
+
+for (var y = 0; y < raster.height; y++) {
+	for(var x = 0; x < raster.width; x++) {
+		// Get the color of the pixel:
+		var color = raster.getPixel(x, y);
+
+		// Create a circle shaped path:
+		var path = new Path.Circle({
+			center: new Point(x, y) * gridSize,
+			radius: gridSize / 2 / spacing,
+			fillColor: 'black'
+		});
+
+		// Scale the path by the amount of gray in the pixel color:
+		path.scale(1 - color.gray);
+	}
+}
+
+// Move the active layer to the center of the view:
+project.activeLayer.position = view.center;
+</script><div class="canvas"><canvas height="400" id="canvas-3" width="540"></canvas></div>
+</div><br><br>
+<p>
+This code is very similar to the example above, but this time we don&apos;t fill the paths with the color we find when we call <tt><a href="/reference/raster#raster-getpixel-x-y">Raster.getPixel(x, y)</a></tt>. Instead, we look at how dark the color is using <tt><a href="/reference/color#gray">color.gray</a></tt>, which is a value between <tt>0</tt> (white) and <tt>1</tt> (black) and use it to scale the paths.
+</p>
+<p>
+<img class="hidden" id="mona" src="/tutorials/images/using-pixel-colors/mona-lisa-1.jpg" width="595" height="436"></img>
+</p></article><aside><h1>Index</h1><ul class="tutorial-index"><li class="expandable-list undefined"><b><a href="/tutorials/getting-started/">Getting Started</a></b><ul class="tutorial-index"><li><a href="/tutorials/getting-started/working-with-paper-js/">Working with Paper.js</a></li><li><a href="/tutorials/getting-started/using-javascript-directly/">Using JavaScript Directly</a></li><li><a href="/tutorials/getting-started/paperscript-interoperability/">PaperScript Interoperability</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/geometry/">Geometry</a></b><ul class="tutorial-index"><li><a href="/tutorials/geometry/point-size-and-rectangle/">Point, Size and Rectangle</a></li><li><a href="/tutorials/geometry/object-conversion/">Object Conversion</a></li><li><a href="/tutorials/geometry/mathematical-operations/">Mathematical Operations</a></li><li><a href="/tutorials/geometry/vector-geometry/">Vector Geometry</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/paths/">Paths</a></b><ul class="tutorial-index"><li><a href="/tutorials/paths/working-with-path-items/">Working with Path Items</a></li><li><a href="/tutorials/paths/creating-predefined-shapes/">Creating Predefined Shapes</a></li><li><a href="/tutorials/paths/using-color-and-style/">Using Color and Style</a></li><li><a href="/tutorials/paths/smoothing-simplifying-flattening/">Smoothing, Simplifying &amp; Flattening</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/interaction/">Interaction</a></b><ul class="tutorial-index"><li><a href="/tutorials/interaction/creating-mouse-tools/">Creating Mouse Tools</a></li><li><a href="/tutorials/interaction/mouse-tool-events/">Mouse Tool Events</a></li><li><a href="/tutorials/interaction/working-with-mouse-vectors/">Working with Mouse Vectors</a></li><li><a href="/tutorials/interaction/keyboard-interaction/">Keyboard Interaction</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/project-items/">Project &amp; Items</a></b><ul class="tutorial-index"><li><a href="/tutorials/project-items/working-with-items/">Working with Items</a></li><li><a href="/tutorials/project-items/transforming-items/">Transforming Items</a></li><li><a href="/tutorials/project-items/project-hierarchy/">Project Hierarchy</a></li><li><a href="/tutorials/project-items/working-with-symbols/">Working with Symbols</a></li></ul></li><li class="expandable-list expanded"><b><a href="/tutorials/images/">Images</a></b><ul class="tutorial-index"><li><a href="/tutorials/images/working-with-rasters/">Working with Rasters</a></li><li class="active"><span>Using Pixel Colors</span></li><li><a href="/tutorials/images/color-averaging-image-areas/">Color Averaging Image Areas</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/animation/">Animation</a></b><ul class="tutorial-index"><li><a href="/tutorials/animation/creating-animations/">Creating Animations</a></li></ul></li></ul><div class="sticky"><h1>Content</h1><ul class="toc"></ul></div></aside></body></html>

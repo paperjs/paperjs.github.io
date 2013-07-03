@@ -1,0 +1,486 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"/><link rel="stylesheet" href="/assets/css/style.css"/><link rel="icon" href="/assets/favicon.ico" type="image/x-icon"/><link rel="shortcut icon" href="/assets/favicon.ico"/><script src="/assets/js/jquery.js"></script><script src="/assets/js/paper.js"></script><script src="/assets/js/codemirror.js"></script><script src="/assets/js/scripts.js"></script><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-10082945-6']);
+_gaq.push(['_trackPageview']);
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script><title>Paper.js - Paper.js</title></head><body><nav><h1><a href="/">Paper.js</a></h1><ul><li><a href="/about/">About</a></li><li><a href="/features/">Features</a></li><li class="spacer"></li><li><a href="/examples/">Examples</a></li><li><a href="/showcase/">Showcase</a></li><li class="spacer"></li><li><a href="/tutorials/">Tutorials</a></li><li><a href="/reference/">Reference</a></li><li class="spacer"></li><li><a href="/download/">Download</a></li><li><a href="/donation/">Donation</a></li><li><a href="/license/">License</a></li><li class="spacer"></li><li><a href="http://groups.google.com/group/paperjs" target="_blank">Mailing List</a></li><li><a href="http://twitter.com/PaperJS" target="_blank">Follow on Twitter</a></li><li><a href="http://github.com/paperjs/paper.js" target="_blank">Watch on Github</a></li></ul></nav><article><h1>Global Scope</h1><div class="reference"><div class="reference-class">
+
+
+
+
+</div>
+
+
+
+
+
+	<div class="reference-members"><h2>Properties</h2>
+		
+			
+<div id="paper" class="member">
+<div class="member-link">
+<a name="paper" href="#paper"><tt><b>paper</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>A reference to the currently active <a href="/reference/paperscope"><tt>PaperScope</tt></a> object.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<a href="/reference/paperscope"><tt>PaperScope</tt></a>
+	</li>
+	</ul>
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
+	<h3>Global PaperScope Properties (for PaperScript)</h3>
+
+<div id="project" class="member">
+<div class="member-link">
+<a name="project" href="#project"><tt><b>project</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The currently active project.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<a href="/reference/project"><tt>Project</tt></a>
+	</li>
+	</ul>
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
+<div id="projects" class="member">
+<div class="member-link">
+<a name="projects" href="#projects"><tt><b>projects</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The list of all open projects within the current Paper.js context.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		Array of <a href="/reference/project"><tt>Project</tt></a> objects
+	</li>
+	</ul>
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
+<div id="view" class="member">
+<div class="member-link">
+<a name="view" href="#view"><tt><b>view</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The reference to the active project's view.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<a href="/reference/view"><tt>View</tt></a>
+	</li>
+	</ul>
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
+<div id="tool" class="member">
+<div class="member-link">
+<a name="tool" href="#tool"><tt><b>tool</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The reference to the active tool.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<a href="/reference/tool"><tt>Tool</tt></a>
+	</li>
+	</ul>
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
+<div id="tools" class="member">
+<div class="member-link">
+<a name="tools" href="#tools"><tt><b>tools</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The list of available tools.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		Array of <a href="/reference/tool"><tt>Tool</tt></a> objects
+	</li>
+	</ul>
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
+	<h3>View Event Handlers (for PaperScript)</h3>
+
+<div id="onframe" class="member">
+<div class="member-link">
+<a name="onframe" href="#onframe"><tt><b>onFrame</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>A reference to the <a href="/reference/view#onframe"><tt>view.onFrame</tt></a> handler function.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<tt>Function</tt>
+	</li>
+	</ul>
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
+<div id="onresize" class="member">
+<div class="member-link">
+<a name="onresize" href="#onresize"><tt><b>onResize</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>A reference to the <a href="/reference/view#onresize"><tt>view.onResize</tt></a> handler function.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<tt>Function</tt>
+	</li>
+	</ul>
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
+	<h3>Mouse Event Handlers (for PaperScript)</h3>
+
+<div id="onmousedown" class="member">
+<div class="member-link">
+<a name="onmousedown" href="#onmousedown"><tt><b>onMouseDown</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>A reference to the <a href="/reference/tool#onmousedown"><tt>tool.onMouseDown</tt></a> handler function.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<tt>Function</tt>
+	</li>
+	</ul>
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
+<div id="onmousedrag" class="member">
+<div class="member-link">
+<a name="onmousedrag" href="#onmousedrag"><tt><b>onMouseDrag</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>A reference to the <a href="/reference/tool#onmousedrag"><tt>tool.onMouseDrag</tt></a> handler function.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<tt>Function</tt>
+	</li>
+	</ul>
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
+<div id="onmousemove" class="member">
+<div class="member-link">
+<a name="onmousemove" href="#onmousemove"><tt><b>onMouseMove</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>A reference to the <a href="/reference/tool#onmousemove"><tt>tool.onMouseMove</tt></a> handler function.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<tt>Function</tt>
+	</li>
+	</ul>
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
+<div id="onmouseup" class="member">
+<div class="member-link">
+<a name="onmouseup" href="#onmouseup"><tt><b>onMouseUp</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>A reference to the <a href="/reference/tool#onmouseup"><tt>tool.onMouseUp</tt></a> handler function.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<tt>Function</tt>
+	</li>
+	</ul>
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
+	<h3>Keyboard Event Handlers (for PaperScript)</h3>
+
+<div id="onkeydown" class="member">
+<div class="member-link">
+<a name="onkeydown" href="#onkeydown"><tt><b>onKeyDown</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>A reference to the <a href="/reference/tool#onkeydown"><tt>tool.onKeyDown</tt></a> handler function.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<tt>Function</tt>
+	</li>
+	</ul>
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
+<div id="onkeyup" class="member">
+<div class="member-link">
+<a name="onkeyup" href="#onkeyup"><tt><b>onKeyUp</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>A reference to the <a href="/reference/tool#onkeyup"><tt>tool.onKeyUp</tt></a> handler function.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<tt>Function</tt>
+	</li>
+	</ul>
+	
+	
+</div>
+
+</div>
+</div>
+		
+	</div>
+
+
+
+<!-- ============================== methods ================================ -->
+	<div class="reference-members"><h2>Methods</h2>
+		
+			
+<div id="initialize" class="member">
+<div class="member-link">
+<a name="initialize" href="#initialize"><tt><b>initialize</b>([precision])</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>precision:</tt> 
+<tt>Number</tt>
+&mdash;&nbsp;the amount of fractional digits.
+&mdash;&nbsp;optional, default: <tt>5</tt>
+</li>
+
+</ul>
+
+	
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="number-num" class="member">
+<div class="member-link">
+<a name="number-num" href="#number-num"><tt><b>number</b>(num)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Utility function for rendering numbers as strings at a precision of
+up to the amount of fractional digits.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>num:</tt> 
+<tt>Number</tt>
+&mdash;&nbsp;the number to be converted to a string
+
+</li>
+
+</ul>
+
+	
+	
+	
+</div>
+</div>
+</div>
+		
+	</div>
+
+
+
+</div></article><aside><h1>Index</h1><div class="reference"><ul class="reference-classes"><li><a href="/reference/global">Global Scope</a></li>
+<li>
+<h2>Basic Types</h2>
+<ul>
+<li><a href="/reference/point">Point</a></li>
+<li><a href="/reference/size">Size</a></li>
+<li><a href="/reference/rectangle">Rectangle</a></li>
+<li><a href="/reference/matrix">Matrix</a></li>
+</ul>
+<li>
+<h2>Projects</h2>
+<ul>
+<li><a href="/reference/project">Project</a></li>
+<li><a href="/reference/symbol">Symbol</a></li>
+</ul>
+<li>
+<h2>Items</h2>
+<ul>
+<li><a href="/reference/item">Item</a></li>
+<li><a href="/reference/layer">Layer</a></li>
+<li><a href="/reference/group">Group</a></li>
+<li><a href="/reference/shape">Shape</a></li>
+<li><a href="/reference/raster">Raster</a></li>
+<li><a href="/reference/placedsymbol">PlacedSymbol</a></li>
+<li><hr /></li>
+<li><a href="/reference/hitresult">HitResult</a></li>
+</ul>
+<li>
+<h2>Paths</h2>
+<ul>
+<li><a href="/reference/pathitem">PathItem</a></li>
+<li><a href="/reference/path">Path</a></li>
+<li><a href="/reference/compoundpath">CompoundPath</a></li>
+<li><a href="/reference/segment">Segment</a></li>
+<li><a href="/reference/curve">Curve</a></li>
+<li><hr /></li>
+<li><a href="/reference/curvelocation">CurveLocation</a></li>
+</ul>
+<li>
+<h2>Styling</h2>
+<ul>
+<li><a href="/reference/style">Style</a></li>
+<li><a href="/reference/color">Color</a></li>
+<li><a href="/reference/gradient">Gradient</a></li>
+<li><a href="/reference/gradientstop">GradientStop</a></li>
+</ul>
+<li>
+<h2>Typography</h2>
+<ul>
+<li><a href="/reference/textitem">TextItem</a></li>
+<li><a href="/reference/pointtext">PointText</a></li>
+</ul>
+<li>
+<h2>User Interfaces</h2>
+<ul>
+<li><a href="/reference/view">View</a></li>
+<li><a href="/reference/tool">Tool</a></li>
+<li><a href="/reference/toolevent">ToolEvent</a></li>
+<li><a href="/reference/palette">Palette</a></li>
+<li><a href="/reference/component">Component</a></li>
+<li><a href="/reference/key">Key</a></li>
+<li><a href="/reference/keyevent">KeyEvent</a></li>
+</ul>
+<li>
+<h2>JavaScript</h2>
+<ul>
+<li><a href="/reference/paperscope">PaperScope</a></li>
+<li><a href="/reference/paperscript">PaperScript</a></li>
+</ul>
+</ul></div></aside></body></html>

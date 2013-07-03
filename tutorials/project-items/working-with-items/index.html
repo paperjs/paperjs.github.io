@@ -1,0 +1,128 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"/><link rel="stylesheet" href="/assets/css/style.css"/><link rel="icon" href="/assets/favicon.ico" type="image/x-icon"/><link rel="shortcut icon" href="/assets/favicon.ico"/><script src="/assets/js/jquery.js"></script><script src="/assets/js/paper.js"></script><script src="/assets/js/codemirror.js"></script><script src="/assets/js/scripts.js"></script><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-10082945-6']);
+_gaq.push(['_trackPageview']);
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script><title>Paper.js - Paper.js</title></head><body><nav><h1><a href="/">Paper.js</a></h1><ul><li><a href="/about/">About</a></li><li><a href="/features/">Features</a></li><li class="spacer"></li><li><a href="/examples/">Examples</a></li><li><a href="/showcase/">Showcase</a></li><li class="spacer"></li><li><a href="/tutorials/">Tutorials</a><ul></ul></li><li><a href="/reference/">Reference</a></li><li class="spacer"></li><li><a href="/download/">Download</a></li><li><a href="/donation/">Donation</a></li><li><a href="/license/">License</a></li><li class="spacer"></li><li><a href="http://groups.google.com/group/paperjs" target="_blank">Mailing List</a></li><li><a href="http://twitter.com/PaperJS" target="_blank">Follow on Twitter</a></li><li><a href="http://github.com/paperjs/paper.js" target="_blank">Watch on Github</a></li></ul></nav><article class="tutorial"><h1>Working with Items</h1><p>
+Before we start, let&apos;s define what we mean when we talk about items. An item is anything that can appear within in your Paper.js project: <tt><a href="/reference/layer">layers</a></tt>, <tt><a href="/reference/path">paths</a></tt>, <tt><a href="/reference/compoundpath">compound-paths</a></tt>, <tt><a href="/reference/group">groups</a></tt>, <tt><a href="/reference/pointtext">text items</a></tt>, <tt><a href="/reference/raster">rasters</a></tt> etc.
+</p>
+<p>
+Every kind of item has specific behaviours: a path contains points, a layer can be active, groups and compound paths have children.
+</p>
+<p>
+But since they are all items, they also share a number of behaviours. All these shared behaviours can be found in the <tt><a href="/reference/item">Item</a></tt> reference.
+</p>
+<section id="creating-new-items"><a name="creating-new-items" title="Creating New Items" class="anchor"><h2>Creating New Items</h2></a></section>
+<p>
+When you create new items, they are automatically added to the end of the <tt><a href="/reference/item#children">item.children</a></tt> list of the <tt><a href="/reference/project#activelayer">project.activeLayer</a></tt>.
+</p>
+<p>
+In the next example, we create a path and then set its fill color by accessing it through the <tt><a href="/reference/item#lastchild">item.lastChild</a></tt> property of the <tt><a href="/reference/project#activelayer">project.activeLayer</a></tt>: 
+</p>
+<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-1">
+// Create a circle shaped path at {x: 80, y: 50}
+// with a radius of 35:
+var path = new Path.Circle(new Point(80, 50), 35);
+
+project.activeLayer.lastChild.fillColor = 'red';
+</script><div class="canvas"><canvas height="100" id="canvas-1" width="540"></canvas></div>
+</div><br><br>
+<section id="hiding-items"><a name="hiding-items" title="Hiding Items" class="anchor"><h2>Hiding Items</h2></a></section>
+<p>
+When you set <tt><a href="/reference/item#visible">item.visible</a></tt> to <tt>false</tt>, the item will be hidden and won&apos;t be drawn.
+</p>
+<p>
+For example let&apos;s create a path and hide it. When you execute the following code, you won&apos;t see the item:
+</p>
+<div class="paperscript source"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-2">
+var circlePath = new Path.Circle(new Point(50, 50), 25);
+circlePath.fillColor = 'black';
+circlePath.visible = false;
+</script><div class="canvas"><canvas height="100" id="canvas-2" width="540"></canvas></div>
+</div><br><br>
+<section id="duplicating-items"><a name="duplicating-items" title="Duplicating Items" class="anchor"><h2>Duplicating Items</h2></a></section>
+<p>
+To make a copy of an item, you call its <tt><a href="/reference/item#clone">item.clone()</a></tt>  function. The <tt><a href="/reference/item#clone">item.clone()</a></tt> function returns the cloned item, so we need to store it in a variable if we want to do something with the copy.
+</p>
+<p>
+The following example create a circle shaped path, clones it and then changes a couple of properties of the clone.
+</p>
+<div class="paperscript"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-3">
+var circlePath = new Path.Circle(new Point(80, 50), 35);
+circlePath.strokeColor = 'black';
+
+// clone the path and store it in a variable
+var clonedPath = circlePath.clone();
+
+// move the cloned path 75pt to the right:
+clonedPath.position += new Point(75, 0);
+
+// Change the stroke color of the cloned path:
+clonedPath.strokeColor = 'red';
+</script><div class="canvas"><canvas height="100" id="canvas-3" width="540"></canvas></div>
+</div><br><br>
+<section id="selecting-items"><a name="selecting-items" title="Selecting Items" class="anchor"><h2>Selecting Items</h2></a></section>
+<p>
+When you select items or path segment points &amp; handles in your code, Paper.js draws the visual outlines of them on top of your project. This is very useful for debugging, as it allows you to see the construction of paths, position of path curves, individual segment points and bounding boxes of symbol and raster items:
+</p>
+<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-4">
+var center = new Point(160, 80);
+var circle = new Path.Circle(center, 50);
+
+// Select the second segment point of the path
+circle.segments[1].selected = true;
+
+// Select the third segment point of the path
+circle.segments[2].selected = true;
+
+// Create a circle path 140pt to the right:
+var circle2 = new Path.Circle(center + [140, 0], 50);
+circle2.fillColor = 'red';
+
+// Select it:
+circle2.selected = true;
+</script><div class="canvas"><canvas width="540" height="160" id="canvas-4"></canvas></div>
+</div><br><br>
+<section id="blend-mode-amp-opacity"><a name="blend-mode-amp-opacity" title="Blend Mode &amp; Opacity" class="anchor"><h2>Blend Mode &amp; Opacity</h2></a></section>
+<p>
+To make an item transparent, set its <tt><a href="/reference/item#opacity">item.opacity</a></tt> property to a value between <tt>0</tt> and <tt>1</tt>:
+</p>
+<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-5">
+var circle = new Path.Circle(new Point(80, 50), 35);
+circle.fillColor = 'red';
+
+var circle2 = new Path.Circle(new Point(120, 50), 35);
+circle2.style = {
+	fillColor: 'blue',
+	strokeColor: 'green',
+	strokeWidth: 10
+};
+
+// Make circle2 50% transparent:
+circle2.opacity = 0.5;
+</script><div class="canvas"><canvas height="100" highlight="12-13" id="canvas-5" width="540"></canvas></div>
+</div><br><br>
+<p>
+To change the blend mode of an item we pass a string to its <tt><a href="/reference/item#blendmode">item.blendMode</a></tt> property:
+</p>
+<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-6">
+// Create a white rectangle in the background
+// with the same dimensions as the view:
+var background = new Path.Rectangle(view.bounds);
+background.fillColor = 'white';
+
+var circle = new Path.Circle(new Point(80, 50), 35);
+circle.fillColor = 'red';
+
+var circle2 = new Path.Circle(new Point(120, 50), 35);
+circle2.fillColor = 'blue';
+
+// Set the blend mode of circle2:
+circle2.blendMode = 'multiply';
+</script><div class="canvas"><canvas height="100" highlight="12-13" id="canvas-6" width="540"></canvas></div>
+</div><br><br>
+<p>
+Visit the <tt><a href="/reference/item#blendmode">item.blendMode</a></tt> reference to see the different supported blend modes.
+</p></article><aside><h1>Index</h1><ul class="tutorial-index"><li class="expandable-list undefined"><b><a href="/tutorials/getting-started/">Getting Started</a></b><ul class="tutorial-index"><li><a href="/tutorials/getting-started/working-with-paper-js/">Working with Paper.js</a></li><li><a href="/tutorials/getting-started/using-javascript-directly/">Using JavaScript Directly</a></li><li><a href="/tutorials/getting-started/paperscript-interoperability/">PaperScript Interoperability</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/geometry/">Geometry</a></b><ul class="tutorial-index"><li><a href="/tutorials/geometry/point-size-and-rectangle/">Point, Size and Rectangle</a></li><li><a href="/tutorials/geometry/object-conversion/">Object Conversion</a></li><li><a href="/tutorials/geometry/mathematical-operations/">Mathematical Operations</a></li><li><a href="/tutorials/geometry/vector-geometry/">Vector Geometry</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/paths/">Paths</a></b><ul class="tutorial-index"><li><a href="/tutorials/paths/working-with-path-items/">Working with Path Items</a></li><li><a href="/tutorials/paths/creating-predefined-shapes/">Creating Predefined Shapes</a></li><li><a href="/tutorials/paths/using-color-and-style/">Using Color and Style</a></li><li><a href="/tutorials/paths/smoothing-simplifying-flattening/">Smoothing, Simplifying &amp; Flattening</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/interaction/">Interaction</a></b><ul class="tutorial-index"><li><a href="/tutorials/interaction/creating-mouse-tools/">Creating Mouse Tools</a></li><li><a href="/tutorials/interaction/mouse-tool-events/">Mouse Tool Events</a></li><li><a href="/tutorials/interaction/working-with-mouse-vectors/">Working with Mouse Vectors</a></li><li><a href="/tutorials/interaction/keyboard-interaction/">Keyboard Interaction</a></li></ul></li><li class="expandable-list expanded"><b><a href="/tutorials/project-items/">Project &amp; Items</a></b><ul class="tutorial-index"><li class="active"><span>Working with Items</span></li><li><a href="/tutorials/project-items/transforming-items/">Transforming Items</a></li><li><a href="/tutorials/project-items/project-hierarchy/">Project Hierarchy</a></li><li><a href="/tutorials/project-items/working-with-symbols/">Working with Symbols</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/images/">Images</a></b><ul class="tutorial-index"><li><a href="/tutorials/images/working-with-rasters/">Working with Rasters</a></li><li><a href="/tutorials/images/using-pixel-colors/">Using Pixel Colors</a></li><li><a href="/tutorials/images/color-averaging-image-areas/">Color Averaging Image Areas</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/animation/">Animation</a></b><ul class="tutorial-index"><li><a href="/tutorials/animation/creating-animations/">Creating Animations</a></li></ul></li></ul><div class="sticky"><h1>Content</h1><ul class="toc"></ul></div></aside></body></html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"/><link rel="stylesheet" href="/assets/css/style.css"/><link rel="icon" href="/assets/favicon.ico" type="image/x-icon"/><link rel="shortcut icon" href="/assets/favicon.ico"/><script src="/assets/js/jquery.js"></script><script src="/assets/js/paper.js"></script><script src="/assets/js/codemirror.js"></script><script src="/assets/js/scripts.js"></script><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-10082945-6']);
+_gaq.push(['_trackPageview']);
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script><title>Paper.js - Paper.js</title></head><body class="fullscreen"><nav><h1><a href="/">Paper.js</a></h1><ul><li><a href="/about/">About</a></li><li><a href="/features/">Features</a></li><li class="spacer"></li><li><a href="/examples/">Examples</a><ul><li><a href="/examples/chain/">Chain</a></li><li><a href="/examples/tadpoles/">Tadpoles</a></li><li><a href="/examples/nyan-rainbow/">Nyan Rainbow</a></li><li><a href="/examples/rounded-rectangles/">Rounded Rectangles</a></li><li><a href="/examples/radial-rainbows/">Radial Rainbows</a></li><li><a href="/examples/meta-balls/">Meta Balls</a></li><li><a href="/examples/voronoi/">Voronoi</a></li><li><a href="/examples/future-splash/">Future Splash</a></li><li><a href="/examples/smoothing/">Smoothing</a></li><li><a href="/examples/spiral-raster/">Spiral Raster</a></li><li><a href="/examples/division-raster/">Division Raster</a></li><li><a href="/examples/q-bertify/">Q-bertify</a></li><li><a href="/examples/path-intersections/">Path Intersections</a></li><li><a href="/examples/path-simplification/">Path Simplification</a></li><li><a href="/examples/hit-testing/">Hit Testing</a></li><li class="active"><a href="/examples/bouncing-balls/">Bouncing Balls</a></li></ul></li><li><a href="/showcase/">Showcase</a></li><li class="spacer"></li><li><a href="/tutorials/">Tutorials</a></li><li><a href="/reference/">Reference</a></li><li class="spacer"></li><li><a href="/download/">Download</a></li><li><a href="/donation/">Donation</a></li><li><a href="/license/">License</a></li><li class="spacer"></li><li><a href="http://groups.google.com/group/paperjs" target="_blank">Mailing List</a></li><li><a href="http://twitter.com/PaperJS" target="_blank">Follow on Twitter</a></li><li><a href="http://github.com/paperjs/paper.js" target="_blank">Watch on Github</a></li></ul></nav><article><div class="paperscript"><div class="buttons"><div class="button run">Source</div><div class="explain"></div></div><script type="text/paperscript" canvas="canvas-1">
+var Ball = function(point, vector) {
+	if (!vector || vector.isZero()) {
+		this.vector = Point.random() * 5;
+	} else {
+		this.vector = vector * 2;
+	}
+	this.point = point;
+	this.dampen = 0.4;
+	this.gravity = 3;
+	this.bounce = -0.6;
+
+	var color = {
+		hue: Math.random() * 360,
+		saturation: 1,
+		brightness: 1
+	};
+	var gradient = new Gradient([color, 'black'], true);
+
+	var radius = this.radius = 50 * Math.random() + 30;
+	// Wrap CompoundPath in a Group, since CompoundPaths directly 
+	// applies the transformations to the content, just like Path.
+	var ball = new CompoundPath({
+		children: [
+			new Path.Circle({
+				radius: radius
+			}),
+			new Path.Circle({
+				center: radius / 8,
+				radius: radius / 3
+			})
+		],
+		fillColor: new Color(gradient, 0, radius, radius / 8),
+	});
+
+	this.item = new Group({
+		children: [ball],
+		transformContent: false,
+		position: this.point
+	});
+}
+
+Ball.prototype.iterate = function() {
+	var size = view.size;
+	this.vector.y += this.gravity;
+	this.vector.x *= 0.99;
+	var pre = this.point + this.vector;
+	if (pre.x < this.radius || pre.x > size.width - this.radius)
+		this.vector.x *= -this.dampen;
+	if (pre.y < this.radius || pre.y > size.height - this.radius) {
+		if (Math.abs(this.vector.x) < 3)
+			this.vector = Point.random() * [150, 100] + [-75, 20];
+		this.vector.y *= this.bounce;
+	}
+
+	var max = Point.max(this.radius, this.point + this.vector);
+	this.item.position = this.point = Point.min(max, size - this.radius);
+	this.item.rotate(this.vector.x);
+};
+
+
+var balls = [];
+for (var i = 0; i < 10; i++) {
+	var position = Point.random() * view.size,
+		vector = (Point.random() - [0.5, 0]) * [50, 100],
+		ball = new Ball(position, vector);
+	balls.push(ball);
+}
+
+var textItem = new PointText({
+	point: [20, 30],
+	fillColor: 'black',
+	content: 'Click, drag and release to add balls.'
+});
+
+var lastDelta;
+function onMouseDrag(event) {
+	lastDelta = event.delta;
+}
+
+function onMouseUp(event) {
+	var ball = new Ball(event.point, lastDelta);
+	balls.push(ball);
+	lastDelta = null;
+}
+
+function onFrame() {
+	for (var i = 0, l = balls.length; i < l; i++)
+		balls[i].iterate();
+}
+</script><div class="canvas"><canvas resize="true" id="canvas-1" style="background:#f2f2f2"></canvas></div></div></article></body></html>

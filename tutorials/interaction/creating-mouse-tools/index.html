@@ -1,0 +1,349 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"/><link rel="stylesheet" href="/assets/css/style.css"/><link rel="icon" href="/assets/favicon.ico" type="image/x-icon"/><link rel="shortcut icon" href="/assets/favicon.ico"/><script src="/assets/js/jquery.js"></script><script src="/assets/js/paper.js"></script><script src="/assets/js/codemirror.js"></script><script src="/assets/js/scripts.js"></script><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-10082945-6']);
+_gaq.push(['_trackPageview']);
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script><title>Paper.js - Paper.js</title></head><body><nav><h1><a href="/">Paper.js</a></h1><ul><li><a href="/about/">About</a></li><li><a href="/features/">Features</a></li><li class="spacer"></li><li><a href="/examples/">Examples</a></li><li><a href="/showcase/">Showcase</a></li><li class="spacer"></li><li><a href="/tutorials/">Tutorials</a><ul></ul></li><li><a href="/reference/">Reference</a></li><li class="spacer"></li><li><a href="/download/">Download</a></li><li><a href="/donation/">Donation</a></li><li><a href="/license/">License</a></li><li class="spacer"></li><li><a href="http://groups.google.com/group/paperjs" target="_blank">Mailing List</a></li><li><a href="http://twitter.com/PaperJS" target="_blank">Follow on Twitter</a></li><li><a href="http://github.com/paperjs/paper.js" target="_blank">Watch on Github</a></li></ul></nav><article class="tutorial"><h1>Creating Mouse Tools</h1><p>
+This tutorial explains the different ways to create Paper.js tools that the user can interact with by using the mouse.
+</p>
+<section id="my-first-mouse-tool"><a name="my-first-mouse-tool" title="My First Mouse Tool" class="anchor"><h2>My First Mouse Tool</h2></a></section>
+<p>
+We start with an example of a very simple tool that creates an empty path on execution and adds segments to it whenever you click the mouse:
+</p>
+<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-1">
+// Create a new path once, when the script is executed:
+var myPath = new Path();
+myPath.strokeColor = 'black';
+
+// This function is called whenever the user
+// clicks the mouse in the view:
+function onMouseDown(event) {
+	// Add a segment to the path at the position of the mouse:
+	myPath.add(event.point);
+}
+</script><div class="canvas"><canvas height="320" width="540" style="background:#e4e1e1" id="canvas-1"></canvas></div>
+</div><br><br>
+<section id="mouse-handler-functions"><a name="mouse-handler-functions" title="Mouse Handler Functions" class="anchor"><h2>Mouse Handler Functions</h2></a></section>
+<p>
+Paper.js offers mouse handlers for the different actions you can perform with a mouse. You can use these mouse handlers to produce different types of tools that have different ways of reacting to mouse interaction and movement.
+</p>
+<div class="note"><b>Please note:</b><p>
+In JavaScript, functions are blocks of code that are only executed when they are called from another part of the script. Handler functions are functions that are called by Paper.js when a certain event happens.
+</p><div class="text-end"></div></div>
+<p>
+To see when the different handler functions are called, copy-paste the following code into a new JavaScript file, execute it and interact with the Paper.js tool:
+</p>
+<pre class="code">
+function onMouseDown(event) {
+	console.log(&apos;You pressed the mouse!&apos;);
+}
+
+function onMouseDrag(event) {
+	console.log(&apos;You dragged the mouse!&apos;);
+}
+
+function onMouseUp(event) {
+	console.log(&apos;You released the mouse!&apos;);
+}
+</pre>
+<section id="the-event-object"><a name="the-event-object" title="The Event Object" class="anchor"><h2>The Event Object</h2></a></section>
+<p>
+The mouse handler functions receive an event object which contains information about the mouse event, such as the current position of the mouse (<tt><a href="/reference/toolevent#point">event.point</a></tt>), the position where the mouse was pressed (<tt><a href="/reference/toolevent#downpoint">event.downPoint</a></tt>), the pressure of the mouse event (<tt><a href="/reference/toolevent#pressure">event.pressure</a></tt>) etc.
+</p>
+<div class="note"><b>Did you know?</b><p>
+The properties of the event object are explained in detail in the <a href="/tutorials/interaction/mouse-tool-events/">Mouse Tool Events</a> tutorial.
+</p><div class="text-end"></div></div>
+<section id="line-tool-example"><a name="line-tool-example" title="Line Tool Example" class="anchor"><h2>Line Tool Example</h2></a></section>
+<p>
+Here is a simple tool that draws lines. The starting point of the line is where you click and the last point is where you release the mouse.
+</p>
+<p>
+Click, drag and release below to try it out:
+</p>
+<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-2">
+// We start by defining an empty variable that is visible by both
+// mouse handlers.
+var myPath;
+
+function onMouseDown(event) {
+	// The mouse was clicked, so let's put a newly created Path into
+	// myPath, give it the color black and add the location as the
+	// path's first segment.
+	myPath = new Path();
+	myPath.strokeColor = 'black';
+	myPath.add(event.point);
+}
+
+function onMouseUp(event) {
+	// The mouse was released, so we add the new location as the end
+	// segment of the line.
+	myPath.add(event.point);
+}
+</script><div class="canvas"><canvas height="320" width="540" style="background:#e4e1e1" id="canvas-2"></canvas></div>
+</div><br><br>
+<div class="note"><b>Please note:</b><p>
+The difference between this tool and the first example is that a new path is created each time the mouse is clicked, and the path is finished when the mouse is released.
+</p><div class="text-end"></div></div>
+<p>
+The same tool can be written more simply, by using only the <tt><a href="/reference/tool#onmouseup">onMouseUp(event)</a></tt> handler, and accessing the <tt><a href="/reference/toolevent#downpoint">event.downPoint</a></tt> property:
+</p>
+<p>
+Click, drag and release below to try it out:
+</p>
+<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-3">
+function onMouseUp(event) {
+	var myPath = new Path();
+	myPath.strokeColor = 'black';
+	myPath.add(event.downPoint);
+	myPath.add(event.point);
+}
+</script><div class="canvas"><canvas height="320" width="540" style="background:#e4e1e1" id="canvas-3"></canvas></div>
+</div><br><br>
+<p>
+When the mouse is released, the <tt><a href="/reference/tool#onmouseup">onMouseUp(event)</a></tt> handler is called.
+</p>
+<p>
+In the <tt><a href="/reference/tool#onmouseup">onMouseUp</a></tt> handler we create a new path and give it a black stroke:
+</p>
+<pre class="code" start="2">
+	var myPath = new Path();
+	myPath.strokeColor = &apos;black&apos;;
+</pre>
+<p>
+Then we add two segments to it using the <tt><a href="/reference/path#add-segment">path.add(segment)</a></tt> function.
+</p>
+<p>
+First, we add a segment at <tt><a href="/reference/toolevent#toolevent-downpoint">event.downPoint</a></tt>, which is the position where the mouse button was pressed:
+</p>
+<pre class="code" start="4">
+	myPath.add(event.downPoint);
+</pre>
+<p>
+Then, we add a segment at <tt><a href="/reference/toolevent#toolevent-point">event.point</a></tt>, which is the position where the mouse button was released:
+</p>
+<pre class="code" start="5">
+	myPath.add(event.point);
+</pre>
+<section id="click-drag-release"><a name="click-drag-release" title="Click, Drag, Release" class="anchor"><h2>Click, Drag and Release Example</h2></a></section>
+<p>
+As a next step, we are going to make a small drawing tool:
+</p>
+<p>
+When you click the mouse it will make a new <tt><a href="/reference/path">Path</a></tt>.<br>
+When you drag the mouse it will add segments to the path.<br>
+When you release the mouse it will add a circle shaped path at that position with a radius of 10.
+</p>
+<p>
+Click and drag below to try it out:
+</p>
+<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-4">
+var myPath;
+
+function onMouseDown(event) {
+	myPath = new Path();
+	myPath.strokeColor = 'black';
+}
+
+function onMouseDrag(event) {
+	myPath.add(event.point);
+}
+
+function onMouseUp(event) {
+	var myCircle = new Path.Circle({
+		center: event.point,
+		radius: 10
+	});
+	myCircle.strokeColor = 'black';
+	myCircle.fillColor = 'white';
+}
+</script><div class="canvas"><canvas height="320" width="540" style="background:#e4e1e1" id="canvas-4"></canvas></div>
+</div><br><br>
+<p>
+Now lets go through the script line by line to see whats happening:
+</p>
+<p>
+To be able to access the <tt>myPath</tt> variable from both mouse handlers we declare it outside of the <tt><a href="/reference/tool#onmousedown">onMouseDown</a></tt> and <tt><a href="/reference/tool#onmousedrag">onMouseDrag</a></tt> handlers:
+</p>
+<pre class="code">
+var myPath;
+</pre>
+<p>
+In the <tt><a href="/reference/tool#onmousedown">onMouseDown</a></tt> handler we create a new path and store it in the <tt>myPath</tt> variable:
+</p>
+<pre class="code" start="3">
+function onMouseDown(event) {
+	myPath = new Path();
+}
+</pre>
+<p>
+In the <tt><a href="/reference/tool#onmousedrag">onMouseDrag</a></tt> handler we add <tt><a href="/reference/toolevent#point">event.point</a></tt> (the position of the mouse) to <tt>myPath</tt> every time the user drags the mouse:
+</p>
+<pre class="code" start="7">
+function onMouseDrag(event) {
+	myPath.add(event.point);
+	myPath.strokeColor = &apos;black&apos;;
+}
+</pre>
+<p>
+In the <tt><a href="/reference/tool#onmouseup">onMouseUp</a></tt> handler we create a circle shaped path with its center point at the position of the mouse when it was released and a radius of 10.
+</p>
+<pre class="code" start="12">
+function onMouseUp(event) {
+	var myCircle = new Path.Circle({
+		center: event.point,
+		radius: 10
+	});
+	myCircle.strokeColor = &apos;black&apos;;
+	myCircle.fillColor = &apos;white&apos;;
+}
+</pre>
+<section id="distance-of-mouse-movement"><a name="distance-of-mouse-movement" title="Distance of Mouse Movement" class="anchor"><h2>Using the Distance that the Mouse has Moved</h2></a></section>
+<p>
+Another handy property in the event object is <tt><a href="/reference/toolevent#delta">event.delta</a></tt> which describes the difference between the current position and the last position of the mouse when the event was fired. So in an <tt><a href="/reference/tool#onmouseup">onMouseUp</a></tt> handler, <tt><a href="/reference/toolevent#delta">event.delta</a></tt> would describe the difference between the position where the mouse was clicked and the position where the mouse was released.
+</p>
+<p>
+For example, if we would want to make a tool that creates circles through mouse interaction, we could write something like:
+</p>
+<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-5">
+function onMouseUp(event) {
+	var circle = new Path.Circle({
+		center: event.middlePoint,
+		radius: event.delta.length / 2
+	});
+	circle.strokeColor = 'black';
+	circle.fillColor = 'white';
+}
+</script><div class="canvas"><canvas height="320" width="540" style="background:#e4e1e1" id="canvas-5"></canvas></div>
+</div><br><br>
+<p>
+This small script creates a circular path whenever you click, drag and release. It uses the position where the mouse was clicked (<tt><a href="/reference/toolevent#downpoint">event.downPoint</a></tt>) for the center point of the circle, and the distance between the down point and the position where the mouse was released (the <tt><a href="/reference/point#length">length</a></tt> of <tt><a href="/reference/toolevent#delta">event.delta</a></tt>) for its radius.
+</p>
+<section id="minimum-distance"><a name="minimum-distance" title="Minimum Distance" class="anchor"><h2>Minimum Distance</h2></a></section>
+<p>
+Normally while dragging, the <tt><a href="/reference/tool#onmousedrag">onMouseDrag</a></tt> handler is called, no matter how far the mouse has dragged. We can set the minimum distance the mouse has to drag before firing the <tt><a href="/reference/tool#onmousedrag">onMouseDrag</a></tt> event by setting the <tt><a href="/reference/tool#mindistance">tool.minDistance</a></tt> property.
+</p>
+<p>
+For example, in the following tool script the <tt>onMouseDrag</tt> function is only called when the mouse has moved more than 20 points.
+</p>
+<p>
+So when you click and drag in the following example, you will see that the radius of the circles is always 20pt or higher.
+</p>
+<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-6">
+tool.minDistance = 20;
+
+function onMouseDrag(event) {
+	var circle = new Path.Circle({
+		center: event.middlePoint,
+		radius: event.delta.length / 2
+	});
+	circle.fillColor = 'black';
+}
+</script><div class="canvas"><canvas height="320" width="540" style="background:#e4e1e1" id="canvas-6"></canvas></div>
+</div><br><br>
+<section id="maximum-distance"><a name="maximum-distance" title="Maximum Distance" class="anchor"><h2>Maximum Distance</h2></a></section>
+<p>
+We can also set the maximum distance until the firing of the next <tt><a href="/reference/tool#onmousedrag">onMouseDrag</a></tt> event by setting the <tt><a href="/reference/tool#maxdistance">tool.maxDistance</a></tt> property. This will repeatedly fire the <tt><a href="/reference/tool#onmousedrag">onMouseDrag</a></tt> event until the distance between the event point and the mouse is less than <tt><a href="/reference/tool#maxdistance">tool.maxDistance</a></tt>.
+</p>
+<p>
+In the following code we set <tt><a href="/reference/tool#maxdistance">tool.maxDistance</a></tt> to be 10 pt. Therefore, if the user were to drag the mouse by 50 pt, it would call the <tt><a href="/reference/tool#onmousedrag">onMouseDrag</a></tt> handler 5 times.
+</p>
+<p>
+When you click and drag in the following example, you will see that when you drag fast enough the radiuses of the circles max out at 5pt. When you drag slower, the circles will be smaller.
+</p>
+<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-7">
+tool.maxDistance = 10;
+
+function onMouseDrag(event) {
+	var circle = new Path.Circle({
+		center: event.middlePoint,
+		radius: event.delta.length / 2
+	});
+	circle.fillColor = 'black';
+}
+</script><div class="canvas"><canvas height="320" width="540" style="background:#e4e1e1" id="canvas-7"></canvas></div>
+</div><br><br>
+<section id="fixed-distance-drag-events"><a name="fixed-distance-drag-events" title="Fixed Distance Drag Events" class="anchor"><h2>Fixed Distance Drag Events</h2></a></section>
+<p>
+To set both the minimum and maximum distances we can set the <tt><a href="/reference/tool#fixeddistance">tool.fixedDistance</a></tt> property. Then <tt><a href="/reference/tool#onmousedrag">onMouseDrag</a></tt> events are fired with intervals of fixed distances.
+</p>
+<p>
+The following example creates circle shaped paths while you drag. By setting <tt><a href="/reference/tool#fixeddistance">tool.fixedDistance</a></tt> to <tt>30</tt>, the circles are created at strict 30pt intervals.
+</p>
+<p>
+Click and drag below to try it out:
+</p>
+<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-8">
+project.currentStyle.fillColor = 'black';
+
+tool.fixedDistance = 30;
+
+function onMouseDrag(event) {
+	var circle = new Path.Circle({
+		center: event.middlePoint,
+		radius: event.delta.length / 2
+	});
+	circle.fillColor = 'black';
+}
+</script><div class="canvas"><canvas height="320" width="540" style="background:#e4e1e1" id="canvas-8"></canvas></div>
+</div><br>
+<p>
+&lt;hide&gt;
+</p>
+<section id="event-interval"><a name="event-interval" title="Event Interval" class="anchor"><h2>Event Interval</h2></a></section>
+<p>
+Normally the <tt><a href="/reference/tool#onmousedrag">onMouseDrag</a></tt> handler is only fired when you actually drag the mouse. Paper.js can also repeatedly call the <tt><a href="/reference/tool#onmousedrag">onMouseDrag</a></tt> with a fixed time delay after the user clicks the mouse. Setting the <tt><a href="/reference/tool#eventinterval">tool.eventInterval</a></tt> property to an interval means the <tt><a href="/reference/tool#onmousedrag">onMouseDrag</a></tt> event is called repeatedly after the initial <tt><a href="/reference/tool#onmousedown">onMouseDown</a></tt> until the user releases the mouse:
+</p>
+<p>
+The following example creates a path when the user clicks and then adds a segment every 30 ms at 1/30th of the distance between the last point of the path and the current mouse position.
+</p>
+<p>
+Since the path will contains way too many points, we simplify it using <tt><a href="/reference/path#simplify">path.simplify()</a></tt>.
+</p>
+<p>
+Try it out by clicking and dragging below:
+</p>
+<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-9">
+// Call the onMouseDrag function every 30 ms:
+tool.eventInterval = 30;
+
+var path;
+function onMouseDown(event) {
+	// If we already created a path before,
+	// deselect it:
+	if (path) {
+		path.selected = false;
+	}
+	
+	// Create a new path and add the first segment where
+	// the user clicked:
+	path = new Path();
+	path.strokeColor = 'black';
+	path.add(event.point);
+}
+
+function onMouseDrag(event) {
+	var lastPoint = path.lastSegment.point;
+
+	// the difference between the current position of the mouse
+	// and the last segment point of the path:
+	var vector = event.point - lastPoint;
+	
+	// the position of the new point that we will add to the path:
+	var point = lastPoint + vector / 30;
+	path.add(point);
+}
+
+function onMouseUp(event) {
+	// Simplify the path:
+	path.simplify();
+	
+	// Select the path to show the segment points:
+	path.selected = true;
+}
+</script><div class="canvas"><canvas height="320" width="540" style="background:#e4e1e1" id="canvas-9"></canvas></div>
+</div><br>
+<p>
+&lt;/hide&gt;
+</p></article><aside><h1>Index</h1><ul class="tutorial-index"><li class="expandable-list undefined"><b><a href="/tutorials/getting-started/">Getting Started</a></b><ul class="tutorial-index"><li><a href="/tutorials/getting-started/working-with-paper-js/">Working with Paper.js</a></li><li><a href="/tutorials/getting-started/using-javascript-directly/">Using JavaScript Directly</a></li><li><a href="/tutorials/getting-started/paperscript-interoperability/">PaperScript Interoperability</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/geometry/">Geometry</a></b><ul class="tutorial-index"><li><a href="/tutorials/geometry/point-size-and-rectangle/">Point, Size and Rectangle</a></li><li><a href="/tutorials/geometry/object-conversion/">Object Conversion</a></li><li><a href="/tutorials/geometry/mathematical-operations/">Mathematical Operations</a></li><li><a href="/tutorials/geometry/vector-geometry/">Vector Geometry</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/paths/">Paths</a></b><ul class="tutorial-index"><li><a href="/tutorials/paths/working-with-path-items/">Working with Path Items</a></li><li><a href="/tutorials/paths/creating-predefined-shapes/">Creating Predefined Shapes</a></li><li><a href="/tutorials/paths/using-color-and-style/">Using Color and Style</a></li><li><a href="/tutorials/paths/smoothing-simplifying-flattening/">Smoothing, Simplifying &amp; Flattening</a></li></ul></li><li class="expandable-list expanded"><b><a href="/tutorials/interaction/">Interaction</a></b><ul class="tutorial-index"><li class="active"><span>Creating Mouse Tools</span></li><li><a href="/tutorials/interaction/mouse-tool-events/">Mouse Tool Events</a></li><li><a href="/tutorials/interaction/working-with-mouse-vectors/">Working with Mouse Vectors</a></li><li><a href="/tutorials/interaction/keyboard-interaction/">Keyboard Interaction</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/project-items/">Project &amp; Items</a></b><ul class="tutorial-index"><li><a href="/tutorials/project-items/working-with-items/">Working with Items</a></li><li><a href="/tutorials/project-items/transforming-items/">Transforming Items</a></li><li><a href="/tutorials/project-items/project-hierarchy/">Project Hierarchy</a></li><li><a href="/tutorials/project-items/working-with-symbols/">Working with Symbols</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/images/">Images</a></b><ul class="tutorial-index"><li><a href="/tutorials/images/working-with-rasters/">Working with Rasters</a></li><li><a href="/tutorials/images/using-pixel-colors/">Using Pixel Colors</a></li><li><a href="/tutorials/images/color-averaging-image-areas/">Color Averaging Image Areas</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/animation/">Animation</a></b><ul class="tutorial-index"><li><a href="/tutorials/animation/creating-animations/">Creating Animations</a></li></ul></li></ul><div class="sticky"><h1>Content</h1><ul class="toc"></ul></div></aside></body></html>

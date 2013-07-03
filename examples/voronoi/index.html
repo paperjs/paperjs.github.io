@@ -1,0 +1,131 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"/><link rel="stylesheet" href="/assets/css/style.css"/><link rel="icon" href="/assets/favicon.ico" type="image/x-icon"/><link rel="shortcut icon" href="/assets/favicon.ico"/><script src="/assets/js/jquery.js"></script><script src="/assets/js/paper.js"></script><script src="/assets/js/codemirror.js"></script><script src="/assets/js/scripts.js"></script><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-10082945-6']);
+_gaq.push(['_trackPageview']);
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script><title>Paper.js - Paper.js</title></head><body class="fullscreen"><nav><h1><a href="/">Paper.js</a></h1><ul><li><a href="/about/">About</a></li><li><a href="/features/">Features</a></li><li class="spacer"></li><li><a href="/examples/">Examples</a><ul><li><a href="/examples/chain/">Chain</a></li><li><a href="/examples/tadpoles/">Tadpoles</a></li><li><a href="/examples/nyan-rainbow/">Nyan Rainbow</a></li><li><a href="/examples/rounded-rectangles/">Rounded Rectangles</a></li><li><a href="/examples/radial-rainbows/">Radial Rainbows</a></li><li><a href="/examples/meta-balls/">Meta Balls</a></li><li class="active"><a href="/examples/voronoi/">Voronoi</a></li><li><a href="/examples/future-splash/">Future Splash</a></li><li><a href="/examples/smoothing/">Smoothing</a></li><li><a href="/examples/spiral-raster/">Spiral Raster</a></li><li><a href="/examples/division-raster/">Division Raster</a></li><li><a href="/examples/q-bertify/">Q-bertify</a></li><li><a href="/examples/path-intersections/">Path Intersections</a></li><li><a href="/examples/path-simplification/">Path Simplification</a></li><li><a href="/examples/hit-testing/">Hit Testing</a></li><li><a href="/examples/bouncing-balls/">Bouncing Balls</a></li></ul></li><li><a href="/showcase/">Showcase</a></li><li class="spacer"></li><li><a href="/tutorials/">Tutorials</a></li><li><a href="/reference/">Reference</a></li><li class="spacer"></li><li><a href="/download/">Download</a></li><li><a href="/donation/">Donation</a></li><li><a href="/license/">License</a></li><li class="spacer"></li><li><a href="http://groups.google.com/group/paperjs" target="_blank">Mailing List</a></li><li><a href="http://twitter.com/PaperJS" target="_blank">Follow on Twitter</a></li><li><a href="http://github.com/paperjs/paper.js" target="_blank">Watch on Github</a></li></ul></nav><article>
+<script type="text/javascript" src="http://jonathanpuckey.com/static/rhill-voronoi-core.js"></script>
+
+<div class="paperscript"><div class="buttons"><div class="button run">Source</div><div class="explain"></div></div><script type="text/paperscript" canvas="canvas-1">
+var voronoi =  new Voronoi();
+var sites = generateBeeHivePoints(view.size / 200, true);
+var bbox, diagram;
+var oldSize = view.size;
+var spotColor = new Color('red');
+var mousePos = view.center;
+var selected = false;
+
+onResize();
+
+function onMouseDown(event) {
+	sites.push(event.point);
+	renderDiagram();
+}
+
+function onMouseMove(event) {
+	mousePos = event.point;
+	if (event.count == 0)
+		sites.push(event.point);
+	sites[sites.length - 1] = event.point;
+	renderDiagram();
+}
+
+function renderDiagram() {
+	project.activeLayer.children = [];
+	var diagram = voronoi.compute(sites, bbox);
+	if (diagram) {
+		for (var i = 0, l = sites.length; i < l; i++) {
+			var cell = diagram.cells[sites[i].voronoiId];
+			if (cell) {
+				var halfedges = cell.halfedges,
+					length = halfedges.length;
+				if (length > 2) {
+					var points = [];
+					for (var j = 0; j < length; j++) {
+						v = halfedges[j].getEndpoint();
+						points.push(new Point(v));
+					}
+					createPath(points, sites[i]);
+				}
+			}
+		}
+	}
+}
+
+function removeSmallBits(path) {
+	var averageLength = path.length / path.segments.length;
+	var min = path.length / 50;
+	for(var i = path.segments.length - 1; i >= 0; i--) {
+		var segment = path.segments[i];
+		var cur = segment.point;
+		var nextSegment = segment.next;
+		var next = nextSegment.point + nextSegment.handleIn;
+		if (cur.getDistance(next) < min) {
+			segment.remove();
+		}
+	}
+}
+
+function generateBeeHivePoints(size, loose) {
+	var points = [];
+	var col = view.size / size;
+	for(var i = -1; i < size.width + 1; i++) {
+		for(var j = -1; j < size.height + 1; j++) {
+			var point = new Point(i, j) / new Point(size) * view.size + col / 2;
+			if(j % 2)
+				point += new Point(col.width / 2, 0);
+			if(loose)
+				point += (col / 4) * Point.random() - col / 4;
+			points.push(point);
+		}
+	}
+	return points;
+}
+function createPath(points, center) {
+	var path = new Path();
+	if (!selected) { 
+		path.fillColor = spotColor;
+	} else {
+		path.fullySelected = selected;
+	}
+	path.closed = true;
+
+	for (var i = 0, l = points.length; i < l; i++) {
+		var point = points[i];
+		var next = points[(i + 1) == points.length ? 0 : i + 1];
+		var vector = (next - point) / 2;
+		path.add({
+			point: point + vector,
+			handleIn: -vector,
+			handleOut: vector
+		});
+	}
+	path.scale(0.95);
+	removeSmallBits(path);
+	return path;
+}
+
+function onResize() {
+	var margin = 20;
+	bbox = {
+		xl: margin,
+		xr: view.bounds.width - margin,
+		yt: margin,
+		yb: view.bounds.height - margin
+	};
+	for (var i = 0, l = sites.length; i < l; i++) {
+		sites[i] = sites[i] * view.size / oldSize;
+	}
+	oldSize = view.size;
+	renderDiagram();
+}
+
+function onKeyDown(event) {
+	if (event.key == 'space') {
+		selected = !selected;
+		renderDiagram();
+	}
+}
+</script><div class="canvas"><canvas resize="true" id="canvas-1"></canvas></div></div></article></body></html>
