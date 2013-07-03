@@ -62,7 +62,7 @@ We start by creating two <a href="/tutorials/geometry/point-size-and-rectangle/#
 <pre class="code">
 var point1 = new Point(50, 50);
 var point2 = new Point(110, 200);
-</pre></div><div class="clear"></div></div>
+</pre></div></div>
 <div class="resource-block"><div class="resource"><img src="/tutorials/geometry/vector-geometry/Points-And-Vectors-02.gif" width="200" height="198"></img></div><div class="resource-text"><p>
 In order to get from <tt>point1</tt> to <tt>point2</tt>, we can say we need to move <tt>60</tt> to the right (in x-direction), and <tt>150</tt> down (in y-direction). These values are the result of subtracting the x- and y-coordinates of <tt>point1</tt> from the ones of <tt>point2</tt>:
 </p>
@@ -74,7 +74,7 @@ var y = point2.y - point1.y;
 </pre>
 <p>
 In other words, by adding these two values to the coordinates of <tt>point1</tt>, we end up at <tt>point2</tt>.
-</p></div><div class="clear"></div></div>
+</p></div></div>
 <div class="resource-block"><div class="resource"><img src="/tutorials/geometry/vector-geometry/Points-And-Vectors-03.gif" width="200" height="198"></img></div><div class="resource-text"><p>
 Instead of using these two separate values, it is much easier to use a vector as a container for the them. To calculate this vector, we can simply subtract <tt>point1</tt> from <tt>point2</tt> instead of the two separate subtractions in the previous step:
 </p>
@@ -88,8 +88,7 @@ Read more about mathematical operations in the <a href="/tutorials/geometry/math
 </p>
 <p>
 The result of this subtraction (<tt>vector</tt>) is still a <a href="/tutorials/geometry/point-size-and-rectangle/#point">Point</a> object. Technically, there is no distinction between points and vectors. It is just their meaning that changes: A point is absolute, a vector is relative.
-</p><div class="text-end"></div></div></div><div class="clear"></div></div>
-
+</p><div class="text-end"></div></div></div></div>
 <div class="resource-block"><div class="resource"><img src="/tutorials/geometry/vector-geometry/Points-And-Vectors-04.gif" width="200" height="198"></img></div><div class="resource-text"><p>
 Vectors can also be described as arrows. Similar to arrows, they point in a certain direction, and also indicate an amount of distance to move in that direction. An alternative and often more useful way of describing a vector is therefore by angle and length.
 </p>
@@ -104,22 +103,24 @@ console.log(vector.angle);
 </pre>
 <div class="note"><b>Please note:</b><p>
 By default, all angles in Paper.js are measured in degrees. Read more about angles and rotation in the chapter about <a href="#rotating-vectors-and-working-with-angles">Rotating Vectors</a>.
-</p><div class="text-end"></div></div></div><div class="clear"></div></div>
-
+</p><div class="text-end"></div></div></div></div>
+<p>
 It is so important that we repeat it again: Vectors contain relative information. All a vector tells us is in which direction and how far to move.
-
+</p>
+<p>
 The easiest use of such a vector is to add it to an absolute position of a point. The result will again be an absolute point, which will be at a position shifted from the originating point by the amount specified by the vector. In this way we can add the same vector to many points, as illustrated in the image bellow. The vectors you see are all the same, but the points resulting from adding it to a group of existing points in different locations all differ.
-
+</p>
+<p>
 <img src="/tutorials/geometry/vector-geometry/Vectors.gif" width="530" height="300"></img>
-
+</p>
 <section id="calculating-with-vectors"><a name="calculating-with-vectors" title="Calculating with Vectors" class="anchor"><h2>Calculating with Vectors</h2></a></section>
-
+<p>
 As shown by the simple examples above, the power of vectors really comes into play when we use them in mathematical calculations, treating them as if they were simple values. Here an overview of the different possible operations.
-
+</p>
 <section id="addition-and-subtraction"><a name="addition-and-subtraction" title="Addition and Subtraction" class="anchor"><h2>Vector Addition and Subtraction</h2></a></section>
-
+<p>
 A vector can be added to another, and the result is the same as if we superposed two descriptions of how to get from one place to another, resulting in a third vector.
-
+</p>
 <div class="resource-block"><div class="resource"><img src="/tutorials/geometry/vector-geometry/Vector-Addition-01.gif" width="200" height="189"></img></div><div class="resource-text"><p>
 We start with four points:
 </p>
@@ -141,7 +142,7 @@ var vector1 = point2 - point1;
 var vector2 = point4 - point3;
 // = { x: 75, y: 170 } - { x: 5, y: 135 }
 // = { x: 70, y: 35 }
-</pre></div><div class="clear"></div></div>
+</pre></div></div>
 <div class="resource-block"><div class="resource"><img src="/tutorials/geometry/vector-geometry/Vector-Addition-02.gif" width="200" height="189"></img></div><div class="resource-text"><p>
 To start at <tt>startPoint</tt>, follow <tt>vector1</tt> and then <tt>vector2</tt>, we could first add <tt>vector1</tt> to the <tt>startPoint</tt>, retrieve the resulting <tt>tempPoint</tt> and then add <tt>vector2</tt> to that to get to the desired <tt>endPoint</tt>.
 </p>
@@ -151,19 +152,19 @@ var endPoint = tempPoint + vector2;
 </pre>
 <p>
 But if we would like to apply the same combined vector to many points, this calculation would be unnecessarily complicated, as we would have to go through the <tt>tempPoint</tt> each time.
-</p></div><div class="clear"></div></div>
+</p></div></div>
 <div class="resource-block"><div class="resource"><img src="/tutorials/geometry/vector-geometry/Vector-Addition-03.gif" width="200" height="189"></img></div><div class="resource-text"><p>
 Instead, we can just add <tt>vector1</tt> to <tt>vector2</tt> and use the resulting object as a new vector that describes the combined movement.
 </p>
 <pre class="code">
 var vector = vector1 + vector2;
-</pre></div><div class="clear"></div></div>
+</pre></div></div>
 <div class="resource-block"><div class="resource"><img src="/tutorials/geometry/vector-geometry/Vector-Addition-04.gif" width="200" height="189"></img></div><div class="resource-text"><p>
 But we can also do the opposite and subtract a vector from another instead of adding it. The result is the same as if we would go in the opposite direction of the vector that we are subtracting.
 </p>
 <pre class="code">
 var vector = vector1 - vector2;
-</pre></div><div class="clear"></div></div>
+</pre></div></div>
 <div class="note"><b>Please note:</b><p>
 The results of these operations is the same as the addition or subtraction of each vector&apos;s x and y coordinates. It would not work however to add or subtract the length or angle values.
 </p><div class="text-end"></div></div>
@@ -180,7 +181,7 @@ Or, to go the other way:
 </p>
 <pre class="code">
 var smallVector = bigVector / 3;
-</pre></div><div class="clear"></div></div>
+</pre></div></div>
 <div class="note"><b>Please note:</b><p>
 Due to a limitation of Javascript, we need to make sure that the vector to be multiplied or divided is on the left-hand side of the operation. This is because the left-hand side defines the nature of the type returned from the operation. To write the following would therefore produce invalid results:
 </p>
@@ -206,13 +207,13 @@ Now we change the vector&apos;s length property. This is similar to the multipli
 vector.length = vector.length * 3;
 console.log(vector.length);
 // 193.86593
-</pre></div><div class="clear"></div></div>
+</pre></div></div>
 <div class="resource-block"><div class="resource"><img src="/tutorials/geometry/vector-geometry/Vector-Length-02.gif" width="200" height="113"></img></div><div class="resource-text"><p>
 We can also set the length to a fixed value, stretching or shrinking the vector to this length:
 </p>
 <pre class="code" start="7">
 vector.length = 100;
-</pre></div><div class="clear"></div></div>
+</pre></div></div>
 <p>
 Another way to change the vector&apos;s length is the <tt><a href="/reference/point#normalize">point.normalize()</a></tt> method. In Mathematics to normalize a vector means to resize it so its length is 1. <tt>normalize()</tt> handles that for us, and also accepts an optional parameter that defines the length to normalize to, if we would like it to be other than 1.
 </p>
@@ -252,7 +253,7 @@ Rotating vectors is a powerful tool for constructing paths and shapes, as it all
 </p>
 <div class="resource-block"><div class="resource"><img src="/tutorials/geometry/vector-geometry/Angles.gif" width="200" height="200"></img></div><div class="resource-text"><p>
 All angles in Paper.js are measured in degrees, and are oriented clockwise. The angle values start from the horizontal axis and expand downwards. At 180&deg; they flip to -180&deg;, which is the same, since going halfway around a circle in the left or right direction results in the same position. This does not prevent you from setting angles to something higher than 180&deg; though.
-</p></div><div class="clear"></div></div>
+</p></div></div>
 <p>
 There are two ways to change the angle of a vector. The obvious one is by setting the vector&apos;s <tt>angle</tt> property to a new value. Let&apos;s first set up a vector that points 100 coordinates down and 100 to the right, and log its angle and length:
 </p>
@@ -268,7 +269,7 @@ Since we are going in equal amounts down and to the right, it has an angle of 45
 <pre class="code">
 console.log(vector.length);
 // 141.42136
-</pre></div><div class="clear"></div></div>
+</pre></div></div>
 <div class="resource-block"><div class="resource"><img src="/tutorials/geometry/vector-geometry/Rotating-Vectors-02.gif" width="312" height="139"></img></div><div class="resource-text"><p>
 Now we rotate it by 90&deg; clockwise by setting its angle to 45&deg; + 90&deg; = 135&deg; and log the length again:
 </p>
@@ -283,7 +284,7 @@ Note how the length has not changed. All we changed is the vector&apos;s directi
 <pre class="code">
 console.log(vector);
 // { x: -100, y: 100 }
-</pre></div><div class="clear"></div></div>
+</pre></div></div>
 <div class="resource-block"><div class="resource"><img src="/tutorials/geometry/vector-geometry/Rotating-Vectors-03.gif" width="312" height="139"></img></div><div class="resource-text"><p>
 Instead of setting the angle directly to 135, we could have also explicitly increase it by 90&deg;:
 </p>
@@ -295,7 +296,7 @@ A simpler way of writing such an increase of a value is to use the <tt>+=</tt> o
 </p>
 <pre class="code">
 vector.angle += 90;
-</pre></div><div class="clear"></div></div>
+</pre></div></div>
 <section id="methods-and-properties"><a name="methods-and-properties" title="Methods and Properties" class="anchor"><h2>Operations, Methods and Properties</h2></a></section>
 <p>
 Note that mathematical operations (addition, subtraction, multiplication and division) and methods such as <tt>rotate()</tt> and <tt>normalize()</tt> do not modify the involved vector and point objects. Instead, they return the result as a new  object. This means they can be chained and combined in expressions:
