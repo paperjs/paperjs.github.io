@@ -1,5 +1,5 @@
 /*!
- * Paper.js v0.9.7 - The Swiss Army Knife of Vector Graphics Scripting.
+ * Paper.js v0.9.8 - The Swiss Army Knife of Vector Graphics Scripting.
  * http://paperjs.org/
  *
  * Copyright (c) 2011 - 2013, Juerg Lehni & Jonathan Puckey
@@ -9,7 +9,7 @@
  *
  * All rights reserved.
  *
- * Date: Fri Jun 28 07:59:33 2013 -0700
+ * Date: Wed Jul 3 14:05:03 2013 -0700
  *
  ***
  *
@@ -675,7 +675,7 @@ var PaperScope = Base.extend({
 		}
 	},
 
-	version: '0.9.7',
+	version: '0.9.8',
 
 	getView: function() {
 		return this.project && this.project.view;
@@ -3882,7 +3882,7 @@ var Raster = Item.extend({
 		if (this._canvas)
 			CanvasProvider.release(this._canvas);
 		this._image = image;
-		this._size = new Size(image.naturalWidth, image.naturalHeight);
+		this._size = new Size(image.width, image.height);
 		this._canvas = null;
 		this._context = null;
 		this._changed(5);
@@ -3895,20 +3895,22 @@ var Raster = Item.extend({
 	setSource: function(src) {
 		var that = this,
 			image = document.getElementById(src) || new Image();
+
 		function loaded() {
 			that.fire('load');
 			if (that._project.view)
 				that._project.view.draw(true);
 		}
-		DomEvent.add(image, {
-			load: function() {
-				that.setImage(image);
-				loaded();
-			}
-		});
+
 		if (image.width && image.height) {
 			setTimeout(loaded, 0);
 		} else if (!image.src) {
+			DomEvent.add(image, {
+				load: function() {
+					that.setImage(image);
+					loaded();
+				}
+			});
 			image.src = src;
 		}
 		this.setImage(image);
