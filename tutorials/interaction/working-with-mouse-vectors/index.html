@@ -1,11 +1,52 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"/><link rel="stylesheet" href="/assets/css/style.css"/><link rel="icon" href="/assets/favicon.ico" type="image/x-icon"/><link rel="shortcut icon" href="/assets/favicon.ico"/><script src="/assets/js/jquery.js"></script><script src="/assets/js/paper.js"></script><script src="/assets/js/codemirror.js"></script><script src="/assets/js/scripts.js"></script><script>var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-10082945-6']);
-_gaq.push(['_trackPageview']);
-(function() {
-  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();</script><title>Paper.js - Paper.js</title></head><body><nav><h1><a href="/">Paper.js</a></h1><ul><li><a href="/about/">About</a></li><li><a href="/features/">Features</a></li><li class="spacer"></li><li><a href="/examples/">Examples</a></li><li><a href="/showcase/">Showcase</a></li><li class="spacer"></li><li><a href="/tutorials/">Tutorials</a><ul></ul></li><li><a href="/reference/">Reference</a></li><li class="spacer"></li><li><a href="/download/">Download</a></li><li><a href="/donation/">Donation</a></li><li><a href="/license/">License</a></li><li class="spacer"></li><li><a href="http://groups.google.com/group/paperjs" target="_blank">Mailing List</a></li><li><a href="http://twitter.com/PaperJS" target="_blank">Follow on Twitter</a></li><li><a href="http://github.com/paperjs/paper.js" target="_blank">Watch on Github</a></li></ul></nav><article class="tutorial"><h1>Working with Mouse Vectors</h1><p>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <link rel="stylesheet" href="/assets/css/style.css"/>
+  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon"/>
+  <link rel="shortcut icon" href="/assets/favicon.ico"/>
+  <script src="/assets/js/jquery.js"></script>
+  <script src="/assets/js/paper.js"></script>
+  <script src="/assets/js/codemirror.js"></script>
+  <script src="/assets/js/scripts.js"></script>
+  <script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-10082945-6']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  <title>Paper.js - Paper.js</title>
+</head>
+  <body>
+    <nav>
+      <h1><a href="/">Paper.js</a></h1>
+<ul>
+  <li><a href="/about/">About</a></li>
+  <li><a href="/features/">Features</a></li>
+  <li class="spacer"></li>
+  <li><a href="/examples/">Examples</a></li>
+  <li><a href="/showcase/">Showcase</a></li>
+  <li class="spacer"></li>
+  <li><a href="/tutorials/">Tutorials</a>
+<ul>
+</ul></li>
+  <li><a href="/reference/">Reference</a></li>
+  <li class="spacer"></li>
+  <li><a href="/download/">Download</a></li>
+  <li><a href="/donation/">Donation</a></li>
+  <li><a href="/license/">License</a></li>
+  <li class="spacer"></li>
+  <li><a href="http://groups.google.com/group/paperjs" target="_blank">Mailing List</a></li>
+  <li><a href="http://twitter.com/PaperJS" target="_blank">Follow on Twitter</a></li>
+  <li><a href="http://github.com/paperjs/paper.js" target="_blank">Watch on Github</a></li>
+</ul>
+    </nav>
+<article class="tutorial">
+  <h1>Working with Mouse Vectors</h1><p>
 In this tutorial we will make a mouse tool that acts like a brush, with a variable thickness depending on speed and a sense of a natural expression.
 </p>
 <p>
@@ -125,7 +166,9 @@ function onMouseDrag(event) {
 <p>
 As you can see in when working with the first example script: When the mouse is moved fast the points are further apart than when you move the mouse slowly.
 </p>
-<div class="resource-block"><div class="resource"><img src="/tutorials/interaction/working-with-mouse-vectors/mouse_vectors.gif" width="250" height="294"></img></div><div class="resource-text"><p>
+<div class="resource-block">
+  <div class="resource"><img src="/tutorials/interaction/working-with-mouse-vectors/mouse_vectors.gif" width="250" height="294"></img></div>
+  <div class="resource-text"><p>
 Thus, the difference in position between these points describe the amount that the mouse moved and therefore also its speed.
 </p>
 <p>
@@ -133,8 +176,11 @@ In the <a href="/tutorials/geometry/vector-geometry/#points-and-vectors">Points 
 </p>
 <p>
 You could say that all these little drag movements are vectors. The mouse handler <tt><a href="/reference/toolevent">event</a></tt> object includes a reference to the mouse movement vector, so we don&apos;t have to calculate it ourselves and can easily use it in our tools: <tt><a href="/reference/toolevent#delta">event.delta</a></tt>
-</p></div></div>
-<div class="resource-block"><div class="resource"><img src="/tutorials/interaction/working-with-mouse-vectors/Event-Properties.gif" width="250" height="296"></img></div><div class="resource-text"><p>
+</p></div>
+</div>
+<div class="resource-block">
+  <div class="resource"><img src="/tutorials/interaction/working-with-mouse-vectors/Event-Properties.gif" width="250" height="296"></img></div>
+  <div class="resource-text"><p>
 The image on the left is a zoom of the top of the image above.
 </p>
 <ul class="list"><ul class="list"><li><tt><a href="/reference/toolevent#point">event.point</a></tt> is the position of the mouse</li>
@@ -144,7 +190,8 @@ The image on the left is a zoom of the top of the image above.
 </ul>
 <div class="note"><b>Please note:</b><p>
 The <a href="/tutorials/interaction/creating-mouse-tools/">Creating Mouse Tools</a> tutorial explains the different ways to create Paper.js tools that the user can interact with by using the mouse. Mouse Tool Events are explained in detail in the <a href="/tutorials/interaction/mouse-tool-events/">Mouse Tool Events</a> tutorial.
-</p><div class="text-end"></div></div></div></div>
+</p><div class="text-end"></div></div></div>
+</div>
 <section id="using-event.delta"><a name="using-event.delta" title="Using event.delta" class="anchor"><h2>Using event.delta</h2></a></section>
 <p>
 Next we will change our earlier script to express the speed of the mouse while drawing by drawing a skeleton around our path. The skeleton lines become larger when the mouse moves faster and smaller when the mouse moves slowly.
@@ -179,19 +226,28 @@ function onMouseDrag(event) {
 	line.add(bottom);
 }
 </script><div class="canvas"><canvas height="420" width="540" style="background:#e4e1e1" id="canvas-3"></canvas></div>
-</div><br><br>
-<div class="resource-block"><div class="resource"><img src="/tutorials/interaction/working-with-mouse-vectors/Middlepoint.gif" width="303" height="217"></img></div><div class="resource-text"><p>
+</div><br><br><br>
+<div class="resource-block">
+  <div class="resource"><img src="/tutorials/interaction/working-with-mouse-vectors/Middlepoint.gif" width="303" height="217"></img></div>
+  <div class="resource-text"><p>
 As you can see in the movie above, the skeleton lines don&apos;t start at the position of the mouse, but in the middle between the current position and the last position of the mouse.
 </p>
 <p>
 The mouse handler  <tt><a href="/reference/toolevent">event</a></tt> object includes a reference to this middle point, to save us from calculating ourselves: <tt><a href="/reference/toolevent#middlepoint">event.middlePoint</a></tt>
-</p></div></div>
-<div class="resource-block"><div class="resource"><img src="/tutorials/interaction/working-with-mouse-vectors/Rotating-Delta.gif" width="303" height="271"></img></div><div class="resource-text"><p>
+</p></div>
+</div>
+<div class="resource-block">
+  <div class="resource"><img src="/tutorials/interaction/working-with-mouse-vectors/Rotating-Delta.gif" width="303" height="271"></img></div>
+  <div class="resource-text"><p>
 We take <tt><a href="/reference/toolevent#delta">event.delta</a></tt> (the vector in the direction of the mouse) and rotate it by 90 degrees. This means that the vector which was previously pointing in the direction of the mouse, is now pointing 90 degrees away from the direction of the mouse.
-</p></div></div>
-<div class="resource-block"><div class="resource"><img src="/tutorials/interaction/working-with-mouse-vectors/Middle-Point-Plus-Step.gif" width="303" height="271"></img></div><div class="resource-text"><p>
+</p></div>
+</div>
+<div class="resource-block">
+  <div class="resource"><img src="/tutorials/interaction/working-with-mouse-vectors/Middle-Point-Plus-Step.gif" width="303" height="271"></img></div>
+  <div class="resource-text"><p>
 When we add the rotated delta vector to an absolute point (<tt><a href="/reference/toolevent#middlepoint">event.middlePoint</a></tt> in this case) we get back the position offset by the direction and length of the vector.
-</p></div></div>
+</p></div>
+</div>
 <p>
 Here is our updated tool script that now also creates the skeleton paths. The new lines of code are highlighted:
 </p>
@@ -562,4 +618,59 @@ function addStrokes(point, delta) {
 		path.insert(0, strokePoint);
 	}
 }
-</pre></article><aside><h1>Index</h1><ul class="tutorial-index"><li class="expandable-list undefined"><b><a href="/tutorials/getting-started/">Getting Started</a></b><ul class="tutorial-index"><li><a href="/tutorials/getting-started/working-with-paper-js/">Working with Paper.js</a></li><li><a href="/tutorials/getting-started/using-javascript-directly/">Using JavaScript Directly</a></li><li><a href="/tutorials/getting-started/paperscript-interoperability/">PaperScript Interoperability</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/geometry/">Geometry</a></b><ul class="tutorial-index"><li><a href="/tutorials/geometry/point-size-and-rectangle/">Point, Size and Rectangle</a></li><li><a href="/tutorials/geometry/object-conversion/">Object Conversion</a></li><li><a href="/tutorials/geometry/mathematical-operations/">Mathematical Operations</a></li><li><a href="/tutorials/geometry/vector-geometry/">Vector Geometry</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/paths/">Paths</a></b><ul class="tutorial-index"><li><a href="/tutorials/paths/working-with-path-items/">Working with Path Items</a></li><li><a href="/tutorials/paths/creating-predefined-shapes/">Creating Predefined Shapes</a></li><li><a href="/tutorials/paths/using-color-and-style/">Using Color and Style</a></li><li><a href="/tutorials/paths/smoothing-simplifying-flattening/">Smoothing, Simplifying &amp; Flattening</a></li></ul></li><li class="expandable-list expanded"><b><a href="/tutorials/interaction/">Interaction</a></b><ul class="tutorial-index"><li><a href="/tutorials/interaction/creating-mouse-tools/">Creating Mouse Tools</a></li><li><a href="/tutorials/interaction/mouse-tool-events/">Mouse Tool Events</a></li><li class="active"><span>Working with Mouse Vectors</span></li><li><a href="/tutorials/interaction/keyboard-interaction/">Keyboard Interaction</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/project-items/">Project &amp; Items</a></b><ul class="tutorial-index"><li><a href="/tutorials/project-items/working-with-items/">Working with Items</a></li><li><a href="/tutorials/project-items/transforming-items/">Transforming Items</a></li><li><a href="/tutorials/project-items/project-hierarchy/">Project Hierarchy</a></li><li><a href="/tutorials/project-items/working-with-symbols/">Working with Symbols</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/images/">Images</a></b><ul class="tutorial-index"><li><a href="/tutorials/images/working-with-rasters/">Working with Rasters</a></li><li><a href="/tutorials/images/using-pixel-colors/">Using Pixel Colors</a></li><li><a href="/tutorials/images/color-averaging-image-areas/">Color Averaging Image Areas</a></li></ul></li><li class="expandable-list undefined"><b><a href="/tutorials/animation/">Animation</a></b><ul class="tutorial-index"><li><a href="/tutorials/animation/creating-animations/">Creating Animations</a></li></ul></li></ul><div class="sticky"><h1>Content</h1><ul class="toc"></ul></div></aside></body></html>
+</pre>
+</article>
+<aside>
+<h1>Index</h1>
+<ul class="tutorial-index">
+  <li class="expandable-list undefined"><b><a href="/tutorials/getting-started/">Getting Started</a></b>
+<ul class="tutorial-index">
+  <li><a href="/tutorials/getting-started/working-with-paper-js/">Working with Paper.js</a></li>
+  <li><a href="/tutorials/getting-started/using-javascript-directly/">Using JavaScript Directly</a></li>
+  <li><a href="/tutorials/getting-started/paperscript-interoperability/">PaperScript Interoperability</a></li>
+</ul></li>
+  <li class="expandable-list undefined"><b><a href="/tutorials/geometry/">Geometry</a></b>
+<ul class="tutorial-index">
+  <li><a href="/tutorials/geometry/point-size-and-rectangle/">Point, Size and Rectangle</a></li>
+  <li><a href="/tutorials/geometry/object-conversion/">Object Conversion</a></li>
+  <li><a href="/tutorials/geometry/mathematical-operations/">Mathematical Operations</a></li>
+  <li><a href="/tutorials/geometry/vector-geometry/">Vector Geometry</a></li>
+</ul></li>
+  <li class="expandable-list undefined"><b><a href="/tutorials/paths/">Paths</a></b>
+<ul class="tutorial-index">
+  <li><a href="/tutorials/paths/working-with-path-items/">Working with Path Items</a></li>
+  <li><a href="/tutorials/paths/creating-predefined-shapes/">Creating Predefined Shapes</a></li>
+  <li><a href="/tutorials/paths/using-color-and-style/">Using Color and Style</a></li>
+  <li><a href="/tutorials/paths/smoothing-simplifying-flattening/">Smoothing, Simplifying &amp; Flattening</a></li>
+</ul></li>
+  <li class="expandable-list expanded"><b><a href="/tutorials/interaction/">Interaction</a></b>
+<ul class="tutorial-index">
+  <li><a href="/tutorials/interaction/creating-mouse-tools/">Creating Mouse Tools</a></li>
+  <li><a href="/tutorials/interaction/mouse-tool-events/">Mouse Tool Events</a></li>
+  <li class="active"><span>Working with Mouse Vectors</span></li>
+  <li><a href="/tutorials/interaction/keyboard-interaction/">Keyboard Interaction</a></li>
+</ul></li>
+  <li class="expandable-list undefined"><b><a href="/tutorials/project-items/">Project &amp; Items</a></b>
+<ul class="tutorial-index">
+  <li><a href="/tutorials/project-items/working-with-items/">Working with Items</a></li>
+  <li><a href="/tutorials/project-items/transforming-items/">Transforming Items</a></li>
+  <li><a href="/tutorials/project-items/project-hierarchy/">Project Hierarchy</a></li>
+  <li><a href="/tutorials/project-items/working-with-symbols/">Working with Symbols</a></li>
+</ul></li>
+  <li class="expandable-list undefined"><b><a href="/tutorials/images/">Images</a></b>
+<ul class="tutorial-index">
+  <li><a href="/tutorials/images/working-with-rasters/">Working with Rasters</a></li>
+  <li><a href="/tutorials/images/using-pixel-colors/">Using Pixel Colors</a></li>
+  <li><a href="/tutorials/images/color-averaging-image-areas/">Color Averaging Image Areas</a></li>
+</ul></li>
+  <li class="expandable-list undefined"><b><a href="/tutorials/animation/">Animation</a></b>
+<ul class="tutorial-index">
+  <li><a href="/tutorials/animation/creating-animations/">Creating Animations</a></li>
+</ul></li>
+</ul>
+<div class="sticky">
+  <h1>Content</h1>
+  <ul class="toc"></ul>
+</div></aside>
+  </body>
+</html>

@@ -1,20 +1,68 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"/><link rel="stylesheet" href="/assets/css/style.css"/><link rel="icon" href="/assets/favicon.ico" type="image/x-icon"/><link rel="shortcut icon" href="/assets/favicon.ico"/><script src="/assets/js/jquery.js"></script><script src="/assets/js/paper.js"></script><script src="/assets/js/codemirror.js"></script><script src="/assets/js/scripts.js"></script><script>var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-10082945-6']);
-_gaq.push(['_trackPageview']);
-(function() {
-  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();</script><title>Paper.js - Paper.js</title></head><body><nav><h1><a href="/">Paper.js</a></h1><ul><li class="active"><a href="/about/">About</a><ul><li><a href="/about/faq/">FAQ</a></li><li><a href="/about/roadmap/">Roadmap</a></li></ul></li><li><a href="/features/">Features</a></li><li class="spacer"></li><li><a href="/examples/">Examples</a></li><li><a href="/showcase/">Showcase</a></li><li class="spacer"></li><li><a href="/tutorials/">Tutorials</a></li><li><a href="/reference/">Reference</a></li><li class="spacer"></li><li><a href="/download/">Download</a></li><li><a href="/donation/">Donation</a></li><li><a href="/license/">License</a></li><li class="spacer"></li><li><a href="http://groups.google.com/group/paperjs" target="_blank">Mailing List</a></li><li><a href="http://twitter.com/PaperJS" target="_blank">Follow on Twitter</a></li><li><a href="http://github.com/paperjs/paper.js" target="_blank">Watch on Github</a></li></ul></nav><article class="page"><section id="about"><a name="about" title="About" class="anchor"><h1>About</h1></a></section>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <link rel="stylesheet" href="/assets/css/style.css"/>
+  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon"/>
+  <link rel="shortcut icon" href="/assets/favicon.ico"/>
+  <script src="/assets/js/jquery.js"></script>
+  <script src="/assets/js/paper.js"></script>
+  <script src="/assets/js/codemirror.js"></script>
+  <script src="/assets/js/scripts.js"></script>
+  <script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-10082945-6']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  <title>Paper.js - Paper.js</title>
+</head>
+  <body>
+    <nav>
+      <h1><a href="/">Paper.js</a></h1>
+<ul>
+  <li class="active"><a href="/about/">About</a>
+<ul>
+  <li><a href="/about/faq/">FAQ</a></li>
+  <li><a href="/about/roadmap/">Roadmap</a></li>
+</ul></li>
+  <li><a href="/features/">Features</a></li>
+  <li class="spacer"></li>
+  <li><a href="/examples/">Examples</a></li>
+  <li><a href="/showcase/">Showcase</a></li>
+  <li class="spacer"></li>
+  <li><a href="/tutorials/">Tutorials</a></li>
+  <li><a href="/reference/">Reference</a></li>
+  <li class="spacer"></li>
+  <li><a href="/download/">Download</a></li>
+  <li><a href="/donation/">Donation</a></li>
+  <li><a href="/license/">License</a></li>
+  <li class="spacer"></li>
+  <li><a href="http://groups.google.com/group/paperjs" target="_blank">Mailing List</a></li>
+  <li><a href="http://twitter.com/PaperJS" target="_blank">Follow on Twitter</a></li>
+  <li><a href="http://github.com/paperjs/paper.js" target="_blank">Watch on Github</a></li>
+</ul>
+    </nav>
+<article class="page"><section id="about"><a name="about" title="About" class="anchor"><h1>About</h1></a></section>
 <p>
 Paper.js &mdash; The Swiss Army Knife of Vector Graphics Scripting.
 </p>
-<div class="resource-block"><div class="resource"><img src="/about/paper-js.gif" width="146" height="146"></img></div><div class="resource-text"><p>
+<div class="resource-block">
+  <div class="resource"><img src="/about/paper-js.gif" width="146" height="146"></img></div>
+  <div class="resource-text"><p>
 Paper.js is an open source vector graphics scripting framework that runs on top of the HTML5 Canvas. It offers a clean Scene Graph / Document Object Model and a lot of powerful functionality to create and work with vector graphics and bezier curves, all neatly wrapped up in a well designed, consistent and clean programming interface.
-</p></div></div>
-<div class="resource-block"><div class="resource"><img src="/about/scriptographer.jpg" width="146" height="146"></img></div><div class="resource-text"><p>
+</p></div>
+</div>
+<div class="resource-block">
+  <div class="resource"><img src="/about/scriptographer.jpg" width="146" height="146"></img></div>
+  <div class="resource-text"><p>
 Paper.js is based on and largely compatible with <a href="http://scriptographer.org" target="_blank">Scriptographer</a>, a scripting environment for Adobe Illustrator with an active community of scripters and more than 10 years of development.
-</p></div></div>
+</p></div>
+</div>
 <p>
 Paper.js is easy to learn for beginners and has lots to master for intermediate and advanced users.
 </p>
@@ -54,4 +102,12 @@ Read our <a href="/tutorials/">tutorials</a> to learn more about the features of
 <section id="browser-support"><a name="browser-support" title="Browser Support" class="anchor"><h2>Browser Support</h2></a></section>
 <p>
 Paper.js is aimed at modern browsers with support for the Canvas object and EcmaScript 5. Even though in theory it is possible to write code that works in older browsers (Yes Explorer 8 and below, we are looking at you!), we currently do not support them out of the box. Let&rsquo;s go forward!
-</p></article><aside><div class="fixed"><h1>Index</h1><ul class="toc"></ul></div></aside></body></html>
+</p>
+</article>
+<aside>
+<div class="fixed">
+  <h1>Index</h1>
+  <ul class="toc"></ul>
+</div></aside>
+  </body>
+</html>
