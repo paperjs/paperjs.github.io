@@ -528,6 +528,114 @@ circle.fillColor = new Color(1, 0, 0);
 </div>
 		
 			
+	<h3>Shadow Style</h3>
+
+<div id="shadowcolor" class="member">
+<div class="member-link">
+<a name="shadowcolor" href="#shadowcolor"><tt><b>shadowColor</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The shadow color.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<a href="/reference/color"><tt>Color</tt></a>
+	</li>
+	</ul>
+	
+	<p>
+<b>Example</b> &mdash; Setting the shadow color of a path to black:
+</p>
+
+<div class="paperscript split">
+
+<div class="buttons">
+<div class="button run">Run</div>
+</div>
+
+<script type="text/paperscript" canvas="canvas-9">
+// Create a circle shaped path at { x: 80, y: 50 }
+// with a radius of 35:
+var circle = new Path.Circle(new Point(80, 50), 35);
+
+// Set the shadow color of the circle to RGB black:
+circle.shadowColor = new Color(0, 0, 0);
+
+// Set the shadow blur, offset to { x: 10, y: 10 }
+circle.shadowBlur = 10;
+circle.shadowOffset = new Poit(10, 10);
+</script>
+<div class="canvas"><canvas width="516" height="100" id="canvas-9"></canvas></div>
+</div>
+
+
+</div>
+
+</div>
+</div>
+		
+			
+<div id="shadowblur" class="member">
+<div class="member-link">
+<a name="shadowblur" href="#shadowblur"><tt><b>shadowBlur</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The shadow's blur radius.</p>
+	
+	
+		<ul><b>Default:</b>
+		<li>
+		<tt>0</tt>
+		</li>
+		</ul>
+	
+	<ul><b>Type:</b>
+	<li>
+		<tt>Number</tt>
+	</li>
+	</ul>
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
+<div id="shadowoffset" class="member">
+<div class="member-link">
+<a name="shadowoffset" href="#shadowoffset"><tt><b>shadowOffset</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The shadow's offset.</p>
+	
+	
+		<ul><b>Default:</b>
+		<li>
+		<tt>0</tt>
+		</li>
+		</ul>
+	
+	<ul><b>Type:</b>
+	<li>
+		<a href="/reference/point"><tt>Point</tt></a>
+	</li>
+	</ul>
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
 	<h3>Selection Style</h3>
 
 <div id="selectedcolor" class="member">

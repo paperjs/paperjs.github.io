@@ -441,7 +441,10 @@ path.visible = false;
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The blend mode of the item.</p>
+	<p>The blend mode with which the item is composited onto the canvas. Both
+the standard canvas compositing modes, as well as the new CSS blend modes
+are supported. If blend-modes cannot be rendered natively, they are
+emulated. Be aware that emulation can have an impact on performance.</p>
 	
 	
 		<ul><b>Default:</b>
@@ -455,7 +458,10 @@ path.visible = false;
 		<tt>String('normal', 'multiply', 'screen', 'overlay', 'soft-light',
 'hard-light', 'color-dodge', 'color-burn', 'darken', 'lighten',
 'difference', 'exclusion', 'hue', 'saturation', 'luminosity', 'color',
-'add', 'subtract', 'average', 'pin-light', 'negation')</tt>
+'add', 'subtract', 'average', 'pin-light', 'negation', 'source-over',
+'source-in', 'source-out', 'source-atop', 'destination-over',
+'destination-in', 'destination-out', 'destination-atop', 'lighter',
+'darker', 'copy', 'xor')</tt>
 	</li>
 	</ul>
 	
@@ -2388,13 +2394,26 @@ not.</p>
 	
 <div id="clone" class="member">
 <div class="member-link">
-<a name="clone" href="#clone"><tt><b>clone</b>()</tt></a>
+<a name="clone" href="#clone"><tt><b>clone</b>([insert])</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Clones the item within the same project and places the copy above the
 item.</p>
 	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>insert:</tt> 
+<tt>Boolean</tt>
+&mdash;&nbsp;specifies wether the copy should be
+inserted into the DOM. When set to <tt>true</tt>, it is inserted above the
+original.
+&mdash;&nbsp;optional, default: <tt>true</tt>
+</li>
+
+</ul>
+
 	
 	<ul><b>Returns:</b>
 	
