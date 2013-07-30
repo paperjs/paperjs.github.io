@@ -64,7 +64,7 @@ function onMouseDown(event) {
 	// Add a segment to the path at the position of the mouse:
 	myPath.add(event.point);
 }
-</script><div class="canvas"><canvas height="320" width="540" style="background:#e4e1e1" id="canvas-1"></canvas></div>
+</script><div class="canvas"><canvas height="318" width="538" style="background:#e4e1e1" id="canvas-1"></canvas></div>
 </div><br><br>
 <section id="mouse-handler-functions"><a name="mouse-handler-functions" title="Mouse Handler Functions" class="anchor"><h2>Mouse Handler Functions</h2></a></section>
 <p>
@@ -122,7 +122,7 @@ function onMouseUp(event) {
 	// segment of the line.
 	myPath.add(event.point);
 }
-</script><div class="canvas"><canvas height="320" width="540" style="background:#e4e1e1" id="canvas-2"></canvas></div>
+</script><div class="canvas"><canvas height="318" width="538" style="background:#e4e1e1" id="canvas-2"></canvas></div>
 </div><br><br>
 <div class="note"><b>Please note:</b><p>
 The difference between this tool and the first example is that a new path is created each time the mouse is clicked, and the path is finished when the mouse is released.
@@ -140,7 +140,7 @@ function onMouseUp(event) {
 	myPath.add(event.downPoint);
 	myPath.add(event.point);
 }
-</script><div class="canvas"><canvas height="320" width="540" style="background:#e4e1e1" id="canvas-3"></canvas></div>
+</script><div class="canvas"><canvas height="318" width="538" style="background:#e4e1e1" id="canvas-3"></canvas></div>
 </div><br><br>
 <p>
 When the mouse is released, the <tt><a href="/reference/tool#onmouseup">onMouseUp(event)</a></tt> handler is called.
@@ -199,7 +199,7 @@ function onMouseUp(event) {
 	myCircle.strokeColor = 'black';
 	myCircle.fillColor = 'white';
 }
-</script><div class="canvas"><canvas height="320" width="540" style="background:#e4e1e1" id="canvas-4"></canvas></div>
+</script><div class="canvas"><canvas height="318" width="538" style="background:#e4e1e1" id="canvas-4"></canvas></div>
 </div><br><br>
 <p>
 Now lets go through the script line by line to see whats happening:
@@ -256,7 +256,7 @@ function onMouseUp(event) {
 	circle.strokeColor = 'black';
 	circle.fillColor = 'white';
 }
-</script><div class="canvas"><canvas height="320" width="540" style="background:#e4e1e1" id="canvas-5"></canvas></div>
+</script><div class="canvas"><canvas height="318" width="538" style="background:#e4e1e1" id="canvas-5"></canvas></div>
 </div><br><br>
 <p>
 This small script creates a circular path whenever you click, drag and release. It uses the position where the mouse was clicked (<tt><a href="/reference/toolevent#downpoint">event.downPoint</a></tt>) for the center point of the circle, and the distance between the down point and the position where the mouse was released (the <tt><a href="/reference/point#length">length</a></tt> of <tt><a href="/reference/toolevent#delta">event.delta</a></tt>) for its radius.
@@ -281,7 +281,7 @@ function onMouseDrag(event) {
 	});
 	circle.fillColor = 'black';
 }
-</script><div class="canvas"><canvas height="320" width="540" style="background:#e4e1e1" id="canvas-6"></canvas></div>
+</script><div class="canvas"><canvas height="318" width="538" style="background:#e4e1e1" id="canvas-6"></canvas></div>
 </div><br><br>
 <section id="maximum-distance"><a name="maximum-distance" title="Maximum Distance" class="anchor"><h2>Maximum Distance</h2></a></section>
 <p>
@@ -303,7 +303,7 @@ function onMouseDrag(event) {
 	});
 	circle.fillColor = 'black';
 }
-</script><div class="canvas"><canvas height="320" width="540" style="background:#e4e1e1" id="canvas-7"></canvas></div>
+</script><div class="canvas"><canvas height="318" width="538" style="background:#e4e1e1" id="canvas-7"></canvas></div>
 </div><br><br>
 <section id="fixed-distance-drag-events"><a name="fixed-distance-drag-events" title="Fixed Distance Drag Events" class="anchor"><h2>Fixed Distance Drag Events</h2></a></section>
 <p>
@@ -327,7 +327,7 @@ function onMouseDrag(event) {
 	});
 	circle.fillColor = 'black';
 }
-</script><div class="canvas"><canvas height="320" width="540" style="background:#e4e1e1" id="canvas-8"></canvas></div>
+</script><div class="canvas"><canvas height="318" width="538" style="background:#e4e1e1" id="canvas-8"></canvas></div>
 </div><br>
 <p>
 &lt;hide&gt;
@@ -383,7 +383,7 @@ function onMouseUp(event) {
 	// Select the path to show the segment points:
 	path.selected = true;
 }
-</script><div class="canvas"><canvas height="320" width="540" style="background:#e4e1e1" id="canvas-9"></canvas></div>
+</script><div class="canvas"><canvas height="318" width="538" style="background:#e4e1e1" id="canvas-9"></canvas></div>
 </div><br>
 <p>
 &lt;/hide&gt;

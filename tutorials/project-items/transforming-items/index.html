@@ -69,7 +69,7 @@ copy.strokeColor = 'red';
 
 // Move the copy to {x: 100, y: 100}
 copy.position = new Point(100, 100);
-</script><div class="canvas"><canvas height="200" id="canvas-1" width="540"></canvas></div>
+</script><div class="canvas"><canvas height="198" id="canvas-1" width="538"></canvas></div>
 </div><br><br>
 <p>
 Let&apos;s quickly go through the code above. In the first line we create a circle shaped path with its center point at <tt>{x: 50, y: 50}</tt> with a radius of 25 pt. In the second line we change the position (the center point) of the circle shaped path to <tt>{x: 100, y: 100}</tt>
@@ -95,7 +95,7 @@ circlePath.fillColor = 'black'
 function onMouseMove(event) {
 	circlePath.position = event.point;
 }
-</script><div class="canvas"><canvas height="200" width="540" id="canvas-2"></canvas></div>
+</script><div class="canvas"><canvas height="198" width="538" id="canvas-2"></canvas></div>
 </div><br><br><br>
 <section id="the-bounding-rectangle"><a name="the-bounding-rectangle" title="The Bounding Rectangle" class="anchor"><h2>The Bounding Rectangle of an Item</h2></a></section>
 <p>
@@ -154,7 +154,7 @@ copy.strokeColor = 'red';
 
 // Scale the copy by 50%:
 copy.scale(0.5);
-</script><div class="canvas"><canvas height="100" id="canvas-3" width="540"></canvas></div>
+</script><div class="canvas"><canvas height="98" id="canvas-3" width="538"></canvas></div>
 </div><br><br>
 <section id="scaling-around-a-point"><a name="scaling-around-a-point" title="Scaling Around a Point" class="anchor"><h2>Scaling an Item Around a Center Point</h2></a></section>
 <p>
@@ -176,7 +176,7 @@ copy.strokeColor = 'red';
 
 // Scale the copy by 50% around {x: 0, y: 0}:
 copy.scale(0.5, new Point(0, 0));
-</script><div class="canvas"><canvas height="100" id="canvas-4" width="540"></canvas></div>
+</script><div class="canvas"><canvas height="98" id="canvas-4" width="538"></canvas></div>
 </div><br><br>
 <p>
 Since the corner positions of the <tt><a href="/reference/item#bounds">item.bounds</a></tt> bounding rectangle are also points, we can also pass them to the <tt><a href="/reference/item#scale-scale">item.scale(scale, point)</a></tt> function to act as a center point for the scale transformation.
@@ -198,7 +198,7 @@ copy.strokeColor = 'red';
 // Scale the copy by 50% around the top right
 // point of its bounding box:
 copy.scale(0.5, circlePath.bounds.topRight);
-</script><div class="canvas"><canvas height="100" id="canvas-5" width="540"></canvas></div>
+</script><div class="canvas"><canvas height="98" id="canvas-5" width="538"></canvas></div>
 </div><br><br>
 <p>
 Items can also be scaled with different horizontal and vertical scales. To do this we pass two numbers to scale using <tt><a href="/reference/item#scale-sx-sy">item.scale(sx, sy)</a></tt>.
@@ -219,7 +219,7 @@ copy.strokeColor = 'red';
 
 // Scale the copy:
 copy.scale(5, 1.5);
-</script><div class="canvas"><canvas height="100" width="540" id="canvas-6"></canvas></div>
+</script><div class="canvas"><canvas height="98" width="538" id="canvas-6"></canvas></div>
 </div><br><br>
 <section id="rotating-items"><a name="rotating-items" title="Rotating Items" class="anchor"><h2>Rotating Items</h2></a></section>
 <p>
@@ -241,7 +241,7 @@ copy.strokeColor = 'red';
 
 // Rotate the copy by 45 degrees:
 copy.rotate(45);
-</script><div class="canvas"><canvas width="540" height="150" id="canvas-7"></canvas></div>
+</script><div class="canvas"><canvas width="538" height="148" id="canvas-7"></canvas></div>
 </div><br><br>
 <p>
 To rotate in a counter-clockwise direction we pass a negative angle to the <tt><a href="/reference/item#rotate-angle">item.rotate(angle)</a></tt> function:
@@ -259,7 +259,7 @@ copy.strokeColor = 'red';
 
 // Rotate the copy by -45 degrees:
 copy.rotate(-45);
-</script><div class="canvas"><canvas width="540" height="150" id="canvas-8"></canvas></div>
+</script><div class="canvas"><canvas width="538" height="148" id="canvas-8"></canvas></div>
 </div><br><br>
 <p>
 We can repeatedly rotate the path in an <tt>onFrame</tt> handler to make an animation:
@@ -279,7 +279,7 @@ function onFrame(event) {
 	// Each frame, rotate the copy by 1 degree:
 	copy.rotate(1);
 }
-</script><div class="canvas"><canvas width="540" height="150" id="canvas-9"></canvas></div>
+</script><div class="canvas"><canvas width="538" height="148" id="canvas-9"></canvas></div>
 </div><br><br>
 <section id="rotating-around-a-point"><a name="rotating-around-a-point" title="Rotating Around a Point" class="anchor"><h2>Rotating Around a Point</h2></a></section>
 <p>
@@ -308,7 +308,7 @@ function onFrame(event) {
 	// we defined earlier:
 	copy.rotate(3, point);
 }
-</script><div class="canvas"><canvas width="540" height="150" id="canvas-10"></canvas></div>
+</script><div class="canvas"><canvas width="538" height="148" id="canvas-10"></canvas></div>
 </div><br><br>
 <section id="advanced-example"><a name="advanced-example" title="Advanced Example" class="anchor"><h2>Advanced Example</h2></a></section>
 <p>
@@ -329,7 +329,7 @@ for(var i = 0; i < clones; i++) {
 	var clonedPath = circlePath.clone();
 	clonedPath.rotate(angle * i, circlePath.bounds.topLeft);
 };
-</script><div class="canvas"><canvas height="150" width="540" id="canvas-11"></canvas></div>
+</script><div class="canvas"><canvas height="148" width="538" id="canvas-11"></canvas></div>
 </div><br><br>
 <p>
 Let&apos;s go through this script line by line.

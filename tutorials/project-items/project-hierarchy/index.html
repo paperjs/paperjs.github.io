@@ -76,7 +76,7 @@ project.activeLayer.children[0].fillColor = 'red';
 // Set the stroke color of the second child of
 // the active layer to black:
 project.activeLayer.children[1].fillColor = 'blue';
-</script><div class="canvas"><canvas height="100" id="canvas-1" width="540"></canvas></div>
+</script><div class="canvas"><canvas height="98" id="canvas-1" width="538"></canvas></div>
 </div><br><br>
 <section id="first-child-and-last-child"><a name="first-child-and-last-child" title="First Child and Last Child" class="anchor"><h2>First Child and Last Child</h2></a></section>
 <p>
@@ -95,7 +95,7 @@ project.activeLayer.firstChild.fillColor = 'red';
 // Set the stroke color of the last child of
 // the active layer to black:
 project.activeLayer.lastChild.fillColor = 'blue';
-</script><div class="canvas"><canvas height="100" highlight="8,12" id="canvas-2" width="540"></canvas></div>
+</script><div class="canvas"><canvas height="98" highlight="8,12" id="canvas-2" width="538"></canvas></div>
 </div><br><br>
 <section id="accessing-children-by-name"><a name="accessing-children-by-name" title="Accessing Children By Name" class="anchor"><h2>Accessing Children By Name</h2></a></section>
 <p>
@@ -112,7 +112,7 @@ var children = project.activeLayer.children;
 
 // The path can be accessed by name:
 children['example'].fillColor = 'red';
-</script><div class="canvas"><canvas height="100" id="canvas-3" width="540"></canvas></div>
+</script><div class="canvas"><canvas height="98" id="canvas-3" width="538"></canvas></div>
 </div><br><br>
 <section id="iterating-over-children"><a name="iterating-over-children" title="Iterating Over Children" class="anchor"><h2>Iterating Over Children</h2></a></section>
 <p>
@@ -139,7 +139,7 @@ for (var i = 0; i < children.length; i++) {
 	// value between 0 and 360:
 	child.fillColor.hue = Math.random() * 360;
 }
-</script><div class="canvas"><canvas height="100" id="canvas-4" width="540"></canvas></div>
+</script><div class="canvas"><canvas height="98" id="canvas-4" width="538"></canvas></div>
 </div><br><br>
 <section id="parents"><a name="parents" title="Parents" class="anchor"><h2>Parents</h2></a></section>
 <p>
@@ -158,7 +158,7 @@ var secondPath = new Path.Circle(new Point(180, 50), 35);
 
 // Change the fill color of both paths to red:
 project.activeLayer.fillColor = 'red';
-</script><div class="canvas"><canvas height="100" id="canvas-5" width="540"></canvas></div>
+</script><div class="canvas"><canvas height="98" id="canvas-5" width="538"></canvas></div>
 </div><br><br>
 <p>
 In the same way that a folder can be contained within another folder, groups can be contained within other groups.
@@ -179,7 +179,7 @@ var secondLayer = new Layer();
 // The second path is added as a child of the second layer:
 var secondPath = new Path.Circle(new Point(150, 50), 35);
 secondPath.fillColor = 'green';
-</script><div class="canvas"><canvas height="100" id="canvas-6" width="540"></canvas></div>
+</script><div class="canvas"><canvas height="98" id="canvas-6" width="538"></canvas></div>
 </div><br><br><br>
 <div class="resource-block">
   <div class="resource"><img src="/tutorials/project-items/project-hierarchy/Layers.gif" width="248" height="168"></img></div>
@@ -206,7 +206,7 @@ group.style = {
 	fillColor: 'red',
 	strokeColor: 'black'
 };
-</script><div class="canvas"><canvas height="100" id="canvas-7" width="540"></canvas></div>
+</script><div class="canvas"><canvas height="98" id="canvas-7" width="538"></canvas></div>
 </div><br><br>
 <p>
 You can also add children to a group after it is created, using the <tt><a href="/reference/item#addchild-item">item.addChild(item)</a></tt> function:
@@ -225,7 +225,7 @@ group.addChild(secondPath);
 
 // Change the fill color of the items contained within the group:
 group.fillColor = 'green';
-</script><div class="canvas"><canvas height="100" id="canvas-8" width="540"></canvas></div>
+</script><div class="canvas"><canvas height="98" id="canvas-8" width="538"></canvas></div>
 </div><br><br>
 <p>
 To insert in a child into a group or layer at a specific index, you can use the <tt><a href="/reference/item#insertchild-index-item">item.insertChild(index, item)</a></tt> function.
@@ -243,7 +243,7 @@ greenPath.fillColor = 'green';
 // Insert the green path at index 0 of the children
 // array of the active layer:
 project.activeLayer.insertChild(0, greenPath);
-</script><div class="canvas"><canvas height="100" id="canvas-9" width="540"></canvas></div>
+</script><div class="canvas"><canvas height="98" id="canvas-9" width="538"></canvas></div>
 </div><br><br>
 <section id="inserting-children"><a name="inserting-children" title="Inserting Children" class="anchor"><h2>Inserting Children Relative to Other Items</h2></a></section>
 <p>
@@ -258,7 +258,7 @@ greenPath.fillColor = 'green';
 
 // Move the green path below the red path:
 greenPath.insertBelow(redPath);
-</script><div class="canvas"><canvas height="100" id="canvas-10" width="540"></canvas></div>
+</script><div class="canvas"><canvas height="98" id="canvas-10" width="538"></canvas></div>
 </div><br><br>
 <section id="removing-items-and-children"><a name="removing-items-and-children" title="Removing Items and Children" class="anchor"><h2>Removing Items and Children</h2></a></section>
 <p>
@@ -278,7 +278,7 @@ circlePath.remove();
 function onMouseDown(event) {
 	project.activeLayer.addChild(circlePath);
 }
-</script><div class="canvas"><canvas height="100" id="canvas-11" width="540"></canvas></div>
+</script><div class="canvas"><canvas height="98" id="canvas-11" width="538"></canvas></div>
 </div><br><br>
 <p>
 To remove all children contained within an item, you can call <tt><a href="/reference/item#removechildren">item.removeChildren()</a></tt>. In the following example we create a path, and then add it to a group. Then we remove the children of the group. When you execute the following code, nothing will appear in your document, since the path has been removed.

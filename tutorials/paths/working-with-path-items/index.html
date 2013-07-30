@@ -132,7 +132,7 @@ var myPath = new Path();
 myPath.strokeColor = 'black';
 myPath.add(new Point(0, 0));
 myPath.add(new Point(100, 50));
-</script><div class="canvas"><canvas height="100" id="canvas-2" width="540"></canvas></div>
+</script><div class="canvas"><canvas height="98" id="canvas-2" width="538"></canvas></div>
 </div><br><br>
 <p>
 The <tt>add</tt> function also supports multiple arguments, which allows you to insert multiple segments in one go:
@@ -185,7 +185,7 @@ copy.position.x += 100;
 
 // Smooth the segments of the copy:
 copy.smooth();
-</script><div class="canvas"><canvas height="100" id="canvas-5" width="540"></canvas></div>
+</script><div class="canvas"><canvas height="98" id="canvas-5" width="538"></canvas></div>
 </div><br><br>
 <section id="closing-paths"><a name="closing-paths" title="Closing Paths" class="anchor"><h2>Closing Paths</h2></a></section>
 <p>
@@ -197,7 +197,7 @@ myPath.strokeColor = 'black';
 myPath.add(new Point(40, 90));
 myPath.add(new Point(90, 40));
 myPath.add(new Point(140, 90));
-</script><div class="canvas"><canvas width="540" height="140" id="canvas-6"></canvas></div>
+</script><div class="canvas"><canvas width="538" height="138" id="canvas-6"></canvas></div>
 </div><br><br>
 <p>
 To close the path we set its <tt><a href="/reference/path#closed">path.closed</a></tt> property to <tt>true</tt>. Paper.js will then connect the first and last segments of the path:
@@ -210,7 +210,7 @@ myPath.add(new Point(90, 40));
 myPath.add(new Point(140, 90));
 
 myPath.closed = true;
-</script><div class="canvas"><canvas width="540" height="140" highlight="7" id="canvas-7"></canvas></div>
+</script><div class="canvas"><canvas width="538" height="138" highlight="7" id="canvas-7"></canvas></div>
 </div><br><br>
 <section id="removing-segments-and-paths"><a name="removing-segments-and-paths" title="Removing Segments and Paths" class="anchor"><h2>Removing Segments and Paths</h2></a></section>
 <p>
@@ -226,7 +226,7 @@ First, lets create a circle shaped path and inspect its segments:
 var myCircle = new Path.Circle(new Point(100, 70), 50);
 myCircle.strokeColor = 'black';
 myCircle.selected = true;
-</script><div class="canvas"><canvas width="540" height="140" id="canvas-8"></canvas></div>
+</script><div class="canvas"><canvas width="538" height="138" id="canvas-8"></canvas></div>
 </div><br><br>
 <p>
 As you can see, the path has 4 segments.
@@ -240,7 +240,7 @@ myCircle.strokeColor = 'black';
 myCircle.selected = true;
 
 myCircle.removeSegment(0);
-</script><div class="canvas"><canvas width="540" height="140" id="canvas-9"></canvas></div>
+</script><div class="canvas"><canvas width="538" height="138" id="canvas-9"></canvas></div>
 </div><br><br>
 <div class="note"><b>Did you know?</b><p>
 In Javascript and most other programming languages we always start counting at zero when we refer to the index of an item in a list. Number zero is the first item, number one is the second item etc.
