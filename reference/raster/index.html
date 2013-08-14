@@ -267,29 +267,6 @@ raster.rotate(10);
 </div>
 		
 			
-<div id="context" class="member">
-<div class="member-link">
-<a name="context" href="#context"><tt><b>context</b></tt></a>
-</div>
-<div class="member-description hidden">
-
-<div class="member-text">
-	<p>The Canvas 2d drawing context of the raster.</p>
-	
-	
-	<ul><b>Type:</b>
-	<li>
-		<tt>Context</tt>
-	</li>
-	</ul>
-	
-	
-</div>
-
-</div>
-</div>
-		
-			
 <div id="image" class="member">
 <div class="member-link">
 <a name="image" href="#image"><tt><b>image</b></tt></a>
@@ -313,6 +290,55 @@ raster.rotate(10);
 </div>
 		
 			
+<div id="canvas" class="member">
+<div class="member-link">
+<a name="canvas" href="#canvas"><tt><b>canvas</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The Canvas object of the raster. If the raster was created from an image,
+accessing its canvas causes the raster to try and create one and draw the
+image into it. Depending on security policies, this might fail, in which
+case <tt>null</tt> is returned instead.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<tt>Canvas</tt>
+	</li>
+	</ul>
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
+<div id="context" class="member">
+<div class="member-link">
+<a name="context" href="#context"><tt><b>context</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The Canvas 2D drawing context of the raster.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<tt>Context</tt>
+	</li>
+	</ul>
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
 <div id="source" class="member">
 <div class="member-link">
 <a name="source" href="#source"><tt><b>source</b></tt></a>
@@ -322,8 +348,9 @@ raster.rotate(10);
 <div class="member-text">
 	<p>The source of the raster, which can be set using a DOM Image, a Canvas,
 a data url, a string describing the URL to load the image from, or the
-ID of a DOM element to get the image from (either a DOM Image or a Canvas).</p>
-<p>Reading this property will return the url of the source image or a data-url.</p>
+ID of a DOM element to get the image from (either a DOM Image or a
+Canvas). Reading this property will return the url of the source image or
+a data-url.</p>
 	
 	
 	<ul><b>Type:</b>
@@ -384,13 +411,14 @@ var raster = new Raster({
 	<div class="reference-members"><h2>Methods</h2>
 		
 			
-<div id="getsubimage-rect" class="member">
+<div id="getsubcanvas-rect" class="member">
 <div class="member-link">
-<a name="getsubimage-rect" href="#getsubimage-rect"><tt><b>getSubImage</b>(rect)</tt></a>
+<a name="getsubcanvas-rect" href="#getsubcanvas-rect"><tt><b>getSubCanvas</b>(rect)</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	
+	<p>Extracts a part of the Raster's content as a sub image, and returns it as
+a Canvas object.</p>
 	
 <ul><b>Parameters:</b>
 
@@ -408,7 +436,44 @@ coordinates
 	<ul><b>Returns:</b>
 	
 		<li>
-<tt><tt>Canvas</tt></tt>
+<tt><tt>Canvas</tt></tt>&nbsp;&mdash;&nbsp;the sub image as a Canvas object
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="getsubraster-rect" class="member">
+<div class="member-link">
+<a name="getsubraster-rect" href="#getsubraster-rect"><tt><b>getSubRaster</b>(rect)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Extracts a part of the raster item's content as a new raster item, placed
+in exactly the same place as the original content.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>rect:</tt> 
+<a href="/reference/rectangle"><tt>Rectangle</tt></a>
+&mdash;&nbsp;the boundaries of the sub raster in pixel
+coordinates
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/raster"><tt>Raster</tt></a></tt>&nbsp;&mdash;&nbsp;the sub raster as a newly created raster item
 </li>
 	
 	</ul>
