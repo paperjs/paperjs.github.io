@@ -813,6 +813,32 @@ relation to its parent item in which it is contained.</p>
 </div>
 
 	
+<div id="globalmatrix" class="member">
+<div class="member-link">
+<a name="globalmatrix" href="#globalmatrix"><tt><b>globalMatrix</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The item's global transformation matrix in relation to the global project
+coordinate space.</p>
+	
+		<p>Read only.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<a href="/reference/matrix"><tt>Matrix</tt></a>
+	</li>
+	</ul>
+	
+	
+</div>
+
+</div>
+</div>
+
+	
 <div id="bounds" class="member">
 <div class="member-link">
 <a name="bounds" href="#bounds"><tt><b>bounds</b></tt></a>
@@ -2343,6 +2369,78 @@ circle.set({
 </div>
 
 
+</div>
+</div>
+</div>
+
+	
+<div id="globaltolocal-point" class="member">
+<div class="member-link">
+<a name="globaltolocal-point" href="#globaltolocal-point"><tt><b>globalToLocal</b>(point)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Converts the specified point from global project coordinates to local
+coordinates in relation to the the item's own coordinate space.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>point:</tt> 
+<a href="/reference/point"><tt>Point</tt></a>
+&mdash;&nbsp;the point to be transformed
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the transformed point as a new instance
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+
+	
+<div id="localtoglobal-point" class="member">
+<div class="member-link">
+<a name="localtoglobal-point" href="#localtoglobal-point"><tt><b>localToGlobal</b>(point)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Converts the specified point from local coordinates to global coordinates
+in relation to the the project coordinate space.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>point:</tt> 
+<a href="/reference/point"><tt>Point</tt></a>
+&mdash;&nbsp;the point to be transformed
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the transformed point as a new instance
+</li>
+	
+	</ul>
+
+	
+	
 </div>
 </div>
 </div>

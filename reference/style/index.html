@@ -547,7 +547,7 @@ circle.fillColor = new Color(1, 0, 0);
 	</ul>
 	
 	<p>
-<b>Example</b> &mdash; Setting the shadow color of a path to black:
+<b>Example</b> &mdash; Creating a circle with a black shadow:
 </p>
 
 <div class="paperscript split">
@@ -557,16 +557,17 @@ circle.fillColor = new Color(1, 0, 0);
 </div>
 
 <script type="text/paperscript" canvas="canvas-9">
-// Create a circle shaped path at { x: 80, y: 50 }
-// with a radius of 35:
-var circle = new Path.Circle(new Point(80, 50), 35);
-
-// Set the shadow color of the circle to RGB black:
-circle.shadowColor = new Color(0, 0, 0);
-
-// Set the shadow blur, offset to { x: 10, y: 10 }
-circle.shadowBlur = 10;
-circle.shadowOffset = new Poit(10, 10);
+var circle = new Path.Circle({
+    center: [80, 50],
+    radius: 35,
+    fillColor: 'white',
+    // Set the shadow color of the circle to RGB black:
+    shadowColor: new Color(0, 0, 0),
+    // Set the shadow blur radius to 12:
+    shadowBlur: 12,
+    // Offset the shadow by { x: 5, y: 5 }
+    shadowOffset: new Point(5, 5)
+});
 </script>
 <div class="canvas"><canvas width="516" height="100" id="canvas-9"></canvas></div>
 </div>
