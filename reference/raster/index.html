@@ -3919,6 +3919,32 @@ use this function for groups, compound paths and layers.</p>
 </div>
 
 	
+<div id="reduce" class="member">
+<div class="member-link">
+<a name="reduce" href="#reduce"><tt><b>reduce</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>If this is a group, layer or compound-path with only one child-item,
+the child-item is moved outside and the parent is erased. Otherwise, the
+item itself is returned unmodified.</p>
+	
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the reduced item
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+
+	
 <div id="remove" class="member">
 <div class="member-link">
 <a name="remove" href="#remove"><tt><b>remove</b>()</tt></a>
@@ -4822,13 +4848,13 @@ path.fitBounds(view.bounds);
 	
 <h3>Event Handling</h3>
 
-<div id="on-type-function" class="member">
+<div id="attach-type-function" class="member">
 <div class="member-link">
-<a name="on-type-function" href="#on-type-function"><tt><b>on</b>(type, function)</tt></a>
+<a name="attach-type-function" href="#attach-type-function"><tt><b>attach</b>(type, function)</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Attach an event handler to the item.</p>
+	<p>Attaches an event handler to the item.</p>
 	
 <ul><b>Parameters:</b>
 
@@ -4889,20 +4915,20 @@ path.on('mouseleave', function() {
 </div>
 
 	
-<div id="on-param" class="member">
+<div id="attach-object" class="member">
 <div class="member-link">
-<a name="on-param" href="#on-param"><tt><b>on</b>(param)</tt></a>
+<a name="attach-object" href="#attach-object"><tt><b>attach</b>(object)</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Attach one or more event handlers to the item.</p>
+	<p>Attaches one or more event handlers to the item.</p>
 	
 <ul><b>Parameters:</b>
 
 <li>
-<tt>param:</tt> 
+<tt>object:</tt> 
 <tt>Object</tt>
-&mdash;&nbsp;An object literal containing one or more of the
+&mdash;&nbsp;an object literal containing one or more of the
 following properties: <tt>mousedown, mouseup, mousedrag, click,
 doubleclick, mousemove, mouseenter, mouseleave</tt>.
 
@@ -5021,9 +5047,9 @@ type
 </div>
 
 	
-<div id="detach-param" class="member">
+<div id="detach-object" class="member">
 <div class="member-link">
-<a name="detach-param" href="#detach-param"><tt><b>detach</b>(param)</tt></a>
+<a name="detach-object" href="#detach-object"><tt><b>detach</b>(object)</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
@@ -5032,9 +5058,9 @@ type
 <ul><b>Parameters:</b>
 
 <li>
-<tt>param:</tt> 
+<tt>object:</tt> 
 <tt>Object</tt>
-&mdash;&nbsp;An object literal containing one or more of the
+&mdash;&nbsp;an object literal containing one or more of the
 following properties: <tt>mousedown, mouseup, mousedrag, click,
 doubleclick, mousemove, mouseenter, mouseleave</tt>
 
@@ -5071,7 +5097,7 @@ type
 <li>
 <tt>event:</tt> 
 <tt>Object</tt>
-&mdash;&nbsp;An object literal containing properties describing
+&mdash;&nbsp;an object literal containing properties describing
 the event.
 
 </li>

@@ -146,7 +146,7 @@ path.strokeColor = 'black';
 <li>
 <tt>object:</tt> 
 <tt>Object</tt>
-&mdash;&nbsp;An object literal containing properties to
+&mdash;&nbsp;an object literal containing properties to
 be set on the segment.
 
 </li>
@@ -502,6 +502,53 @@ segment is returned for the first segment of the path.</p>
 
 <!-- ============================== methods ================================ -->
 	<div class="reference-members"><h2>Methods</h2>
+		
+			
+<div id="iscolinear-segment" class="member">
+<div class="member-link">
+<a name="iscolinear-segment" href="#iscolinear-segment"><tt><b>isColinear</b>(segment)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Returns true if the the two segments are the beggining of two lines and
+if these two lines are running parallel.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>segment:</tt> 
+
+
+
+</li>
+
+</ul>
+
+	
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="isarc" class="member">
+<div class="member-link">
+<a name="isarc" href="#isarc"><tt><b>isArc</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Returns true if the segment at the given index is the beginning of an
+orthogonal arc segment. The code looks at the length of the handles and
+their relation to the distance to the imaginary corner point. If the
+relation is kappa, then it's an arc.</p>
+	
+	
+	
+	
+</div>
+</div>
+</div>
 		
 			
 <div id="reverse" class="member">
