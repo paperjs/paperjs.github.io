@@ -2738,8 +2738,9 @@ function onMouseDown(event) {
 <a href="/reference/group"><tt>Group</tt></a> or <a href="/reference/layer"><tt>Layer</tt></a>) at the location of the specified point.</p>
 <p>The optional options object allows you to control the specifics of the
 hit test and may contain a combination of the following values:</p>
-<p><b>tolerance:</b> <tt>Number</tt> - The tolerance of the hit test in
-points.</p>
+<p><b>options.tolerance:</b> <tt>Number</tt> - The tolerance of the hit test in
+points, default: <tt>2</tt>. Can also be controlled through
+<a href="/reference/project#options"><tt>project.options</tt></a><tt>.hitTolerance</tt>.</p>
 <p><b>options.type:</b> Only hit test again a certain item
 type: <a href="/reference/pathitem"><tt>PathItem</tt></a>, <a href="/reference/raster"><tt>Raster</tt></a>, <a href="/reference/textitem"><tt>TextItem</tt></a>, etc.</p>
 <p><b>options.fill:</b> <tt>Boolean</tt> - Hit test the fill of items.</p>
@@ -2797,7 +2798,7 @@ hit
 </div>
 
 	
-<h3>Import / Export to JSON & SVG</h3>
+<h3>Importing To / Exporting From JSON & SVG</h3>
 
 <div id="exportjson" class="member">
 <div class="member-link">
@@ -2900,21 +2901,21 @@ data string.</p>
 </div>
 
 	
-<div id="importsvg-node" class="member">
+<div id="importsvg-svg" class="member">
 <div class="member-link">
-<a name="importsvg-node" href="#importsvg-node"><tt><b>importSVG</b>(node)</tt></a>
+<a name="importsvg-svg" href="#importsvg-svg"><tt><b>importSVG</b>(svg)</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Converts the SVG node and all its child nodes into Paper.js items and
-adds them as children to the this item.</p>
+	<p>Converts the provided SVG content into Paper.js items and adds them to
+the this item's children list.</p>
 	
 <ul><b>Parameters:</b>
 
 <li>
-<tt>node:</tt> 
-<tt>SVGSVGElement</tt>
-&mdash;&nbsp;the SVG node to import
+<tt>svg:</tt> 
+<tt>SVGSVGElement</tt> / <tt>String</tt>
+&mdash;&nbsp;the SVG content to import
 
 </li>
 

@@ -256,8 +256,8 @@ var path2 = new Path.Circle(new Point(175, 50), 20);
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p><b>options.handleSize:</b> 
-<b>options.hitTolerance:</b></p>
+	<p><b>options.handleSize:</b> </p>
+<p><b>options.hitTolerance:</b></p>
 	
 	
 	<ul><b>Type:</b>
@@ -487,7 +487,7 @@ hit
 </div>
 		
 			
-<h3>Import / Export to JSON & SVG</h3>
+<h3>Importing To / Exporting From JSON & SVG</h3>
 
 <div id="exportjson" class="member">
 <div class="member-link">
@@ -591,21 +591,21 @@ all contained in one top level SVG group node.</p>
 </div>
 		
 			
-<div id="importsvg-node" class="member">
+<div id="importsvg-svg" class="member">
 <div class="member-link">
-<a name="importsvg-node" href="#importsvg-node"><tt><b>importSVG</b>(node)</tt></a>
+<a name="importsvg-svg" href="#importsvg-svg"><tt><b>importSVG</b>(svg)</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Converts the SVG node and all its child nodes into Paper.js items and
-adds them to the active layer of this project.</p>
+	<p>Converts the provided SVG content into Paper.js items and adds them to
+the active layer of this project.</p>
 	
 <ul><b>Parameters:</b>
 
 <li>
-<tt>node:</tt> 
-<tt>SVGSVGElement</tt>
-&mdash;&nbsp;the SVG node to import
+<tt>svg:</tt> 
+<tt>SVGSVGElement</tt> / <tt>String</tt>
+&mdash;&nbsp;the SVG content to import
 
 </li>
 
