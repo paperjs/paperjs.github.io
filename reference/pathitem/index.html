@@ -671,9 +671,9 @@ segments.</p>
 			
 <h3>Relative Drawing Commands</h3>
 
-<div id="moveby-vector" class="member">
+<div id="moveby-to" class="member">
 <div class="member-link">
-<a name="moveby-vector" href="#moveby-vector"><tt><b>moveBy</b>(vector)</tt></a>
+<a name="moveby-to" href="#moveby-to"><tt><b>moveBy</b>(to)</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
@@ -684,7 +684,7 @@ position of the last segment of the current path.</p>
 <ul><b>Parameters:</b>
 
 <li>
-<tt>vector:</tt> 
+<tt>to:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
 
 
@@ -700,9 +700,9 @@ position of the last segment of the current path.</p>
 </div>
 		
 			
-<div id="lineby-vector" class="member">
+<div id="lineby-to" class="member">
 <div class="member-link">
-<a name="lineby-vector" href="#lineby-vector"><tt><b>lineBy</b>(vector)</tt></a>
+<a name="lineby-to" href="#lineby-to"><tt><b>lineBy</b>(to)</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
@@ -711,10 +711,10 @@ position of the last segment of the current path.</p>
 <ul><b>Parameters:</b>
 
 <li>
-<tt>vector:</tt> 
+<tt>to:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
-&mdash;&nbsp;The vector which is added to the position of the
-       last segment of the path, to become the new segment.
+&mdash;&nbsp;the vector which is added to the position of the last
+segment of the path, to get to the position of the new segment.
 
 </li>
 
@@ -795,9 +795,9 @@ path.smooth();
 </div>
 		
 			
-<div id="curveby-throughVector-toVector" class="member">
+<div id="curveby-through-to" class="member">
 <div class="member-link">
-<a name="curveby-throughVector-toVector" href="#curveby-throughVector-toVector"><tt><b>curveBy</b>(throughVector, toVector[, parameter])</tt></a>
+<a name="curveby-through-to" href="#curveby-through-to"><tt><b>curveBy</b>(through, to[, parameter])</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
@@ -806,14 +806,14 @@ path.smooth();
 <ul><b>Parameters:</b>
 
 <li>
-<tt>throughVector:</tt> 
+<tt>through:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
 
 
 </li>
 
 <li>
-<tt>toVector:</tt> 
+<tt>to:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
 
 
@@ -836,9 +836,9 @@ path.smooth();
 </div>
 		
 			
-<div id="arcby-throughVector-toVector" class="member">
+<div id="cubiccurveby-handle1-handle2-to" class="member">
 <div class="member-link">
-<a name="arcby-throughVector-toVector" href="#arcby-throughVector-toVector"><tt><b>arcBy</b>(throughVector, toVector)</tt></a>
+<a name="cubiccurveby-handle1-handle2-to" href="#cubiccurveby-handle1-handle2-to"><tt><b>cubicCurveBy</b>(handle1, handle2, to)</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
@@ -847,14 +847,89 @@ path.smooth();
 <ul><b>Parameters:</b>
 
 <li>
-<tt>throughVector:</tt> 
+<tt>handle1:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
 
 
 </li>
 
 <li>
-<tt>toVector:</tt> 
+<tt>handle2:</tt> 
+<a href="/reference/point"><tt>Point</tt></a>
+
+
+</li>
+
+<li>
+<tt>to:</tt> 
+<a href="/reference/point"><tt>Point</tt></a>
+
+
+</li>
+
+</ul>
+
+	
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="quadraticcurveby-handle-to" class="member">
+<div class="member-link">
+<a name="quadraticcurveby-handle-to" href="#quadraticcurveby-handle-to"><tt><b>quadraticCurveBy</b>(handle, to)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>handle:</tt> 
+<a href="/reference/point"><tt>Point</tt></a>
+
+
+</li>
+
+<li>
+<tt>to:</tt> 
+<a href="/reference/point"><tt>Point</tt></a>
+
+
+</li>
+
+</ul>
+
+	
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="arcby-through-to" class="member">
+<div class="member-link">
+<a name="arcby-through-to" href="#arcby-through-to"><tt><b>arcBy</b>(through, to)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>through:</tt> 
+<a href="/reference/point"><tt>Point</tt></a>
+
+
+</li>
+
+<li>
+<tt>to:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
 
 
@@ -3468,30 +3543,30 @@ function onMouseDown(event) {
 <div class="member-text">
 	<p>Perform a hit test on the item (and its children, if it is a
 <a href="/reference/group"><tt>Group</tt></a> or <a href="/reference/layer"><tt>Layer</tt></a>) at the location of the specified point.</p>
-<p>The optional options object allows you to control the specifics of the
-hit test and may contain a combination of the following values:</p>
-<p><b>options.tolerance:</b> <tt>Number</tt> - The tolerance of the hit test in
-points, default: <tt>2</tt>. Can also be controlled through
+<p>The options object allows you to control the specifics of the hit test
+and may contain a combination of the following values:</p>
+<p><b>options.tolerance:</b> <tt>Number</tt> – the tolerance of the hit test
+in points. Can also be controlled through
 <a href="/reference/project#options"><tt>project.options</tt></a><tt>.hitTolerance</tt>.</p>
 <p><b>options.type:</b> Only hit test again a certain item
 type: <a href="/reference/pathitem"><tt>PathItem</tt></a>, <a href="/reference/raster"><tt>Raster</tt></a>, <a href="/reference/textitem"><tt>TextItem</tt></a>, etc.</p>
-<p><b>options.fill:</b> <tt>Boolean</tt> - Hit test the fill of items.</p>
-<p><b>options.stroke:</b> <tt>Boolean</tt> - Hit test the curves of path
+<p><b>options.fill:</b> <tt>Boolean</tt> – hit test the fill of items.</p>
+<p><b>options.stroke:</b> <tt>Boolean</tt> – hit test the curves of path
 items, taking into account stroke width.</p>
-<p><b>options.segment:</b> <tt>Boolean</tt> - Hit test for
+<p><b>options.segment:</b> <tt>Boolean</tt> – hit test for
 <a href="/reference/segment#point"><tt>segment.point</tt></a> of <a href="/reference/path"><tt>Path</tt></a> items.</p>
-<p><b>options.handles:</b> <tt>Boolean</tt> - Hit test for the handles
+<p><b>options.handles:</b> <tt>Boolean</tt> – hit test for the handles
 (<a href="/reference/segment#handlein"><tt>segment.handleIn</tt></a> / <a href="/reference/segment#handleout"><tt>segment.handleOut</tt></a>) of path segments.</p>
-<p><b>options.ends:</b> <tt>Boolean</tt> - Only hit test for the first or
+<p><b>options.ends:</b> <tt>Boolean</tt> – only hit test for the first or
 last segment points of open path items.</p>
-<p><b>options.bounds:</b> <tt>Boolean</tt> - Hit test the corners and
+<p><b>options.bounds:</b> <tt>Boolean</tt> – hit test the corners and
 side-centers of the bounding rectangle of items (<a href="/reference/item#bounds"><tt>item.bounds</tt></a>).</p>
-<p><b>options.center:</b> <tt>Boolean</tt> - Hit test the
+<p><b>options.center:</b> <tt>Boolean</tt> – hit test the
 <a href="/reference/rectangle#center"><tt>rectangle.center</tt></a> of the bounding rectangle of items
 (<a href="/reference/item#bounds"><tt>item.bounds</tt></a>).</p>
-<p><b>options.guides:</b> <tt>Boolean</tt> - Hit test items that have
+<p><b>options.guides:</b> <tt>Boolean</tt> – hit test items that have
 <tt>Item#guide</tt> set to <tt>true</tt>.</p>
-<p><b>options.selected:</b> <tt>Boolean</tt> - Only hit selected items.</p>
+<p><b>options.selected:</b> <tt>Boolean</tt> – only hit selected items.<b</p>
 	
 <ul><b>Parameters:</b>
 
@@ -3530,7 +3605,7 @@ hit
 </div>
 
 	
-<h3>Importing To / Exporting From JSON & SVG</h3>
+<h3>Importing / Exporting JSON and SVG</h3>
 
 <div id="exportjson" class="member">
 <div class="member-link">
@@ -3540,6 +3615,9 @@ hit
 <div class="member-text">
 	<p>Exports (serializes) the item with its content and child items to a JSON
 data string.</p>
+<p>The options object offers control over some aspects of the SVG export:</p>
+<p><b>options.precision:</b> <tt>Number</tt> – the amount of fractional
+digits in numbers used in JSON data.</p>
 	
 <ul><b>Parameters:</b>
 
@@ -3575,8 +3653,9 @@ data string.</p>
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Imports (deserializes) the stored JSON data into this item's
-<a href="/reference/item#children"><tt>item.children</tt></a> list. Note that the item is not cleared first.</p>
-<p>You can call <a href="/reference/item#removechildren"><tt>item.removeChildren</tt></a>() to do so.</p>
+<a href="/reference/item#children"><tt>item.children</tt></a> list.</p>
+<p>Note that the item is not cleared first. You can call
+<a href="/reference/item#removechildren"><tt>item.removeChildren</tt></a>() to do so.</p>
 	
 <ul><b>Parameters:</b>
 
@@ -3604,15 +3683,23 @@ data string.</p>
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Exports the item with its content and child items as an SVG DOM.</p>
+<p>The options object offers control over some aspects of the SVG export:</p>
+<p><b>options.asString:</b> <tt>Boolean</tt> – wether a SVG node or a String
+is to be returned.</p>
+<p><b>options.precision:</b> <tt>Number</tt> – the amount of fractional
+digits in numbers used in SVG data.</p>
+<p><b>options.matchShapes:</b> <tt>Boolean</tt> – wether imported path
+items should tried to be converted to shape items, if their geometries
+match.</p>
 	
 <ul><b>Parameters:</b>
 
 <li>
 <tt>options:</tt> 
 <tt>Object</tt>
-&mdash;&nbsp;the export
-       options.
-&mdash;&nbsp;optional, default: <tt>{ asString: false, precision: 5 }</tt>
+&mdash;&nbsp;the export options.
+&mdash;&nbsp;optional, default: <tt>{ asString: false, precision: 5,
+matchShapes: false }</tt>
 </li>
 
 </ul>
@@ -3635,12 +3722,17 @@ data string.</p>
 	
 <div id="importsvg-svg" class="member">
 <div class="member-link">
-<a name="importsvg-svg" href="#importsvg-svg"><tt><b>importSVG</b>(svg)</tt></a>
+<a name="importsvg-svg" href="#importsvg-svg"><tt><b>importSVG</b>(svg[, options])</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Converts the provided SVG content into Paper.js items and adds them to
 the this item's children list.</p>
+<p>Note that the item is not cleared first. You can call
+<a href="/reference/item#removechildren"><tt>item.removeChildren</tt></a>() to do so.</p>
+<p>The options object offers control over some aspects of the SVG import:</p>
+<p><b>options.expandShapes:</b> <tt>Boolean</tt> – wether imported shape
+items should be expanded to path items.</p>
 	
 <ul><b>Parameters:</b>
 
@@ -3649,6 +3741,13 @@ the this item's children list.</p>
 <tt>SVGSVGElement</tt> / <tt>String</tt>
 &mdash;&nbsp;the SVG content to import
 
+</li>
+
+<li>
+<tt>options:</tt> 
+<tt>Object</tt>
+&mdash;&nbsp;the import options
+&mdash;&nbsp;optional, default: <tt>{ expandShapes: false }</tt>
 </li>
 
 </ul>
