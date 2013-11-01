@@ -2897,10 +2897,11 @@ digits in numbers used in JSON data.</p>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Imports (deserializes) the stored JSON data into this item's
-<a href="/reference/item#children"><tt>item.children</tt></a> list.</p>
-<p>Note that the item is not cleared first. You can call
-<a href="/reference/item#removechildren"><tt>item.removeChildren</tt></a>() to do so.</p>
+	<p>Imports (deserializes) the stored JSON data into this item. If the data
+describes an item of the same class or a parent class of the item, the
+data is imported into the item itself. If not, the imported item is added
+to this item's <a href="/reference/item#children"><tt>item.children</tt></a> list. Note that not all type of
+items can have children.</p>
 	
 <ul><b>Parameters:</b>
 
