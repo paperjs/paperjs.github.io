@@ -56,12 +56,16 @@ The <tt><a href="/reference/raster#size">raster.size</a></tt> property of a rast
 <div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-1">
 // Create a raster item using the image tag with id='mona'
 var raster = new Raster('mona');
-
-// Downsize the raster to 80 pixels wide and 60 pixels high:
-raster.size = new Size(80, 60);
-
 // Move the raster to the center of the view
 raster.position = view.center;
+
+// As the web is asynchronous, we need to wait for the raster to load
+// before we can perform any operation on its pixels.
+raster.on('load', function() {
+	// Downsize the pixel content to 80 pixels wide and 60 pixels high:
+	raster.size = new Size(80, 60);
+});
+
 </script><div class="canvas"><canvas height="98" id="canvas-1" width="538"></canvas></div>
 </div><br><br>
 <section id="colors-of-pixels"><a name="colors-of-pixels" title="Colors of Pixels" class="anchor"><h2>Colors of Pixels</h2></a></section>
@@ -75,11 +79,6 @@ The following script loops through the pixels of the selected raster and creates
 // Create a raster item using the image tag with id='mona'
 var raster = new Raster('mona');
 
-// Since the example image we're using is much too large,
-// and therefore has way too many pixels, lets downsize it to
-// 40 pixels wide and 30 pixels high:
-raster.size = new Size(40, 30);
-
 // Hide the raster:
 raster.visible = false;
 
@@ -89,22 +88,35 @@ var gridSize = 12;
 // Space the cells by 120%:
 var spacing = 1.2;
 
-for (var y = 0; y < raster.height; y++) {
-	for(var x = 0; x < raster.width; x++) {
-		// Get the color of the pixel:
-		var color = raster.getPixel(x, y);
+// As the web is asynchronous, we need to wait for the raster to load
+// before we can perform any operation on its pixels.
+raster.on('load', function() {
+	// Since the example image we're using is much too large,
+	// and therefore has way too many pixels, lets downsize it to
+	// 40 pixels wide and 30 pixels high:
+	raster.size = new Size(40, 30);
 
-		// Create a circle shaped path:
-		var path = new Path.Circle({
-			center: new Point(x, y) * gridSize,
-			radius: gridSize / 2 / spacing
-		});
+	for (var y = 0; y < raster.height; y++) {
+		for(var x = 0; x < raster.width; x++) {
+			// Get the color of the pixel:
+			var color = raster.getPixel(x, y);
 
-		// Set the fill color of the path to the color
-		// of the pixel:
-		path.fillColor = color;
+			// Create a circle shaped path:
+			var path = new Path.Circle({
+				center: new Point(x, y) * gridSize,
+				radius: gridSize / 2 / spacing
+			});
+
+			// Set the fill color of the path to the color
+			// of the pixel:
+			path.fillColor = color;
+		}
 	}
-}
+
+	// Move the active layer to the center of the view, so all 
+	// the created paths in it appear centered.
+	project.activeLayer.position = view.center;
+});
 
 // Move the active layer to the center of the view:
 project.activeLayer.position = view.center;
@@ -121,11 +133,6 @@ The following script loops through the pixels of the selected raster and creates
 // Create a raster item using the image tag with id='mona'
 var raster = new Raster('mona');
 
-// Since the example image we're using is much too large,
-// and therefore has way too many pixels, lets downsize it to
-// 40 pixels wide and 30 pixels high:
-raster.size = new Size(40, 30);
-
 // Hide the raster:
 raster.visible = false;
 
@@ -135,32 +142,42 @@ var gridSize = 12;
 // Space the cells by 120%:
 var spacing = 1.2;
 
-for (var y = 0; y < raster.height; y++) {
-	for(var x = 0; x < raster.width; x++) {
-		// Get the color of the pixel:
-		var color = raster.getPixel(x, y);
+// As the web is asynchronous, we need to wait for the raster to load
+// before we can perform any operation on its pixels.
+raster.on('load', function() {
+	// Since the example image we're using is much too large,
+	// and therefore has way too many pixels, lets downsize it to
+	// 40 pixels wide and 30 pixels high:
+	raster.size = new Size(40, 30);
 
-		// Create a circle shaped path:
-		var path = new Path.Circle({
-			center: new Point(x, y) * gridSize,
-			radius: gridSize / 2 / spacing,
-			fillColor: 'black'
-		});
+	for (var y = 0; y < raster.height; y++) {
+		for(var x = 0; x < raster.width; x++) {
+			// Get the color of the pixel:
+			var color = raster.getPixel(x, y);
 
-		// Scale the path by the amount of gray in the pixel color:
-		path.scale(1 - color.gray);
+			// Create a circle shaped path:
+			var path = new Path.Circle({
+				center: new Point(x, y) * gridSize,
+				radius: gridSize / 2 / spacing,
+				fillColor: 'black'
+			});
+
+			// Scale the path by the amount of gray in the pixel color:
+			path.scale(1 - color.gray);
+		}
 	}
-}
 
-// Move the active layer to the center of the view:
-project.activeLayer.position = view.center;
+	// Move the active layer to the center of the view, so all 
+	// the created paths in it appear centered.
+	project.activeLayer.position = view.center;
+});
 </script><div class="canvas"><canvas height="398" id="canvas-3" width="538"></canvas></div>
 </div><br><br>
 <p>
 This code is very similar to the example above, but this time we don&apos;t fill the paths with the color we find when we call <tt><a href="/reference/raster#raster-getpixel-x-y">Raster.getPixel(x, y)</a></tt>. Instead, we look at how dark the color is using <tt><a href="/reference/color#gray">color.gray</a></tt>, which is a value between <tt>0</tt> (white) and <tt>1</tt> (black) and use it to scale the paths.
 </p>
 <p>
-<img class="hidden" id="mona" src="/tutorials/images/using-pixel-colors/mona-lisa-1.jpg" width="595" height="436"></img>
+<img class="hidden" id="mona" src="/tutorials/images/using-pixel-colors/mona.jpg" width="595" height="436"></img>
 </p>
 </article>
 <aside>

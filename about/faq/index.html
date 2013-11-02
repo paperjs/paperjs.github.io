@@ -55,15 +55,15 @@ If we think it is a useful feature to have, we would be open to adding it to our
 </p>
 <section id="why-not-base-it-on-svg"><a name="why-not-base-it-on-svg" title="Why not base it on SVG?" class="anchor"><h2>Why not base it on SVG?</h2></a></section>
 <p>
-We have decided to use the Canvas object as the main backend for now because it is faster than SVG and allows us to implement and optimize our own Scene Graph / Document Object Model. We will be offering SVG (and hopefully PDF) importing and exporting in the future.
+We have decided to use the Canvas object as the main backend because in our initial testing it was faster than SVG and allowed us to implement, optimize and have full control over our own Scene Graph / Document Object Model. SVG import / export is available and well tested. Refer to the next question.
 </p>
 <section id="vector-graphics-export"><a name="vector-graphics-export" title="Vector graphics export?" class="anchor"><h2>How do I export as vector graphics?</h2></a></section>
 <p>
-Export to SVG and PDF is planned, but our first priority was to focus on display performance.
+Importing from and exporting to SVG is implemented in the library since Since November 2012. See <tt><a href="/reference/project#importsvg-json">project.importSVG(json)</a></tt>, <tt><a href="/reference/item#importsvg-json">item.importSVG(json)</a></tt> / <tt><a href="/reference/project#exportsvg">project.exportSVG()</a></tt>, <tt><a href="/reference/item#exportsvg">item.exportSVG()</a></tt>. PDF exporting will hopefully be implemented in the future, possibly through an external library.
 </p>
 <section id="cluttering-global-namespace"><a name="cluttering-global-namespace" title="Cluttering global namespace?" class="anchor"><h2>Aren&apos;t you cluttering the global namespace with lots of variables?</h2></a></section>
 <p>
-Don&apos;t worry, all of Paper.js is compiled in its own scope and housed within a global <b><tt>paper</tt></b> variable. Paper.js runs each of your PaperScript scripts within their own scope, which at the time of the execution appears to be the global scope but is in fact that <tt>paper</tt> object. If you choose to not use PaperScript and prefer plain JavaScript instead, you will lose the added benefit of expressing vector mathematics with <tt>Point</tt> and <tt>Size</tt> objects through simple math operators, and you will have to access all your prototypes on this <tt>paper</tt> object. You could  choose to pollute the global scope by calling <tt>paper.install(window)</tt>, injecting all the Paper.js prototypes into it and removing the need to access everything through the <tt>paper</tt> object.
+Don&apos;t worry, all of Paper.js is compiled in its own scope and housed within a global <b><tt>paper</tt></b> variable. Paper.js runs each of your PaperScript scripts within their own scope, which at the time of the execution appears to be the global scope but is in fact that <tt>paper</tt> object. If you choose to not use PaperScript and prefer plain JavaScript instead, you will lose the added benefit of expressing vector mathematics with <tt>Point</tt> and <tt>Size</tt> objects through simple math operators, and you will have to access all your prototypes on this <tt>paper</tt> object. You could choose to pollute the global scope by calling <tt>paper.install(window)</tt>, injecting all the Paper.js prototypes into it and removing the need to access everything through the <tt>paper</tt> object.
 </p>
 <section id="what-about-the-competition"><a name="what-about-the-competition" title="What about the competition?" class="anchor"><h2>What about the competition? Aren&apos;t there quite a few libraries out there that wrap around the Canvas already?</h2></a></section>
 <p>
@@ -75,7 +75,7 @@ See the previous question for a list of added benefits of working with Paper.js
 </p>
 <section id="use-without-paperscript"><a name="use-without-paperscript" title="Use without PaperScript?" class="anchor"><h2>Can you use Paper.js without writing PaperScript?</h2></a></section>
 <p>
-Yes you can, but you loose some advantages such as auto-scoping and operator overloading, while winning others, e.g. easier debugging and slightly higher performance. Both can also be mixed. Documentation about this will follow.
+Yes you can, but you loose some advantages such as auto-scoping and operator overloading, while winning others, e.g. easier debugging and slightly higher performance. The tutorial about <a href="/tutorials/getting-started/using-javascript-directly/">Using JavaScript Directly</a> describes the process. Both can also be mixed, as described in the tutorial about <a href="/tutorials/getting-started/paperscript-interoperability/">PaperScript Interoperability</a>.
 </p>
 </article>
 <aside>

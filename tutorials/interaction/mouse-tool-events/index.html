@@ -67,7 +67,7 @@ var path;
 function onMouseDown(event) {
 	// Create a path:
 	path = new Path();
-	path.strokeColor = &apos;black&apos;;
+	path.strokeColor = 'black';
 	// Add the mouse down position:
 	path.add(event.point);
 }
@@ -130,7 +130,7 @@ tool.minDistance = 10;
 
 function onMouseDrag(event) {
 	var path = new Path();
-	path.fillColor = &apos;black&apos;;
+	path.fillColor = 'black';
 	var vector = event.delta;
 
 	// rotate the vector by 90 degrees:
@@ -174,7 +174,7 @@ The following example creates circles while you drag the mouse. Their size depen
 function onMouseDrag(event) {
 	var radius = event.delta.length / 2;
 	var circle = new Path.Circle(event.middlePoint, radius);
-	circle.fillColor = &apos;black&apos;;
+	circle.fillColor = 'black';
 }
 </pre>
 <div class="paperscript"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-3">

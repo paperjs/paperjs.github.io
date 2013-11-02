@@ -78,15 +78,15 @@ To see when the different handler functions are called, copy-paste the following
 </p>
 <pre class="code">
 function onMouseDown(event) {
-	console.log(&apos;You pressed the mouse!&apos;);
+	console.log('You pressed the mouse!');
 }
 
 function onMouseDrag(event) {
-	console.log(&apos;You dragged the mouse!&apos;);
+	console.log('You dragged the mouse!');
 }
 
 function onMouseUp(event) {
-	console.log(&apos;You released the mouse!&apos;);
+	console.log('You released the mouse!');
 }
 </pre>
 <section id="the-event-object"><a name="the-event-object" title="The Event Object" class="anchor"><h2>The Event Object</h2></a></section>
@@ -150,7 +150,7 @@ In the <tt><a href="/reference/tool#onmouseup">onMouseUp</a></tt> handler we cre
 </p>
 <pre class="code" start="2">
 	var myPath = new Path();
-	myPath.strokeColor = &apos;black&apos;;
+	myPath.strokeColor = 'black';
 </pre>
 <p>
 Then we add two segments to it using the <tt><a href="/reference/path#add-segment">path.add(segment)</a></tt> function.
@@ -224,7 +224,7 @@ In the <tt><a href="/reference/tool#onmousedrag">onMouseDrag</a></tt> handler we
 <pre class="code" start="7">
 function onMouseDrag(event) {
 	myPath.add(event.point);
-	myPath.strokeColor = &apos;black&apos;;
+	myPath.strokeColor = 'black';
 }
 </pre>
 <p>
@@ -236,8 +236,8 @@ function onMouseUp(event) {
 		center: event.point,
 		radius: 10
 	});
-	myCircle.strokeColor = &apos;black&apos;;
-	myCircle.fillColor = &apos;white&apos;;
+	myCircle.strokeColor = 'black';
+	myCircle.fillColor = 'white';
 }
 </pre>
 <section id="distance-of-mouse-movement"><a name="distance-of-mouse-movement" title="Distance of Mouse Movement" class="anchor"><h2>Using the Distance that the Mouse has Moved</h2></a></section>

@@ -97,9 +97,9 @@ This script is developed step by step in the <a href="/tutorials/interaction/wor
 <p>
 In many ways, vectors are very similar to points. Both are represented by x and a y coordinates. But while points describe absolute positions, vectors represent a relative information; a way to get from one point to another. Here a step-by-step example that explains the relation between vectors and points.
 </p>
-<div class="resource-block">
-  <div class="resource"><img src="/tutorials/geometry/vector-geometry/Points-And-Vectors-01.gif" width="200" height="198"></img></div>
-  <div class="resource-text"><p>
+<div class="block">
+  <div class="left"><img src="/tutorials/geometry/vector-geometry/Points-And-Vectors-01.gif" width="200" height="198"></img></div>
+  <div class="right"><p>
 We start by creating two <a href="/tutorials/geometry/point-size-and-rectangle/#point">Point</a> objects to describe two absolute locations in the document, defined by their coordinate values:
 </p>
 <pre class="code">
@@ -107,9 +107,9 @@ var point1 = new Point(50, 50);
 var point2 = new Point(110, 200);
 </pre></div>
 </div>
-<div class="resource-block">
-  <div class="resource"><img src="/tutorials/geometry/vector-geometry/Points-And-Vectors-02.gif" width="200" height="198"></img></div>
-  <div class="resource-text"><p>
+<div class="block">
+  <div class="left"><img src="/tutorials/geometry/vector-geometry/Points-And-Vectors-02.gif" width="200" height="198"></img></div>
+  <div class="right"><p>
 In order to get from <tt>point1</tt> to <tt>point2</tt>, we can say we need to move <tt>60</tt> to the right (in x-direction), and <tt>150</tt> down (in y-direction). These values are the result of subtracting the x- and y-coordinates of <tt>point1</tt> from the ones of <tt>point2</tt>:
 </p>
 <pre class="code">
@@ -122,9 +122,9 @@ var y = point2.y - point1.y;
 In other words, by adding these two values to the coordinates of <tt>point1</tt>, we end up at <tt>point2</tt>.
 </p></div>
 </div>
-<div class="resource-block">
-  <div class="resource"><img src="/tutorials/geometry/vector-geometry/Points-And-Vectors-03.gif" width="200" height="198"></img></div>
-  <div class="resource-text"><p>
+<div class="block">
+  <div class="left"><img src="/tutorials/geometry/vector-geometry/Points-And-Vectors-03.gif" width="200" height="198"></img></div>
+  <div class="right"><p>
 Instead of using these two separate values, it is much easier to use a vector as a container for the them. To calculate this vector, we can simply subtract <tt>point1</tt> from <tt>point2</tt> instead of the two separate subtractions in the previous step:
 </p>
 <pre class="code">
@@ -139,9 +139,9 @@ Read more about mathematical operations in the <a href="/tutorials/geometry/math
 The result of this subtraction (<tt>vector</tt>) is still a <a href="/tutorials/geometry/point-size-and-rectangle/#point">Point</a> object. Technically, there is no distinction between points and vectors. It is just their meaning that changes: A point is absolute, a vector is relative.
 </p><div class="text-end"></div></div></div>
 </div>
-<div class="resource-block">
-  <div class="resource"><img src="/tutorials/geometry/vector-geometry/Points-And-Vectors-04.gif" width="200" height="198"></img></div>
-  <div class="resource-text"><p>
+<div class="block">
+  <div class="left"><img src="/tutorials/geometry/vector-geometry/Points-And-Vectors-04.gif" width="200" height="198"></img></div>
+  <div class="right"><p>
 Vectors can also be described as arrows. Similar to arrows, they point in a certain direction, and also indicate an amount of distance to move in that direction. An alternative and often more useful way of describing a vector is therefore by angle and length.
 </p>
 <p>
@@ -174,9 +174,9 @@ As shown by the simple examples above, the power of vectors really comes into pl
 <p>
 A vector can be added to another, and the result is the same as if we superposed two descriptions of how to get from one place to another, resulting in a third vector.
 </p>
-<div class="resource-block">
-  <div class="resource"><img src="/tutorials/geometry/vector-geometry/Vector-Addition-01.gif" width="200" height="189"></img></div>
-  <div class="resource-text"><p>
+<div class="block">
+  <div class="left"><img src="/tutorials/geometry/vector-geometry/Vector-Addition-01.gif" width="200" height="189"></img></div>
+  <div class="right"><p>
 We start with four points:
 </p>
 <pre class="code">
@@ -199,9 +199,9 @@ var vector2 = point4 - point3;
 // = { x: 70, y: 35 }
 </pre></div>
 </div>
-<div class="resource-block">
-  <div class="resource"><img src="/tutorials/geometry/vector-geometry/Vector-Addition-02.gif" width="200" height="189"></img></div>
-  <div class="resource-text"><p>
+<div class="block">
+  <div class="left"><img src="/tutorials/geometry/vector-geometry/Vector-Addition-02.gif" width="200" height="189"></img></div>
+  <div class="right"><p>
 To start at <tt>startPoint</tt>, follow <tt>vector1</tt> and then <tt>vector2</tt>, we could first add <tt>vector1</tt> to the <tt>startPoint</tt>, retrieve the resulting <tt>tempPoint</tt> and then add <tt>vector2</tt> to that to get to the desired <tt>endPoint</tt>.
 </p>
 <pre class="code">
@@ -212,18 +212,18 @@ var endPoint = tempPoint + vector2;
 But if we would like to apply the same combined vector to many points, this calculation would be unnecessarily complicated, as we would have to go through the <tt>tempPoint</tt> each time.
 </p></div>
 </div>
-<div class="resource-block">
-  <div class="resource"><img src="/tutorials/geometry/vector-geometry/Vector-Addition-03.gif" width="200" height="189"></img></div>
-  <div class="resource-text"><p>
+<div class="block">
+  <div class="left"><img src="/tutorials/geometry/vector-geometry/Vector-Addition-03.gif" width="200" height="189"></img></div>
+  <div class="right"><p>
 Instead, we can just add <tt>vector1</tt> to <tt>vector2</tt> and use the resulting object as a new vector that describes the combined movement.
 </p>
 <pre class="code">
 var vector = vector1 + vector2;
 </pre></div>
 </div>
-<div class="resource-block">
-  <div class="resource"><img src="/tutorials/geometry/vector-geometry/Vector-Addition-04.gif" width="200" height="189"></img></div>
-  <div class="resource-text"><p>
+<div class="block">
+  <div class="left"><img src="/tutorials/geometry/vector-geometry/Vector-Addition-04.gif" width="200" height="189"></img></div>
+  <div class="right"><p>
 But we can also do the opposite and subtract a vector from another instead of adding it. The result is the same as if we would go in the opposite direction of the vector that we are subtracting.
 </p>
 <pre class="code">
@@ -237,9 +237,9 @@ The results of these operations is the same as the addition or subtraction of ea
 <p>
 It is quite easy to imagine what a multiplication or division with a numerical value would do to a vector: Instead of saying &quot;go 10 meters into that direction&quot;, it would for example correspond to &quot;3 times 10 meters into that direction&quot;. A multiplied vector does not change its angle. But its length is changed, by the amount of the multiplied value.
 </p>
-<div class="resource-block">
-  <div class="resource"><img src="/tutorials/geometry/vector-geometry/Vector-Multiplication.gif" width="200" height="122"></img></div>
-  <div class="resource-text">
+<div class="block">
+  <div class="left"><img src="/tutorials/geometry/vector-geometry/Vector-Multiplication.gif" width="200" height="122"></img></div>
+  <div class="right">
 <pre class="code">
 var bigVector = smallVector * 3;
 </pre>
@@ -260,9 +260,9 @@ var bigVector = 3 * smallVector;
 <p>
 So we learned that multiplying or dividing a vector changes its length without modifying its angle. But we can also change the <tt>length</tt> property on vector objects directly:
 </p>
-<div class="resource-block">
-  <div class="resource"><img src="/tutorials/geometry/vector-geometry/Vector-Length-01.gif" width="200" height="202"></img></div>
-  <div class="resource-text"><p>
+<div class="block">
+  <div class="left"><img src="/tutorials/geometry/vector-geometry/Vector-Length-01.gif" width="200" height="202"></img></div>
+  <div class="right"><p>
 First we create a vector by directly use the Point constructor, since vectors and points are actually the same type of objects:
 </p>
 <pre class="code" start="1">
@@ -279,9 +279,9 @@ console.log(vector.length);
 // 193.86593
 </pre></div>
 </div>
-<div class="resource-block">
-  <div class="resource"><img src="/tutorials/geometry/vector-geometry/Vector-Length-02.gif" width="200" height="113"></img></div>
-  <div class="resource-text"><p>
+<div class="block">
+  <div class="left"><img src="/tutorials/geometry/vector-geometry/Vector-Length-02.gif" width="200" height="113"></img></div>
+  <div class="right"><p>
 We can also set the length to a fixed value, stretching or shrinking the vector to this length:
 </p>
 <pre class="code" start="7">
@@ -325,18 +325,18 @@ console.log(normalizedVector.length);
 <p>
 Rotating vectors is a powerful tool for constructing paths and shapes, as it allows us to define a relative direction at a certain angle rotated away from another direction, for example sideways. The <a href="/tutorials/interaction/working-with-mouse-vectors/">Working with Mouse Vectors</a> tutorial shows a good example of this, where rotated vectors are used to construct paths in parallel to the direction and position of the moved mouse.
 </p>
-<div class="resource-block">
-  <div class="resource"><img src="/tutorials/geometry/vector-geometry/Angles.gif" width="200" height="200"></img></div>
-  <div class="resource-text"><p>
+<div class="block">
+  <div class="left"><img src="/tutorials/geometry/vector-geometry/Angles.gif" width="200" height="200"></img></div>
+  <div class="right"><p>
 All angles in Paper.js are measured in degrees, and are oriented clockwise. The angle values start from the horizontal axis and expand downwards. At 180&deg; they flip to -180&deg;, which is the same, since going halfway around a circle in the left or right direction results in the same position. This does not prevent you from setting angles to something higher than 180&deg; though.
 </p></div>
 </div>
 <p>
 There are two ways to change the angle of a vector. The obvious one is by setting the vector&apos;s <tt>angle</tt> property to a new value. Let&apos;s first set up a vector that points 100 coordinates down and 100 to the right, and log its angle and length:
 </p>
-<div class="resource-block">
-  <div class="resource"><img src="/tutorials/geometry/vector-geometry/Rotating-Vectors-01.gif" width="312" height="139"></img></div>
-  <div class="resource-text">
+<div class="block">
+  <div class="left"><img src="/tutorials/geometry/vector-geometry/Rotating-Vectors-01.gif" width="312" height="139"></img></div>
+  <div class="right">
 <pre class="code">
 var vector = new Point(100, 100);
 console.log(vector.angle);
@@ -350,9 +350,9 @@ console.log(vector.length);
 // 141.42136
 </pre></div>
 </div>
-<div class="resource-block">
-  <div class="resource"><img src="/tutorials/geometry/vector-geometry/Rotating-Vectors-02.gif" width="312" height="139"></img></div>
-  <div class="resource-text"><p>
+<div class="block">
+  <div class="left"><img src="/tutorials/geometry/vector-geometry/Rotating-Vectors-02.gif" width="312" height="139"></img></div>
+  <div class="right"><p>
 Now we rotate it by 90&deg; clockwise by setting its angle to 45&deg; + 90&deg; = 135&deg; and log the length again:
 </p>
 <pre class="code">
@@ -368,9 +368,9 @@ console.log(vector);
 // { x: -100, y: 100 }
 </pre></div>
 </div>
-<div class="resource-block">
-  <div class="resource"><img src="/tutorials/geometry/vector-geometry/Rotating-Vectors-03.gif" width="312" height="139"></img></div>
-  <div class="resource-text"><p>
+<div class="block">
+  <div class="left"><img src="/tutorials/geometry/vector-geometry/Rotating-Vectors-03.gif" width="312" height="139"></img></div>
+  <div class="right"><p>
 Instead of setting the angle directly to 135, we could have also explicitly increase it by 90&deg;:
 </p>
 <pre class="code">

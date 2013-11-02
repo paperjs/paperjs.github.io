@@ -149,7 +149,7 @@ var path;
 function onMouseDown(event) {
 	// Create a new path and select it:
 	path = new Path();
-	path.strokeColor = &apos;#00000&apos;;
+	path.strokeColor = '#00000';
 
 	// Add a segment to the path where
 	// you clicked:
@@ -166,9 +166,9 @@ function onMouseDrag(event) {
 <p>
 As you can see in when working with the first example script: When the mouse is moved fast the points are further apart than when you move the mouse slowly.
 </p>
-<div class="resource-block">
-  <div class="resource"><img src="/tutorials/interaction/working-with-mouse-vectors/mouse_vectors.gif" width="250" height="294"></img></div>
-  <div class="resource-text"><p>
+<div class="block">
+  <div class="left"><img src="/tutorials/interaction/working-with-mouse-vectors/mouse_vectors.gif" width="250" height="294"></img></div>
+  <div class="right"><p>
 Thus, the difference in position between these points describe the amount that the mouse moved and therefore also its speed.
 </p>
 <p>
@@ -178,9 +178,9 @@ In the <a href="/tutorials/geometry/vector-geometry/#points-and-vectors">Points 
 You could say that all these little drag movements are vectors. The mouse handler <tt><a href="/reference/toolevent">event</a></tt> object includes a reference to the mouse movement vector, so we don&apos;t have to calculate it ourselves and can easily use it in our tools: <tt><a href="/reference/toolevent#delta">event.delta</a></tt>
 </p></div>
 </div>
-<div class="resource-block">
-  <div class="resource"><img src="/tutorials/interaction/working-with-mouse-vectors/Event-Properties.gif" width="250" height="296"></img></div>
-  <div class="resource-text"><p>
+<div class="block">
+  <div class="left"><img src="/tutorials/interaction/working-with-mouse-vectors/Event-Properties.gif" width="250" height="296"></img></div>
+  <div class="right"><p>
 The image on the left is a zoom of the top of the image above.
 </p>
 <ul class="list"><ul class="list"><li><tt><a href="/reference/toolevent#point">event.point</a></tt> is the position of the mouse</li>
@@ -227,24 +227,24 @@ function onMouseDrag(event) {
 }
 </script><div class="canvas"><canvas height="420" width="540" style="background:#e4e1e1" id="canvas-3"></canvas></div>
 </div><br><br><br>
-<div class="resource-block">
-  <div class="resource"><img src="/tutorials/interaction/working-with-mouse-vectors/Middlepoint.gif" width="303" height="217"></img></div>
-  <div class="resource-text"><p>
+<div class="block">
+  <div class="left"><img src="/tutorials/interaction/working-with-mouse-vectors/Middlepoint.gif" width="303" height="217"></img></div>
+  <div class="right"><p>
 As you can see in the movie above, the skeleton lines don&apos;t start at the position of the mouse, but in the middle between the current position and the last position of the mouse.
 </p>
 <p>
 The mouse handler  <tt><a href="/reference/toolevent">event</a></tt> object includes a reference to this middle point, to save us from calculating ourselves: <tt><a href="/reference/toolevent#middlepoint">event.middlePoint</a></tt>
 </p></div>
 </div>
-<div class="resource-block">
-  <div class="resource"><img src="/tutorials/interaction/working-with-mouse-vectors/Rotating-Delta.gif" width="303" height="271"></img></div>
-  <div class="resource-text"><p>
+<div class="block">
+  <div class="left"><img src="/tutorials/interaction/working-with-mouse-vectors/Rotating-Delta.gif" width="303" height="271"></img></div>
+  <div class="right"><p>
 We take <tt><a href="/reference/toolevent#delta">event.delta</a></tt> (the vector in the direction of the mouse) and rotate it by 90 degrees. This means that the vector which was previously pointing in the direction of the mouse, is now pointing 90 degrees away from the direction of the mouse.
 </p></div>
 </div>
-<div class="resource-block">
-  <div class="resource"><img src="/tutorials/interaction/working-with-mouse-vectors/Middle-Point-Plus-Step.gif" width="303" height="271"></img></div>
-  <div class="resource-text"><p>
+<div class="block">
+  <div class="left"><img src="/tutorials/interaction/working-with-mouse-vectors/Middle-Point-Plus-Step.gif" width="303" height="271"></img></div>
+  <div class="right"><p>
 When we add the rotated delta vector to an absolute point (<tt><a href="/reference/toolevent#middlepoint">event.middlePoint</a></tt> in this case) we get back the position offset by the direction and length of the vector.
 </p></div>
 </div>
@@ -258,7 +258,7 @@ var path;
 
 function onMouseDown(event) {
 	path = new Path();
-	path.strokeColor = &apos;#00000&apos;;
+	path.strokeColor = '#00000';
 
 	path.add(event.point);
 }
@@ -273,7 +273,7 @@ function onMouseDrag(event) {
 	var bottom = event.middlePoint - step;
 	
 	var line = new Path();
-	line.strokeColor = &apos;#000000&apos;;
+	line.strokeColor = '#000000';
 	line.add(top);
 	line.add(bottom);
 }
@@ -300,7 +300,7 @@ Next we create a new path, change its stroke color and add the <tt>top</tt> and 
 </p>
 <pre class="code" start="22">
 var line = new Path();
-line.strokeColor = &apos;#000000&apos;;
+line.strokeColor = '#000000';
 line.add(top);
 line.add(bottom);
 </pre>
@@ -350,7 +350,7 @@ var path;
 
 function onMouseDown(event) {
 	path = new Path();
-	path.strokeColor = &apos;#00000&apos;;
+	path.strokeColor = '#00000';
 	path.selected = true;
 
 	path.add(event.point);
@@ -364,7 +364,7 @@ function onMouseDrag(event) {
 	var bottom = event.middlePoint - step;
 	
 	var line = new Path();
-	line.strokeColor = &apos;#000000&apos;;
+	line.strokeColor = '#000000';
 	line.add(top);
 	line.add(bottom);
 
@@ -608,7 +608,7 @@ function addStrokes(point, delta) {
 	var strokePoints = strokeEnds * 2 + 1;
 	point -= step / 2;
 	step /= strokePoints - 1;
-	for(var i = 0; i &lt; strokePoints; i++) {
+	for(var i = 0; i < strokePoints; i++) {
 		var strokePoint = point + step * i;
 		var offset = delta * (Math.random() * 0.3 + 0.1);
 		if(i % 2) {
