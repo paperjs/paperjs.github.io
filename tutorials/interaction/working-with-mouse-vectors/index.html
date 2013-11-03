@@ -149,7 +149,7 @@ var path;
 function onMouseDown(event) {
 	// Create a new path and select it:
 	path = new Path();
-	path.strokeColor = '#00000';
+	path.strokeColor = &apos;#00000&apos;;
 
 	// Add a segment to the path where
 	// you clicked:
@@ -258,7 +258,7 @@ var path;
 
 function onMouseDown(event) {
 	path = new Path();
-	path.strokeColor = '#00000';
+	path.strokeColor = &apos;#00000&apos;;
 
 	path.add(event.point);
 }
@@ -273,7 +273,7 @@ function onMouseDrag(event) {
 	var bottom = event.middlePoint - step;
 	
 	var line = new Path();
-	line.strokeColor = '#000000';
+	line.strokeColor = &apos;#000000&apos;;
 	line.add(top);
 	line.add(bottom);
 }
@@ -300,7 +300,7 @@ Next we create a new path, change its stroke color and add the <tt>top</tt> and 
 </p>
 <pre class="code" start="22">
 var line = new Path();
-line.strokeColor = '#000000';
+line.strokeColor = &apos;#000000&apos;;
 line.add(top);
 line.add(bottom);
 </pre>
@@ -350,7 +350,7 @@ var path;
 
 function onMouseDown(event) {
 	path = new Path();
-	path.strokeColor = '#00000';
+	path.strokeColor = &apos;#00000&apos;;
 	path.selected = true;
 
 	path.add(event.point);
@@ -364,7 +364,7 @@ function onMouseDrag(event) {
 	var bottom = event.middlePoint - step;
 	
 	var line = new Path();
-	line.strokeColor = '#000000';
+	line.strokeColor = &apos;#000000&apos;;
 	line.add(top);
 	line.add(bottom);
 
@@ -608,7 +608,7 @@ function addStrokes(point, delta) {
 	var strokePoints = strokeEnds * 2 + 1;
 	point -= step / 2;
 	step /= strokePoints - 1;
-	for(var i = 0; i < strokePoints; i++) {
+	for(var i = 0; i &lt; strokePoints; i++) {
 		var strokePoint = point + step * i;
 		var offset = delta * (Math.random() * 0.3 + 0.1);
 		if(i % 2) {

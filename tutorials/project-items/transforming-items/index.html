@@ -82,7 +82,7 @@ The following example creates the same path as above, but instead of moving it t
 </p>
 <pre class="code">
 var circlePath = new Path.Circle(new Point(50, 50), 25);
-circlePath.fillColor = 'black'
+circlePath.fillColor = &apos;black&apos;
 circlePath.position += new Point(10, 20);
 </pre>
 <p>
@@ -339,8 +339,8 @@ First we create the path that we will be cloning and we make a variable called <
 </p>
 <pre class="code">
 var circlePath = new Path.Circle(new Point(150, 150), 25);
-circlePath.strokeColor = 'black';
-circlePath.fillColor = 'white';
+circlePath.strokeColor = &apos;black&apos;;
+circlePath.fillColor = &apos;white&apos;;
 var clones = 30;
 </pre>
 <p>
@@ -353,7 +353,7 @@ var angle = 360 / clones;
 Next, we loop the amount of times we defined in the <tt>clones</tt> variable:
 </p>
 <pre class="code" start="8">
-for (var i = 0; i < clones; i++) {
+for (var i = 0; i &lt; clones; i++) {
 </pre>
 <p>
 Basically what this line does is make a variable called <tt>i</tt> and start it with <tt>0</tt>. Then it executes the block of code that is in between the { } brackets. After executing, it adds <tt>1</tt> to <tt>i</tt> and compares <tt>i</tt> to the <tt>clones</tt> variable. If <tt>i</tt> is still smaller then the <tt>clones</tt> variable, it executes the code block again.

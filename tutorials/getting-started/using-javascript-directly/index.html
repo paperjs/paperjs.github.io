@@ -68,23 +68,23 @@ When working with JavaScript directly, in most cases one scope will be all that 
 The easiest way is to use the existing <tt><a href="/reference/global#paper">paper</a></tt> object, and use its <tt><a href="/reference/paperscope#setup-canvas">paperScope.setup(canvas)</a></tt> method to initialize an empty project and a view for us. We reuse the example from <a href="/tutorials/getting-started/working-with-paper-js/">Working with Paper.js</a> in order to see what is additionally required when working from JavaScript directly:
 </p>
 <pre class="code" mode="text/html">
-<!DOCTYPE html>
-<html>
-<head>
-<!-- Load the Paper.js library -->
-<script type="text/javascript" src="js/paper.js"></script>
-<!-- Define inlined JavaScript -->
-<script type="text/javascript">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;!-- Load the Paper.js library --&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;js/paper.js&quot;&gt;&lt;/script&gt;
+&lt;!-- Define inlined JavaScript --&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
 	// Only executed our code once the DOM is ready.
 	window.onload = function() {
 		// Get a reference to the canvas object
-		var canvas = document.getElementById('myCanvas');
+		var canvas = document.getElementById(&apos;myCanvas&apos;);
 		// Create an empty project and a view for the canvas:
 		paper.setup(canvas);
 		// Create a Paper.js Path to draw a line into it:
 		var path = new paper.Path();
 		// Give the stroke a color
-		path.strokeColor = 'black';
+		path.strokeColor = &apos;black&apos;;
 		var start = new paper.Point(100, 100);
 		// Move to start and draw a line from there
 		path.moveTo(start);
@@ -94,17 +94,17 @@ The easiest way is to use the existing <tt><a href="/reference/global#paper">pap
 		// Draw the view now:
 		paper.view.draw();
 	}
-</script>
-</head>
-<body>
-	<canvas id="myCanvas" resize></canvas>
-</body>
-</html>
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;canvas id=&quot;myCanvas&quot; resize&gt;&lt;/canvas&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 </pre>
 <p>
 So if we compare this example to the one written in PaperScript, we see a row of differences. In addition to the code from the previous example, we need to:<br>
 <ul class="list"><li>Register a handler for when the DOM is ready, since we cannot work with the canvas before that.<br></li>
-<li>Tell the <tt>paper</tt> object to setup a <tt>Project</tt> and a <tt>View</tt> for our canvas. Instead of passing the canvas object, we can also pass the canvas element&apos;s ID as a String. In PaperScript, this happens automatically through the <tt>canvas="ID"</tt> attribute.<br></li>
+<li>Tell the <tt>paper</tt> object to setup a <tt>Project</tt> and a <tt>View</tt> for our canvas. Instead of passing the canvas object, we can also pass the canvas element&apos;s ID as a String. In PaperScript, this happens automatically through the <tt>canvas=&quot;ID&quot;</tt> attribute.<br></li>
 <li>Access all Paper.js classes and objects through the <tt>paper</tt> object, since they are no longer global.<br></li>
 <li>Use Math functions instead of operators on <tt><a href="/reference/point">Point</a></tt> and <tt><a href="/reference/size">Size</a></tt>.<br></li>
 <li>Draw the view at the end, since that is now only automatically handled when a <tt><a href="/reference/view#onframe">view.onFrame</a></tt> handler is installed.</li>
@@ -128,9 +128,9 @@ The most straight forward approach is to copy over all fields from the <tt>paper
 paper.install(window);
 window.onload = function() {
 	// Setup directly from canvas id:
-	paper.setup('myCanvas');
+	paper.setup(&apos;myCanvas&apos;);
 	var path = new Path();
-	path.strokeColor = 'black';
+	path.strokeColor = &apos;black&apos;;
 	var start = new Point(100, 100);
 	path.moveTo(start);
 	path.lineTo(start.add([ 200, -50 ]));
@@ -142,10 +142,10 @@ If polluting the global scope is really not an option, the second strategy circu
 </p>
 <pre class="code">
 window.onload = function() {
-	paper.setup('myCanvas');
+	paper.setup(&apos;myCanvas&apos;);
 	with (paper) {
 		var path = new Path();
-		path.strokeColor = 'black';
+		path.strokeColor = &apos;black&apos;;
 		var start = new Point(100, 100);
 		path.moveTo(start);
 		path.lineTo(start.add([ 200, -50 ]));
@@ -158,28 +158,28 @@ window.onload = function() {
 PaperScript recognises a couple of special event handlers when they are declared as global functions, while in JavaScript, these need to be manually installed on the appropriate object. Two such handlers are <tt><a href="/reference/view#onframe">onFrame</a></tt> and <tt><a href="/reference/view#onresize">onResize</a></tt>, which both belong to the <tt><a href="/reference/view">View</a></tt> class. view is automatically created for us if we use the <tt><a href="/reference/paperscope#setup-canvas">paperScope.setup(canvas)</a></tt> function as in the examples above. So all we have to do is install these handlers on the existing <tt><a href="/reference/paperscope#view">view</a></tt> object:
 </p>
 <pre class="code" mode="text/html">
-<!DOCTYPE html>
-<html>
-<head>
-<script type="text/javascript" src="js/paper.js"></script>
-<script type="text/javascript">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;js/paper.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
 	paper.install(window);
 	window.onload = function() {
-		paper.setup('myCanvas');
+		paper.setup(&apos;myCanvas&apos;);
 		var path = new Path.Rectangle([75, 75], [100, 100]);
-		path.strokeColor = 'black';
+		path.strokeColor = &apos;black&apos;;
 
 		view.onFrame = function(event) {
 			// On each frame, rotate the path by 3 degrees:
 			path.rotate(3);
 		}
 	}
-</script>
-</head>
-<body>
-	<canvas id="myCanvas" resize></canvas>
-</body>
-</html>
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;canvas id=&quot;myCanvas&quot; resize&gt;&lt;/canvas&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 </pre>
 <div class="note"><b>Did you know?</b><p>
 You can read more about animations in the tutorial <a href="/tutorials/animation/creating-animations/">Creating Animations</a>.
@@ -192,14 +192,14 @@ Just like with the view handlers, PaperScript simplifies and hides the dealing w
 In JavaScript we need to create the tool ourselves, and we need to manually install handlers on it. The advantage of this approach is that things are more transparent, and the handling of multiple tools will be less of a surprise.
 </p>
 <pre class="code" mode="text/html">
-<!DOCTYPE html>
-<html>
-<head>
-<script type="text/javascript" src="js/paper.js"></script>
-<script type="text/javascript">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;js/paper.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
 	paper.install(window);
 	window.onload = function() {
-		paper.setup('myCanvas');
+		paper.setup(&apos;myCanvas&apos;);
 		// Create a simple drawing tool:
 		var tool = new Tool();
 		var path;
@@ -207,7 +207,7 @@ In JavaScript we need to create the tool ourselves, and we need to manually inst
 		// Define a mousedown and mousedrag handler
 		tool.onMouseDown = function(event) {
 			path = new Path();
-			path.strokeColor = 'black';
+			path.strokeColor = &apos;black&apos;;
 			path.add(event.point);
 		}
 
@@ -215,12 +215,12 @@ In JavaScript we need to create the tool ourselves, and we need to manually inst
 			path.add(event.point);
 		}
 	}
-</script>
-</head>
-<body>
-	<canvas id="myCanvas" resize></canvas>
-</body>
-</html>
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;canvas id=&quot;myCanvas&quot; resize&gt;&lt;/canvas&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 </pre>
 <div class="note"><b>Did you know?</b><p>
 You can read more about mouse tools in the tutorial <a href="/tutorials/interaction/creating-mouse-tools/">Creating Mouse Tools</a>.
@@ -230,18 +230,18 @@ You can read more about mouse tools in the tutorial <a href="/tutorials/interact
 The next example illustrates how easy it is to create multiple drawing tools and switch between them using some simple UI, in this case just two HTML links that activate one tool or the other:
 </p>
 <pre class="code" mode="text/html">
-<!DOCTYPE html>
-<html>
-<head>
-<script type="text/javascript" src="js/paper.js"></script>
-<script type="text/javascript">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;js/paper.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
 	paper.install(window);
 	// Keep global references to both tools, so the HTML
 	// links below can access them.
 	var tool1, tool2;
 
 	window.onload = function() {
-		paper.setup('myCanvas');
+		paper.setup(&apos;myCanvas&apos;);
 
 		// Create two drawing tools.
 		// tool1 will draw straight lines,
@@ -251,7 +251,7 @@ The next example illustrates how easy it is to create multiple drawing tools and
 		var path;
 		function onMouseDown(event) {
 			path = new Path();
-			path.strokeColor = 'black';
+			path.strokeColor = &apos;black&apos;;
 			path.add(event.point);
 		}
 
@@ -271,14 +271,14 @@ The next example illustrates how easy it is to create multiple drawing tools and
 			path.arcTo(event.point);
 		}
 	}
-</script>
-</head>
-<body>
-	<a href="javascript:tool1.activate();">Lines</a>
-	<a href="javascript:tool2.activate();">Clouds</a>
-	<canvas id="myCanvas" resize></canvas>
-</body>
-</html>
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;a href=&quot;javascript:tool1.activate();&quot;&gt;Lines&lt;/a&gt;
+	&lt;a href=&quot;javascript:tool2.activate();&quot;&gt;Clouds&lt;/a&gt;
+	&lt;canvas id=&quot;myCanvas&quot; resize&gt;&lt;/canvas&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 </pre>
 </article>
 <aside>

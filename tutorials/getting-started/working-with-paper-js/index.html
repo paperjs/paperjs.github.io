@@ -61,59 +61,59 @@ PaperScript also offers automatic creation of <tt><a href="/reference/project">P
 </p>
 <section id="script-configuration"><a name="script-configuration" title="Script Configuration" class="anchor"><h2>Script Configuration</h2></a></section>
 <p>
-PaperScript code is loaded just like any other JavaScript using the <tt><script></tt> tag, except for the type being set to <tt>"text/paperscript"</tt> or <tt>"text/x-paperscript" </tt>. The code can either be an external file (<tt>src="URL"</tt>), or inlined:
+PaperScript code is loaded just like any other JavaScript using the <tt>&lt;script&gt;</tt> tag, except for the type being set to <tt>&quot;text/paperscript&quot;</tt> or <tt>&quot;text/x-paperscript&quot; </tt>. The code can either be an external file (<tt>src=&quot;URL&quot;</tt>), or inlined:
 </p>
 <pre class="code" mode="text/html">
-<!DOCTYPE html>
-<html>
-<head>
-<!-- Load the Paper.js library -->
-<script type="text/javascript" src="js/paper.js"></script>
-<!-- Define inlined PaperScript associate it with myCanvas -->
-<script type="text/paperscript" canvas="myCanvas">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;!-- Load the Paper.js library --&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;js/paper.js&quot;&gt;&lt;/script&gt;
+&lt;!-- Define inlined PaperScript associate it with myCanvas --&gt;
+&lt;script type=&quot;text/paperscript&quot; canvas=&quot;myCanvas&quot;&gt;
 	// Create a Paper.js Path to draw a line into it:
 	var path = new Path();
 	// Give the stroke a color
-	path.strokeColor = 'black';
+	path.strokeColor = &apos;black&apos;;
 	var start = new Point(100, 100);
 	// Move to start and draw a line from there
 	path.moveTo(start);
 	// Note the plus operator on Point objects.
 	// PaperScript does that for us, and much more!
 	path.lineTo(start + [ 100, -50 ]);
-</script>
-</head>
-<body>
-	<canvas id="myCanvas" resize></canvas>
-</body>
-</html>
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;canvas id=&quot;myCanvas&quot; resize&gt;&lt;/canvas&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 </pre>
 <p>
 If we copy the inlined code to a file called <em>js/myScript.js</em> we can rewrite the above example to load the external file instead:
 </p>
 <pre class="code" mode="text/html">
-<!DOCTYPE html>
-<html>
-<head>
-<!-- Load the Paper.js library -->
-<script type="text/javascript" src="js/paper.js"></script>
-<!-- Load external PaperScript and associate it with myCanvas -->
-<script type="text/paperscript" src="js/myScript.js" canvas="myCanvas">
-</script>
-</head>
-<body>
-	<canvas id="myCanvas" resize></canvas>
-</body>
-</html>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;!-- Load the Paper.js library --&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;js/paper.js&quot;&gt;&lt;/script&gt;
+&lt;!-- Load external PaperScript and associate it with myCanvas --&gt;
+&lt;script type=&quot;text/paperscript&quot; src=&quot;js/myScript.js&quot; canvas=&quot;myCanvas&quot;&gt;
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;canvas id=&quot;myCanvas&quot; resize&gt;&lt;/canvas&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 </pre>
 <p>
-These attributes are supported in PaperScript <tt><script></tt> tags:
+These attributes are supported in PaperScript <tt>&lt;script&gt;</tt> tags:
 </p>
 <p>
-<b><tt>src="URL"</tt></b>: The URL to load the PaperScript code from.
+<b><tt>src=&quot;URL&quot;</tt></b>: The URL to load the PaperScript code from.
 </p>
 <p>
-<b><tt>canvas="ID"</tt></b>: Links the PaperScript code to the canvas with the given ID and produces a <tt><a href="/reference/project">Project</a></tt> and <tt><a href="/reference/view">View</a></tt> object for it on the fly. For those concerned with validation, <tt>data-paper-canvas="ID"</tt> is supported too.
+<b><tt>canvas=&quot;ID&quot;</tt></b>: Links the PaperScript code to the canvas with the given ID and produces a <tt><a href="/reference/project">Project</a></tt> and <tt><a href="/reference/view">View</a></tt> object for it on the fly. For those concerned with validation, <tt>data-paper-canvas=&quot;ID&quot;</tt> is supported too.
 </p>
 <div class="note"><b>Please note:</b><p>
 When including more than one PaperScript in a page, each script will run in its own scope and will not see the objects and functions declared in the others. For PaperScript to communicate with other PaperScript or JavaScript code, see the tutorial about <a href="/tutorials/getting-started/paperscript-interoperability/">PaperScript Interoperability</a>.
@@ -123,7 +123,7 @@ When including more than one PaperScript in a page, each script will run in its 
 Paper.js can be configured in a few different ways by adding attributes to the canvas tag:
 </p>
 <p>
-<b><tt>resize="true"</tt></b>: Makes the canvas object as high and wide as the Browser window and resizes it whenever the user resizes the window. When the window is resized, the size of your <tt><a href="/reference/global#view">global.view</a></tt> is also automatically adjusted. If validation is a concern, <tt>data-paper-resize="true"</tt> is supported too.
+<b><tt>resize=&quot;true&quot;</tt></b>: Makes the canvas object as high and wide as the Browser window and resizes it whenever the user resizes the window. When the window is resized, the size of your <tt><a href="/reference/global#view">global.view</a></tt> is also automatically adjusted. If validation is a concern, <tt>data-paper-resize=&quot;true&quot;</tt> is supported too.
 </p>
 <p>
 Your code can respond to any resizing of the window by creating a <tt><a href="/reference/view#onresize">onResize</a></tt> function handler. For example, let&apos;s say you create a circle shaped path at the center of the view, and you want it to be centered after resizing:
@@ -134,7 +134,7 @@ Your code can respond to any resizing of the window by creating a <tt><a href="/
 var path = new Path.Circle({
 	center: view.center,
 	radius: 30,
-	strokeColor: 'black'
+	strokeColor: &apos;black&apos;
 });
 
 function onResize(event) {
@@ -143,7 +143,7 @@ function onResize(event) {
 }
 </pre>
 <p>
-<b><tt>keepalive="true"</tt></b>: To conserve battery power and cpu usage, Paper.js normally stops all animation events when the window is not focused. If you want it to keep playing animations, even if the window is in the background, set <tt>keepalive="true"</tt> in your canvas tag. And again for validation, <tt>data-paper-keepalive="true"</tt> works as well.
+<b><tt>keepalive=&quot;true&quot;</tt></b>: To conserve battery power and cpu usage, Paper.js normally stops all animation events when the window is not focused. If you want it to keep playing animations, even if the window is in the background, set <tt>keepalive=&quot;true&quot;</tt> in your canvas tag. And again for validation, <tt>data-paper-keepalive=&quot;true&quot;</tt> works as well.
 </p>
 </article>
 <aside>
