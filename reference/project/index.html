@@ -74,9 +74,10 @@ SVG and PDF.</p>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-<p>Creates a Paper.js project.</p>
-<p>When working with PaperScript, a project is automatically created for us
-and the <a href="/reference/paperscope#project"><tt>paperScope.project</tt></a> variable points to it.</p>
+<p>Creates a Paper.js project containing one empty <a href="/reference/layer"><tt>Layer</tt></a>, referenced
+by <a href="/reference/project#activelayer"><tt>project.activeLayer</tt></a>.</p>
+<p>Note that when working with PaperScript, a project is automatically
+created for us and the <a href="/reference/paperscope#project"><tt>paperScope.project</tt></a> variable points to it.</p>
 
 <ul><b>Parameters:</b>
 
@@ -362,6 +363,32 @@ layer by default.</p>
 in it.</p>
 	
 	
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="isempty" class="member">
+<div class="member-link">
+<a name="isempty" href="#isempty"><tt><b>isEmpty</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Specifies whether the project has any content or not. Note that since
+projects by default are created with one empty layer, this returns alos
+<tt>true</tt> if that layer exists but is itself empty.</p>
+	
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt></tt>&nbsp;&mdash;&nbsp;Boolean
+</li>
+	
+	</ul>
+
 	
 	
 </div>
