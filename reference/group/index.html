@@ -209,30 +209,6 @@ var group = new Group({
 	<div class="reference-members"><h2>Properties</h2>
 		
 			
-<div id="transformcontent" class="member">
-<div class="member-link">
-<a name="transformcontent" href="#transformcontent"><tt><b>transformContent</b></tt></a>
-</div>
-<div class="member-description hidden">
-
-<div class="member-text">
-	<p>Specifies whether the group applies transformations directly to its
-children, or whether they are to be stored in its <a href="/reference/item#matrix"><tt>item.matrix</tt></a></p>
-	
-	
-	<ul><b>Type:</b>
-	<li>
-		<tt>Boolean</tt>
-	</li>
-	</ul>
-	
-	
-</div>
-
-</div>
-</div>
-		
-			
 <div id="clipped" class="member">
 <div class="member-link">
 <a name="clipped" href="#clipped"><tt><b>clipped</b></tt></a>
@@ -926,56 +902,6 @@ circle.position.x += 100;
 </div>
 
 	
-<div id="matrix" class="member">
-<div class="member-link">
-<a name="matrix" href="#matrix"><tt><b>matrix</b></tt></a>
-</div>
-<div class="member-description hidden">
-
-<div class="member-text">
-	<p>The item's transformation matrix, defining position and dimensions in
-relation to its parent item in which it is contained.</p>
-	
-	
-	<ul><b>Type:</b>
-	<li>
-		<a href="/reference/matrix"><tt>Matrix</tt></a>
-	</li>
-	</ul>
-	
-	
-</div>
-
-</div>
-</div>
-
-	
-<div id="globalmatrix" class="member">
-<div class="member-link">
-<a name="globalmatrix" href="#globalmatrix"><tt><b>globalMatrix</b></tt></a>
-</div>
-<div class="member-description hidden">
-
-<div class="member-text">
-	<p>The item's global transformation matrix in relation to the global project
-coordinate space.</p>
-	
-		<p>Read only.</p>
-	
-	
-	<ul><b>Type:</b>
-	<li>
-		<a href="/reference/matrix"><tt>Matrix</tt></a>
-	</li>
-	</ul>
-	
-	
-</div>
-
-</div>
-</div>
-
-	
 <div id="bounds" class="member">
 <div class="member-link">
 <a name="bounds" href="#bounds"><tt><b>bounds</b></tt></a>
@@ -1041,6 +967,80 @@ coordinate space.</p>
 	<ul><b>Type:</b>
 	<li>
 		<a href="/reference/rectangle"><tt>Rectangle</tt></a>
+	</li>
+	</ul>
+	
+	
+</div>
+
+</div>
+</div>
+
+	
+<div id="matrix" class="member">
+<div class="member-link">
+<a name="matrix" href="#matrix"><tt><b>matrix</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The item's transformation matrix, defining position and dimensions in
+relation to its parent item in which it is contained.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<a href="/reference/matrix"><tt>Matrix</tt></a>
+	</li>
+	</ul>
+	
+	
+</div>
+
+</div>
+</div>
+
+	
+<div id="globalmatrix" class="member">
+<div class="member-link">
+<a name="globalmatrix" href="#globalmatrix"><tt><b>globalMatrix</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The item's global transformation matrix in relation to the global project
+coordinate space.</p>
+	
+		<p>Read only.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<a href="/reference/matrix"><tt>Matrix</tt></a>
+	</li>
+	</ul>
+	
+	
+</div>
+
+</div>
+</div>
+
+	
+<div id="transformcontent" class="member">
+<div class="member-link">
+<a name="transformcontent" href="#transformcontent"><tt><b>transformContent</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>Specifies whether the group applies transformations directly to its
+children, or whether they are to be stored in its <a href="/reference/item#matrix"><tt>item.matrix</tt></a></p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<tt>Boolean</tt>
 	</li>
 	</ul>
 	
@@ -2541,105 +2541,6 @@ circle.set({
 </div>
 
 	
-<div id="globaltolocal-point" class="member">
-<div class="member-link">
-<a name="globaltolocal-point" href="#globaltolocal-point"><tt><b>globalToLocal</b>(point)</tt></a>
-</div>
-<div class="member-description hidden">
-<div class="member-text">
-	<p>Converts the specified point from global project coordinates to local
-coordinates in relation to the the item's own coordinate space.</p>
-	
-<ul><b>Parameters:</b>
-
-<li>
-<tt>point:</tt> 
-<a href="/reference/point"><tt>Point</tt></a>
-&mdash;&nbsp;the point to be transformed
-
-</li>
-
-</ul>
-
-	
-	<ul><b>Returns:</b>
-	
-		<li>
-<tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the transformed point as a new instance
-</li>
-	
-	</ul>
-
-	
-	
-</div>
-</div>
-</div>
-
-	
-<div id="localtoglobal-point" class="member">
-<div class="member-link">
-<a name="localtoglobal-point" href="#localtoglobal-point"><tt><b>localToGlobal</b>(point)</tt></a>
-</div>
-<div class="member-description hidden">
-<div class="member-text">
-	<p>Converts the specified point from local coordinates to global coordinates
-in relation to the the project coordinate space.</p>
-	
-<ul><b>Parameters:</b>
-
-<li>
-<tt>point:</tt> 
-<a href="/reference/point"><tt>Point</tt></a>
-&mdash;&nbsp;the point to be transformed
-
-</li>
-
-</ul>
-
-	
-	<ul><b>Returns:</b>
-	
-		<li>
-<tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the transformed point as a new instance
-</li>
-	
-	</ul>
-
-	
-	
-</div>
-</div>
-</div>
-
-	
-<div id="isempty" class="member">
-<div class="member-link">
-<a name="isempty" href="#isempty"><tt><b>isEmpty</b>()</tt></a>
-</div>
-<div class="member-description hidden">
-<div class="member-text">
-	<p>Specifies whether the item has any content or not. The meaning of what
-content is differs from type to type. For example, a <a href="/reference/group"><tt>Group</tt></a> with
-no children, a <a href="/reference/textitem"><tt>TextItem</tt></a> with no text content and a <a href="/reference/path"><tt>Path</tt></a>
-with no segments all are considered empty.</p>
-	
-	
-	<ul><b>Returns:</b>
-	
-		<li>
-<tt></tt>&nbsp;&mdash;&nbsp;Boolean
-</li>
-	
-	</ul>
-
-	
-	
-</div>
-</div>
-</div>
-
-	
 <div id="isinserted" class="member">
 <div class="member-link">
 <a name="isinserted" href="#isinserted"><tt><b>isInserted</b>()</tt></a>
@@ -3565,6 +3466,35 @@ removed.</p>
 </div>
 
 	
+<h3>Tests</h3>
+
+<div id="isempty" class="member">
+<div class="member-link">
+<a name="isempty" href="#isempty"><tt><b>isEmpty</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Specifies whether the item has any content or not. The meaning of what
+content is differs from type to type. For example, a <a href="/reference/group"><tt>Group</tt></a> with
+no children, a <a href="/reference/textitem"><tt>TextItem</tt></a> with no text content and a <a href="/reference/path"><tt>Path</tt></a>
+with no segments all are considered empty.</p>
+	
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt></tt>&nbsp;&mdash;&nbsp;Boolean
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+
+	
 <h3>Hierarchy Tests</h3>
 
 <div id="haschildren" class="member">
@@ -4223,6 +4153,78 @@ by a supplied point.</p>
 </ul>
 
 	
+	
+	
+</div>
+</div>
+</div>
+
+	
+<div id="globaltolocal-point" class="member">
+<div class="member-link">
+<a name="globaltolocal-point" href="#globaltolocal-point"><tt><b>globalToLocal</b>(point)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Converts the specified point from global project coordinates to local
+coordinates in relation to the the item's own coordinate space.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>point:</tt> 
+<a href="/reference/point"><tt>Point</tt></a>
+&mdash;&nbsp;the point to be transformed
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the transformed point as a new instance
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+
+	
+<div id="localtoglobal-point" class="member">
+<div class="member-link">
+<a name="localtoglobal-point" href="#localtoglobal-point"><tt><b>localToGlobal</b>(point)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Converts the specified point from local coordinates to global coordinates
+in relation to the the project coordinate space.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>point:</tt> 
+<a href="/reference/point"><tt>Point</tt></a>
+&mdash;&nbsp;the point to be transformed
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the transformed point as a new instance
+</li>
+	
+	</ul>
+
 	
 	
 </div>
