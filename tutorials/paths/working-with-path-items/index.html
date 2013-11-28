@@ -53,7 +53,12 @@ In this tutorial we are going to look at paths and the different ways to create 
 <p>
 In Paper.js, paths are represented by a sequence of segments that are connected by curves. A segment consists of a <tt><a href="/reference/segment#point">point</a></tt> and two handles, defining the location and direction of the curves.
 </p>
-<div class="paperscript"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-1">
+<div class="paperscript">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-1">
 var y = view.size.height / 2;
 var width = view.size.width;
 var vector = new Point({
@@ -115,11 +120,11 @@ for (var i = 0; i < 2; i++) {
 
 // Call onMouseMove once to correctly position the text items:
 onMouseMove({ point: view.center - vector.rotate(-90) });
-</script><div class="canvas"><canvas width="540" height="250" id="canvas-1"></canvas></div>
-</div><br><br>
-<p>
-&lt;hide&gt;The tutorial &lt;/hide&gt;
-</p>
+</script>
+<div class="canvas">
+<canvas width="540" height="250" id="canvas-1"></canvas>
+</div>
+</div>
 <section id="adding-and-inserting-segments"><a name="adding-and-inserting-segments" title="Adding and Inserting Segments" class="anchor"><h2>Adding and Inserting Segments</h2></a></section>
 <p>
 In order to start with paths here, we will use segments that do not define handles for now and therefore are connected by lines instead of curves.
@@ -127,26 +132,47 @@ In order to start with paths here, we will use segments that do not define handl
 <p>
 Lets create a new path item by using the <tt><a href="/reference/path#path">new Path()</a></tt> constructor and added segments to it using the <tt><a href="/reference/path#add-segment">path.add(segment)</a></tt> function:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-2">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-2">
 var myPath = new Path();
 myPath.strokeColor = 'black';
 myPath.add(new Point(0, 0));
 myPath.add(new Point(100, 50));
-</script><div class="canvas"><canvas height="98" id="canvas-2" width="538"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="98" id="canvas-2" width="538"></canvas>
+</div>
+</div>
 <p>
 The <tt>add</tt> function also supports multiple arguments, which allows you to insert multiple segments in one go:
 </p>
-<div class="paperscript source"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-3">
+<div class="paperscript source">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-3">
 var myPath = new Path();
 myPath.strokeColor = 'black';
 myPath.add(new Point(0, 0), new Point(100, 50));
-</script><div class="canvas"><canvas height="100" id="canvas-3" width="540"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="100" id="canvas-3" width="540"></canvas>
+</div>
+</div>
 <p>
 To insert segments in relation to already existing segments, you can use the <tt><a href="/reference/path#insert-index-segment">path.insert(index, segment)</a></tt> function:
 </p>
-<div class="paperscript source"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-4">
+<div class="paperscript source">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-4">
 var myPath = new Path();
 myPath.strokeColor = 'black';
 myPath.add(new Point(0, 0), new Point(100, 50));
@@ -154,8 +180,11 @@ myPath.add(new Point(0, 0), new Point(100, 50));
 // insert a segment between the two existing
 // segments in the path:
 myPath.insert(1, new Point(30, 40));
-</script><div class="canvas"><canvas height="140" highlight="5-7" id="canvas-4" width="540"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="140" highlight="5-7" id="canvas-4" width="540"></canvas>
+</div>
+</div>
 <div class="note"><b>Please note:</b><p>
 The <tt><a href="/reference/point">Point</a></tt> object represents a point in the two dimensional space of the Paper.js project. It does not refer to an anchor point in a path. When a <tt><a href="/reference/point">Point</a></tt> is passed to a function like <tt>add</tt> or <tt>insert</tt> it is converted to a <tt><a href="/reference/segment">Segment</a></tt> on the fly. To find out more about the <tt><a href="/reference/point">Point</a></tt> object, please read the <a href="/tutorials/geometry/point-size-and-rectangle/">Point, Size and Rectangle</a> tutorial.
 </p><div class="text-end"></div></div>
@@ -166,7 +195,12 @@ Paper.js allows you to automatically smooth paths using the <tt><a href="/refere
 <p>
 In the following example, we create a rectangle shaped path, create a copy of it and smooth the copy:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-5">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-5">
 var path = new Path();
 path.strokeColor = 'black';
 path.add(new Point(30, 75)); 
@@ -185,24 +219,40 @@ copy.position.x += 100;
 
 // Smooth the segments of the copy:
 copy.smooth();
-</script><div class="canvas"><canvas height="98" id="canvas-5" width="538"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="98" id="canvas-5" width="538"></canvas>
+</div>
+</div>
 <section id="closing-paths"><a name="closing-paths" title="Closing Paths" class="anchor"><h2>Closing Paths</h2></a></section>
 <p>
 By default paths created through the <tt><a href="/reference/path#path">new Path()</a></tt> constructor are open:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-6">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-6">
 var myPath = new Path();
 myPath.strokeColor = 'black';
 myPath.add(new Point(40, 90));
 myPath.add(new Point(90, 40));
 myPath.add(new Point(140, 90));
-</script><div class="canvas"><canvas width="538" height="138" id="canvas-6"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas width="538" height="138" id="canvas-6"></canvas>
+</div>
+</div>
 <p>
 To close the path we set its <tt><a href="/reference/path#closed">path.closed</a></tt> property to <tt>true</tt>. Paper.js will then connect the first and last segments of the path:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-7">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-7">
 var myPath = new Path();
 myPath.strokeColor = 'black';
 myPath.add(new Point(40, 90));
@@ -210,8 +260,11 @@ myPath.add(new Point(90, 40));
 myPath.add(new Point(140, 90));
 
 myPath.closed = true;
-</script><div class="canvas"><canvas width="538" height="138" highlight="7" id="canvas-7"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas width="538" height="138" highlight="7" id="canvas-7"></canvas>
+</div>
+</div>
 <section id="removing-segments-and-paths"><a name="removing-segments-and-paths" title="Removing Segments and Paths" class="anchor"><h2>Removing Segments and Paths</h2></a></section>
 <p>
 To remove a segment from a path, we use the <tt><a href="/reference/path#removesegment-index">path.removeSegment(index)</a></tt> function and pass it the index of the segment we want to remove.
@@ -222,26 +275,42 @@ If you don&apos;t know yet how to create paths of predefined shapes, please read
 <p>
 First, lets create a circle shaped path and inspect its segments:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-8">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-8">
 var myCircle = new Path.Circle(new Point(100, 70), 50);
 myCircle.strokeColor = 'black';
 myCircle.selected = true;
-</script><div class="canvas"><canvas width="538" height="138" id="canvas-8"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas width="538" height="138" id="canvas-8"></canvas>
+</div>
+</div>
 <p>
 As you can see, the path has 4 segments.
 </p>
 <p>
 Now, lets remove the first segment of the path after creating it:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-9">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-9">
 var myCircle = new Path.Circle(new Point(100, 70), 50);
 myCircle.strokeColor = 'black';
 myCircle.selected = true;
 
 myCircle.removeSegment(0);
-</script><div class="canvas"><canvas width="538" height="138" id="canvas-9"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas width="538" height="138" id="canvas-9"></canvas>
+</div>
+</div>
 <div class="note"><b>Did you know?</b><p>
 In Javascript and most other programming languages we always start counting at zero when we refer to the index of an item in a list. Number zero is the first item, number one is the second item etc.
 </p><div class="text-end"></div></div>

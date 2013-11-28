@@ -52,7 +52,12 @@ In this tutorial we will make a mouse tool that acts like a brush, with a variab
 <p>
 Click and drag below to try it out:
 </p>
-<div class="paperscript"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-1">
+<div class="paperscript">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-1">
 tool.minDistance = 10;
 tool.maxDistance = 45;
 
@@ -86,8 +91,11 @@ function onMouseUp(event) {
 	path.closed = true;
 	path.smooth();
 }
-</script><div class="canvas"><canvas height="420" width="540" style="background:#e4e1e1" id="canvas-1"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="420" width="540" style="background:#e4e1e1" id="canvas-1"></canvas>
+</div>
+</div>
 <section id="drawing-a-line-while-dragging"><a name="drawing-a-line-while-dragging" title="Drawing a Line while Dragging" class="anchor"><h2>Drawing a Line while Dragging</h2></a></section>
 <p>
 We&apos;ll start by making a simple mouse tool that creates a new path when you click in the view and then adds segments to it when you drag the mouse:
@@ -95,7 +103,12 @@ We&apos;ll start by making a simple mouse tool that creates a new path when you 
 <p>
 Click and drag below to try it out:
 </p>
-<div class="paperscript"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-2">
+<div class="paperscript">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-2">
 // The minimum distance the mouse has to drag
 // before firing the next onMouseDrag event:
 tool.minDistance = 10;
@@ -117,8 +130,11 @@ function onMouseDrag(event) {
 	// to the path at the position of the mouse:
 	path.add(event.point);
 }
-</script><div class="canvas"><canvas height="420" width="540" style="background:#e4e1e1" id="canvas-2"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="420" width="540" style="background:#e4e1e1" id="canvas-2"></canvas>
+</div>
+</div>
 <p>
 When you initialize and interact with the tool, it does the following:
 </p>
@@ -199,7 +215,12 @@ Next we will change our earlier script to express the speed of the mouse while d
 <p>
 Click and drag below to try it out:
 </p>
-<div class="paperscript"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-3">
+<div class="paperscript">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-3">
 tool.minDistance = 10;
 
 var path;
@@ -225,8 +246,11 @@ function onMouseDrag(event) {
 	line.add(top);
 	line.add(bottom);
 }
-</script><div class="canvas"><canvas height="420" width="540" style="background:#e4e1e1" id="canvas-3"></canvas></div>
-</div><br><br><br>
+</script>
+<div class="canvas">
+<canvas height="420" width="540" style="background:#e4e1e1" id="canvas-3"></canvas>
+</div>
+</div>
 <div class="block">
   <div class="left"><img src="/tutorials/interaction/working-with-mouse-vectors/Middlepoint.gif" width="303" height="217"></img></div>
   <div class="right"><p>
@@ -308,7 +332,12 @@ line.add(bottom);
 <p>
 Next we will make another path which we add the skeleton points to each time the <tt><a href="/reference/tool#onmousedrag">tool.onMouseDrag</a></tt> handler function is called. 
 </p>
-<div class="paperscript"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-4">
+<div class="paperscript">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-4">
 tool.minDistance = 10;
 tool.maxDistance = 45;
 
@@ -337,8 +366,11 @@ function onMouseDrag(event) {
 	path.add(top);
 	path.insert(0, bottom);
 }
-</script><div class="canvas"><canvas height="420" width="540" style="background:#e4e1e1" id="canvas-4"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="420" width="540" style="background:#e4e1e1" id="canvas-4"></canvas>
+</div>
+</div>
 <p>
 Here is our updated code, with the new lines of code highlighted:
 </p>
@@ -395,7 +427,12 @@ Now we will smooth the path and fill it with a random color.
 <p>
 Click and drag below to try it out:
 </p>
-<div class="paperscript"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-5">
+<div class="paperscript">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-5">
 tool.minDistance = 10;
 tool.maxDistance = 45;
 
@@ -429,8 +466,11 @@ function onMouseUp(event) {
 	path.closed = true;
 	path.smooth();
 }
-</script><div class="canvas"><canvas height="420" width="540" style="background:#e4e1e1" id="canvas-5"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="420" width="540" style="background:#e4e1e1" id="canvas-5"></canvas>
+</div>
+</div>
 <p>
 Here is the updated script, with the new lines of code highlighted:
 </p>
@@ -498,7 +538,12 @@ And also in the onMouseUp function:
 	path.smooth();
 </pre>
 <section id="adding-brush-stroke-ends"><a name="adding-brush-stroke-ends" title="Adding Brush Stroke Ends" class="anchor"><h2>Adding Brush Stroke Ends</h2></a></section>
-<div class="paperscript"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-6">
+<div class="paperscript">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-6">
 tool.fixedDistance = 30;
 
 var path;
@@ -557,8 +602,11 @@ function addStrokes(point, delta) {
 		path.insert(0, strokePoint);
 	}
 }
-</script><div class="canvas"><canvas height="420" width="540" style="background:#e4e1e1" id="canvas-6"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="420" width="540" style="background:#e4e1e1" id="canvas-6"></canvas>
+</div>
+</div>
 <pre class="code" highlight="1,4,15,17-21,30,33,37-39,44-58">
 tool.fixedDistance = 30;
 

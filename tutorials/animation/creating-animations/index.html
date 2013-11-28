@@ -84,7 +84,12 @@ The following are a number of examples that make use of the <tt>onFrame</tt> han
 <p>
 In the following example, a rectangle shaped path is created on execution and each frame it is rotated by 3 degrees:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-1">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-1">
 // Create a rectangle shaped path with its top left point at
 // {x: 75, y: 75} and a size of {width: 75, height: 75}
 var path = new Path.Rectangle({
@@ -97,13 +102,21 @@ function onFrame(event) {
 	// Each frame, rotate the path by 3 degrees:
 	path.rotate(3);
 }
-</script><div class="canvas"><canvas height="198" id="canvas-1" width="538"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="198" id="canvas-1" width="538"></canvas>
+</div>
+</div>
 <section id="animating-colors"><a name="animating-colors" title="Animating Colors" class="anchor"><h2>Animating Colors</h2></a></section>
 <p>
 The following script creates a circle shaped path item with a red fill color. Then, each frame it slightly changes the hue of the color:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-2">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-2">
 // Create a circle shaped path at the center of the view,
 // with a radius of 70:
 var path = new Path.Circle({
@@ -117,13 +130,21 @@ function onFrame(event) {
 	// adding 1 to its hue:
 	path.fillColor.hue += 1;
 }
-</script><div class="canvas"><canvas height="198" id="canvas-2" width="538"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="198" id="canvas-2" width="538"></canvas>
+</div>
+</div>
 <section id="moving-an-item"><a name="moving-an-item" title="Moving an Item" class="anchor"><h2>Moving an Item</h2></a></section>
 <p>
 The following script creates a text item and moves it smoothly to a random destination point in the view. When the text item comes near the position, another random destination point is created. The contents of the text item is the distance between its current position and that of the destination point.
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-3">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-3">
 // Create a centered text item at the center of the view:
 var text = new PointText({
 	point: view.center,
@@ -160,13 +181,21 @@ function onFrame(event) {
 		destination = Point.random() * view.size;
 	}
 }
-</script><div class="canvas"><canvas height="198" id="canvas-3" width="538" style="background:black"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="198" id="canvas-3" width="538" style="background:black"></canvas>
+</div>
+</div>
 <section id="moving-multiple-items"><a name="moving-multiple-items" title="Moving Multiple Items" class="anchor"><h2>Moving Multiple Items</h2></a></section>
 <p>
 The following example shows a star field like animation. The speed that the circles move depends on their width. When a star leaves the view, it is moved back to left of the view.
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-4">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-4">
 // The amount of circles we want to make:
 var count = 150;
 
@@ -206,13 +235,21 @@ function onFrame(event) {
 		}
 	}
 }
-</script><div class="canvas"><canvas height="198" id="canvas-4" width="538" style="background:black"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="198" id="canvas-4" width="538" style="background:black"></canvas>
+</div>
+</div>
 <section id="animating-path-segments"><a name="animating-path-segments" title="Animating Path Segments" class="anchor"><h2>Animating Path Segments</h2></a></section>
 <p>
 The following script creates a path and then changes the position of its segment points in the <tt>onFrame</tt> handler:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-5">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-5">
 // The amount of segment points we want to create:
 var amount = 5;
 
@@ -251,8 +288,11 @@ function onFrame(event) {
 	// to smooth the path:
 	// path.smooth();
 }
-</script><div class="canvas"><canvas height="198" id="canvas-5" width="538"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="198" id="canvas-5" width="538"></canvas>
+</div>
+</div>
 </article>
 <aside>
 <h1>Index</h1>

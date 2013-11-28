@@ -53,7 +53,12 @@ Using Paper.js you can easily work with the colors of individual pixels of <tt><
 <p>
 The <tt><a href="/reference/raster#size">raster.size</a></tt> property of a raster specifies its size in pixels as a <tt><a href="/reference/size">Size</a></tt> object. It doesn&apos;t matter if you transform an image, its size in pixels will stay the same. Changing this size means that the image will be re-interpolated. This will come in handy later when we want to iterate through the individual pixels of an image, since the average size of an image contains way too many pixels.
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-1">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-1">
 // Create a raster item using the image tag with id='mona'
 var raster = new Raster('mona');
 // Move the raster to the center of the view
@@ -66,8 +71,11 @@ raster.on('load', function() {
 	raster.size = new Size(80, 60);
 });
 
-</script><div class="canvas"><canvas height="98" id="canvas-1" width="538"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="98" id="canvas-1" width="538"></canvas>
+</div>
+</div>
 <section id="colors-of-pixels"><a name="colors-of-pixels" title="Colors of Pixels" class="anchor"><h2>Colors of Pixels</h2></a></section>
 <p>
 To find the color of a specific pixel in a raster, we use <tt><a href="/reference/raster#getpixel-x-y">raster.getPixel(x, y)</a></tt> and pass it the x and y offset of the pixel we want to look at. The <tt><a href="/reference/raster#getpixel-x-y">raster.getPixel(x, y)</a></tt> function returns the color of the pixel as an <tt><a href="/reference/color">Color</a></tt>.
@@ -75,7 +83,12 @@ To find the color of a specific pixel in a raster, we use <tt><a href="/referenc
 <p>
 The following script loops through the pixels of the selected raster and creates a circle shaped path for each of them and fills them with the color of the pixels.
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-2">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-2">
 // Create a raster item using the image tag with id='mona'
 var raster = new Raster('mona');
 
@@ -120,8 +133,11 @@ raster.on('load', function() {
 
 // Move the active layer to the center of the view:
 project.activeLayer.position = view.center;
-</script><div class="canvas"><canvas height="398" id="canvas-2" width="538"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="398" id="canvas-2" width="538"></canvas>
+</div>
+</div>
 <section id="using-color-channel-values"><a name="using-color-channel-values" title="Using Color Channel Values" class="anchor"><h2>Using Color Channel Values</h2></a></section>
 <p>
 Instead of directly using the colors returned from <tt><a href="/reference/raster#getpixel-x-y">raster.getPixel(x, y)</a></tt>, we can also use the values of their individual channels to do different things. The color channels of a color contain a value between 0 and 1.
@@ -129,7 +145,12 @@ Instead of directly using the colors returned from <tt><a href="/reference/raste
 <p>
 The following script loops through the pixels of the selected raster and creates a grid of circle shaped paths of varying sizes depending on the <tt>gray</tt> value of their colors.
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-3">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-3">
 // Create a raster item using the image tag with id='mona'
 var raster = new Raster('mona');
 
@@ -171,8 +192,11 @@ raster.on('load', function() {
 	// the created paths in it appear centered.
 	project.activeLayer.position = view.center;
 });
-</script><div class="canvas"><canvas height="398" id="canvas-3" width="538"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="398" id="canvas-3" width="538"></canvas>
+</div>
+</div>
 <p>
 This code is very similar to the example above, but this time we don&apos;t fill the paths with the color we find when we call <tt><a href="/reference/raster#raster-getpixel-x-y">Raster.getPixel(x, y)</a></tt>. Instead, we look at how dark the color is using <tt><a href="/reference/color#gray">color.gray</a></tt>, which is a value between <tt>0</tt> (white) and <tt>1</tt> (black) and use it to scale the paths.
 </p>

@@ -80,7 +80,12 @@ function onMouseUp(event) {
 <p>
 Try it out by clicking, dragging and releasing in the following example:
 </p>
-<div class="paperscript"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-1">
+<div class="paperscript">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-1">
 var path;
 function onMouseDown(event) {
 	// Create a path:
@@ -94,8 +99,11 @@ function onMouseUp(event) {
 	// Add the mouse up position:
 	path.add(event.point);
 }
-</script><div class="canvas"><canvas height="320" width="540" style="background:#e4e1e1" id="canvas-1"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="320" width="540" style="background:#e4e1e1" id="canvas-1"></canvas>
+</div>
+</div>
 <p>
 <tt><a href="/reference/toolevent#point">event.downPoint</a></tt> describes the position of the mouse when the mouse button was last clicked. We could use it to simplify the example above:
 </p>
@@ -146,7 +154,12 @@ function onMouseDrag(event) {
 <p>
 Try it out by clicking, dragging and releasing in the following example:
 </p>
-<div class="paperscript"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-2">
+<div class="paperscript">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-2">
 // The mouse has to be moved at least 10 pt
 // before the next onMouseDrag event is called:
 tool.minDistance = 10;
@@ -165,8 +178,11 @@ function onMouseDrag(event) {
 	path.add(event.middlePoint + vector);
 	path.add(event.middlePoint - vector);
 }
-</script><div class="canvas"><canvas height="320" width="540" style="background:#e4e1e1" id="canvas-2"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="320" width="540" style="background:#e4e1e1" id="canvas-2"></canvas>
+</div>
+</div>
 <p>
 The following example creates circles while you drag the mouse. Their size depends on the <tt><a href="/reference/point#length">point.length</a></tt> of <tt><a href="/reference/toolevent#delta">event.delta</a></tt> and therefore they all connect:
 </p>
@@ -177,14 +193,22 @@ function onMouseDrag(event) {
 	circle.fillColor = &apos;black&apos;;
 }
 </pre>
-<div class="paperscript"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-3">
+<div class="paperscript">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-3">
 function onMouseDrag(event) {
 	var radius = event.delta.length / 2;
 	var circle = new Path.Circle(event.middlePoint, radius);
 	circle.fillColor = 'black';
 }
-</script><div class="canvas"><canvas height="320" width="540" style="background:#e4e1e1" id="canvas-3"></canvas></div>
-</div><br><br><br><br>
+</script>
+<div class="canvas">
+<canvas height="320" width="540" style="background:#e4e1e1" id="canvas-3"></canvas>
+</div>
+</div>
 <section id="counting-mouse-events"><a name="counting-mouse-events" title="Counting Mouse Events" class="anchor"><h2>Counting Mouse Events</h2></a></section>
 <p>
 <tt><a href="/reference/toolevent#count">event.count</a></tt> describes the amount of times the related mouse handler was fired.

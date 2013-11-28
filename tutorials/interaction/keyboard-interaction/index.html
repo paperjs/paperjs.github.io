@@ -56,7 +56,12 @@ To receive information about key presses, define an <tt>onKeyDown</tt> or <tt>on
 <p>
 In the following example, we give feedback to the user about which key was pressed / released by creating a text item and changing its content:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-1">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-1">
 // Create a centered text item at the center of the view:
 var text = new PointText({
 	point: view.center,
@@ -74,8 +79,11 @@ function onKeyUp(event) {
 	// When a key is released, set the content of the text item:
 	text.content = 'The ' + event.key + ' key was released!';
 }
-</script><div class="canvas"><canvas height="98" id="canvas-1" width="538"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="98" id="canvas-1" width="538"></canvas>
+</div>
+</div>
 <div class="note"><b>Please note:</b><p>
 The <tt>onKeyDown</tt> event is fired continuously while a key is held down.
 </p><div class="text-end"></div></div>
@@ -99,7 +107,12 @@ To check whether a key is currently being held down, we can use the <tt><a href=
 <p>
 In the following example we create a path and add segments to it while the user drags the mouse. When the &apos;a&apos; key is pressed while dragging, instead of adding new segments, we move the last segment to the position of the mouse.
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-2">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-2">
 var path;
 function onMouseDown(event) {
 	path = new Path();
@@ -118,8 +131,11 @@ function onMouseDrag(event) {
 		path.add(event.point);
 	}
 }
-</script><div class="canvas"><canvas height="198" id="canvas-2" width="538"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="198" id="canvas-2" width="538"></canvas>
+</div>
+</div>
 <section id="modifier-keys"><a name="modifier-keys" title="Modifier Keys" class="anchor"><h2>Modifier Keys</h2></a></section>
 <p>
 The <tt><a href="/reference/toolevent">event</a></tt> object that is passed to mouse event handlers such as <tt><a href="/reference/tool#onmousedown">onMouseDown</a></tt> also contain information about which modifier keys were pressed. Modifier keys are keys that don&apos;t directly produce a character: <tt>capsLock, command, control, option, shift</tt>
@@ -137,7 +153,12 @@ function onMouseDrag(event) {
 <p>
 For example if we wanted to make the same example script as above, but using the shift key:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-3">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-3">
 var path;
 function onMouseDown(event) {
 	path = new Path();
@@ -156,8 +177,11 @@ function onMouseDrag(event) {
 		path.add(event.point);
 	}
 }
-</script><div class="canvas"><canvas height="198" id="canvas-3" width="538"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="198" id="canvas-3" width="538"></canvas>
+</div>
+</div>
 <section id="having-fun-with-keys"><a name="having-fun-with-keys" title="Having Fun with Keys" class="anchor"><h2>Having Fun with Keys</h2></a></section>
 <p>
 The following example creates a path on execution and then adds segment points to it when you press one of <b>wasd</b> keys in the direction of the key.
@@ -165,7 +189,12 @@ The following example creates a path on execution and then adds segment points t
 <p>
 Click in the view below so it gets keyboard focus and press one of the <b>wasd</b> keys.
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-4">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-4">
 // The starting position of the line
 var position = new Point(100, 100);
 
@@ -194,8 +223,11 @@ function onKeyDown(event) {
 	}
 	path.add(position);
 }
-</script><div class="canvas"><canvas height="198" id="canvas-4" width="538"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="198" id="canvas-4" width="538"></canvas>
+</div>
+</div>
 </article>
 <aside>
 <h1>Index</h1>

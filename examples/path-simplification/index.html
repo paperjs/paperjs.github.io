@@ -61,7 +61,12 @@
   <li><a href="http://github.com/paperjs/paper.js" target="_blank">Watch on Github</a></li>
 </ul>
     </nav>
-<article><div class="paperscript"><div class="buttons"><div class="button run">Source</div><div class="explain"></div></div><script type="text/paperscript" canvas="canvas-1">
+<article><div class="paperscript">
+<div class="buttons">
+<div class="button run">Source</div>
+<div class="explain"></div>
+</div>
+<script type="text/paperscript" canvas="canvas-1">
 var path;
 
 var textItem = new PointText({
@@ -110,6 +115,10 @@ function onMouseUp(event) {
 	var percentage = 100 - Math.round(newSegmentCount / segmentCount * 100);
 	textItem.content = difference + ' of the ' + segmentCount + ' segments were removed. Saving ' + percentage + '%';
 }
-</script><div class="canvas"><canvas resize="true" id="canvas-1"></canvas></div></div></article>
+</script>
+<div class="canvas">
+<canvas resize="true" id="canvas-1"></canvas>
+</div>
+</div></article>
   </body>
 </html>

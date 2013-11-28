@@ -62,7 +62,12 @@ Paper.js allows you to automatically smooth paths using the <tt><a href="/refere
 <p>
 In the following example, we create a rectangle shaped path, create a copy of it and smooth the copy. As you can see, only the handle positions are changed. The segment points remain unchanged.
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-1">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-1">
 var path = new Path({
 	segments: [[30, 75], [30, 25], [80, 25], [80, 75]],
 	strokeColor: 'black',
@@ -79,12 +84,20 @@ copy.position.x += 100;
 
 // Smooth the segments of the copy:
 copy.smooth();
-</script><div class="canvas"><canvas height="98" id="canvas-1" width="538"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="98" id="canvas-1" width="538"></canvas>
+</div>
+</div>
 <p>
 Click and drag in the view below to draw a line, when you release the mouse, the path is smoothed using <tt><a href="/reference/path#smooth">path.smooth()</a></tt>:
 </p>
-<div class="paperscript"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-2">
+<div class="paperscript">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-2">
 var path;
 
 // The mouse has to drag at least 10pt
@@ -108,13 +121,21 @@ function onMouseUp(event) {
 	path.selected = false;
 	path.smooth();
 }
-</script><div class="canvas border"><canvas height="318" id="canvas-2" width="538"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas border">
+<canvas height="318" id="canvas-2" width="538"></canvas>
+</div>
+</div>
 <section id="simplifying-paths"><a name="simplifying-paths" title="Simplifying Paths" class="anchor"><h2>Simplifying Paths</h2></a></section>
 <p>
 <tt><a href="/reference/path#simplify">path.simplify()</a></tt> smooths a path by simplifying it. The path.segments array is analyzed and replaced by a more optimal set of segments, reducing memory usage and speeding up drawing.
 </p>
-<div class="paperscript"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-3">
+<div class="paperscript">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-3">
 var path;
 
 var textItem = new PointText(new Point(20, 30));
@@ -157,8 +178,11 @@ function onMouseUp(event) {
 	textItem.content = difference + ' of the ' + segmentCount + ' segments were removed. Saving ' + percentage + '%';
 
 }
-</script><div class="canvas border"><canvas height="318" id="canvas-3" width="538"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas border">
+<canvas height="318" id="canvas-3" width="538"></canvas>
+</div>
+</div>
 <p>
 The <tt><a href="/reference/path#simplify">path.simplify()</a></tt> function has an optional <tt>tolerance</tt> parameter, which specifies the maximum distance the simplifying algorithm is allowed to deviate from the original path. This value is set to <tt>2.5</tt> by default. Setting it to a lower value, produces a more correct path but with more segment points. Setting it to a higher value leads to a smoother curve and less segment points, but the shape of the path will be more different than the original.
 </p>
@@ -169,7 +193,12 @@ The <tt><a href="/reference/path#simplify">path.simplify()</a></tt> function has
 <p>
 In the following example, we create a circle shaped path and straighten it using <tt><a href="/reference/path#flatten-maxdistance">path.flatten(20)</a></tt>:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-4">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-4">
 // Create a circle shaped path at { x: 80, y: 50 }
 // with a radius of 35:
 var path = new Path.Circle({
@@ -186,8 +215,11 @@ copy.position.x += 150;
 
 // Flatten the path, with a max distance of 20:
 copy.flatten(20);
-</script><div class="canvas"><canvas height="98" id="canvas-4" width="538"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="98" id="canvas-4" width="538"></canvas>
+</div>
+</div>
 </article>
 <aside>
 <h1>Index</h1>

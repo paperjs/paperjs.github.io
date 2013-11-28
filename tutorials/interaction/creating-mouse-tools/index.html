@@ -53,7 +53,12 @@ This tutorial explains the different ways to create Paper.js tools that the user
 <p>
 We start with an example of a very simple tool that creates an empty path on execution and adds segments to it whenever you click the mouse:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-1">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-1">
 // Create a new path once, when the script is executed:
 var myPath = new Path();
 myPath.strokeColor = 'black';
@@ -64,8 +69,11 @@ function onMouseDown(event) {
 	// Add a segment to the path at the position of the mouse:
 	myPath.add(event.point);
 }
-</script><div class="canvas"><canvas height="318" width="538" style="background:#e4e1e1" id="canvas-1"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="318" width="538" style="background:#e4e1e1" id="canvas-1"></canvas>
+</div>
+</div>
 <section id="mouse-handler-functions"><a name="mouse-handler-functions" title="Mouse Handler Functions" class="anchor"><h2>Mouse Handler Functions</h2></a></section>
 <p>
 Paper.js offers mouse handlers for the different actions you can perform with a mouse. You can use these mouse handlers to produce different types of tools that have different ways of reacting to mouse interaction and movement.
@@ -103,7 +111,12 @@ Here is a simple tool that draws lines. The starting point of the line is where 
 <p>
 Click, drag and release below to try it out:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-2">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-2">
 // We start by defining an empty variable that is visible by both
 // mouse handlers.
 var myPath;
@@ -122,8 +135,11 @@ function onMouseUp(event) {
 	// segment of the line.
 	myPath.add(event.point);
 }
-</script><div class="canvas"><canvas height="318" width="538" style="background:#e4e1e1" id="canvas-2"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="318" width="538" style="background:#e4e1e1" id="canvas-2"></canvas>
+</div>
+</div>
 <div class="note"><b>Please note:</b><p>
 The difference between this tool and the first example is that a new path is created each time the mouse is clicked, and the path is finished when the mouse is released.
 </p><div class="text-end"></div></div>
@@ -133,15 +149,23 @@ The same tool can be written more simply, by using only the <tt><a href="/refere
 <p>
 Click, drag and release below to try it out:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-3">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-3">
 function onMouseUp(event) {
 	var myPath = new Path();
 	myPath.strokeColor = 'black';
 	myPath.add(event.downPoint);
 	myPath.add(event.point);
 }
-</script><div class="canvas"><canvas height="318" width="538" style="background:#e4e1e1" id="canvas-3"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="318" width="538" style="background:#e4e1e1" id="canvas-3"></canvas>
+</div>
+</div>
 <p>
 When the mouse is released, the <tt><a href="/reference/tool#onmouseup">onMouseUp(event)</a></tt> handler is called.
 </p>
@@ -179,7 +203,12 @@ When you release the mouse it will add a circle shaped path at that position wit
 <p>
 Click and drag below to try it out:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-4">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-4">
 var myPath;
 
 function onMouseDown(event) {
@@ -199,8 +228,11 @@ function onMouseUp(event) {
 	myCircle.strokeColor = 'black';
 	myCircle.fillColor = 'white';
 }
-</script><div class="canvas"><canvas height="318" width="538" style="background:#e4e1e1" id="canvas-4"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="318" width="538" style="background:#e4e1e1" id="canvas-4"></canvas>
+</div>
+</div>
 <p>
 Now lets go through the script line by line to see whats happening:
 </p>
@@ -247,7 +279,12 @@ Another handy property in the event object is <tt><a href="/reference/toolevent#
 <p>
 For example, if we would want to make a tool that creates circles through mouse interaction, we could write something like:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-5">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-5">
 function onMouseUp(event) {
 	var circle = new Path.Circle({
 		center: event.middlePoint,
@@ -256,8 +293,11 @@ function onMouseUp(event) {
 	circle.strokeColor = 'black';
 	circle.fillColor = 'white';
 }
-</script><div class="canvas"><canvas height="318" width="538" style="background:#e4e1e1" id="canvas-5"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="318" width="538" style="background:#e4e1e1" id="canvas-5"></canvas>
+</div>
+</div>
 <p>
 This small script creates a circular path whenever you click, drag and release. It uses the position where the mouse was clicked (<tt><a href="/reference/toolevent#downpoint">event.downPoint</a></tt>) for the center point of the circle, and the distance between the down point and the position where the mouse was released (the <tt><a href="/reference/point#length">length</a></tt> of <tt><a href="/reference/toolevent#delta">event.delta</a></tt>) for its radius.
 </p>
@@ -271,7 +311,12 @@ For example, in the following tool script the <tt>onMouseDrag</tt> function is o
 <p>
 So when you click and drag in the following example, you will see that the radius of the circles is always 20pt or higher.
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-6">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-6">
 tool.minDistance = 20;
 
 function onMouseDrag(event) {
@@ -281,8 +326,11 @@ function onMouseDrag(event) {
 	});
 	circle.fillColor = 'black';
 }
-</script><div class="canvas"><canvas height="318" width="538" style="background:#e4e1e1" id="canvas-6"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="318" width="538" style="background:#e4e1e1" id="canvas-6"></canvas>
+</div>
+</div>
 <section id="maximum-distance"><a name="maximum-distance" title="Maximum Distance" class="anchor"><h2>Maximum Distance</h2></a></section>
 <p>
 We can also set the maximum distance until the firing of the next <tt><a href="/reference/tool#onmousedrag">onMouseDrag</a></tt> event by setting the <tt><a href="/reference/tool#maxdistance">tool.maxDistance</a></tt> property. This will repeatedly fire the <tt><a href="/reference/tool#onmousedrag">onMouseDrag</a></tt> event until the distance between the event point and the mouse is less than <tt><a href="/reference/tool#maxdistance">tool.maxDistance</a></tt>.
@@ -293,7 +341,12 @@ In the following code we set <tt><a href="/reference/tool#maxdistance">tool.maxD
 <p>
 When you click and drag in the following example, you will see that when you drag fast enough the radiuses of the circles max out at 5pt. When you drag slower, the circles will be smaller.
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-7">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-7">
 tool.maxDistance = 10;
 
 function onMouseDrag(event) {
@@ -303,8 +356,11 @@ function onMouseDrag(event) {
 	});
 	circle.fillColor = 'black';
 }
-</script><div class="canvas"><canvas height="318" width="538" style="background:#e4e1e1" id="canvas-7"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="318" width="538" style="background:#e4e1e1" id="canvas-7"></canvas>
+</div>
+</div>
 <section id="fixed-distance-drag-events"><a name="fixed-distance-drag-events" title="Fixed Distance Drag Events" class="anchor"><h2>Fixed Distance Drag Events</h2></a></section>
 <p>
 To set both the minimum and maximum distances we can set the <tt><a href="/reference/tool#fixeddistance">tool.fixedDistance</a></tt> property. Then <tt><a href="/reference/tool#onmousedrag">onMouseDrag</a></tt> events are fired with intervals of fixed distances.
@@ -315,7 +371,12 @@ The following example creates circle shaped paths while you drag. By setting <tt
 <p>
 Click and drag below to try it out:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-8">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-8">
 project.currentStyle.fillColor = 'black';
 
 tool.fixedDistance = 30;
@@ -327,67 +388,11 @@ function onMouseDrag(event) {
 	});
 	circle.fillColor = 'black';
 }
-</script><div class="canvas"><canvas height="318" width="538" style="background:#e4e1e1" id="canvas-8"></canvas></div>
-</div><br>
-<p>
-&lt;hide&gt;
-</p>
-<section id="event-interval"><a name="event-interval" title="Event Interval" class="anchor"><h2>Event Interval</h2></a></section>
-<p>
-Normally the <tt><a href="/reference/tool#onmousedrag">onMouseDrag</a></tt> handler is only fired when you actually drag the mouse. Paper.js can also repeatedly call the <tt><a href="/reference/tool#onmousedrag">onMouseDrag</a></tt> with a fixed time delay after the user clicks the mouse. Setting the <tt><a href="/reference/tool#eventinterval">tool.eventInterval</a></tt> property to an interval means the <tt><a href="/reference/tool#onmousedrag">onMouseDrag</a></tt> event is called repeatedly after the initial <tt><a href="/reference/tool#onmousedown">onMouseDown</a></tt> until the user releases the mouse:
-</p>
-<p>
-The following example creates a path when the user clicks and then adds a segment every 30 ms at 1/30th of the distance between the last point of the path and the current mouse position.
-</p>
-<p>
-Since the path will contains way too many points, we simplify it using <tt><a href="/reference/path#simplify">path.simplify()</a></tt>.
-</p>
-<p>
-Try it out by clicking and dragging below:
-</p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-9">
-// Call the onMouseDrag function every 30 ms:
-tool.eventInterval = 30;
-
-var path;
-function onMouseDown(event) {
-	// If we already created a path before,
-	// deselect it:
-	if (path) {
-		path.selected = false;
-	}
-	
-	// Create a new path and add the first segment where
-	// the user clicked:
-	path = new Path();
-	path.strokeColor = 'black';
-	path.add(event.point);
-}
-
-function onMouseDrag(event) {
-	var lastPoint = path.lastSegment.point;
-
-	// the difference between the current position of the mouse
-	// and the last segment point of the path:
-	var vector = event.point - lastPoint;
-	
-	// the position of the new point that we will add to the path:
-	var point = lastPoint + vector / 30;
-	path.add(point);
-}
-
-function onMouseUp(event) {
-	// Simplify the path:
-	path.simplify();
-	
-	// Select the path to show the segment points:
-	path.selected = true;
-}
-</script><div class="canvas"><canvas height="318" width="538" style="background:#e4e1e1" id="canvas-9"></canvas></div>
-</div><br>
-<p>
-&lt;/hide&gt;
-</p>
+</script>
+<div class="canvas">
+<canvas height="318" width="538" style="background:#e4e1e1" id="canvas-8"></canvas>
+</div>
+</div>
 </article>
 <aside>
 <h1>Index</h1>

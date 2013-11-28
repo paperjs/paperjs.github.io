@@ -59,7 +59,12 @@ To place instances of the symbol in your project, you can call <tt><a href="/ref
 <p>
 For example, lets create a circle shaped path and place a few instances of it:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-1">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-1">
 var path = new Path.Circle(new Point(20, 20), 30);
 path.fillColor = 'red';
 
@@ -69,13 +74,21 @@ var symbol = new Symbol(path);
 // Place two instances of the symbol:
 symbol.place(new Point(80, 50));
 symbol.place(new Point(150, 50));
-</script><div class="canvas"><canvas height="98" id="canvas-1" width="538"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="98" id="canvas-1" width="538"></canvas>
+</div>
+</div>
 <section id="placed-symbols"><a name="placed-symbols" title="Placed Symbols" class="anchor"><h2>Placed Symbols</h2></a></section>
 <p>
 A placed instance of a symbol is a <tt><a href="/reference/placedsymbol">PlacedSymbol</a></tt> and can be manipulated like any other <tt><a href="/reference/item">Item</a></tt>.
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-2">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-2">
 var path = new Path.Circle(new Point(20, 20), 30);
 path.fillColor = 'red';
 
@@ -88,13 +101,21 @@ placed.scale(1, 0.5);
 
 // Rotate the symbol by 45 degrees:
 placed.rotate(45);
-</script><div class="canvas"><canvas height="98" id="canvas-2" width="538"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="98" id="canvas-2" width="538"></canvas>
+</div>
+</div>
 <section id="selecting-placed-symbols"><a name="selecting-placed-symbols" title="Selecting Placed Symbols" class="anchor"><h2>Selecting Placed Symbols</h2></a></section>
 <p>
 When you select a <tt><a href="/reference/placedsymbol">PlacedSymbol</a></tt> by setting <tt><a href="/reference/item#selected">item.selected</a></tt> to <tt>true</tt>, Paper.js draws its bounding box. This allows you to see how it has been transformed.
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-3">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-3">
 var path = new Path.Circle(new Point(20, 20), 30);
 path.fillColor = 'red';
 
@@ -109,13 +130,21 @@ placed.selected = true;
 
 // Rotate the placed symbol by 45 degrees:
 placed.rotate(45);
-</script><div class="canvas"><canvas height="98" id="canvas-3" width="538"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="98" id="canvas-3" width="538"></canvas>
+</div>
+</div>
 <section id="symbol-definition"><a name="symbol-definition" title="Symbol Definition" class="anchor"><h2>Symbol Definition</h2></a></section>
 <p>
 When you create a symbol from an item, that item becomes the definition of the symbol. Editing the definition of a symbol is reflected in all its <tt><a href="/reference/placedsymbol">PlacedSymbol</a></tt> instances.
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-4">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-4">
 var path = new Path(new Point(20, 20), new Point(50, 50));
 path.style = {
 	strokeColor: 'red',
@@ -141,8 +170,11 @@ function onFrame(event) {
 	// Add 0.2 degrees to the stroke color's hue:
 	symbol.definition.strokeColor.hue += 0.2;
 }
-</script><div class="canvas"><canvas height="98" id="canvas-4" width="538"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="98" id="canvas-4" width="538"></canvas>
+</div>
+</div>
 </article>
 <aside>
 <h1>Index</h1>

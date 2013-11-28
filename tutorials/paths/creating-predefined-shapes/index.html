@@ -63,11 +63,19 @@ Using the <tt><a href="/reference/path#path-circle-center-radius">new Path.Circl
 <p>
 The following code produces a circle shaped path with a center point at <tt>{x: 100, y: 70}</tt> and a radius of 50 pt:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-1">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-1">
 var myCircle = new Path.Circle(new Point(100, 70), 50);
 myCircle.fillColor = 'black';
-</script><div class="canvas"><canvas height="138" id="canvas-1" width="538"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="138" id="canvas-1" width="538"></canvas>
+</div>
+</div>
 <section id="rectangular-shaped-paths"><a name="rectangular-shaped-paths" title="Rectangular Shaped Paths" class="anchor"><h2>Rectangular Shaped Paths</h2></a></section>
 <p>
 To create a rectangular shaped path you can pass a <tt><a href="/reference/rectangle">Rectangle</a></tt> to the <tt><a href="/reference/path#path-rectangle-rect">new Path.Rectangle(rect)</a></tt> constructor.
@@ -78,13 +86,21 @@ A <tt><a href="/reference/rectangle">Rectangle</a></tt> object is an abstract re
 <p>
 For example, let&apos;s make a <tt>Rectangle</tt> between <tt>{x: 0, y: 0}</tt> and <tt>{x: 50, y: 50}</tt> and then use the <tt><a href="/reference/path#path-rectangle-rect">new Path.Rectangle(rect)</a></tt> constructor to create a path with the shape that it describes:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-2">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-2">
 var rectangle = new Rectangle(new Point(50, 50), new Point(150, 100));
 var path = new Path.Rectangle(rectangle);
 path.fillColor = '#e9e9ff';
 path.selected = true;
-</script><div class="canvas"><canvas width="538" height="138" id="canvas-2"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas width="538" height="138" id="canvas-2"></canvas>
+</div>
+</div>
 <section id="rounded-rectangles"><a name="rounded-rectangles" title="Rounded Rectangles" class="anchor"><h2>Rectangular Shaped Paths with Rounded Corners</h2></a></section>
 <p>
 To create rectangular shaped paths with rounded corners, we use the <tt><a href="/reference/path#path-roundedrectangle-rect-size">new Path.RoundedRectangle(rect, size)</a></tt> constructor. The <tt>rect</tt> parameter describes the <tt><a href="/reference/rectangle">Rectangle</a></tt> and the <tt>size</tt> parameter describes the <tt><a href="/reference/size">Size</a></tt> of the rounded corners.
@@ -92,13 +108,21 @@ To create rectangular shaped paths with rounded corners, we use the <tt><a href=
 <p>
 For example, the following script creates a rectangular shaped path with 20 pt * 20 pt corners:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-3">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-3">
 var rectangle = new Rectangle(new Point(50, 50), new Point(150, 100));
 var cornerSize = new Size(20, 20);
 var path = new Path.RoundRectangle(rectangle, cornerSize);
 path.fillColor = 'black';
-</script><div class="canvas"><canvas height="138" id="canvas-3" width="538"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="138" id="canvas-3" width="538"></canvas>
+</div>
+</div>
 <section id="regular-polygon-shaped-paths"><a name="regular-polygon-shaped-paths" title="Regular Polygon Shaped Paths" class="anchor"><h2>Regular Polygon Shaped Paths</h2></a></section>
 <p>
 To create regular polygon shaped paths, we use the <tt><a href="/reference/path#path-regularpolygon-center-numsides-radius">new Path.RegularPolygon(center, numSides, radius)</a></tt> constructor.
@@ -109,7 +133,12 @@ The <tt><a href="/reference/point">center</a></tt> parameter describes the cente
 <p>
 For example, lets create a triangle shaped path and a decahedron shaped path:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-4">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-4">
 // Create a triangle shaped path 
 var triangle = new Path.RegularPolygon(new Point(80, 70), 3, 50);
 triangle.fillColor = '#e9e9ff';
@@ -119,8 +148,11 @@ triangle.selected = true;
 var decahedron = new Path.RegularPolygon(new Point(200, 70), 10, 50);
 decahedron.fillColor = '#e9e9ff';
 decahedron.selected = true;
-</script><div class="canvas"><canvas height="138" id="canvas-4" width="538"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="138" id="canvas-4" width="538"></canvas>
+</div>
+</div>
 <div class="note"><b>Did you know?</b><p>
 You can check the constructors section of the <tt><a href="/reference/path">Path reference</a></tt> for a full list of Path constructors.
 </p><div class="text-end"></div></div>

@@ -62,7 +62,12 @@ If you&apos;ve never heard of a Document Object Model before, you can think of i
  The image on the left is an illustration of the structure of the project after executing the code below, if you would be looking at it in an application like Adobe Illustrator. There are two layers, the red path was created in the first layer and the green path was created in the second.
 </p></div>
 </div>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-1">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-1">
 // Create a circle shaped path, which is automatically
 // placed within the active layer of the project:
 var path = new Path.Circle({
@@ -80,8 +85,11 @@ var secondPath = new Path.Circle({
 	radius: 35,
 	fillColor: '#00FF00'
 });
-</script><div class="canvas"><canvas height="98" id="canvas-1" width="538"></canvas></div>
-</div><br>
+</script>
+<div class="canvas">
+<canvas height="98" id="canvas-1" width="538"></canvas>
+</div>
+</div>
 <p>
 Learn more about the Document Object Model in the <a href="http://www.scriptographer.org/tutorials/document-items/document-hierarchy/" target="_blank">Document Hierarchy</a> tutorial. 
 </p>
@@ -89,7 +97,12 @@ Learn more about the Document Object Model in the <a href="http://www.scriptogra
 <p>
 Paper.js makes is very easy to create paths and add segments to them. After adding, the segments can be easily inspected, manipulated, moved around, removed etc.
 </p>
-<div class="paperscript"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-2">
+<div class="paperscript">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-2">
 var y = view.size.height / 2;
 var width = view.size.width;
 var vector = new Point({
@@ -158,8 +171,11 @@ for (var i = 0; i < 2; i++) {
 onMouseMove({
 	point: view.center + vector.rotate(-90)
 });
-</script><div class="canvas"><canvas width="540" height="250" id="canvas-2"></canvas></div>
-</div><br>
+</script>
+<div class="canvas">
+<canvas width="540" height="250" id="canvas-2"></canvas>
+</div>
+</div>
 <p>
 In Paper.js, paths are represented by a sequence of segments that are connected by curves. A segment consists of a point and two handles, defining the location and direction of the curves.
 </p>
@@ -189,7 +205,12 @@ function onMouseUp(event) {
 <p>
 The event object that is passed to the event handler includes many handy properties that describe the movement and position of the mouse. Learn more about mouse events in the <a href="http://scriptographer.org/tutorials/interaction/mouse-tool-events/" target="_blank">Mouse Events</a> tutorial.
 </p>
-<div class="paperscript"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-3">
+<div class="paperscript">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-3">
 tool.fixedDistance = 20;
 
 var layer = project.activeLayer;
@@ -219,8 +240,11 @@ function onMouseMove(event) {
 	if (layer.children.length > 8)
 		layer.firstChild.remove();
 }
-</script><div class="canvas"><canvas width="540" height="320" style="background-color:#000" id="canvas-3"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas width="540" height="320" style="background-color:#000" id="canvas-3"></canvas>
+</div>
+</div>
 <section id="keyboard-interaction"><a name="keyboard-interaction" title="Keyboard Interaction" class="anchor"><h2>Keyboard Interaction</h2></a></section>
 <p>
 Paper.js allows you to interact with the keyboard in two ways: You can either intercept key events and respond to these, or you can check the state of a given key at any moment, to see if it is pressed or not.
@@ -243,7 +267,12 @@ function onMouseDrag(event) {
 <p>
 The following example shows some keyboard interaction. Click on the canvas to get keyboard focus and steer with your arrow keys:
 </p>
-<div class="paperscript"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-4">
+<div class="paperscript">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-4">
 function onFrame() {
 	if (Key.isDown('left'))
 		sperm.left();
@@ -385,8 +414,11 @@ var sperm = new function() {
 		}
 	}
 };
-</script><div class="canvas"><canvas width="540" height="320" style="background-color:#000" id="canvas-4"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas width="540" height="320" style="background-color:#000" id="canvas-4"></canvas>
+</div>
+</div>
 <section id="svg-import-and-export"><a name="svg-import-and-export" title="SVG Import and Export" class="anchor"><h2>SVG Import and Export</h2></a></section>
 <p>
 Paper.js offers very convenient methods to import and export vector graphics as SVG. Even more advanced features such as gradients and clipping are supported.
@@ -405,16 +437,22 @@ The original SVG on the left, imported into a Paper.js canvas on the right:
 	 <path id="path8" fill="#FFF6E3" d="M355.693,52.389c-4.46,0.56-8.5,1-9.5-4.5s1.5-7.5,9-5.5S367.693,50.889,355.693,52.389z  M319.193,55.889c0,0-18.72,4.42-1.5-8.5c8-6,8.5-1,9,2C327.443,53.859,319.193,55.889,319.193,55.889z M376.193,15.389 c-8.35-1.67-8-6.5,1-8.5C378.664,6.569,381.193,16.389,376.193,15.389z M381.193,15.389c2.5-0.5,6.5,0.5,7,4s-3.5,5.5-6,3.5 S378.693,15.889,381.193,15.389z M375.193,26.389c2.5-1,10,0.5,9.5,3.5s-6.5,3.5-9,2S372.693,27.389,375.193,26.389z  M376.193,43.889c3-2.5,6.5,0,7.5,1.5s-4,3.5-5.5,4S373.193,46.389,376.193,43.889z M387.693,6.889c0,0,4,0,3,1.5s-4,1.5-4,1.5 L387.693,6.889z M393.693,15.889c0,0,4,0,3,1.5s-4,1.5-4,1.5L393.693,15.889z M361.193,63.889c0,0,5,2,4,3.5s-2.5,4-6,0.5 S361.193,63.889,361.193,63.889z M347.693,83.389c3-2.5,6.5,0,7.5,1.5s-4,3.5-5.5,4S344.693,85.889,347.693,83.389z M349.693,73.389 c3-2.5,5.5,1,6.5,2.5s-3,2.5-4.5,3S346.693,75.889,349.693,73.389z M332.693,39.889c-3.569,0.2-9.5-1.5-0.5-7.5c8.32-5.54,8-4,8.5-1 C341.443,35.859,336.264,39.698,332.693,39.889z M302.193,48.889c0,0-3.5-3,3.5-9c7.601-6.5,6.5-4,7-1 C313.443,43.359,302.193,48.889,302.193,48.889z M333.193,22.389c0,0,6-1,5,0.5s-3.5,7-7,3.5S333.193,22.389,333.193,22.389z  M366.693,52.889c1.38,0,2.5,1.13,2.5,2.5c0,1.38-1.12,2.5-2.5,2.5c-1.37,0-2.5-1.12-2.5-2.5 C364.193,54.019,365.323,52.889,366.693,52.889z M361.693,77.389c1.38,0,2.5,1.13,2.5,2.5c0,1.38-1.12,2.5-2.5,2.5 c-1.37,0-2.5-1.12-2.5-2.5C359.193,78.519,360.323,77.389,361.693,77.389z M357.693,87.389c1.38,0,2.5,1.13,2.5,2.5 c0,1.38-1.12,2.5-2.5,2.5c-1.37,0-2.5-1.12-2.5-2.5C355.193,88.519,356.323,87.389,357.693,87.389z M341.693,93.889 c1.38,0,2.5,1.13,2.5,2.5c0,1.38-1.12,2.5-2.5,2.5c-1.37,0-2.5-1.12-2.5-2.5C339.193,95.019,340.323,93.889,341.693,93.889z  M350.193,95.389c1.38,0,4,2.13,4,3.5c0,1.38-2.62,1.5-4,1.5c-1.37,0-2.5-1.12-2.5-2.5 C347.693,96.519,348.823,95.389,350.193,95.389z M374.193,56.389c1.38,0,2.5,1.13,2.5,2.5c0,1.38-1.12,2.5-2.5,2.5 c-1.37,0-2.5-1.12-2.5-2.5C371.693,57.519,372.823,56.389,374.193,56.389z M387.693,32.889c1.38,0,2.5,1.13,2.5,2.5 c0,1.38-1.12,2.5-2.5,2.5c-1.37,0-2.5-1.12-2.5-2.5C385.193,34.019,386.323,32.889,387.693,32.889z M292.693,40.889 c2.32,0.93,13.5-6.5,10-7.5S290.193,39.889,292.693,40.889z M311.693,27.889c2.5,0.5,10-2.5,6.5-3.5S309.054,27.368,311.693,27.889z  M263.693,58.389c5.5-3,21-10.5,13.5-9.5S258.974,60.969,263.693,58.389z M356.193,8.889c2.5,0.5,10-2.5,6.5-3.5 S353.554,8.368,356.193,8.889z M284.193,45.389c2.5,0.5,7.5-2,4-3S281.554,44.868,284.193,45.389z M347.193,107.889 c1.38,0,2.5,1.63,2.5,3c0,1.38-0.62,1.5-2,1.5c-1.37,0-2.5-1.12-2.5-2.5C345.193,108.519,345.823,107.889,347.193,107.889z  M339.693,107.389c1.38,0,3.5,0.63,3.5,2c0,1.38-2.62,1-4,1c-1.37,0-2.5-1.12-2.5-2.5 C336.693,106.519,338.323,107.389,339.693,107.389z M341.693,121.889c1.38,0,4,2.13,4,3.5c0,1.38-2.62,1.5-4,1.5 c-1.37,0-2.5-1.12-2.5-2.5C339.193,123.019,340.323,121.889,341.693,121.889z M329.693,142.389c4-1,4,1,5,4.5s8.07,14.88-3.5,1 C328.693,144.889,325.693,143.389,329.693,142.389z M341.693,154.389c1.38,0,2.5,1.13,2.5,2.5c0,1.38-1.12,2.5-2.5,2.5 c-1.37,0-2.5-1.12-2.5-2.5C339.193,155.519,340.323,154.389,341.693,154.389z M344.193,163.389c1.38,0,2.5,1.13,2.5,2.5 c0,1.38-1.12,2.5-2.5,2.5c-1.37,0-2.5-1.12-2.5-2.5C341.693,164.519,342.823,163.389,344.193,163.389z M344.363,172.389 c1.37,0,3.33,3.13,3.33,4.5c0,1.38-1.12,2.5-2.5,2.5c-1.37,0-4.16-1.62-4.16-3C341.033,175.019,342.983,172.389,344.363,172.389z  M345.693,188.389c1.38,0,1,0.13,1,1.5c0,1.38-0.12,0.5-1.5,0.5c-1.37,0-1,0.88-1-0.5 C344.193,188.519,344.323,188.389,345.693,188.389z M332.193,155.389c1.38,0,1,0.13,1,1.5c0,1.38-0.12,0.5-1.5,0.5 c-1.37,0-1,0.88-1-0.5C330.693,155.519,330.823,155.389,332.193,155.389z M335.193,167.889c1.38,0,1,0.13,1,1.5 c0,1.38,0.21,5-1.16,5c-1.38,0-1.34-3.62-1.34-5C333.693,168.019,333.823,167.889,335.193,167.889z M338.693,181.889 c1.38,0,1,0.13,1,1.5c0,1.38-0.12,0.5-1.5,0.5c-1.37,0-1,0.88-1-0.5C337.193,182.019,337.323,181.889,338.693,181.889z  M332.533,195.389c1.37,0,1.16,0.13,1.16,1.5c0,1.38-0.29,0.5-1.66,0.5c-1.38,0-0.84,0.88-0.84-0.5 C331.193,195.519,331.153,195.389,332.533,195.389z M341.363,198.729c1.37,0,2.67,1.95,2.67,3.33c0,1.37-2.96,3.83-4.34,3.83 c-1.37,0-1,0.88-1-0.5C338.693,204.019,339.983,198.729,341.363,198.729z M335.693,213.059c1.38,0,3.67-0.38,3.67,1 c0,1.37-3.29,3.83-4.67,3.83c-1.37,0-1,0.88-1-0.5C333.693,216.019,334.323,213.059,335.693,213.059z M327.193,205.889 c1.38,0,1,0.13,1,1.5c0,1.38-0.12,0.5-1.5,0.5c-1.37,0-1,0.88-1-0.5C325.693,206.019,325.823,205.889,327.193,205.889z  M324.693,225.059c1.38,0,2.67,1.62,2.67,3c0,1.37-2.29,0.83-3.67,0.83c-1.37,0-1,0.88-1-0.5 C322.693,227.019,323.323,225.059,324.693,225.059z M316.363,230.389c1.37,0,0.67,1.63,0.67,3c0,1.38-4.96,4.5-6.34,4.5 c-1.37,0-1,0.88-1-0.5C309.693,236.019,314.983,230.389,316.363,230.389z M317.193,214.389c1.38,0,1,0.13,1,1.5 c0,1.38-0.12,0.5-1.5,0.5c-1.37,0-1,0.88-1-0.5C315.693,214.519,315.823,214.389,317.193,214.389z M305.193,222.889 c1.38,0,5.84,1.79,5.84,3.17c0,1.37-5.629,3.67-7,3.67c-1.379,0-2.34-2.3-2.34-3.67 C301.693,224.679,303.824,222.889,305.193,222.889z M292.193,227.389c1.381,0,1,0.13,1,1.5c0,1.38-0.119,0.5-1.5,0.5 c-1.369,0-1,0.88-1-0.5C290.693,227.519,290.824,227.389,292.193,227.389z M300.193,239.389c1.381,0,1,0.13,1,1.5 c0,1.38-0.119,0.5-1.5,0.5c-1.369,0-1,0.88-1-0.5C298.693,239.519,298.824,239.389,300.193,239.389z M297.193,240.389 c1.381,0,1,0.13,1,1.5c0,1.38-0.119,0.5-1.5,0.5c-1.369,0-1,0.88-1-0.5C295.693,240.519,295.824,240.389,297.193,240.389z  M285.693,240.729c0.92,0,2,1.41,2,2.33s-0.08,0.33-1,0.33c-0.91,0-3.33,1.25-3.33,0.34 C283.363,242.809,284.783,240.729,285.693,240.729z M288.693,243.389c0.92,0,0.67,0.09,0.67,1c0,0.92-0.08,0.34-1,0.34 s-0.67,0.58-0.67-0.34C287.693,243.479,287.783,243.389,288.693,243.389z M283.363,230.389c0.92,0,2.33,3.42,2.33,4.34 c0,0.91-3.08,0.66-4,0.66c-0.91,0-2.33-2.75-2.33-3.66C279.363,230.809,282.443,230.389,283.363,230.389z M272.033,241.389 c1.371,0,1.16,0.13,1.16,1.5c0,1.38-0.289,0.5-1.66,0.5c-1.379,0-0.84,0.88-0.84-0.5 C270.693,241.519,270.654,241.389,272.033,241.389z M269.033,234.389c1.371,0-0.67,3.29-0.67,4.67c0,1.37-4.459,1.83-5.83,1.83 c-1.379,0,1.16-1.79,1.16-3.16C263.693,236.349,267.654,234.389,269.033,234.389z M44.194,51.559c4.47,0.56,8.5,1,9.5-4.5 s-1.5-7.5-9-5.5S32.194,50.059,44.194,51.559z M80.694,55.059c0,0,18.72,4.41,1.5-8.5c-8-6-8.5-1-9,2 C72.454,53.029,80.694,55.059,80.694,55.059z M23.694,14.559c8.35-1.67,8-6.5-1-8.5C21.234,5.729,18.694,15.559,23.694,14.559z  M18.694,14.559c-2.5-0.5-6.5,0.5-7,4s3.5,5.5,6,3.5S21.194,15.059,18.694,14.559z M24.694,25.559c-2.5-1-10,0.5-9.5,3.5 s6.5,3.5,9,2S27.194,26.559,24.694,25.559z M23.694,43.059c-3-2.5-6.5,0-7.5,1.5s4,3.5,5.5,4S26.694,45.559,23.694,43.059z  M12.194,6.059c0,0-4,0-3,1.5s4,1.5,4,1.5L12.194,6.059z M6.194,15.059c0,0-4,0-3,1.5s4,1.5,4,1.5L6.194,15.059z M38.694,63.059 c0,0-5,2-4,3.5s2.5,4,6,0.5S38.694,63.059,38.694,63.059z M52.194,82.559c-3-2.5-6.5,0-7.5,1.5s4,3.5,5.5,4 S55.194,85.059,52.194,82.559z M50.194,72.559c-3-2.5-5.5,1-6.5,2.5s3,2.5,4.5,3S53.194,75.059,50.194,72.559z M67.194,39.059 c3.57,0.2,9.5-1.5,0.5-7.5c-8.32-5.55-8-4-8.5-1C58.454,35.029,63.624,38.859,67.194,39.059z M97.694,48.059c0,0,3.5-3-3.5-9 c-7.59-6.51-6.5-4-7-1C86.454,42.529,97.694,48.059,97.694,48.059z M66.694,21.559c0,0-6-1-5,0.5s3.5,7,7,3.5 S66.694,21.559,66.694,21.559z M33.194,52.059c-1.37,0-2.5,1.13-2.5,2.5c0,1.38,1.13,2.5,2.5,2.5c1.38,0,2.5-1.12,2.5-2.5 C35.694,53.189,34.574,52.059,33.194,52.059z M38.194,76.559c-1.37,0-2.5,1.13-2.5,2.5c0,1.38,1.13,2.5,2.5,2.5 c1.38,0,2.5-1.12,2.5-2.5C40.694,77.689,39.574,76.559,38.194,76.559z M42.194,86.559c-1.37,0-2.5,1.13-2.5,2.5 c0,1.38,1.13,2.5,2.5,2.5c1.38,0,2.5-1.12,2.5-2.5C44.694,87.689,43.574,86.559,42.194,86.559z M58.194,93.059 c-1.37,0-2.5,1.13-2.5,2.5c0,1.38,1.13,2.5,2.5,2.5c1.38,0,2.5-1.12,2.5-2.5C60.694,94.189,59.574,93.059,58.194,93.059z  M49.694,94.559c-1.37,0-4,2.13-4,3.5c0,1.38,2.63,1.5,4,1.5c1.38,0,2.5-1.12,2.5-2.5C52.194,95.689,51.074,94.559,49.694,94.559z  M25.694,55.559c-1.37,0-2.5,1.13-2.5,2.5c0,1.38,1.13,2.5,2.5,2.5c1.38,0,2.5-1.12,2.5-2.5 C28.194,56.689,27.074,55.559,25.694,55.559z M12.194,32.059c-1.37,0-2.5,1.13-2.5,2.5c0,1.38,1.13,2.5,2.5,2.5 c1.38,0,2.5-1.12,2.5-2.5C14.694,33.189,13.574,32.059,12.194,32.059z M107.194,40.059c-2.32,0.93-13.5-6.5-10-7.5 S109.694,39.059,107.194,40.059z M88.194,27.059c-2.5,0.5-10-2.5-6.5-3.5S90.833,26.529,88.194,27.059z M136.194,57.559 c-5.5-3-21-10.5-13.5-9.5S140.924,60.139,136.194,57.559z M43.694,8.059c-2.5,0.5-10-2.5-6.5-3.5S46.333,7.529,43.694,8.059z  M115.694,44.559c-2.5,0.5-7.5-2-4-3S118.333,44.029,115.694,44.559z M52.694,107.059c-1.37,0-2.5,1.63-2.5,3c0,1.38,0.63,1.5,2,1.5 c1.38,0,2.5-1.12,2.5-2.5C54.694,107.689,54.074,107.059,52.694,107.059z M60.194,106.559c-1.37,0-3.5,0.63-3.5,2c0,1.38,2.63,1,4,1 c1.38,0,2.5-1.12,2.5-2.5C63.194,105.689,61.574,106.559,60.194,106.559z M58.194,121.059c-1.37,0-4,2.13-4,3.5 c0,1.38,2.63,1.5,4,1.5c1.38,0,2.5-1.12,2.5-2.5C60.694,122.189,59.574,121.059,58.194,121.059z M70.194,141.559c-4-1-4,1-5,4.5 s-8.06,14.88,3.5,1C71.194,144.059,74.194,142.559,70.194,141.559z M58.194,153.559c-1.37,0-2.5,1.12-2.5,2.5 c0,1.37,1.13,2.5,2.5,2.5c1.38,0,2.5-1.13,2.5-2.5C60.694,154.679,59.574,153.559,58.194,153.559z M55.694,162.559 c-1.37,0-2.5,1.12-2.5,2.5c0,1.37,1.13,2.5,2.5,2.5c1.38,0,2.5-1.13,2.5-2.5C58.194,163.679,57.074,162.559,55.694,162.559z  M55.534,171.559c-1.38,0-3.34,3.12-3.34,4.5c0,1.37,1.13,2.5,2.5,2.5c1.38,0,4.17-1.63,4.17-3 C58.864,174.179,56.904,171.559,55.534,171.559z M54.194,187.559c-1.37,0-1,0.12-1,1.5c0,1.37,0.13,0.5,1.5,0.5c1.38,0,1,0.87,1-0.5 C55.694,187.679,55.574,187.559,54.194,187.559z M67.694,154.559c-1.37,0-1,0.12-1,1.5c0,1.37,0.13,0.5,1.5,0.5c1.38,0,1,0.87,1-0.5 C69.194,154.679,69.074,154.559,67.694,154.559z M64.694,167.059c-1.37,0-1,0.12-1,1.5c0,1.37-0.2,5,1.17,5c1.38,0,1.33-3.63,1.33-5 C66.194,167.179,66.074,167.059,64.694,167.059z M61.194,181.059c-1.37,0-1,0.12-1,1.5c0,1.37,0.13,0.5,1.5,0.5c1.38,0,1,0.87,1-0.5 C62.694,181.179,62.574,181.059,61.194,181.059z M67.364,194.559c-1.37,0-1.17,0.12-1.17,1.5c0,1.37,0.3,0.5,1.67,0.5 c1.38,0,0.83,0.87,0.83-0.5C68.694,194.679,68.744,194.559,67.364,194.559z M58.534,197.889c-1.38,0-2.67,1.96-2.67,3.34 c0,1.37,2.96,3.83,4.33,3.83c1.38,0,1,0.87,1-0.5C61.194,203.179,59.904,197.889,58.534,197.889z M64.194,212.229 c-1.37,0-3.66-0.38-3.66,1c0,1.37,3.29,3.83,4.66,3.83c1.38,0,1,0.87,1-0.5C66.194,215.179,65.574,212.229,64.194,212.229z  M72.694,205.059c-1.37,0-1,0.12-1,1.5c0,1.37,0.13,0.5,1.5,0.5c1.38,0,1,0.87,1-0.5C74.194,205.179,74.074,205.059,72.694,205.059z  M75.194,224.229c-1.37,0-2.66,1.62-2.66,3c0,1.37,2.29,0.83,3.66,0.83c1.38,0,1,0.87,1-0.5 C77.194,226.179,76.574,224.229,75.194,224.229z M83.534,229.559c-1.38,0-0.67,1.62-0.67,3c0,1.37,4.96,4.5,6.33,4.5 c1.38,0,1,0.87,1-0.5C90.194,235.179,84.904,229.559,83.534,229.559z M82.694,213.559c-1.37,0-1,0.12-1,1.5c0,1.37,0.13,0.5,1.5,0.5 c1.38,0,1,0.87,1-0.5C84.194,213.679,84.074,213.559,82.694,213.559z M94.694,222.059c-1.37,0-5.83,1.79-5.83,3.17 c0,1.37,5.63,3.66,7,3.66c1.38,0,2.33-2.29,2.33-3.66C98.194,223.849,96.074,222.059,94.694,222.059z M107.694,226.559 c-1.37,0-1,0.12-1,1.5c0,1.37,0.13,0.5,1.5,0.5c1.38,0,1,0.87,1-0.5C109.194,226.679,109.074,226.559,107.694,226.559z  M99.694,238.559c-1.37,0-1,0.12-1,1.5c0,1.37,0.13,0.5,1.5,0.5c1.38,0,1,0.87,1-0.5 C101.194,238.679,101.074,238.559,99.694,238.559z M102.694,239.559c-1.37,0-1,0.12-1,1.5c0,1.37,0.13,0.5,1.5,0.5 c1.38,0,1,0.87,1-0.5C104.194,239.679,104.074,239.559,102.694,239.559z M114.194,239.889c-0.91,0-2,1.42-2,2.34 c0,0.91,0.09,0.33,1,0.33c0.92,0,3.34,1.25,3.34,0.33C116.534,241.979,115.114,239.889,114.194,239.889z M111.194,242.559 c-0.91,0-0.66,0.08-0.66,1s0.08,0.33,1,0.33c0.91,0,0.66,0.59,0.66-0.33S112.114,242.559,111.194,242.559z M116.534,229.559 c-0.92,0-2.34,3.42-2.34,4.33c0,0.92,3.09,0.67,4,0.67c0.92,0,2.34-2.75,2.34-3.67C120.534,229.979,117.444,229.559,116.534,229.559 z M127.864,240.559c-1.37,0-1.17,0.12-1.17,1.5c0,1.37,0.3,0.5,1.67,0.5c1.38,0,0.83,0.87,0.83-0.5 C129.194,240.679,129.244,240.559,127.864,240.559z M130.864,233.559c-1.37,0,0.67,3.29,0.67,4.67c0,1.37,4.46,1.83,5.83,1.83 c1.38,0-1.17-1.79-1.17-3.17C136.194,235.519,132.244,233.559,130.864,233.559z M202.964,101.458c-1.37,0-1.17,0.131-1.17,1.5 c0,1.381,0.3,0.5,1.67,0.5c1.38,0,0.83,0.881,0.83-0.5C204.294,101.589,204.344,101.458,202.964,101.458z M197.464,101.458 c-1.37,0-1.17,0.131-1.17,1.5c0,1.381,0.3,0.5,1.67,0.5c1.38,0,0.83,0.881,0.83-0.5 C198.794,101.589,198.844,101.458,197.464,101.458z M202.964,110.458c-1.37,0-1.17,0.131-1.17,1.5c0,1.381,0.3,0.5,1.67,0.5 c1.38,0,0.83,0.881,0.83-0.5C204.294,110.589,204.344,110.458,202.964,110.458z M196.864,110.359c-1.37,0-1.17,0.13-1.17,1.5 c0,1.38,0.3,0.5,1.67,0.5c1.38,0,0.83,0.88,0.83-0.5C198.194,110.489,198.244,110.359,196.864,110.359z M204.964,120.958 c-1.37,0-1,1.131-1,2.5c0,1.381,0.42,4.5,1.8,4.5c1.37,0,0.53-4.119,0.53-5.5C206.294,121.089,206.344,120.958,204.964,120.958z  M195.964,120.958c-1.37,0-1.4,1.23-1.4,2.601c0,1.38-0.97,4.6,0.4,4.6c1.38,0,1.8-3.819,1.8-5.2 C196.764,121.589,197.344,120.958,195.964,120.958z"/>
 </svg></div>
   <div class="right">
-<div class="paperscript"><script type="text/paperscript" canvas="canvas-5">
+<div class="paperscript">
+<script type="text/paperscript" canvas="canvas-5">
 project.importSVG(document.getElementById('svg-import'));
-</script><div class="canvas"><canvas width="260" height="162" id="canvas-5"></canvas></div></div></div>
+</script>
+<div class="canvas">
+<canvas width="260" height="162" id="canvas-5"></canvas>
+</div>
+</div></div>
 </div>
 <script type="text/javascript" src="/assets/js/rhill-voronoi-core.js"></script>
 <script type="text/javascript" src="/assets/js/base64.js"></script>
 <p>
 Have fun with this interactive Voronoi example, click to add new cells, and once you like the result, press the <em>Download as SVG</em> button to download the result as an SVG file that you can open directly in Adobe Illustrator and other vector editing applications:
 </p>
-<div class="paperscript"><script type="text/paperscript" canvas="canvas-6">
+<div class="paperscript">
+<script type="text/paperscript" canvas="canvas-6">
 var voronoi =  new Voronoi();
 var sites = generateBeeHivePoints(view.size / 115, true);
 var bbox, diagram;
@@ -552,7 +590,11 @@ $('#export-button').click(function() {
 	});
 });
 
-</script><div class="canvas"><canvas width="540" height="405" id="canvas-6"></canvas></div></div>
+</script>
+<div class="canvas">
+<canvas width="540" height="405" id="canvas-6"></canvas>
+</div>
+</div>
 <p>
 <input type="button" value="Download as SVG" id="export-button">
 </p>
@@ -560,7 +602,12 @@ $('#export-button').click(function() {
 <p>
 Place images in your project, work with the colors of their pixels or look at average colors of the pixels that fall within paths placed on top of them.
 </p>
-<div class="paperscript"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-7">
+<div class="paperscript">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-7">
 // Create a raster item using the image tag with id='mona'
 var raster = new Raster('mona');
 
@@ -602,8 +649,11 @@ raster.on('load', function() {
 	// the created paths in it appear centered.
 	project.activeLayer.position = view.center;
 });
-</script><div class="canvas"><canvas height="400" id="canvas-7" width="540"></canvas></div>
-</div><br>
+</script>
+<div class="canvas">
+<canvas height="400" id="canvas-7" width="540"></canvas>
+</div>
+</div>
 <p>
 Learn more about working with images in the <a href="/tutorials/images/">Images</a> tutorial.<br>
 <img class="hidden" id="mona" src="/features/mona.jpg" width="595" height="436"></img>
@@ -612,7 +662,12 @@ Learn more about working with images in the <a href="/tutorials/images/">Images<
 <p>
 Symbols allow you to place multiple instances of an item in your project. This can save memory, since all instances of a symbol simply refer to the original item and it can speed up moving around complex objects, since internal properties such as segment lists and gradient positions don&apos;t need to be updated with every transformation.
 </p>
-<div class="paperscript"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-8">
+<div class="paperscript">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-8">
 // The amount of symbol we want to place;
 var count = 50;
 
@@ -686,13 +741,21 @@ function keepInView(item) {
 		position.y = viewBounds.height
 	}
 }
-</script><div class="canvas"><canvas width="540" height="320" style="background:black" id="canvas-8"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas width="540" height="320" style="background:black" id="canvas-8"></canvas>
+</div>
+</div>
 <section id="selection-outlines"><a name="selection-outlines" title="Selection Outlines" class="anchor"><h2>Selection Outlines</h2></a></section>
 <p>
 When you select items or path segment points &amp; handles in your code, Paper.js draws the visual outlines of them on top of your project. This is very useful for debugging, as it allows you to see the construction of paths, position of path curves, individual segment points and bounding boxes of symbol and raster items:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-9">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-9">
 var circle = new Path.Circle({
 	center: [160, 80],
 	radius: 50
@@ -713,11 +776,15 @@ var circle2 = new Path.Circle({
 
 // Select it:
 circle2.selected = true;
-</script><div class="canvas"><canvas width="538" height="158" id="canvas-9"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas width="538" height="158" id="canvas-9"></canvas>
+</div>
+</div>
 <section id="vector-geometry"><a name="vector-geometry" title="Vector Geometry" class="anchor"><h2>Vector Geometry</h2></a></section>
 <div class="block">
-  <div class="left"><div class="paperscript"><script type="text/paperscript" canvas="canvas-10">
+  <div class="left"><div class="paperscript">
+<script type="text/paperscript" canvas="canvas-10">
 project.currentStyle.fillColor = 'black';
 
 var values = {
@@ -907,7 +974,11 @@ function onMouseMove(event) {
 }
 
 processVector({ point: new Point(view.size * 0.75) }, false);
-</script><div class="canvas"><canvas width="220" height="350" id="canvas-10"></canvas></div></div></div>
+</script>
+<div class="canvas">
+<canvas width="220" height="350" id="canvas-10"></canvas>
+</div>
+</div></div>
   <div class="right"><p>
 Vector geometry is a first class citizen in Paper.js. It is a great advantage to understand its basic principles when learning to write scripts for it. After all, there is a reason for the word <i>Vector</i> in <i>Vector Graphics</i>. 
 </p>

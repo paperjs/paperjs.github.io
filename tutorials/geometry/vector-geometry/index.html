@@ -58,7 +58,12 @@ As an example of the elegance of vector geometry, here is an interactive example
 <p>
 Click and drag in the view below:
 </p>
-<div class="paperscript"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-1">
+<div class="paperscript">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-1">
 tool.minDistance = 10;
 tool.maxDistance = 45;
 
@@ -88,8 +93,11 @@ function onMouseUp(event) {
 	path.closed = true;
 	path.smooth();
 }
-</script><div class="canvas"><canvas height="420" width="540" id="canvas-1" style="background:black"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="420" width="540" id="canvas-1" style="background:black"></canvas>
+</div>
+</div>
 <p>
 This script is developed step by step in the <a href="/tutorials/interaction/working-with-mouse-vectors/">Working with Mouse Vectors</a> tutorial, along with explanations about each line of code. But before looking at such an applied example, it is crucial to understand the basic principles of vector geometry outlined here.
 </p>
@@ -406,7 +414,12 @@ The example script below is provided as a help to familiarise yourself with the 
 <p>
 Play around with it to get a feeling for how vectors work, and try to use it to repeat the principles learned in this tutorial.
 </p>
-<div class="paperscript"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-2">
+<div class="paperscript">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-2">
 var values = {
 	fixLength: false,
 	fixAngle: false,
@@ -591,8 +604,11 @@ function onMouseUp(event) {
 	}
 	vectorPrevious = vector;
 }
-</script><div class="canvas border"><canvas width="538" height="538" id="canvas-2"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas border">
+<canvas width="538" height="538" id="canvas-2"></canvas>
+</div>
+</div>
 </article>
 <aside>
 <h1>Index</h1>

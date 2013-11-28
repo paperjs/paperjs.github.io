@@ -63,7 +63,12 @@ In programming we refer to items that are contained within other items as being 
 <p>
 To show how this works, in the following example we create two circle shaped paths and style them by accessing them through the <tt><a href="/reference/layer#children">layer.children</a></tt> array of the <tt><a href="/reference/project#activelayer">project.activeLayer</a></tt>
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-1">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-1">
 // Create a circle shaped path, which is automatically
 // placed within the active layer of the project:
 var path = new Path.Circle(new Point(80, 50), 35);
@@ -76,13 +81,21 @@ project.activeLayer.children[0].fillColor = 'red';
 // Set the stroke color of the second child of
 // the active layer to black:
 project.activeLayer.children[1].fillColor = 'blue';
-</script><div class="canvas"><canvas height="98" id="canvas-1" width="538"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="98" id="canvas-1" width="538"></canvas>
+</div>
+</div>
 <section id="first-child-and-last-child"><a name="first-child-and-last-child" title="First Child and Last Child" class="anchor"><h2>First Child and Last Child</h2></a></section>
 <p>
 Paper.js offers shortcuts to the first and last child of any item that contains children: <tt><a href="/reference/item#firstchild">item.firstChild</a></tt> and <tt><a href="/reference/item#lastchild">item.lastChild</a></tt>. Using these, we could rewrite the example above in the following way:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-2">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-2">
 // Create a circle shaped path, which is automatically
 // placed within the active layer of the project:
 var path = new Path.Circle(new Point(80, 50), 35);
@@ -95,13 +108,21 @@ project.activeLayer.firstChild.fillColor = 'red';
 // Set the stroke color of the last child of
 // the active layer to black:
 project.activeLayer.lastChild.fillColor = 'blue';
-</script><div class="canvas"><canvas height="98" highlight="8,12" id="canvas-2" width="538"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="98" highlight="8,12" id="canvas-2" width="538"></canvas>
+</div>
+</div>
 <section id="accessing-children-by-name"><a name="accessing-children-by-name" title="Accessing Children By Name" class="anchor"><h2>Accessing Children By Name</h2></a></section>
 <p>
 If an item has a name, it can be accessed by name through its parent&apos;s children list:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-3">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-3">
 var path = new Path.Circle(new Point(80, 50), 35);
 // Set the name of the path:
 path.name = 'example';
@@ -112,13 +133,21 @@ var children = project.activeLayer.children;
 
 // The path can be accessed by name:
 children['example'].fillColor = 'red';
-</script><div class="canvas"><canvas height="98" id="canvas-3" width="538"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="98" id="canvas-3" width="538"></canvas>
+</div>
+</div>
 <section id="iterating-over-children"><a name="iterating-over-children" title="Iterating Over Children" class="anchor"><h2>Iterating Over Children</h2></a></section>
 <p>
 Since the children list of an item is an array, we can find out how many children it contains by querying its <tt>layer.children.length</tt> property and iterate over it using a <tt>for </tt> loop:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-4">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-4">
 // Create 20 circle shaped paths spread in horizontal direction:
 for (var i = 0; i < 20; i++) {
 	var center = new Point(70 + i * 20, 50);
@@ -139,8 +168,11 @@ for (var i = 0; i < children.length; i++) {
 	// value between 0 and 360:
 	child.fillColor.hue = Math.random() * 360;
 }
-</script><div class="canvas"><canvas height="98" id="canvas-4" width="538"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="98" id="canvas-4" width="538"></canvas>
+</div>
+</div>
 <section id="parents"><a name="parents" title="Parents" class="anchor"><h2>Parents</h2></a></section>
 <p>
 You can find out which item an item is contained within by accessing its <tt><a href="/reference/item#parent">item.parent</a></tt> property. The parent of a newly created item is always the currently active layer of the project, but is changed when the item is added as a child of another layer or group.
@@ -152,14 +184,22 @@ You can think of <tt><a href="/reference/layer">Layer</a></tt> and <tt><a href="
 <p>
 For example, changing a style property like <tt><a href="/reference/item#fillcolor">item.fillColor</a></tt> on a layer or group will change that property on all of its children:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-5">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-5">
 var path = new Path.Circle(new Point(80, 50), 35);
 var secondPath = new Path.Circle(new Point(180, 50), 35);
 
 // Change the fill color of both paths to red:
 project.activeLayer.fillColor = 'red';
-</script><div class="canvas"><canvas height="98" id="canvas-5" width="538"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="98" id="canvas-5" width="538"></canvas>
+</div>
+</div>
 <p>
 In the same way that a folder can be contained within another folder, groups can be contained within other groups.
 </p>
@@ -167,7 +207,12 @@ In the same way that a folder can be contained within another folder, groups can
 <p>
 <tt><a href="/reference/layer">Layer</a></tt> and <tt><a href="/reference/group">Group</a></tt> items are almost the same. The main difference being that a layer item can be activated, meaning that any new items created are automatically placed within it. Whenever you create a new <tt><a href="/reference/layer">Layer</a></tt>, it becomes the <tt><a href="/reference/project#activelayer">project.activeLayer</a></tt> of the project:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-6">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-6">
 // Create a circle shaped path, which is automatically
 // placed within the active layer of the project:
 var path = new Path.Circle(new Point(80, 50), 35);
@@ -179,8 +224,11 @@ var secondLayer = new Layer();
 // The second path is added as a child of the second layer:
 var secondPath = new Path.Circle(new Point(150, 50), 35);
 secondPath.fillColor = 'green';
-</script><div class="canvas"><canvas height="98" id="canvas-6" width="538"></canvas></div>
-</div><br><br><br>
+</script>
+<div class="canvas">
+<canvas height="98" id="canvas-6" width="538"></canvas>
+</div>
+</div>
 <div class="block">
   <div class="left"><img src="/tutorials/project-items/project-hierarchy/Layers.gif" width="248" height="168"></img></div>
   <div class="right"><p>
@@ -194,7 +242,12 @@ When you create a group, it doesn&apos;t have any children yet. You can add chil
 <p>
 The first way we will look at, is by passing an array of items to the <tt><a href="/reference/group#group-children">new Group(children)</a></tt> constructor. The items passed to the constructor are placed in the group&apos;s <tt><a href="/reference/item#children">item.children</a></tt> array:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-7">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-7">
 // Create two circle shaped paths:
 var path = new Path.Circle(new Point(80, 50), 35);
 var secondPath = new Path.Circle(new Point(120, 50), 35);
@@ -206,12 +259,20 @@ group.style = {
 	fillColor: 'red',
 	strokeColor: 'black'
 };
-</script><div class="canvas"><canvas height="98" id="canvas-7" width="538"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="98" id="canvas-7" width="538"></canvas>
+</div>
+</div>
 <p>
 You can also add children to a group after it is created, using the <tt><a href="/reference/item#addchild-item">item.addChild(item)</a></tt> function:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-8">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-8">
 // Create two circle shaped paths:
 var path = new Path.Circle(new Point(80, 50), 35);
 var secondPath = new Path.Circle(new Point(180, 50), 35);
@@ -225,15 +286,23 @@ group.addChild(secondPath);
 
 // Change the fill color of the items contained within the group:
 group.fillColor = 'green';
-</script><div class="canvas"><canvas height="98" id="canvas-8" width="538"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="98" id="canvas-8" width="538"></canvas>
+</div>
+</div>
 <p>
 To insert in a child into a group or layer at a specific index, you can use the <tt><a href="/reference/item#insertchild-index-item">item.insertChild(index, item)</a></tt> function.
 </p>
 <p>
 In the following example we create a red and a green circle. Since the green path was created after the red path, it covers the red circle. We move it to the start of the active layer&apos;s children array using <tt><a href="/reference/item#insertchild-index-item">item.insertChild(index, item)</a></tt>:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-9">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-9">
 var redPath = new Path.Circle(new Point(80, 50), 30);
 redPath.fillColor = 'red';
 
@@ -243,13 +312,21 @@ greenPath.fillColor = 'green';
 // Insert the green path at index 0 of the children
 // array of the active layer:
 project.activeLayer.insertChild(0, greenPath);
-</script><div class="canvas"><canvas height="98" id="canvas-9" width="538"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="98" id="canvas-9" width="538"></canvas>
+</div>
+</div>
 <section id="inserting-children"><a name="inserting-children" title="Inserting Children" class="anchor"><h2>Inserting Children Relative to Other Items</h2></a></section>
 <p>
 We can also insert items above or below other items using <tt><a href="/reference/item#insertabove-item">item.insertAbove(item)</a></tt> and <tt><a href="/reference/item#insertbelow-item">item.insertBelow(item)</a></tt>. We could rewrite the example above using <tt><a href="/reference/item#insertbelow-item">item.insertBelow(item)</a></tt>:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-10">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-10">
 var redPath = new Path.Circle(new Point(80, 50), 30);
 redPath.fillColor = 'red';
 
@@ -258,8 +335,11 @@ greenPath.fillColor = 'green';
 
 // Move the green path below the red path:
 greenPath.insertBelow(redPath);
-</script><div class="canvas"><canvas height="98" id="canvas-10" width="538"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="98" id="canvas-10" width="538"></canvas>
+</div>
+</div>
 <section id="removing-items-and-children"><a name="removing-items-and-children" title="Removing Items and Children" class="anchor"><h2>Removing Items and Children</h2></a></section>
 <p>
 To remove an item from your Paper.js document, you call its <tt><a href="/reference/item#remove">item.remove()</a></tt> function. This doesn&apos;t destroy the item, it is only removed from the structure of the project and won&apos;t be drawn. You can add the item back to your project at any time.
@@ -270,7 +350,12 @@ If the item has children (i.e. it is a layer, group or other type of item that h
 <p>
 As an example let&apos;s create a path and remove it straight away. When you execute the following code, nothing will appear in your document, since we remove the path right after creating it. When you click in the view, the item will be added back to the active layer of the document.
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-11">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-11">
 var circlePath = new Path.Circle(new Point(50, 50), 25);
 circlePath.fillColor = 'black';
 circlePath.remove();
@@ -278,12 +363,20 @@ circlePath.remove();
 function onMouseDown(event) {
 	project.activeLayer.addChild(circlePath);
 }
-</script><div class="canvas"><canvas height="98" id="canvas-11" width="538"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="98" id="canvas-11" width="538"></canvas>
+</div>
+</div>
 <p>
 To remove all children contained within an item, you can call <tt><a href="/reference/item#removechildren">item.removeChildren()</a></tt>. In the following example we create a path, and then add it to a group. Then we remove the children of the group. When you execute the following code, nothing will appear in your document, since the path has been removed.
 </p>
-<div class="paperscript source"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-12">
+<div class="paperscript source">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-12">
 var circlePath = new Path.Circle(new Point(50, 50), 25);
 circlePath.fillColor = 'black';
 
@@ -293,8 +386,11 @@ group.addChild(circlePath);
 
 // Remove the children of the group:
 group.removeChildren();
-</script><div class="canvas"><canvas height="170" id="canvas-12" width="540"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="170" id="canvas-12" width="540"></canvas>
+</div>
+</div>
 </article>
 <aside>
 <h1>Index</h1>

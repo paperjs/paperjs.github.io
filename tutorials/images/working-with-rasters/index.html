@@ -59,7 +59,12 @@ Images need to already be loaded when they are added to a Paper.js project. Work
 <p>
 For our examples we will be using an image of the Mona Lisa, which is located at the bottom of this page and has <tt>mona</tt> as its id.
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-1">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-1">
 // Create a raster item using the image tag with id='mona'
 var raster = new Raster('mona');
 
@@ -71,8 +76,11 @@ raster.scale(0.5);
 
 // Rotate the raster by 45 degrees:
 raster.rotate(45);
-</script><div class="canvas"><canvas height="298" id="canvas-1" width="538"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="298" id="canvas-1" width="538"></canvas>
+</div>
+</div>
 <p>
 <img class="hidden" id="mona" src="/tutorials/images/working-with-rasters/mona.jpg" width="320" height="491"></img>
 </p>
@@ -80,7 +88,12 @@ raster.rotate(45);
 <p>
 You can rasterize any <tt><a href="/reference/item">Item</a></tt> in your document to a <tt><a href="/reference/raster">Raster</a></tt> item, by calling <tt><a href="/reference/item#rasterize">item.rasterize()</a></tt>. The item itself is not removed automatically after rasterizing, so if you don&apos;t want the item around anymore, you have to call <tt><a href="/reference/item#remove">item.remove()</a></tt> on it yourself.
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-2">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-2">
 var circle = new Path.Circle({
 	center: [80, 50],
 	radius: 5,
@@ -96,8 +109,11 @@ raster.position.x += 100;
 // Scale the path and the raster by 300%, so we can compare them:
 circle.scale(5);
 raster.scale(5);
-</script><div class="canvas"><canvas height="98" id="canvas-2" width="538"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="98" id="canvas-2" width="538"></canvas>
+</div>
+</div>
 <p>
 By default <tt><a href="/reference/item#rasterize">item.rasterize()</a></tt> rasterizes the item at 72 dpi. To rasterize at a different dpi, just pass the dpi as a number the rasterize function. For example to rasterize an item at 300 dpi, you would write: <tt>item.rasterize(300)</tt>.
 </p>

@@ -59,7 +59,12 @@ You can move an item around in the project by changing its <tt><a href="/referen
 <p>
 For example let&apos;s make a path and then move it to another position:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-1">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-1">
 var circlePath = new Path.Circle(new Point(50, 50), 25);
 circlePath.strokeColor = 'black';
 
@@ -69,8 +74,11 @@ copy.strokeColor = 'red';
 
 // Move the copy to {x: 100, y: 100}
 copy.position = new Point(100, 100);
-</script><div class="canvas"><canvas height="198" id="canvas-1" width="538"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="198" id="canvas-1" width="538"></canvas>
+</div>
+</div>
 <p>
 Let&apos;s quickly go through the code above. In the first line we create a circle shaped path with its center point at <tt>{x: 50, y: 50}</tt> with a radius of 25 pt. In the second line we change the position (the center point) of the circle shaped path to <tt>{x: 100, y: 100}</tt>
 </p>
@@ -88,15 +96,23 @@ circlePath.position += new Point(10, 20);
 <p>
 To make an item follow the mouse, we can simply set its position to the position of the mouse. Move your mouse over the view below, to see how the item follows your mouse.
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-2">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-2">
 var circlePath = new Path.Circle(new Point(50, 50), 25);
 circlePath.fillColor = 'black'
 
 function onMouseMove(event) {
 	circlePath.position = event.point;
 }
-</script><div class="canvas"><canvas height="198" width="538" id="canvas-2"></canvas></div>
-</div><br><br><br>
+</script>
+<div class="canvas">
+<canvas height="198" width="538" id="canvas-2"></canvas>
+</div>
+</div>
 <section id="the-bounding-rectangle"><a name="the-bounding-rectangle" title="The Bounding Rectangle" class="anchor"><h2>The Bounding Rectangle of an Item</h2></a></section>
 <p>
 When you select an item in a vector graphics application like Illustrator and select the transform tool it draws a rectangle around the item which describes its boundaries:
@@ -141,7 +157,12 @@ To scale both the width and height of an item by the same amount, you can call t
 <p>
 Let&apos;s make a path and then scale it by 50%:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-3">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-3">
 var circlePath = new Path.Circle(new Point(75, 50), 25);
 circlePath.style = {
 	fillColor: 'white',
@@ -154,8 +175,11 @@ copy.strokeColor = 'red';
 
 // Scale the copy by 50%:
 copy.scale(0.5);
-</script><div class="canvas"><canvas height="98" id="canvas-3" width="538"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="98" id="canvas-3" width="538"></canvas>
+</div>
+</div>
 <section id="scaling-around-a-point"><a name="scaling-around-a-point" title="Scaling Around a Point" class="anchor"><h2>Scaling an Item Around a Center Point</h2></a></section>
 <p>
 By default the <tt><a href="/reference/item#scale-scale">item.scale(scale)</a></tt> function scales an item around its center point. If you want to scale around a specific position, you can pass the scale function an optional center point: <tt><a href="/reference/item#scale-scale">item.scale(scale, point)</a></tt>.
@@ -163,7 +187,12 @@ By default the <tt><a href="/reference/item#scale-scale">item.scale(scale)</a></
 <p>
 Let&apos;s make a path and then scale it by 50% from <tt>{x: 0, y: 0}</tt>:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-4">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-4">
 var circlePath = new Path.Circle(new Point(50, 50), 25);
 circlePath.style = {
 	fillColor: 'white',
@@ -176,15 +205,23 @@ copy.strokeColor = 'red';
 
 // Scale the copy by 50% around {x: 0, y: 0}:
 copy.scale(0.5, new Point(0, 0));
-</script><div class="canvas"><canvas height="98" id="canvas-4" width="538"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="98" id="canvas-4" width="538"></canvas>
+</div>
+</div>
 <p>
 Since the corner positions of the <tt><a href="/reference/item#bounds">item.bounds</a></tt> bounding rectangle are also points, we can also pass them to the <tt><a href="/reference/item#scale-scale">item.scale(scale, point)</a></tt> function to act as a center point for the scale transformation.
 </p>
 <p>
 For example, if we would want to scale an item by 50% using the top right position of the bounding rectangle:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-5">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-5">
 var circlePath = new Path.Circle(new Point(50, 50), 25);
 circlePath.style = {
 	fillColor: 'white',
@@ -198,15 +235,23 @@ copy.strokeColor = 'red';
 // Scale the copy by 50% around the top right
 // point of its bounding box:
 copy.scale(0.5, circlePath.bounds.topRight);
-</script><div class="canvas"><canvas height="98" id="canvas-5" width="538"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="98" id="canvas-5" width="538"></canvas>
+</div>
+</div>
 <p>
 Items can also be scaled with different horizontal and vertical scales. To do this we pass two numbers to scale using <tt><a href="/reference/item#scale-sx-sy">item.scale(sx, sy)</a></tt>.
 </p>
 <p>
 For example, we can create a path and scale it horizontally by 500% and vertically by 150%:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-6">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-6">
 var circlePath = new Path.Circle(new Point(270, 50), 25);
 circlePath.style = {
 	fillColor: 'white',
@@ -219,8 +264,11 @@ copy.strokeColor = 'red';
 
 // Scale the copy:
 copy.scale(5, 1.5);
-</script><div class="canvas"><canvas height="98" width="538" id="canvas-6"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="98" width="538" id="canvas-6"></canvas>
+</div>
+</div>
 <section id="rotating-items"><a name="rotating-items" title="Rotating Items" class="anchor"><h2>Rotating Items</h2></a></section>
 <p>
 To rotate an item we call the <tt><a href="/reference/item#rotate-angle">item.rotate(angle)</a></tt> function and pass it the angle we want to rotate by in degrees. This will rotate the item by the angle in a clockwise direction.
@@ -228,7 +276,12 @@ To rotate an item we call the <tt><a href="/reference/item#rotate-angle">item.ro
 <p>
 Now, let&apos;s create a rectangle shaped path and rotate it by 45 degrees:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-7">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-7">
 var path = new Path.Rectangle(new Point(50, 50), new Size(100, 50));
 path.style = {
 	fillColor: 'white',
@@ -241,12 +294,20 @@ copy.strokeColor = 'red';
 
 // Rotate the copy by 45 degrees:
 copy.rotate(45);
-</script><div class="canvas"><canvas width="538" height="148" id="canvas-7"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas width="538" height="148" id="canvas-7"></canvas>
+</div>
+</div>
 <p>
 To rotate in a counter-clockwise direction we pass a negative angle to the <tt><a href="/reference/item#rotate-angle">item.rotate(angle)</a></tt> function:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-8">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-8">
 var path = new Path.Rectangle(new Point(50, 50), new Size(100, 50));
 path.style = {
 	fillColor: 'white',
@@ -259,12 +320,20 @@ copy.strokeColor = 'red';
 
 // Rotate the copy by -45 degrees:
 copy.rotate(-45);
-</script><div class="canvas"><canvas width="538" height="148" id="canvas-8"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas width="538" height="148" id="canvas-8"></canvas>
+</div>
+</div>
 <p>
 We can repeatedly rotate the path in an <tt>onFrame</tt> handler to make an animation:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-9">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-9">
 var path = new Path.Rectangle(new Point(50, 50), new Size(100, 50));
 path.style = {
 	fillColor: 'white',
@@ -279,8 +348,11 @@ function onFrame(event) {
 	// Each frame, rotate the copy by 1 degree:
 	copy.rotate(1);
 }
-</script><div class="canvas"><canvas width="538" height="148" id="canvas-9"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas width="538" height="148" id="canvas-9"></canvas>
+</div>
+</div>
 <section id="rotating-around-a-point"><a name="rotating-around-a-point" title="Rotating Around a Point" class="anchor"><h2>Rotating Around a Point</h2></a></section>
 <p>
 In the same way as you can pass a point to the scale function to scale around, you can also pass a point to the rotate function to rotate around.
@@ -288,7 +360,12 @@ In the same way as you can pass a point to the scale function to scale around, y
 <p>
 For example, let&apos;s rotate around the bottom left point of the bounding rectangle:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-10">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-10">
 var path = new Path.Rectangle(new Point(80, 50), new Size(100, 50));
 path.style = {
 	fillColor: 'white',
@@ -308,8 +385,11 @@ function onFrame(event) {
 	// we defined earlier:
 	copy.rotate(3, point);
 }
-</script><div class="canvas"><canvas width="538" height="148" id="canvas-10"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas width="538" height="148" id="canvas-10"></canvas>
+</div>
+</div>
 <section id="advanced-example"><a name="advanced-example" title="Advanced Example" class="anchor"><h2>Advanced Example</h2></a></section>
 <p>
 Lets write a more advanced script that clones an item multiple times in a loop and rotates the clones by different angles.
@@ -317,7 +397,12 @@ Lets write a more advanced script that clones an item multiple times in a loop a
 <div class="note"><b>Please note:</b><p>
 Cloning (copying) items is described at the end of the <a href="/tutorials/project-items/working-with-items/">Working with Items</a> tutorial.
 </p><div class="text-end"></div></div>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-11">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-11">
 var circlePath = new Path.Circle(new Point(280, 100), 25);
 circlePath.strokeColor = 'black';
 circlePath.fillColor = 'white';
@@ -329,8 +414,11 @@ for(var i = 0; i < clones; i++) {
 	var clonedPath = circlePath.clone();
 	clonedPath.rotate(angle * i, circlePath.bounds.topLeft);
 };
-</script><div class="canvas"><canvas height="148" width="538" id="canvas-11"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas height="148" width="538" id="canvas-11"></canvas>
+</div>
+</div>
 <p>
 Let&apos;s go through this script line by line.
 </p>

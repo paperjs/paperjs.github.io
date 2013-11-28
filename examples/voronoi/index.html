@@ -62,7 +62,12 @@
 </ul>
     </nav>
 <article><script type="text/javascript" src="/assets/js/rhill-voronoi-core.js"></script>
-<div class="paperscript"><div class="buttons"><div class="button run">Source</div><div class="explain"></div></div><script type="text/paperscript" canvas="canvas-1">
+<div class="paperscript">
+<div class="buttons">
+<div class="button run">Source</div>
+<div class="explain"></div>
+</div>
+<script type="text/paperscript" canvas="canvas-1">
 var voronoi =  new Voronoi();
 var sites = generateBeeHivePoints(view.size / 200, true);
 var bbox, diagram;
@@ -182,6 +187,10 @@ function onKeyDown(event) {
 		renderDiagram();
 	}
 }
-</script><div class="canvas"><canvas resize="true" id="canvas-1"></canvas></div></div></article>
+</script>
+<div class="canvas">
+<canvas resize="true" id="canvas-1"></canvas>
+</div>
+</div></article>
   </body>
 </html>

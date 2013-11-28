@@ -53,13 +53,21 @@ In the following tutorial we will be looking at the different ways to go about s
 <p>
 For the examples in this tutorial we will be using a checkmark shaped path which we create using the following code:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-1">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-1">
 var myPath = new Path({
 	segments: [[40, 115], [80, 180], [200, 20]],
 	selected: true
 });
-</script><div class="canvas"><canvas width="538" height="198" id="canvas-1"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas width="538" height="198" id="canvas-1"></canvas>
+</div>
+</div>
 <div class="note"><b>Please note:</b><p>
 To find out how to create paths with Paper.js, please read the <a href="/tutorials/paths/working-with-path-items/">Working with Path Items</a> tutorial.
 </p><div class="text-end"></div></div>
@@ -70,28 +78,44 @@ To add a stroke to our path, we need to set its <tt><a href="/reference/item#str
 <p>
 The following example shows how to set the stroke color of the path we created earlier to the color red, using a hexidecimal string (Also known from HTML CSS Styles):
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-2">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-2">
 var myPath = new Path({
 	segments: [[40, 115], [80, 180], [200, 20]]
 });
 
 myPath.strokeColor = '#ff0000'; // red
-</script><div class="canvas"><canvas width="538" height="198" id="canvas-2"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas width="538" height="198" id="canvas-2"></canvas>
+</div>
+</div>
 <p>
 The hexadecimal color code is automatically converted to a <tt><a href="/reference/color">Color</a></tt> object.
 </p>
 <p>
 The color can also be set using an <tt><a href="/reference/color">Color</a></tt> object directly. In the following code we set an RGB color with 50% red, 0% green and 50% blue:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-3">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-3">
 var myPath = new Path({
 	segments: [[40, 115], [80, 180], [200, 20]]
 });
 
 myPath.strokeColor = new Color(0.5, 0, 0.5);
-</script><div class="canvas"><canvas width="538" height="198" id="canvas-3"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas width="538" height="198" id="canvas-3"></canvas>
+</div>
+</div>
 <div class="note"><b>Please note:</b><p>
 In Paper.js color component values range from 0 to 1.
 </p><div class="text-end"></div></div>
@@ -99,15 +123,23 @@ In Paper.js color component values range from 0 to 1.
 <p>
 Fill color works exactly the same way as stroke color. In the following example we will create a path with a red fill color:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-4">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-4">
 var myPath = new Path({
 	segments: [[40, 115], [80, 180], [200, 20]],
 	selected: true
 });
 
 myPath.fillColor = '#ff0000';
-</script><div class="canvas"><canvas width="538" height="198" id="canvas-4"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas width="538" height="198" id="canvas-4"></canvas>
+</div>
+</div>
 <section id="stroke-width"><a name="stroke-width" title="Stroke Width" class="anchor"><h2>Stroke Width</h2></a></section>
 <p>
 To change the stroke width of an item, you can change its <tt><a href="/reference/item#strokewidth">strokeWidth</a></tt> property.
@@ -115,7 +147,12 @@ To change the stroke width of an item, you can change its <tt><a href="/referenc
 <p>
 In the following example we give the path a red stroke of 10 pt:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-5">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-5">
 var myPath = new Path({
 	segments: [[40, 115], [80, 180], [200, 20]]
 });
@@ -123,13 +160,21 @@ var myPath = new Path({
 myPath.strokeColor = '#ff0000';
 
 myPath.strokeWidth = 10;
-</script><div class="canvas"><canvas width="538" height="198" id="canvas-5"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas width="538" height="198" id="canvas-5"></canvas>
+</div>
+</div>
 <section id="stroke-cap"><a name="stroke-cap" title="Stroke Cap" class="anchor"><h2>Stroke Cap</h2></a></section>
 <p>
 To change the shape of the start and the end of a path, you can change its <tt><a href="/reference/item#strokecap">strokeCap</a></tt> property to either <tt>&apos;round&apos;</tt>, <tt>&apos;square&apos;</tt> or <tt>&apos;butt&apos;</tt>:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-6">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-6">
 var myPath = new Path({
 	segments: [[40, 115], [80, 180], [200, 20]],
 	selected: true
@@ -139,13 +184,21 @@ myPath.strokeColor = '#ff0000';
 myPath.strokeWidth = 10;
 
 myPath.strokeCap = 'round';
-</script><div class="canvas"><canvas width="538" height="198" id="canvas-6"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas width="538" height="198" id="canvas-6"></canvas>
+</div>
+</div>
 <section id="stroke-join"><a name="stroke-join" title="Stroke Join" class="anchor"><h2>Stroke Join</h2></a></section>
 <p>
 To change the shape of the corners in a path, you can change its <tt><a href="/reference/item#strokejoin">strokeJoin</a></tt> property to either <tt>&apos;miter&apos;</tt>, <tt>&apos;round&apos;</tt> or <tt>&apos;bevel&apos;</tt>:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-7">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-7">
 var myPath = new Path({
 	segments: [[40, 115], [80, 180], [200, 20]],
 	selected: true
@@ -155,13 +208,21 @@ myPath.strokeColor = '#ff0000';
 myPath.strokeWidth = 10;
 
 myPath.strokeJoin = 'round';
-</script><div class="canvas"><canvas width="538" height="198" id="canvas-7"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas width="538" height="198" id="canvas-7"></canvas>
+</div>
+</div>
 <section id="dashed-stroke"><a name="dashed-stroke" title="Dashed Stroke" class="anchor"><h2>Dashed Stroke</h2></a></section>
 <p>
 To create a dashed stroke, you can change the <tt><a href="/reference/item#dasharray">dashArray</a></tt> property of an item. The following code produces a dashed stroke with a 10pt dash and a 12pt gap:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-8">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-8">
 var myPath = new Path({
 	segments: [[40, 115], [80, 180], [200, 20]],
 	selected: true
@@ -172,8 +233,11 @@ myPath.strokeWidth = 5;
 myPath.strokeCap = 'round';
 
 myPath.dashArray = [10, 12];
-</script><div class="canvas"><canvas width="538" height="198" id="canvas-8"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas width="538" height="198" id="canvas-8"></canvas>
+</div>
+</div>
 <section id="the-pathstyle-object"><a name="the-pathstyle-object" title="The PathStyle Object" class="anchor"><h2>The PathStyle Object</h2></a></section>
 <p>
 Every item also has an <tt><a href="/reference/item#style">item.style</a></tt> property which is an object containing only style properties.
@@ -181,7 +245,12 @@ Every item also has an <tt><a href="/reference/item#style">item.style</a></tt> p
 <p>
 We can use this to copy the style properties of one item to another. The following example first creates a circle shaped path and assigns it a stroke color. Then another circle shaped path is created and we assign it the style of the first path:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-9">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-9">
 var firstPath = new Path.Circle({
 	center: [80, 50],
 	radius: 35
@@ -198,15 +267,23 @@ var secondPath = new Path.Circle({
 
 // Apply the style of firstPath to that of secondPath:
 secondPath.style = firstPath.style;
-</script><div class="canvas"><canvas width="538" height="98" id="canvas-9"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas width="538" height="98" id="canvas-9"></canvas>
+</div>
+</div>
 <p>
 The <tt><a href="/reference/item#style">item.style</a></tt> property also comes in handy for setting multiple style properties in one go.
 </p>
 <p>
 In the following example we create an object containing a number of style properties and pass it to the item&apos;s style property to set them all in one go:
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-10">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-10">
 var myStyle = {
 	strokeColor: '#00ffff',
 	fillColor: '#000000',
@@ -218,8 +295,11 @@ var myCircle = new Path.Circle({
 	radius: 50
 });
 myCircle.style = myStyle;
-</script><div class="canvas"><canvas width="538" height="198" id="canvas-10"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas width="538" height="198" id="canvas-10"></canvas>
+</div>
+</div>
 <section id="removing-styles"><a name="removing-styles" title="Removing Styles" class="anchor"><h2>Removing Styles</h2></a></section>
 <p>
 To remove any kind of path style, just pass <tt>null</tt> to the property:
@@ -254,7 +334,12 @@ As I mentioned earlier, all newly created items automatically receive the curren
 <p>
 The following example changes the current style of the project, then creates a path which inherits that style. Then it changes only the <tt>strokeWidth</tt> and creates another path.
 </p>
-<div class="paperscript split"><div class="buttons"><div class="button run">Source</div></div><script type="text/paperscript" canvas="canvas-11">
+<div class="paperscript split">
+<div class="buttons">
+<div class="button run">Source</div>
+
+</div>
+<script type="text/paperscript" canvas="canvas-11">
 // Change the current style of the project:
 project.currentStyle = {
 	strokeColor: '#000000',
@@ -277,8 +362,11 @@ var secondPath = new Path.Circle({
 	center: [250, 100],
 	radius: 50
 });
-</script><div class="canvas"><canvas width="538" height="198" id="canvas-11"></canvas></div>
-</div><br><br>
+</script>
+<div class="canvas">
+<canvas width="538" height="198" id="canvas-11"></canvas>
+</div>
+</div>
 </article>
 <aside>
 <h1>Index</h1>
