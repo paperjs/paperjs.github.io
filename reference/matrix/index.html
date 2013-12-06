@@ -84,42 +84,42 @@ matrix multiplication).</p>
 <li>
 <tt>a:</tt> 
 <tt>Number</tt>
-&mdash;&nbsp;the scaleX coordinate of the transform
+&mdash;&nbsp;the a property of the transform
 
 </li>
 
 <li>
 <tt>c:</tt> 
 <tt>Number</tt>
-&mdash;&nbsp;the shearY coordinate of the transform
+&mdash;&nbsp;the c property of the transform
 
 </li>
 
 <li>
 <tt>b:</tt> 
 <tt>Number</tt>
-&mdash;&nbsp;the shearX coordinate of the transform
+&mdash;&nbsp;the b property of the transform
 
 </li>
 
 <li>
 <tt>d:</tt> 
 <tt>Number</tt>
-&mdash;&nbsp;the scaleY coordinate of the transform
+&mdash;&nbsp;the d property of the transform
 
 </li>
 
 <li>
 <tt>tx:</tt> 
 <tt>Number</tt>
-&mdash;&nbsp;the translateX coordinate of the transform
+&mdash;&nbsp;the tx property of the transform
 
 </li>
 
 <li>
 <tt>ty:</tt> 
 <tt>Number</tt>
-&mdash;&nbsp;the translateY coordinate of the transform
+&mdash;&nbsp;the ty property of the transform
 
 </li>
 
@@ -141,14 +141,14 @@ matrix multiplication).</p>
 	<div class="reference-members"><h2>Properties</h2>
 		
 			
-<div id="scalex" class="member">
+<div id="a" class="member">
 <div class="member-link">
-<a name="scalex" href="#scalex"><tt><b>scaleX</b></tt></a>
+<a name="a" href="#a"><tt><b>a</b></tt></a>
 </div>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The scaling factor in the x-direction (<tt>a</tt>).</p>
+	<p>The value at position (0, 0) in the transformation matrix.</p>
 	
 	
 	<ul><b>Type:</b>
@@ -164,14 +164,14 @@ matrix multiplication).</p>
 </div>
 		
 			
-<div id="scaley" class="member">
+<div id="c" class="member">
 <div class="member-link">
-<a name="scaley" href="#scaley"><tt><b>scaleY</b></tt></a>
+<a name="c" href="#c"><tt><b>c</b></tt></a>
 </div>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The scaling factor in the y-direction (<tt>d</tt>).</p>
+	<p>The value at position (1, 0) in the transformation matrix.</p>
 	
 	
 	<ul><b>Type:</b>
@@ -187,14 +187,14 @@ matrix multiplication).</p>
 </div>
 		
 			
-<div id="shearx" class="member">
+<div id="b" class="member">
 <div class="member-link">
-<a name="shearx" href="#shearx"><tt><b>shearX</b></tt></a>
+<a name="b" href="#b"><tt><b>b</b></tt></a>
 </div>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The shear factor in the x-direction (<tt>b</tt>).</p>
+	<p>The value at position (0, 1) in the transformation matrix.</p>
 	
 	
 	<ul><b>Type:</b>
@@ -210,14 +210,14 @@ matrix multiplication).</p>
 </div>
 		
 			
-<div id="sheary" class="member">
+<div id="d" class="member">
 <div class="member-link">
-<a name="sheary" href="#sheary"><tt><b>shearY</b></tt></a>
+<a name="d" href="#d"><tt><b>d</b></tt></a>
 </div>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The shear factor in the y-direction (<tt>c</tt>).</p>
+	<p>The value at position (1, 1) in the transformation matrix.</p>
 	
 	
 	<ul><b>Type:</b>
@@ -233,14 +233,15 @@ matrix multiplication).</p>
 </div>
 		
 			
-<div id="translatex" class="member">
+<div id="tx" class="member">
 <div class="member-link">
-<a name="translatex" href="#translatex"><tt><b>translateX</b></tt></a>
+<a name="tx" href="#tx"><tt><b>tx</b></tt></a>
 </div>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The translation in the x-direction (<tt>tx</tt>).</p>
+	<p>The value at position (2, 0) in the transformation matrix, corresponding
+to the translation in the x-direction.</p>
 	
 	
 	<ul><b>Type:</b>
@@ -256,14 +257,15 @@ matrix multiplication).</p>
 </div>
 		
 			
-<div id="translatey" class="member">
+<div id="ty" class="member">
 <div class="member-link">
-<a name="translatey" href="#translatey"><tt><b>translateY</b></tt></a>
+<a name="ty" href="#ty"><tt><b>ty</b></tt></a>
 </div>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The translation in the y-direction (<tt>ty</tt>).</p>
+	<p>The value at position (2, 1) in the transformation matrix, corresponding
+to the translation in the y-direction.</p>
 	
 	
 	<ul><b>Type:</b>
@@ -312,7 +314,7 @@ to {@link #initialize(a, c, b, d, tx, ty)}.</p>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The translation values of the matrix.</p>
+	<p>The translation of the matrix as a vector.</p>
 	
 	
 	<ul><b>Type:</b>
@@ -345,7 +347,7 @@ to {@link #initialize(a, c, b, d, tx, ty)}.</p>
 	</ul>
 	
 	<p><b>See also:</b>
-	<tt><a href="/reference/matrix#decompose"><tt>matrix.decompose</tt></a>()</tt>
+	<tt><a href="/reference/matrix#decompose" onclick="return toggleMember('decompose', true);"><tt>decompose</tt></a>()</tt>
 	</p>
 
 	
@@ -372,7 +374,7 @@ to {@link #initialize(a, c, b, d, tx, ty)}.</p>
 	</ul>
 	
 	<p><b>See also:</b>
-	<tt><a href="/reference/matrix#decompose"><tt>matrix.decompose</tt></a>()</tt>
+	<tt><a href="/reference/matrix#decompose" onclick="return toggleMember('decompose', true);"><tt>decompose</tt></a>()</tt>
 	</p>
 
 	
@@ -402,42 +404,42 @@ to {@link #initialize(a, c, b, d, tx, ty)}.</p>
 <li>
 <tt>a:</tt> 
 <tt>Number</tt>
-&mdash;&nbsp;the scaleX coordinate of the transform
+&mdash;&nbsp;the a property of the transform
 
 </li>
 
 <li>
 <tt>c:</tt> 
 <tt>Number</tt>
-&mdash;&nbsp;the shearY coordinate of the transform
+&mdash;&nbsp;the c property of the transform
 
 </li>
 
 <li>
 <tt>b:</tt> 
 <tt>Number</tt>
-&mdash;&nbsp;the shearX coordinate of the transform
+&mdash;&nbsp;the b property of the transform
 
 </li>
 
 <li>
 <tt>d:</tt> 
 <tt>Number</tt>
-&mdash;&nbsp;the scaleY coordinate of the transform
+&mdash;&nbsp;the d property of the transform
 
 </li>
 
 <li>
 <tt>tx:</tt> 
 <tt>Number</tt>
-&mdash;&nbsp;the translateX coordinate of the transform
+&mdash;&nbsp;the tx property of the transform
 
 </li>
 
 <li>
 <tt>ty:</tt> 
 <tt>Number</tt>
-&mdash;&nbsp;the translateY coordinate of the transform
+&mdash;&nbsp;the ty property of the transform
 
 </li>
 

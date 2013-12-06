@@ -780,7 +780,7 @@ console.log(result); // { red: 0, blue: 0, green: 1 }</pre>
 	
 	<ul><b>Type:</b>
 	<li>
-		<tt>String('rgb', 'hsb', 'gray')</tt>
+		<tt>String('rgb', 'gray', 'hsb', 'hsl')</tt>
 	</li>
 	</ul>
 	
@@ -792,6 +792,32 @@ console.log(result); // { red: 0, blue: 0, green: 1 }</pre>
 <pre class="code">var color = new Color(1, 0, 0);
 console.log(color.type); // 'rgb'</pre>
 
+</div>
+
+</div>
+</div>
+		
+			
+<div id="components" class="member">
+<div class="member-link">
+<a name="components" href="#components"><tt><b>components</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The color components that define the color, including the alpha value
+if defined.</p>
+	
+		<p>Read only.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<tt>Number</tt>
+	</li>
+	</ul>
+	
+	
 </div>
 
 </div>
@@ -848,6 +874,98 @@ circle.strokeColor.alpha = 0.5;
 </div>
 		
 			
+	<h3>RGB Components</h3>
+
+<div id="red" class="member">
+<div class="member-link">
+<a name="red" href="#red"><tt><b>red</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The amount of red in the color as a value between <tt>0</tt> and
+<tt>1</tt>.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<tt>Number</tt>
+	</li>
+	</ul>
+	
+	<p>
+<b>Example</b> &mdash; Changing the amount of red in a color:
+</p>
+
+<div class="paperscript split">
+
+<div class="buttons">
+<div class="button run">Run</div>
+</div>
+
+<script type="text/paperscript" canvas="canvas-10">
+var circle = new Path.Circle(new Point(80, 50), 30);
+circle.fillColor = 'blue';
+
+// Blue + red = purple:
+circle.fillColor.red = 1;
+</script>
+<div class="canvas"><canvas width="516" height="100" id="canvas-10"></canvas></div>
+</div>
+
+
+</div>
+
+</div>
+</div>
+		
+			
+<div id="green" class="member">
+<div class="member-link">
+<a name="green" href="#green"><tt><b>green</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The amount of green in the color as a value between <tt>0</tt> and
+<tt>1</tt>.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<tt>Number</tt>
+	</li>
+	</ul>
+	
+	<p>
+<b>Example</b> &mdash; Changing the amount of green in a color:
+</p>
+
+<div class="paperscript split">
+
+<div class="buttons">
+<div class="button run">Run</div>
+</div>
+
+<script type="text/paperscript" canvas="canvas-11">
+var circle = new Path.Circle(new Point(80, 50), 30);
+
+// First we set the fill color to red:
+circle.fillColor = 'red';
+
+// Red + green = yellow:
+circle.fillColor.green = 1;
+</script>
+<div class="canvas"><canvas width="516" height="100" id="canvas-11"></canvas></div>
+</div>
+
+
+</div>
+
+</div>
+</div>
+		
+			
 <div id="blue" class="member">
 <div class="member-link">
 <a name="blue" href="#blue"><tt><b>blue</b></tt></a>
@@ -875,7 +993,7 @@ circle.strokeColor.alpha = 0.5;
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-10">
+<script type="text/paperscript" canvas="canvas-12">
 var circle = new Path.Circle(new Point(80, 50), 30);
 
 // First we set the fill color to red:
@@ -884,7 +1002,7 @@ circle.fillColor = 'red';
 // Red + blue = purple:
 circle.fillColor.blue = 1;
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-10"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-12"></canvas></div>
 </div>
 
 
@@ -949,12 +1067,12 @@ circle.fillColor.blue = 1;
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-11">
+<script type="text/paperscript" canvas="canvas-13">
 var circle = new Path.Circle(new Point(80, 50), 30);
 circle.fillColor = 'red';
 circle.fillColor.hue += 30;
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-11"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-13"></canvas></div>
 </div>
 
 
@@ -968,7 +1086,7 @@ circle.fillColor.hue += 30;
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-12">
+<script type="text/paperscript" canvas="canvas-14">
 // Create a rectangle shaped path, using the dimensions
 // of the view:
 var path = new Path.Rectangle(view.bounds);
@@ -978,7 +1096,7 @@ function onFrame(event) {
 	path.fillColor.hue += 0.5;
 }
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-12"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-14"></canvas></div>
 </div>
 
 
@@ -1044,6 +1162,7 @@ function onFrame(event) {
 
 <div class="member-text">
 	<p>The lightness of the color as a value between <tt>0</tt> and <tt>1</tt>.</p>
+<p>All other components are shared with HSB.</p>
 	
 	
 	<ul><b>Type:</b>
@@ -1110,7 +1229,7 @@ function onFrame(event) {
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-13">
+<script type="text/paperscript" canvas="canvas-15">
 var path = new Path.Circle({
 	center: view.center,
 	radius: view.bounds.height * 0.4
@@ -1131,99 +1250,7 @@ function onMouseMove(event) {
 	path.fillColor.highlight = event.point;
 }
 </script>
-<div class="canvas"><canvas width="516" height="300" id="canvas-13"></canvas></div>
-</div>
-
-
-</div>
-
-</div>
-</div>
-		
-			
-	<h3>RGB Components</h3>
-
-<div id="red" class="member">
-<div class="member-link">
-<a name="red" href="#red"><tt><b>red</b></tt></a>
-</div>
-<div class="member-description hidden">
-
-<div class="member-text">
-	<p>The amount of red in the color as a value between <tt>0</tt> and
-<tt>1</tt>.</p>
-	
-	
-	<ul><b>Type:</b>
-	<li>
-		<tt>Number</tt>
-	</li>
-	</ul>
-	
-	<p>
-<b>Example</b> &mdash; Changing the amount of red in a color:
-</p>
-
-<div class="paperscript split">
-
-<div class="buttons">
-<div class="button run">Run</div>
-</div>
-
-<script type="text/paperscript" canvas="canvas-14">
-var circle = new Path.Circle(new Point(80, 50), 30);
-circle.fillColor = 'blue';
-
-// Blue + red = purple:
-circle.fillColor.red = 1;
-</script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-14"></canvas></div>
-</div>
-
-
-</div>
-
-</div>
-</div>
-		
-			
-<div id="green" class="member">
-<div class="member-link">
-<a name="green" href="#green"><tt><b>green</b></tt></a>
-</div>
-<div class="member-description hidden">
-
-<div class="member-text">
-	<p>The amount of green in the color as a value between <tt>0</tt> and
-<tt>1</tt>.</p>
-	
-	
-	<ul><b>Type:</b>
-	<li>
-		<tt>Number</tt>
-	</li>
-	</ul>
-	
-	<p>
-<b>Example</b> &mdash; Changing the amount of green in a color:
-</p>
-
-<div class="paperscript split">
-
-<div class="buttons">
-<div class="button run">Run</div>
-</div>
-
-<script type="text/paperscript" canvas="canvas-15">
-var circle = new Path.Circle(new Point(80, 50), 30);
-
-// First we set the fill color to red:
-circle.fillColor = 'red';
-
-// Red + green = yellow:
-circle.fillColor.green = 1;
-</script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-15"></canvas></div>
+<div class="canvas"><canvas width="516" height="300" id="canvas-15"></canvas></div>
 </div>
 
 
@@ -1238,6 +1265,42 @@ circle.fillColor.green = 1;
 
 <!-- ============================== methods ================================ -->
 	<div class="reference-members"><h2>Methods</h2>
+		
+			
+<div id="convert-type" class="member">
+<div class="member-link">
+<a name="convert-type" href="#convert-type"><tt><b>convert</b>(type)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Converts the color another type.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>type:</tt> 
+<tt>String('rgb'|'gray'|'hsb'|'hsl')</tt>
+&mdash;&nbsp;the color type to
+convert to.
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/color"><tt>Color</tt></a></tt>&nbsp;&mdash;&nbsp;the converted color as a new instance
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
 		
 			
 <div id="hasalpha" class="member">
@@ -1339,8 +1402,8 @@ same as those of the supplied one.</p>
 <li>
 <tt>hex:</tt> 
 <tt>Boolean</tt>
-&mdash;&nbsp;wether to return the color in hex-representation
-or as a CSS rgb / rgba string.
+&mdash;&nbsp;wether to return the color in hexadecial
+representation or as a CSS RGB / RGBA string.
 
 </li>
 
@@ -1350,7 +1413,7 @@ or as a CSS rgb / rgba string.
 	<ul><b>Returns:</b>
 	
 		<li>
-<tt><tt>String</tt></tt>&nbsp;&mdash;&nbsp;a css string representation of the color.
+<tt><tt>String</tt></tt>&nbsp;&mdash;&nbsp;a CSS string representation of the color.
 </li>
 	
 	</ul>
