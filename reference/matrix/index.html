@@ -148,7 +148,8 @@ matrix multiplication).</p>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The value at position (0, 0) in the transformation matrix.</p>
+	<p>The value that affects the transformation along the x axis when scaling
+or rotating, positioned at (0, 0) in the transformation matrix.</p>
 	
 	
 	<ul><b>Type:</b>
@@ -171,7 +172,8 @@ matrix multiplication).</p>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The value at position (1, 0) in the transformation matrix.</p>
+	<p>The value that affects the transformation along the y axis when rotating
+or skewing, positioned at (1, 0) in the transformation matrix.</p>
 	
 	
 	<ul><b>Type:</b>
@@ -194,7 +196,8 @@ matrix multiplication).</p>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The value at position (0, 1) in the transformation matrix.</p>
+	<p>The value that affects the transformation along the x axis when rotating
+or skewing, positioned at (0, 1) in the transformation matrix.</p>
 	
 	
 	<ul><b>Type:</b>
@@ -217,7 +220,8 @@ matrix multiplication).</p>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The value at position (1, 1) in the transformation matrix.</p>
+	<p>The value that affects the transformation along the y axis when scaling
+or rotating, positioned at (1, 1) in the transformation matrix.</p>
 	
 	
 	<ul><b>Type:</b>
@@ -240,8 +244,8 @@ matrix multiplication).</p>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The value at position (2, 0) in the transformation matrix, corresponding
-to the translation in the x-direction.</p>
+	<p>The distance by which to translate along the x axis, positioned at (2, 0)
+in the transformation matrix.</p>
 	
 	
 	<ul><b>Type:</b>
@@ -264,8 +268,8 @@ to the translation in the x-direction.</p>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The value at position (2, 1) in the transformation matrix, corresponding
-to the translation in the y-direction.</p>
+	<p>The distance by which to translate along the y axis, positioned at (2, 1)
+in the transformation matrix.</p>
 	
 	
 	<ul><b>Type:</b>
@@ -316,6 +320,8 @@ to {@link #initialize(a, c, b, d, tx, ty)}.</p>
 <div class="member-text">
 	<p>The translation of the matrix as a vector.</p>
 	
+		<p>Read only.</p>
+	
 	
 	<ul><b>Type:</b>
 	<li>
@@ -338,6 +344,8 @@ to {@link #initialize(a, c, b, d, tx, ty)}.</p>
 
 <div class="member-text">
 	<p>The scaling values of the matrix, if it can be decomposed.</p>
+	
+		<p>Read only.</p>
 	
 	
 	<ul><b>Type:</b>
@@ -365,6 +373,8 @@ to {@link #initialize(a, c, b, d, tx, ty)}.</p>
 
 <div class="member-text">
 	<p>The rotation angle of the matrix, if it can be decomposed.</p>
+	
+		<p>Read only.</p>
 	
 	
 	<ul><b>Type:</b>
@@ -561,6 +571,83 @@ matrix that results in no transformation.</p>
 </div>
 		
 			
+<div id="translate-point" class="member">
+<div class="member-link">
+<a name="translate-point" href="#translate-point"><tt><b>translate</b>(point)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Concatenates this transform with a translate transformation.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>point:</tt> 
+<a href="/reference/point"><tt>Point</tt></a>
+&mdash;&nbsp;the vector to translate by
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/matrix"><tt>Matrix</tt></a></tt>&nbsp;&mdash;&nbsp;this affine transform
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="translate-dx-dy" class="member">
+<div class="member-link">
+<a name="translate-dx-dy" href="#translate-dx-dy"><tt><b>translate</b>(dx, dy)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Concatenates this transform with a translate transformation.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>dx:</tt> 
+<tt>Number</tt>
+&mdash;&nbsp;the distance to translate in the x direction
+
+</li>
+
+<li>
+<tt>dy:</tt> 
+<tt>Number</tt>
+&mdash;&nbsp;the distance to translate in the y direction
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/matrix"><tt>Matrix</tt></a></tt>&nbsp;&mdash;&nbsp;this affine transform
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+		
+			
 <div id="scale-scale" class="member">
 <div class="member-link">
 <a name="scale-scale" href="#scale-scale"><tt><b>scale</b>(scale[, center])</tt></a>
@@ -632,83 +719,6 @@ matrix that results in no transformation.</p>
 <a href="/reference/point"><tt>Point</tt></a>
 &mdash;&nbsp;the center for the scaling transformation
 &mdash;&nbsp;optional
-</li>
-
-</ul>
-
-	
-	<ul><b>Returns:</b>
-	
-		<li>
-<tt><a href="/reference/matrix"><tt>Matrix</tt></a></tt>&nbsp;&mdash;&nbsp;this affine transform
-</li>
-	
-	</ul>
-
-	
-	
-</div>
-</div>
-</div>
-		
-			
-<div id="translate-point" class="member">
-<div class="member-link">
-<a name="translate-point" href="#translate-point"><tt><b>translate</b>(point)</tt></a>
-</div>
-<div class="member-description hidden">
-<div class="member-text">
-	<p>Concatenates this transform with a translate transformation.</p>
-	
-<ul><b>Parameters:</b>
-
-<li>
-<tt>point:</tt> 
-<a href="/reference/point"><tt>Point</tt></a>
-&mdash;&nbsp;the vector to translate by
-
-</li>
-
-</ul>
-
-	
-	<ul><b>Returns:</b>
-	
-		<li>
-<tt><a href="/reference/matrix"><tt>Matrix</tt></a></tt>&nbsp;&mdash;&nbsp;this affine transform
-</li>
-	
-	</ul>
-
-	
-	
-</div>
-</div>
-</div>
-		
-			
-<div id="translate-dx-dy" class="member">
-<div class="member-link">
-<a name="translate-dx-dy" href="#translate-dx-dy"><tt><b>translate</b>(dx, dy)</tt></a>
-</div>
-<div class="member-description hidden">
-<div class="member-text">
-	<p>Concatenates this transform with a translate transformation.</p>
-	
-<ul><b>Parameters:</b>
-
-<li>
-<tt>dx:</tt> 
-<tt>Number</tt>
-&mdash;&nbsp;the distance to translate in the x direction
-
-</li>
-
-<li>
-<tt>dy:</tt> 
-<tt>Number</tt>
-&mdash;&nbsp;the distance to translate in the y direction
-
 </li>
 
 </ul>
@@ -822,9 +832,9 @@ anchor point.</p>
 </div>
 		
 			
-<div id="shear-point" class="member">
+<div id="shear-shear" class="member">
 <div class="member-link">
-<a name="shear-point" href="#shear-point"><tt><b>shear</b>(point[, center])</tt></a>
+<a name="shear-shear" href="#shear-shear"><tt><b>shear</b>(shear[, center])</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
@@ -833,7 +843,7 @@ anchor point.</p>
 <ul><b>Parameters:</b>
 
 <li>
-<tt>point:</tt> 
+<tt>shear:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
 &mdash;&nbsp;the shear factor in x and y direction
 
@@ -892,6 +902,97 @@ anchor point.</p>
 <tt>center:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
 &mdash;&nbsp;the center for the shear transformation
+&mdash;&nbsp;optional
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/matrix"><tt>Matrix</tt></a></tt>&nbsp;&mdash;&nbsp;this affine transform
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="skew-skew" class="member">
+<div class="member-link">
+<a name="skew-skew" href="#skew-skew"><tt><b>skew</b>(skew[, center])</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Concatenates this transform with a skew transformation.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>skew:</tt> 
+<a href="/reference/point"><tt>Point</tt></a>
+&mdash;&nbsp;the skew angles in x and y direction in degrees
+
+</li>
+
+<li>
+<tt>center:</tt> 
+<a href="/reference/point"><tt>Point</tt></a>
+&mdash;&nbsp;the center for the skew transformation
+&mdash;&nbsp;optional
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/matrix"><tt>Matrix</tt></a></tt>&nbsp;&mdash;&nbsp;this affine transform
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="skew-hor-ver" class="member">
+<div class="member-link">
+<a name="skew-hor-ver" href="#skew-hor-ver"><tt><b>skew</b>(hor, ver[, center])</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Concatenates this transform with a skew transformation.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>hor:</tt> 
+<tt>Number</tt>
+&mdash;&nbsp;the horizontal skew angle in degrees
+
+</li>
+
+<li>
+<tt>ver:</tt> 
+<tt>Number</tt>
+&mdash;&nbsp;the vertical skew angle in degrees
+
+</li>
+
+<li>
+<tt>center:</tt> 
+<a href="/reference/point"><tt>Point</tt></a>
+&mdash;&nbsp;the center for the skew transformation
 &mdash;&nbsp;optional
 </li>
 
@@ -1193,9 +1294,8 @@ into the destination array, which is also returned.</p>
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Attempts to decompose the affine transformation described by this matrix
-into <tt>translation</tt>, <tt>scaling</tt>, <tt>rotation</tt> and
-<tt>shearing</tt>, and returns an object with these properties if it
-succeeded, <tt>null</tt> otherwise.</p>
+into <tt>scaling</tt>, <tt>rotation</tt> and <tt>shearing</tt>, and returns
+an object with these properties if it succeeded, <tt>null</tt> otherwise.</p>
 	
 	
 	<ul><b>Returns:</b>

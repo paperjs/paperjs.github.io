@@ -2012,6 +2012,52 @@ circle.position.x += 100;
 </div>
 
 	
+<div id="rotation" class="member">
+<div class="member-link">
+<a name="rotation" href="#rotation"><tt><b>rotation</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The current rotation of the item, as described by its <a href="/reference/item#matrix" onclick="return toggleMember('matrix', true);"><tt>matrix</tt></a>.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<tt>Number</tt>
+	</li>
+	</ul>
+	
+	
+</div>
+
+</div>
+</div>
+
+	
+<div id="scaling" class="member">
+<div class="member-link">
+<a name="scaling" href="#scaling"><tt><b>scaling</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The current scaling of the item, as described by its <a href="/reference/item#matrix" onclick="return toggleMember('matrix', true);"><tt>matrix</tt></a>.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<a href="/reference/point"><tt>Point</tt></a>
+	</li>
+	</ul>
+	
+	
+</div>
+
+</div>
+</div>
+
+	
 <div id="matrix" class="member">
 <div class="member-link">
 <a name="matrix" href="#matrix"><tt><b>matrix</b></tt></a>
@@ -2070,7 +2116,7 @@ coordinate space.</p>
 
 <div class="member-text">
 	<p>Specifies whether the group applies transformations directly to its
-children, or whether they are to be stored in its <a href="/reference/item#matrix"><tt>item.matrix</tt></a></p>
+children, or whether they are to be stored in its <a href="/reference/item#matrix" onclick="return toggleMember('matrix', true);"><tt>matrix</tt></a></p>
 	
 	
 	<ul><b>Type:</b>
@@ -4806,159 +4852,6 @@ item, <tt>false</tt> otherwise
 	
 <h3>Transform Functions</h3>
 
-<div id="scale-scale" class="member">
-<div class="member-link">
-<a name="scale-scale" href="#scale-scale"><tt><b>scale</b>(scale[, center])</tt></a>
-</div>
-<div class="member-description hidden">
-<div class="member-text">
-	<p>Scales the item by the given value from its center point, or optionally
-from a supplied point.</p>
-	
-<ul><b>Parameters:</b>
-
-<li>
-<tt>scale:</tt> 
-<tt>Number</tt>
-&mdash;&nbsp;the scale factor
-
-</li>
-
-<li>
-<tt>center:</tt> 
-<a href="/reference/point"><tt>Point</tt></a>
-
-&mdash;&nbsp;optional, default: <tt><a href="/reference/item#position"><tt>item.position</tt></a></tt>
-</li>
-
-</ul>
-
-	
-	
-	<p>
-<b>Example</b> &mdash; Scaling an item from its center point:
-</p>
-
-<div class="paperscript split">
-
-<div class="buttons">
-<div class="button run">Run</div>
-</div>
-
-<script type="text/paperscript" canvas="canvas-47">
-// Create a circle shaped path at { x: 80, y: 50 }
-// with a radius of 20:
-var circle = new Path.Circle({
-	center: [80, 50],
-	radius: 20,
-	fillColor: 'red'
-});
-
-// Scale the path by 150% from its center point
-circle.scale(1.5);
-</script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-47"></canvas></div>
-</div>
-
-
-<p>
-<b>Example</b> &mdash; Scaling an item from a specific point:
-</p>
-
-<div class="paperscript split">
-
-<div class="buttons">
-<div class="button run">Run</div>
-</div>
-
-<script type="text/paperscript" canvas="canvas-48">
-// Create a circle shaped path at { x: 80, y: 50 }
-// with a radius of 20:
-var circle = new Path.Circle({
-	center: [80, 50],
-	radius: 20,
-	fillColor: 'red'
-});
-
-// Scale the path 150% from its bottom left corner
-circle.scale(1.5, circle.bounds.bottomLeft);
-</script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-48"></canvas></div>
-</div>
-
-
-</div>
-</div>
-</div>
-
-	
-<div id="scale-hor-ver" class="member">
-<div class="member-link">
-<a name="scale-hor-ver" href="#scale-hor-ver"><tt><b>scale</b>(hor, ver[, center])</tt></a>
-</div>
-<div class="member-description hidden">
-<div class="member-text">
-	<p>Scales the item by the given values from its center point, or optionally
-from a supplied point.</p>
-	
-<ul><b>Parameters:</b>
-
-<li>
-<tt>hor:</tt> 
-<tt>Number</tt>
-&mdash;&nbsp;the horizontal scale factor
-
-</li>
-
-<li>
-<tt>ver:</tt> 
-<tt>Number</tt>
-&mdash;&nbsp;the vertical scale factor
-
-</li>
-
-<li>
-<tt>center:</tt> 
-<a href="/reference/point"><tt>Point</tt></a>
-
-&mdash;&nbsp;optional, default: <tt><a href="/reference/item#position"><tt>item.position</tt></a></tt>
-</li>
-
-</ul>
-
-	
-	
-	<p>
-<b>Example</b> &mdash; Scaling an item horizontally by 300%:
-</p>
-
-<div class="paperscript split">
-
-<div class="buttons">
-<div class="button run">Run</div>
-</div>
-
-<script type="text/paperscript" canvas="canvas-49">
-// Create a circle shaped path at { x: 100, y: 50 }
-// with a radius of 20:
-var circle = new Path.Circle({
-	center: [100, 50],
-	radius: 20,
-	fillColor: 'red'
-});
-
-// Scale the path horizontally by 300%
-circle.scale(3, 1);
-</script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-49"></canvas></div>
-</div>
-
-
-</div>
-</div>
-</div>
-
-	
 <div id="translate-delta" class="member">
 <div class="member-link">
 <a name="translate-delta" href="#translate-delta"><tt><b>translate</b>(delta)</tt></a>
@@ -5029,7 +4922,7 @@ circle.scale(3, 1);
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-50">
+<script type="text/paperscript" canvas="canvas-47">
 // Create a rectangle shaped path with its top left
 // point at {x: 80, y: 25} and a size of {width: 50, height: 50}:
 var path = new Path.Rectangle(new Point(80, 25), new Size(50, 50));
@@ -5038,7 +4931,7 @@ path.fillColor = 'black';
 // Rotate the path by 30 degrees:
 path.rotate(30);
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-50"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-47"></canvas></div>
 </div>
 
 
@@ -5052,7 +4945,7 @@ path.rotate(30);
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-51">
+<script type="text/paperscript" canvas="canvas-48">
 // Create a rectangle shaped path with its top left
 // point at {x: 175, y: 50} and a size of {width: 100, height: 100}:
 var topLeft = new Point(175, 50);
@@ -5074,7 +4967,7 @@ function onFrame(event) {
 	path.rotate(3, view.center);
 }
 </script>
-<div class="canvas"><canvas width="516" height="200" id="canvas-51"></canvas></div>
+<div class="canvas"><canvas width="516" height="200" id="canvas-48"></canvas></div>
 </div>
 
 
@@ -5083,9 +4976,162 @@ function onFrame(event) {
 </div>
 
 	
-<div id="shear-point" class="member">
+<div id="scale-scale" class="member">
 <div class="member-link">
-<a name="shear-point" href="#shear-point"><tt><b>shear</b>(point[, center])</tt></a>
+<a name="scale-scale" href="#scale-scale"><tt><b>scale</b>(scale[, center])</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Scales the item by the given value from its center point, or optionally
+from a supplied point.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>scale:</tt> 
+<tt>Number</tt>
+&mdash;&nbsp;the scale factor
+
+</li>
+
+<li>
+<tt>center:</tt> 
+<a href="/reference/point"><tt>Point</tt></a>
+
+&mdash;&nbsp;optional, default: <tt><a href="/reference/item#position"><tt>item.position</tt></a></tt>
+</li>
+
+</ul>
+
+	
+	
+	<p>
+<b>Example</b> &mdash; Scaling an item from its center point:
+</p>
+
+<div class="paperscript split">
+
+<div class="buttons">
+<div class="button run">Run</div>
+</div>
+
+<script type="text/paperscript" canvas="canvas-49">
+// Create a circle shaped path at { x: 80, y: 50 }
+// with a radius of 20:
+var circle = new Path.Circle({
+	center: [80, 50],
+	radius: 20,
+	fillColor: 'red'
+});
+
+// Scale the path by 150% from its center point
+circle.scale(1.5);
+</script>
+<div class="canvas"><canvas width="516" height="100" id="canvas-49"></canvas></div>
+</div>
+
+
+<p>
+<b>Example</b> &mdash; Scaling an item from a specific point:
+</p>
+
+<div class="paperscript split">
+
+<div class="buttons">
+<div class="button run">Run</div>
+</div>
+
+<script type="text/paperscript" canvas="canvas-50">
+// Create a circle shaped path at { x: 80, y: 50 }
+// with a radius of 20:
+var circle = new Path.Circle({
+	center: [80, 50],
+	radius: 20,
+	fillColor: 'red'
+});
+
+// Scale the path 150% from its bottom left corner
+circle.scale(1.5, circle.bounds.bottomLeft);
+</script>
+<div class="canvas"><canvas width="516" height="100" id="canvas-50"></canvas></div>
+</div>
+
+
+</div>
+</div>
+</div>
+
+	
+<div id="scale-hor-ver" class="member">
+<div class="member-link">
+<a name="scale-hor-ver" href="#scale-hor-ver"><tt><b>scale</b>(hor, ver[, center])</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Scales the item by the given values from its center point, or optionally
+from a supplied point.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>hor:</tt> 
+<tt>Number</tt>
+&mdash;&nbsp;the horizontal scale factor
+
+</li>
+
+<li>
+<tt>ver:</tt> 
+<tt>Number</tt>
+&mdash;&nbsp;the vertical scale factor
+
+</li>
+
+<li>
+<tt>center:</tt> 
+<a href="/reference/point"><tt>Point</tt></a>
+
+&mdash;&nbsp;optional, default: <tt><a href="/reference/item#position"><tt>item.position</tt></a></tt>
+</li>
+
+</ul>
+
+	
+	
+	<p>
+<b>Example</b> &mdash; Scaling an item horizontally by 300%:
+</p>
+
+<div class="paperscript split">
+
+<div class="buttons">
+<div class="button run">Run</div>
+</div>
+
+<script type="text/paperscript" canvas="canvas-51">
+// Create a circle shaped path at { x: 100, y: 50 }
+// with a radius of 20:
+var circle = new Path.Circle({
+	center: [100, 50],
+	radius: 20,
+	fillColor: 'red'
+});
+
+// Scale the path horizontally by 300%
+circle.scale(3, 1);
+</script>
+<div class="canvas"><canvas width="516" height="100" id="canvas-51"></canvas></div>
+</div>
+
+
+</div>
+</div>
+</div>
+
+	
+<div id="shear-shear" class="member">
+<div class="member-link">
+<a name="shear-shear" href="#shear-shear"><tt><b>shear</b>(shear[, center])</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
@@ -5095,9 +5141,9 @@ by a supplied point.</p>
 <ul><b>Parameters:</b>
 
 <li>
-<tt>point:</tt> 
+<tt>shear:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
-
+&mdash;&nbsp;the horziontal and vertical shear factors as a point
 
 </li>
 
@@ -5136,14 +5182,99 @@ by a supplied point.</p>
 <li>
 <tt>hor:</tt> 
 <tt>Number</tt>
-&mdash;&nbsp;the horizontal shear factor.
+&mdash;&nbsp;the horizontal shear factor
 
 </li>
 
 <li>
 <tt>ver:</tt> 
 <tt>Number</tt>
-&mdash;&nbsp;the vertical shear factor.
+&mdash;&nbsp;the vertical shear factor
+
+</li>
+
+<li>
+<tt>center:</tt> 
+<a href="/reference/point"><tt>Point</tt></a>
+
+&mdash;&nbsp;optional, default: <tt><a href="/reference/item#position"><tt>item.position</tt></a></tt>
+</li>
+
+</ul>
+
+	
+	
+	<p><b>See also:</b>
+	<tt><a href="/reference/matrix#shear"><tt>matrix.shear</tt></a></tt>
+	</p>
+
+	
+</div>
+</div>
+</div>
+
+	
+<div id="skew-skew" class="member">
+<div class="member-link">
+<a name="skew-skew" href="#skew-skew"><tt><b>skew</b>(skew[, center])</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Skews the item by the given angles from its center point, or optionally
+by a supplied point.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>skew:</tt> 
+<a href="/reference/point"><tt>Point</tt></a>
+&mdash;&nbsp;the horziontal and vertical skew angles in degrees
+
+</li>
+
+<li>
+<tt>center:</tt> 
+<a href="/reference/point"><tt>Point</tt></a>
+
+&mdash;&nbsp;optional, default: <tt><a href="/reference/item#position"><tt>item.position</tt></a></tt>
+</li>
+
+</ul>
+
+	
+	
+	<p><b>See also:</b>
+	<tt><a href="/reference/matrix#shear"><tt>matrix.shear</tt></a></tt>
+	</p>
+
+	
+</div>
+</div>
+</div>
+
+	
+<div id="skew-hor-ver" class="member">
+<div class="member-link">
+<a name="skew-hor-ver" href="#skew-hor-ver"><tt><b>skew</b>(hor, ver[, center])</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Skews the item by the given angles from its center point, or optionally
+by a supplied point.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>hor:</tt> 
+<tt>Number</tt>
+&mdash;&nbsp;the horizontal skew angle in degrees
+
+</li>
+
+<li>
+<tt>ver:</tt> 
+<tt>Number</tt>
+&mdash;&nbsp;the vertical sskew angle in degrees
 
 </li>
 
