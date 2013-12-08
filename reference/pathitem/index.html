@@ -1026,8 +1026,8 @@ path.smooth();
 	
 	<ul><b>Type:</b>
 	<li>
-		<tt>String('group', 'layer', 'path', 'compound-path', 'raster',
-'placed-symbol', 'point-text')</tt>
+		<tt>String('group', 'layer', 'path', 'compound-path', 'shape',
+'raster', 'placed-symbol', 'point-text')</tt>
 	</li>
 	</ul>
 	
@@ -3562,7 +3562,8 @@ and may contain a combination of the following values:</p>
 in points. Can also be controlled through
 <a href="/reference/project#options"><tt>project.options</tt></a><tt>.hitTolerance</tt>.</p>
 <p><b>options.type:</b> Only hit test again a certain item
-type: <a href="/reference/pathitem"><tt>PathItem</tt></a>, <a href="/reference/raster"><tt>Raster</tt></a>, <a href="/reference/textitem"><tt>TextItem</tt></a>, etc.</p>
+type: {String('group', 'layer', 'path', 'compound-path', 'shape',
+'raster', 'placed-symbol', 'point-text')}, etc.</p>
 <p><b>options.fill:</b> <tt>Boolean</tt> – hit test the fill of items.</p>
 <p><b>options.stroke:</b> <tt>Boolean</tt> – hit test the curves of path
 items, taking into account stroke width.</p>
