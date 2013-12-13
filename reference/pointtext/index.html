@@ -837,18 +837,18 @@ circle.position.x += 100;
 </div>
 
 	
-<div id="anchor" class="member">
+<div id="pivot" class="member">
 <div class="member-link">
-<a name="anchor" href="#anchor"><tt><b>anchor</b></tt></a>
+<a name="pivot" href="#pivot"><tt><b>pivot</b></tt></a>
 </div>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The item's anchor point specified in the item coordinate system, defining
-the reference point for <a href="/reference/item#position" onclick="return toggleMember('position', true);"><tt>position</tt></a>, as well as the pivot point for
-all transformations. By default, it is set to <tt>null</tt>, meaning the
-<a href="/reference/rectangle#center"><tt>rectangle.center</tt></a> of the item's <a href="/reference/item#bounds" onclick="return toggleMember('bounds', true);"><tt>bounds</tt></a> rectangle is used
-as the anchor.</p>
+	<p>The item's pivot point specified in the item coordinate system, defining
+the point around which all transformations are hinging. This is also the
+reference point for <a href="/reference/item#position" onclick="return toggleMember('position', true);"><tt>position</tt></a>. By default, it is set to
+<tt>null</tt>, meaning the <a href="/reference/rectangle#center"><tt>rectangle.center</tt></a> of the item's
+<a href="/reference/item#bounds" onclick="return toggleMember('bounds', true);"><tt>bounds</tt></a> rectangle is used as pivot.</p>
 	
 	
 	<ul><b>Type:</b>

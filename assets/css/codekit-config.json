@@ -2,6 +2,18 @@
   "CodeKitInfo" : "This is a CodeKit project configuration file. It is designed to sync project settings across multiple machines. Modifying the contents of this file can be a poor life decision if you don't know what you're doing. This file is not useful unless accompanied by the project that created it in CodeKit. For more information, see: http:\/\/incident57.com\/codekit",
   "creatorBuild" : "8403",
   "files" : {
+    "\/bourbon\/helpers\/_deprecated-webkit-gradient.scss" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/bourbon\/helpers\/_deprecated-webkit-gradient.scss",
+      "outputStyle" : 0,
+      "shouldRunBless" : 0,
+      "outputAbbreviatedPath" : "\/bourbon\/helpers\/_deprecated-webkit-gradient.css",
+      "fileType" : 4,
+      "debugStyle" : 0
+    },
     "\/style\/_base.scss" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
@@ -23,18 +35,6 @@
       "outputStyle" : 0,
       "shouldRunBless" : 0,
       "outputAbbreviatedPath" : "\/bourbon\/css3\/_border-image.css",
-      "fileType" : 4,
-      "debugStyle" : 0
-    },
-    "\/bourbon\/helpers\/_deprecated-webkit-gradient.scss" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/bourbon\/helpers\/_deprecated-webkit-gradient.scss",
-      "outputStyle" : 0,
-      "shouldRunBless" : 0,
-      "outputAbbreviatedPath" : "\/bourbon\/helpers\/_deprecated-webkit-gradient.css",
       "fileType" : 4,
       "debugStyle" : 0
     },
@@ -110,51 +110,15 @@
       "fileType" : 4,
       "debugStyle" : 0
     },
-    "\/bourbon\/css3\/_keyframes.scss" : {
+    "\/style\/_paperscript.scss" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/bourbon\/css3\/_keyframes.scss",
+      "inputAbbreviatedPath" : "\/style\/_paperscript.scss",
       "outputStyle" : 0,
       "shouldRunBless" : 0,
-      "outputAbbreviatedPath" : "\/bourbon\/css3\/_keyframes.css",
-      "fileType" : 4,
-      "debugStyle" : 0
-    },
-    "\/bourbon\/addons\/_position.scss" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/bourbon\/addons\/_position.scss",
-      "outputStyle" : 0,
-      "shouldRunBless" : 0,
-      "outputAbbreviatedPath" : "\/bourbon\/addons\/_position.css",
-      "fileType" : 4,
-      "debugStyle" : 0
-    },
-    "\/bourbon\/helpers\/_linear-positions-parser.scss" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/bourbon\/helpers\/_linear-positions-parser.scss",
-      "outputStyle" : 0,
-      "shouldRunBless" : 0,
-      "outputAbbreviatedPath" : "\/bourbon\/helpers\/_linear-positions-parser.css",
-      "fileType" : 4,
-      "debugStyle" : 0
-    },
-    "\/bourbon\/css3\/_radial-gradient.scss" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/bourbon\/css3\/_radial-gradient.scss",
-      "outputStyle" : 0,
-      "shouldRunBless" : 0,
-      "outputAbbreviatedPath" : "\/bourbon\/css3\/_radial-gradient.css",
+      "outputAbbreviatedPath" : "\/style\/_paperscript.css",
       "fileType" : 4,
       "debugStyle" : 0
     },
@@ -170,15 +134,15 @@
       "fileType" : 4,
       "debugStyle" : 0
     },
-    "\/style\/_paperscript.scss" : {
+    "\/bourbon\/helpers\/_linear-positions-parser.scss" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/style\/_paperscript.scss",
+      "inputAbbreviatedPath" : "\/bourbon\/helpers\/_linear-positions-parser.scss",
       "outputStyle" : 0,
       "shouldRunBless" : 0,
-      "outputAbbreviatedPath" : "\/style\/_paperscript.css",
+      "outputAbbreviatedPath" : "\/bourbon\/helpers\/_linear-positions-parser.css",
       "fileType" : 4,
       "debugStyle" : 0
     },
@@ -191,6 +155,42 @@
       "outputStyle" : 0,
       "shouldRunBless" : 0,
       "outputAbbreviatedPath" : "\/bourbon\/css3\/_columns.css",
+      "fileType" : 4,
+      "debugStyle" : 0
+    },
+    "\/bourbon\/addons\/_position.scss" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/bourbon\/addons\/_position.scss",
+      "outputStyle" : 0,
+      "shouldRunBless" : 0,
+      "outputAbbreviatedPath" : "\/bourbon\/addons\/_position.css",
+      "fileType" : 4,
+      "debugStyle" : 0
+    },
+    "\/bourbon\/css3\/_keyframes.scss" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/bourbon\/css3\/_keyframes.scss",
+      "outputStyle" : 0,
+      "shouldRunBless" : 0,
+      "outputAbbreviatedPath" : "\/bourbon\/css3\/_keyframes.css",
+      "fileType" : 4,
+      "debugStyle" : 0
+    },
+    "\/bourbon\/css3\/_radial-gradient.scss" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/bourbon\/css3\/_radial-gradient.scss",
+      "outputStyle" : 0,
+      "shouldRunBless" : 0,
+      "outputAbbreviatedPath" : "\/bourbon\/css3\/_radial-gradient.css",
       "fileType" : 4,
       "debugStyle" : 0
     },
@@ -290,18 +290,6 @@
       "fileType" : 4,
       "debugStyle" : 0
     },
-    "\/bourbon\/css3\/_flex-box.scss" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/bourbon\/css3\/_flex-box.scss",
-      "outputStyle" : 0,
-      "shouldRunBless" : 0,
-      "outputAbbreviatedPath" : "\/bourbon\/css3\/_flex-box.css",
-      "fileType" : 4,
-      "debugStyle" : 0
-    },
     "\/bourbon\/helpers\/_radial-arg-parser.scss" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
@@ -314,15 +302,15 @@
       "fileType" : 4,
       "debugStyle" : 0
     },
-    "\/style\/_layout.scss" : {
+    "\/bourbon\/css3\/_flex-box.scss" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/style\/_layout.scss",
+      "inputAbbreviatedPath" : "\/bourbon\/css3\/_flex-box.scss",
       "outputStyle" : 0,
       "shouldRunBless" : 0,
-      "outputAbbreviatedPath" : "\/style\/_layout.css",
+      "outputAbbreviatedPath" : "\/bourbon\/css3\/_flex-box.css",
       "fileType" : 4,
       "debugStyle" : 0
     },
@@ -338,18 +326,6 @@
       "fileType" : 4,
       "debugStyle" : 0
     },
-    "\/bourbon\/css3\/_appearance.scss" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/bourbon\/css3\/_appearance.scss",
-      "outputStyle" : 0,
-      "shouldRunBless" : 0,
-      "outputAbbreviatedPath" : "\/bourbon\/css3\/_appearance.css",
-      "fileType" : 4,
-      "debugStyle" : 0
-    },
     "\/bourbon\/functions\/_tint-shade.scss" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
@@ -359,6 +335,30 @@
       "outputStyle" : 0,
       "shouldRunBless" : 0,
       "outputAbbreviatedPath" : "\/bourbon\/functions\/_tint-shade.css",
+      "fileType" : 4,
+      "debugStyle" : 0
+    },
+    "\/style\/_layout.scss" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/style\/_layout.scss",
+      "outputStyle" : 0,
+      "shouldRunBless" : 0,
+      "outputAbbreviatedPath" : "\/style\/_layout.css",
+      "fileType" : 4,
+      "debugStyle" : 0
+    },
+    "\/bourbon\/css3\/_appearance.scss" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/bourbon\/css3\/_appearance.scss",
+      "outputStyle" : 0,
+      "shouldRunBless" : 0,
+      "outputAbbreviatedPath" : "\/bourbon\/css3\/_appearance.css",
       "fileType" : 4,
       "debugStyle" : 0
     },
@@ -563,51 +563,6 @@
       "fileType" : 4,
       "debugStyle" : 0
     },
-    "\/bourbon\/functions\/_transition-property-name.scss" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/bourbon\/functions\/_transition-property-name.scss",
-      "outputStyle" : 0,
-      "shouldRunBless" : 0,
-      "outputAbbreviatedPath" : "\/bourbon\/functions\/_transition-property-name.css",
-      "fileType" : 4,
-      "debugStyle" : 0
-    },
-    "\/style.css" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/style.css",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 16
-    },
-    "\/bourbon\/css3\/_linear-gradient.scss" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/bourbon\/css3\/_linear-gradient.scss",
-      "outputStyle" : 0,
-      "shouldRunBless" : 0,
-      "outputAbbreviatedPath" : "\/bourbon\/css3\/_linear-gradient.css",
-      "fileType" : 4,
-      "debugStyle" : 0
-    },
-    "\/bourbon\/functions\/_px-to-em.scss" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/bourbon\/functions\/_px-to-em.scss",
-      "outputStyle" : 0,
-      "shouldRunBless" : 0,
-      "outputAbbreviatedPath" : "\/bourbon\/functions\/_px-to-em.css",
-      "fileType" : 4,
-      "debugStyle" : 0
-    },
     "\/bourbon\/addons\/_font-family.scss" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
@@ -620,6 +575,15 @@
       "fileType" : 4,
       "debugStyle" : 0
     },
+    "\/style.css" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/style.css",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 16
+    },
     "\/style\/_fonts.scss" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
@@ -629,6 +593,18 @@
       "outputStyle" : 0,
       "shouldRunBless" : 0,
       "outputAbbreviatedPath" : "\/style\/_fonts.css",
+      "fileType" : 4,
+      "debugStyle" : 0
+    },
+    "\/bourbon\/functions\/_px-to-em.scss" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/bourbon\/functions\/_px-to-em.scss",
+      "outputStyle" : 0,
+      "shouldRunBless" : 0,
+      "outputAbbreviatedPath" : "\/bourbon\/functions\/_px-to-em.css",
       "fileType" : 4,
       "debugStyle" : 0
     },
@@ -653,6 +629,30 @@
       "outputStyle" : 0,
       "shouldRunBless" : 0,
       "outputAbbreviatedPath" : "\/bourbon\/css3\/_backface-visibility.css",
+      "fileType" : 4,
+      "debugStyle" : 0
+    },
+    "\/bourbon\/functions\/_transition-property-name.scss" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/bourbon\/functions\/_transition-property-name.scss",
+      "outputStyle" : 0,
+      "shouldRunBless" : 0,
+      "outputAbbreviatedPath" : "\/bourbon\/functions\/_transition-property-name.css",
+      "fileType" : 4,
+      "debugStyle" : 0
+    },
+    "\/bourbon\/css3\/_linear-gradient.scss" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/bourbon\/css3\/_linear-gradient.scss",
+      "outputStyle" : 0,
+      "shouldRunBless" : 0,
+      "outputAbbreviatedPath" : "\/bourbon\/css3\/_linear-gradient.css",
       "fileType" : 4,
       "debugStyle" : 0
     },
@@ -728,15 +728,15 @@
       "fileType" : 4,
       "debugStyle" : 0
     },
-    "\/style\/_helpers.scss" : {
+    "\/mixins\/_border-radius.scss" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/style\/_helpers.scss",
+      "inputAbbreviatedPath" : "\/mixins\/_border-radius.scss",
       "outputStyle" : 0,
       "shouldRunBless" : 0,
-      "outputAbbreviatedPath" : "\/style\/_helpers.css",
+      "outputAbbreviatedPath" : "\/mixins\/_border-radius.css",
       "fileType" : 4,
       "debugStyle" : 0
     },
@@ -776,15 +776,15 @@
       "fileType" : 4,
       "debugStyle" : 0
     },
-    "\/mixins\/_border-radius.scss" : {
+    "\/style\/_helpers.scss" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/mixins\/_border-radius.scss",
+      "inputAbbreviatedPath" : "\/style\/_helpers.scss",
       "outputStyle" : 0,
       "shouldRunBless" : 0,
-      "outputAbbreviatedPath" : "\/mixins\/_border-radius.css",
+      "outputAbbreviatedPath" : "\/style\/_helpers.css",
       "fileType" : 4,
       "debugStyle" : 0
     },
