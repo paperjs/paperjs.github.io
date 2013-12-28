@@ -67,9 +67,9 @@ and offer standardised methods for drawing and path manipulation, such as
 	<div class="reference-members"><h2>Methods</h2>
 		
 			
-<div id="getintersections-path" class="member">
+<div id="getintersections(path, sorted)-path" class="member">
 <div class="member-link">
-<a name="getintersections-path" href="#getintersections-path"><tt><b>getIntersections</b>(path)</tt></a>
+<a name="getintersections(path, sorted)-path" href="#getintersections(path, sorted)-path"><tt><b>getIntersections(path, sorted)</b>(path[, sorted])</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
@@ -82,8 +82,16 @@ supported.</p>
 <li>
 <tt>path:</tt> 
 <a href="/reference/pathitem"><tt>PathItem</tt></a>
-&mdash;&nbsp;the other item to find the intersections to.
+&mdash;&nbsp;the other item to find the intersections with
 
+</li>
+
+<li>
+<tt>sorted:</tt> 
+<tt>Boolean</tt>
+&mdash;&nbsp;controls wether to sort the results by
+offset
+&mdash;&nbsp;optional, default: <tt>true</tt>
 </li>
 
 </ul>
