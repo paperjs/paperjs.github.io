@@ -2869,6 +2869,8 @@ hit
 	<p>Exports (serializes) the item with its content and child items to a JSON
 data string.</p>
 <p>The options object offers control over some aspects of the SVG export:</p>
+<p><b>options.asString:</b> <tt>Boolean</tt> – wether the JSON is returned as
+a <tt>Object</tt> or a <tt>String</tt>.</p>
 <p><b>options.precision:</b> <tt>Number</tt> – the amount of fractional
 digits in numbers used in JSON data.</p>
 	
@@ -2877,8 +2879,9 @@ digits in numbers used in JSON data.</p>
 <li>
 <tt>options:</tt> 
 <tt>Object</tt>
-&mdash;&nbsp;the serialization options
-&mdash;&nbsp;optional, default: <tt>{ precision: 5 }</tt>
+&mdash;&nbsp;the
+serialization options
+&mdash;&nbsp;optional, default: <tt>{ asString: true, precision: 5 }</tt>
 </li>
 
 </ul>
@@ -2938,8 +2941,8 @@ items can have children.</p>
 <div class="member-text">
 	<p>Exports the item with its content and child items as an SVG DOM.</p>
 <p>The options object offers control over some aspects of the SVG export:</p>
-<p><b>options.asString:</b> <tt>Boolean</tt> – wether a SVG node or a String
-is to be returned.</p>
+<p><b>options.asString:</b> <tt>Boolean</tt> – wether a SVG node or a
+<tt>String</tt> is to be returned.</p>
 <p><b>options.precision:</b> <tt>Number</tt> – the amount of fractional
 digits in numbers used in SVG data.</p>
 <p><b>options.matchShapes:</b> <tt>Boolean</tt> – wether imported path
