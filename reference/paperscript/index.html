@@ -98,14 +98,16 @@
 </div>
 		
 			
-<div id="evaluate-code-scope" class="member">
+<div id="execute-code-scope" class="member">
 <div class="member-link">
-<a name="evaluate-code-scope" href="#evaluate-code-scope"><tt><b>PaperScript.evaluate</b>(code, scope)</tt></a>
+<a name="execute-code-scope" href="#execute-code-scope"><tt><b>PaperScript.execute</b>(code, scope)</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Evaluates parsed PaperScript code in the passed <a href="/reference/paperscope"><tt>PaperScope</tt></a>
-object. It also installs handlers automatically for us.</p>
+	<p>Executes the parsed PaperScript code in a compiled function that receives
+all properties of the passed <a href="/reference/paperscope"><tt>PaperScope</tt></a> as arguments, to emulate
+a global scope with unaffected performance. It also installs global view
+and tool handlers automatically for you.</p>
 	
 <ul><b>Parameters:</b>
 
@@ -119,21 +121,13 @@ object. It also installs handlers automatically for us.</p>
 <li>
 <tt>scope:</tt> 
 <a href="/reference/paperscript"><tt>PaperScript</tt></a>
-&mdash;&nbsp;The scope in which the code is executed
+&mdash;&nbsp;The scope for which the code is executed
 
 </li>
 
 </ul>
 
 	
-	<ul><b>Returns:</b>
-	
-		<li>
-<tt><tt>Object</tt></tt>&nbsp;&mdash;&nbsp;the result of the code evaluation
-</li>
-	
-	</ul>
-
 	
 	
 </div>
