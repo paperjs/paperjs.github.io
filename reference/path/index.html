@@ -6976,8 +6976,10 @@ is not removed after rasterization.</p>
 <li>
 <tt>resolution:</tt> 
 <tt>Number</tt>
-&mdash;&nbsp;the resolution of the raster in dpi
-&mdash;&nbsp;optional, default: <tt>72</tt>
+&mdash;&nbsp;the resolution of the raster
+in pixels per inch (DPI). If not speceified, the value of
+<tt>view.resolution</tt> is used.
+&mdash;&nbsp;optional, default: <tt>view.resolution</tt>
 </li>
 
 </ul>
@@ -7641,7 +7643,7 @@ removed.</p>
 	<ul><b>Returns:</b>
 	
 		<li>
-<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> the item was removed, <tt>false</tt> otherwise
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the item was removed, <tt>false</tt> otherwise
 </li>
 	
 	</ul>
