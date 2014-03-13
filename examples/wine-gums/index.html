@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <link rel="stylesheet" href="/assets/css/style.css"/>
+  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon"/>
+  <link rel="shortcut icon" href="/assets/favicon.ico"/>
+  <script src="/assets/js/jquery.js"></script>
+  <script src="/assets/js/paper.js"></script>
+  <script src="/assets/js/codemirror.js"></script>
+  <script src="/assets/js/scripts.js"></script>
+  <script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-10082945-6']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  <title>Paper.js - Paper.js</title>
+</head>
+  <body class="fullscreen">
+    <nav>
+      <h1><a href="/">Paper.js</a></h1>
+<ul>
+  <li><a href="/about/">About</a></li>
+  <li><a href="/features/">Features</a></li>
+  <li class="spacer"></li>
+  <li><a href="/examples/">Examples</a>
+<ul>
+  <li class="active"><a href="/examples/wine-gums/">Wine Gums</a></li>
+  <li><a href="/examples/satie-liked-to-draw/">Satie Liked To Draw</a></li>
+  <li><a href="/examples/chain/">Chain</a></li>
+  <li><a href="/examples/tadpoles/">Tadpoles</a></li>
+  <li><a href="/examples/nyan-rainbow/">Nyan Rainbow</a></li>
+  <li><a href="/examples/rounded-rectangles/">Rounded Rectangles</a></li>
+  <li><a href="/examples/radial-rainbows/">Radial Rainbows</a></li>
+  <li><a href="/examples/meta-balls/">Meta Balls</a></li>
+  <li><a href="/examples/voronoi/">Voronoi</a></li>
+  <li><a href="/examples/future-splash/">Future Splash</a></li>
+  <li><a href="/examples/smoothing/">Smoothing</a></li>
+  <li><a href="/examples/spiral-raster/">Spiral Raster</a></li>
+  <li><a href="/examples/division-raster/">Division Raster</a></li>
+  <li><a href="/examples/q-bertify/">Q-bertify</a></li>
+  <li><a href="/examples/path-intersections/">Path Intersections</a></li>
+  <li><a href="/examples/path-simplification/">Path Simplification</a></li>
+  <li><a href="/examples/hit-testing/">Hit Testing</a></li>
+  <li><a href="/examples/bouncing-balls/">Bouncing Balls</a></li>
+</ul></li>
+  <li><a href="/showcase/">Showcase</a></li>
+  <li class="spacer"></li>
+  <li><a href="/tutorials/">Tutorials</a></li>
+  <li><a href="/reference/">Reference</a></li>
+  <li><a href="http://sketch.paperjs.org/">Sketch</a></li>
+  <li class="spacer"></li>
+  <li><a href="/download/">Download</a></li>
+  <li><a href="/donation/">Donation</a></li>
+  <li><a href="/license/">License</a></li>
+  <li class="spacer"></li>
+  <li><a href="http://groups.google.com/group/paperjs" target="_blank">Mailing List</a></li>
+  <li><a href="http://twitter.com/PaperJS" target="_blank">Follow on Twitter</a></li>
+  <li><a href="http://github.com/paperjs/paper.js" target="_blank">Watch on Github</a></li>
+</ul>
+    </nav>
+<article><div class="paperscript">
+<div class="buttons">
+<div class="button run">Source</div>
+<div class="explain">
+This example was brought to you by http://kynd.info, 2014
+</div>
+</div>
+<script type="text/paperscript" canvas="canvas-1">
+// kynd.info 2014
+
+function Ball(r, p, v) {
+	this.radius = r;
+	this.point = p;
+	this.vector = v;
+	this.maxVec = 15;
+	this.numSegment = Math.floor(r / 3 + 2);
+	this.boundOffset = [];
+	this.boundOffsetBuff = [];
+	this.sidePoints = [];
+	this.path = new Path({
+		fillColor: {
+			hue: Math.random() * 360,
+			saturation: 1,
+			brightness: 1
+		},
+		blendMode: 'screen'
+	});
+
+	for (var i = 0; i < this.numSegment; i ++) {
+		this.boundOffset.push(this.radius);
+		this.boundOffsetBuff.push(this.radius);
+		this.path.add(new Point());
+		this.sidePoints.push(new Point({
+			angle: 360 / this.numSegment * i,
+			length: 1
+		}));
+	}
+}
+
+Ball.prototype = {
+	iterate: function() {
+		this.checkBorders();
+		if (this.vector.length > this.maxVec)
+			this.vector.length = this.maxVec;
+		this.point += this.vector;
+		this.updateShape();
+	},
+
+	checkBorders: function() {
+		var size = view.size;
+		if (this.point.x < -this.radius)
+			this.point.x = size.width + this.radius;
+		if (this.point.x > size.width + this.radius)
+			this.point.x = -this.radius;
+		if (this.point.y < -this.radius)
+			this.point.y = size.height + this.radius;
+		if (this.point.y > size.height + this.radius)
+			this.point.y = -this.radius;
+	},
+
+	updateShape: function() {
+		var segments = this.path.segments;
+		for (var i = 0; i < this.numSegment; i ++)
+			segments[i].point = this.getSidePoint(i);
+
+		this.path.smooth();
+		for (var i = 0; i < this.numSegment; i ++) {
+			if (this.boundOffset[i] < this.radius / 4)
+				this.boundOffset[i] = this.radius / 4;
+			var next = (i + 1) % this.numSegment;
+			var prev = (i > 0) ? i - 1 : this.numSegment - 1;
+			var offset = this.boundOffset[i];
+			offset += (this.radius - offset) / 15;
+			offset += ((this.boundOffset[next] + this.boundOffset[prev]) / 2 - offset) / 3;
+			this.boundOffsetBuff[i] = this.boundOffset[i] = offset;
+		}
+	},
+
+	react: function(b) {
+		var dist = this.point.getDistance(b.point);
+		if (dist < this.radius + b.radius && dist != 0) {
+			var overlap = this.radius + b.radius - dist;
+			var direc = (this.point - b.point).normalize(overlap * 0.015);
+			this.vector += direc;
+			b.vector -= direc;
+
+			this.calcBounds(b);
+			b.calcBounds(this);
+			this.updateBounds();
+			b.updateBounds();
+		}
+	},
+
+	getBoundOffset: function(b) {
+		var diff = this.point - b;
+		var angle = (diff.angle + 180) % 360;
+		return this.boundOffset[Math.floor(angle / 360 * this.boundOffset.length)];
+	},
+
+	calcBounds: function(b) {
+		for (var i = 0; i < this.numSegment; i ++) {
+			var tp = this.getSidePoint(i);
+			var bLen = b.getBoundOffset(tp);
+			var td = tp.getDistance(b.point);
+			if (td < bLen) {
+				this.boundOffsetBuff[i] -= (bLen  - td) / 2;
+			}
+		}
+	},
+
+	getSidePoint: function(index) {
+		return this.point + this.sidePoints[index] * this.boundOffset[index];
+	},
+
+	updateBounds: function() {
+		for (var i = 0; i < this.numSegment; i ++)
+			this.boundOffset[i] = this.boundOffsetBuff[i];
+	}
+};
+
+//--------------------- main ---------------------
+
+var balls = [];
+var numBalls = 18;
+for (var i = 0; i < numBalls; i++) {
+	var position = Point.random() * view.size;
+	var vector = new Point({
+		angle: 360 * Math.random(),
+		length: Math.random() * 10
+	});
+	var radius = Math.random() * 60 + 60;
+	balls.push(new Ball(radius, position, vector));
+}
+
+function onFrame() {
+	for (var i = 0; i < balls.length - 1; i++) {
+		for (var j = i + 1; j < balls.length; j++) {
+			balls[i].react(balls[j]);
+		}
+	}
+	for (var i = 0, l = balls.length; i < l; i++) {
+		balls[i].iterate();
+	}
+}
+</script>
+<div class="canvas">
+<canvas resize="true" id="canvas-1" style="background:black"></canvas>
+</div>
+</div></article>
+  </body>
+</html>
