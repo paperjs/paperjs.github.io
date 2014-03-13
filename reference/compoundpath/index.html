@@ -2337,9 +2337,9 @@ coordinate space.</p>
 </div>
 
 	
-<div id="transformcontent" class="member">
+<div id="applymatrix" class="member">
 <div class="member-link">
-<a name="transformcontent" href="#transformcontent"><tt><b>transformContent</b></tt></a>
+<a name="applymatrix" href="#applymatrix"><tt><b>applyMatrix</b></tt></a>
 </div>
 <div class="member-description hidden">
 
@@ -2356,6 +2356,16 @@ children, or whether they are to be stored in its <a href="/reference/item#matri
 	
 	
 </div>
+
+</div>
+</div>
+
+	
+<div id="transformcontent" class="member">
+<div class="member-link">
+<a name="transformcontent" href="#transformcontent"><tt><b>transformContent</b></tt></a>
+</div>
+<div class="member-description hidden">
 
 </div>
 </div>
@@ -2714,62 +2724,6 @@ accessing <tt>item.children[item.children.length - 1]</tt>.</p>
 	<ul><b>Type:</b>
 	<li>
 		<tt>Number</tt>
-	</li>
-	</ul>
-	
-	
-</div>
-
-</div>
-</div>
-
-	
-<div id="appendtop-item" class="member">
-<div class="member-link">
-<a name="appendtop-item" href="#appendtop-item"><tt><b>appendTop</b></tt></a>
-</div>
-<div class="member-description hidden">
-
-</div>
-</div>
-
-	
-<div id="moveabove-item" class="member">
-<div class="member-link">
-<a name="moveabove-item" href="#moveabove-item"><tt><b>moveAbove</b></tt></a>
-</div>
-<div class="member-description hidden">
-
-<div class="member-text">
-	<p>Moves this item above the specified item.</p>
-	
-	
-	<ul><b>Type:</b>
-	<li>
-		<tt>Boolean</tt>
-	</li>
-	</ul>
-	
-	
-</div>
-
-</div>
-</div>
-
-	
-<div id="movebelow-item" class="member">
-<div class="member-link">
-<a name="movebelow-item" href="#movebelow-item"><tt><b>moveBelow</b></tt></a>
-</div>
-<div class="member-description hidden">
-
-<div class="member-text">
-	<p>Moves the item below the specified item.</p>
-	
-	
-	<ul><b>Type:</b>
-	<li>
-		<tt>Boolean</tt>
 	</li>
 	</ul>
 	
@@ -4619,6 +4573,35 @@ possible.
 </div>
 
 	
+<div id="appendtop-item" class="member">
+<div class="member-link">
+<a name="appendtop-item" href="#appendtop-item"><tt><b>appendTop</b>(item)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Inserts the specified item as a child of this item by appending it to
+the list of children and moving it above all other children. You can
+use this function for groups, compound paths and layers.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>item:</tt> 
+<a href="/reference/item"><tt>Item</tt></a>
+&mdash;&nbsp;The item to be appended as a child
+
+</li>
+
+</ul>
+
+	
+	
+	
+</div>
+</div>
+</div>
+
+	
 <div id="appendbottom-item" class="member">
 <div class="member-link">
 <a name="appendbottom-item" href="#appendbottom-item"><tt><b>appendBottom</b>(item)</tt></a>
@@ -4641,6 +4624,76 @@ use this function for groups, compound paths and layers.</p>
 </ul>
 
 	
+	
+	
+</div>
+</div>
+</div>
+
+	
+<div id="moveabove-item" class="member">
+<div class="member-link">
+<a name="moveabove-item" href="#moveabove-item"><tt><b>moveAbove</b>(item)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Moves this item above the specified item.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>item:</tt> 
+<a href="/reference/item"><tt>Item</tt></a>
+&mdash;&nbsp;The item above which it should be moved
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if it was moved, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+
+	
+<div id="movebelow-item" class="member">
+<div class="member-link">
+<a name="movebelow-item" href="#movebelow-item"><tt><b>moveBelow</b>(item)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Moves the item below the specified item.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>item:</tt> 
+<a href="/reference/item"><tt>Item</tt></a>
+&mdash;&nbsp;the item below which it should be moved
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if it was moved, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
 	
 	
 </div>
