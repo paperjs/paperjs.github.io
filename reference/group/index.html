@@ -308,22 +308,22 @@ function onFrame(event) {
 </div>
 
 	
-<div id="type" class="member">
+<div id="classname" class="member">
 <div class="member-link">
-<a name="type" href="#type"><tt><b>type</b></tt></a>
+<a name="classname" href="#classname"><tt><b>className</b></tt></a>
 </div>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The type of the item as a string.</p>
+	<p>The class name of the item as a string.</p>
 	
 		<p>Read only.</p>
 	
 	
 	<ul><b>Type:</b>
 	<li>
-		<tt>String('group', 'layer', 'path', 'compound-path', 'shape',
-'raster', 'placed-symbol', 'point-text')</tt>
+		<tt>String('Group', 'Layer', 'Path', 'CompoundPath', 'Shape',
+'Raster', 'PlacedSymbol', 'PointText')</tt>
 	</li>
 	</ul>
 	
@@ -1316,9 +1316,9 @@ console.log(group.children[0] == path); // true</pre>
 <a href="/reference/item#name" onclick="return toggleMember('name', true);"><tt>name</tt></a> can also be accessed by name.</p>
 <p><b>Please note:</b> The children array should not be modified directly
 using array functions. To remove single items from the children list, use
-<a href="/reference/item#remove"><tt>item.remove</tt></a>(), to remove all items from the children list, use
+<tt>Item#remove</tt>(), to remove all items from the children list, use
 <a href="/reference/item#removechildren"><tt>item.removeChildren</tt></a>(). To add items to the children list, use
-<a href="/reference/item#addchild-item"><tt>item.addChild(item)</tt></a> or <a href="/reference/item#insertchild-index-item"><tt>item.insertChild(index, item)</tt></a>.</p>
+<tt>Item#addChild(item)</tt> or <tt>Item#insertChild(index, item)</tt>.</p>
 	
 	
 	<ul><b>Type:</b>
@@ -2884,9 +2884,9 @@ and may contain a combination of the following values:</p>
 <p><b>options.tolerance:</b> <tt>Number</tt> – the tolerance of the hit test
 in points. Can also be controlled through
 <a href="/reference/project#options"><tt>project.options</tt></a><tt>.hitTolerance</tt>.</p>
-<p><b>options.type:</b> Only hit test again a certain item
-type: {String('group', 'layer', 'path', 'compound-path', 'shape',
-'raster', 'placed-symbol', 'point-text')}, etc.</p>
+<p><b>options.type:</b> Only hit test again a certain item type:</p>
+<p><tt>Group, Layer, Path, CompoundPath, Shape, Raster, PlacedSymbol,
+PointText</tt>, etc.</p>
 <p><b>options.fill:</b> <tt>Boolean</tt> – hit test the fill of items.</p>
 <p><b>options.stroke:</b> <tt>Boolean</tt> – hit test the curves of path
 items, taking into account stroke width.</p>
@@ -2953,8 +2953,8 @@ hit
 	<p>Exports (serializes) the item with its content and child items to a JSON
 data string.</p>
 <p>The options object offers control over some aspects of the SVG export:</p>
-<p><b>options.asString:</b> <tt>Boolean</tt> – wether the JSON is returned as
-a <tt>Object</tt> or a <tt>String</tt>.</p>
+<p><b>options.asString:</b> <tt>Boolean</tt> – whether the JSON is returned
+as a <tt>Object</tt> or a <tt>String</tt>.</p>
 <p><b>options.precision:</b> <tt>Number</tt> – the amount of fractional
 digits in numbers used in JSON data.</p>
 	
@@ -2986,37 +2986,6 @@ serialization options
 </div>
 
 	
-<div id="importjson-json" class="member">
-<div class="member-link">
-<a name="importjson-json" href="#importjson-json"><tt><b>importJSON</b>(json)</tt></a>
-</div>
-<div class="member-description hidden">
-<div class="member-text">
-	<p>Imports (deserializes) the stored JSON data into this item. If the data
-describes an item of the same class or a parent class of the item, the
-data is imported into the item itself. If not, the imported item is added
-to this item's <a href="/reference/item#children"><tt>item.children</tt></a> list. Note that not all type of
-items can have children.</p>
-	
-<ul><b>Parameters:</b>
-
-<li>
-<tt>json:</tt> 
-<tt>String</tt>
-&mdash;&nbsp;the JSON data to import from.
-
-</li>
-
-</ul>
-
-	
-	
-	
-</div>
-</div>
-</div>
-
-	
 <div id="exportsvg" class="member">
 <div class="member-link">
 <a name="exportsvg" href="#exportsvg"><tt><b>exportSVG</b>([options])</tt></a>
@@ -3025,11 +2994,11 @@ items can have children.</p>
 <div class="member-text">
 	<p>Exports the item with its content and child items as an SVG DOM.</p>
 <p>The options object offers control over some aspects of the SVG export:</p>
-<p><b>options.asString:</b> <tt>Boolean</tt> – wether a SVG node or a
+<p><b>options.asString:</b> <tt>Boolean</tt> – whether a SVG node or a
 <tt>String</tt> is to be returned.</p>
 <p><b>options.precision:</b> <tt>Number</tt> – the amount of fractional
 digits in numbers used in SVG data.</p>
-<p><b>options.matchShapes:</b> <tt>Boolean</tt> – wether imported path
+<p><b>options.matchShapes:</b> <tt>Boolean</tt> – whether imported path
 items should tried to be converted to shape items, if their geometries
 match.</p>
 	
@@ -3072,7 +3041,7 @@ the this item's children list.</p>
 <p>Note that the item is not cleared first. You can call
 <a href="/reference/item#removechildren"><tt>item.removeChildren</tt></a>() to do so.</p>
 <p>The options object offers control over some aspects of the SVG import:</p>
-<p><b>options.expandShapes:</b> <tt>Boolean</tt> – wether imported shape
+<p><b>options.expandShapes:</b> <tt>Boolean</tt> – whether imported shape
 items should be expanded to path items.</p>
 	
 <ul><b>Parameters:</b>
@@ -3098,457 +3067,6 @@ items should be expanded to path items.</p>
 	
 		<li>
 <tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the imported Paper.js parent item
-</li>
-	
-	</ul>
-
-	
-	
-</div>
-</div>
-</div>
-
-	
-<h3>Hierarchy Operations</h3>
-
-<div id="addchild-item-_preserve" class="member">
-<div class="member-link">
-<a name="addchild-item-_preserve" href="#addchild-item-_preserve"><tt><b>addChild</b>(item)</tt></a>
-</div>
-<div class="member-description hidden">
-<div class="member-text">
-	<p>Adds the specified item as a child of this item at the end of the
-its children list. You can use this function for groups, compound
-paths and layers.</p>
-	
-<ul><b>Parameters:</b>
-
-<li>
-<tt>item:</tt> 
-<a href="/reference/item"><tt>Item</tt></a>
-&mdash;&nbsp;the item to be added as a child
-
-</li>
-
-</ul>
-
-	
-	<ul><b>Returns:</b>
-	
-		<li>
-<tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the added item, or <tt>null</tt> if adding was not
-possible.
-</li>
-	
-	</ul>
-
-	
-	
-</div>
-</div>
-</div>
-
-	
-<div id="insertchild-index-item-_preserve" class="member">
-<div class="member-link">
-<a name="insertchild-index-item-_preserve" href="#insertchild-index-item-_preserve"><tt><b>insertChild</b>(index, item)</tt></a>
-</div>
-<div class="member-description hidden">
-<div class="member-text">
-	<p>Inserts the specified item as a child of this item at the specified
-index in its <a href="/reference/item#children" onclick="return toggleMember('children', true);"><tt>children</tt></a> list. You can use this function for
-groups, compound paths and layers.</p>
-	
-<ul><b>Parameters:</b>
-
-<li>
-<tt>index:</tt> 
-<tt>Number</tt>
-
-
-</li>
-
-<li>
-<tt>item:</tt> 
-<a href="/reference/item"><tt>Item</tt></a>
-&mdash;&nbsp;the item to be inserted as a child
-
-</li>
-
-</ul>
-
-	
-	<ul><b>Returns:</b>
-	
-		<li>
-<tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the inserted item, or <tt>null</tt> if inserting was not
-possible.
-</li>
-	
-	</ul>
-
-	
-	
-</div>
-</div>
-</div>
-
-	
-<div id="addchildren-items-_preserve" class="member">
-<div class="member-link">
-<a name="addchildren-items-_preserve" href="#addchildren-items-_preserve"><tt><b>addChildren</b>(items)</tt></a>
-</div>
-<div class="member-description hidden">
-<div class="member-text">
-	<p>Adds the specified items as children of this item at the end of the
-its children list. You can use this function for groups, compound
-paths and layers.</p>
-	
-<ul><b>Parameters:</b>
-
-<li>
-<tt>items:</tt> 
-Array of <a href="/reference/item"><tt>Item</tt></a> objects
-&mdash;&nbsp;The items to be added as children
-
-</li>
-
-</ul>
-
-	
-	<ul><b>Returns:</b>
-	
-		<li>
-<tt>Array of <a href="/reference/item"><tt>Item</tt></a> objects</tt>&nbsp;&mdash;&nbsp;the added items, or <tt>null</tt> if adding was not
-possible.
-</li>
-	
-	</ul>
-
-	
-	
-</div>
-</div>
-</div>
-
-	
-<div id="insertchildren-index-items-_preserve-_type" class="member">
-<div class="member-link">
-<a name="insertchildren-index-items-_preserve-_type" href="#insertchildren-index-items-_preserve-_type"><tt><b>insertChildren</b>(index, items)</tt></a>
-</div>
-<div class="member-description hidden">
-<div class="member-text">
-	<p>Inserts the specified items as children of this item at the specified
-index in its <a href="/reference/item#children" onclick="return toggleMember('children', true);"><tt>children</tt></a> list. You can use this function for
-groups, compound paths and layers.</p>
-	
-<ul><b>Parameters:</b>
-
-<li>
-<tt>index:</tt> 
-<tt>Number</tt>
-
-
-</li>
-
-<li>
-<tt>items:</tt> 
-Array of <a href="/reference/item"><tt>Item</tt></a> objects
-&mdash;&nbsp;The items to be appended as children
-
-</li>
-
-</ul>
-
-	
-	<ul><b>Returns:</b>
-	
-		<li>
-<tt>Array of <a href="/reference/item"><tt>Item</tt></a> objects</tt>&nbsp;&mdash;&nbsp;the inserted items, or <tt>null</tt> if inserted was not
-possible.
-</li>
-	
-	</ul>
-
-	
-	
-</div>
-</div>
-</div>
-
-	
-<div id="insertabove-item-_preserve" class="member">
-<div class="member-link">
-<a name="insertabove-item-_preserve" href="#insertabove-item-_preserve"><tt><b>insertAbove</b>(item)</tt></a>
-</div>
-<div class="member-description hidden">
-<div class="member-text">
-	<p>Inserts this item above the specified item.</p>
-	
-<ul><b>Parameters:</b>
-
-<li>
-<tt>item:</tt> 
-<a href="/reference/item"><tt>Item</tt></a>
-&mdash;&nbsp;the item above which it should be inserted
-
-</li>
-
-</ul>
-
-	
-	<ul><b>Returns:</b>
-	
-		<li>
-<tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the inserted item, or <tt>null</tt> if inserting was not
-possible.
-</li>
-	
-	</ul>
-
-	
-	
-</div>
-</div>
-</div>
-
-	
-<div id="insertbelow-item-_preserve" class="member">
-<div class="member-link">
-<a name="insertbelow-item-_preserve" href="#insertbelow-item-_preserve"><tt><b>insertBelow</b>(item)</tt></a>
-</div>
-<div class="member-description hidden">
-<div class="member-text">
-	<p>Inserts this item below the specified item.</p>
-	
-<ul><b>Parameters:</b>
-
-<li>
-<tt>item:</tt> 
-<a href="/reference/item"><tt>Item</tt></a>
-&mdash;&nbsp;the item below which it should be inserted
-
-</li>
-
-</ul>
-
-	
-	<ul><b>Returns:</b>
-	
-		<li>
-<tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the inserted item, or <tt>null</tt> if inserting was not
-possible.
-</li>
-	
-	</ul>
-
-	
-	
-</div>
-</div>
-</div>
-
-	
-<div id="sendtoback" class="member">
-<div class="member-link">
-<a name="sendtoback" href="#sendtoback"><tt><b>sendToBack</b>()</tt></a>
-</div>
-<div class="member-description hidden">
-<div class="member-text">
-	<p>Sends this item to the back of all other items within the same parent.</p>
-	
-	
-	
-	
-</div>
-</div>
-</div>
-
-	
-<div id="bringtofront" class="member">
-<div class="member-link">
-<a name="bringtofront" href="#bringtofront"><tt><b>bringToFront</b>()</tt></a>
-</div>
-<div class="member-description hidden">
-<div class="member-text">
-	<p>Brings this item to the front of all other items within the same parent.</p>
-	
-	
-	
-	
-</div>
-</div>
-</div>
-
-	
-<div id="appendtop-item" class="member">
-<div class="member-link">
-<a name="appendtop-item" href="#appendtop-item"><tt><b>appendTop</b>(item)</tt></a>
-</div>
-<div class="member-description hidden">
-<div class="member-text">
-	<p>Inserts the specified item as a child of this item by appending it to
-the list of children and moving it above all other children. You can
-use this function for groups, compound paths and layers.</p>
-	
-<ul><b>Parameters:</b>
-
-<li>
-<tt>item:</tt> 
-<a href="/reference/item"><tt>Item</tt></a>
-&mdash;&nbsp;The item to be appended as a child
-
-</li>
-
-</ul>
-
-	
-	
-	
-</div>
-</div>
-</div>
-
-	
-<div id="appendbottom-item" class="member">
-<div class="member-link">
-<a name="appendbottom-item" href="#appendbottom-item"><tt><b>appendBottom</b>(item)</tt></a>
-</div>
-<div class="member-description hidden">
-<div class="member-text">
-	<p>Inserts the specified item as a child of this item by appending it to
-the list of children and moving it below all other children. You can
-use this function for groups, compound paths and layers.</p>
-	
-<ul><b>Parameters:</b>
-
-<li>
-<tt>item:</tt> 
-<a href="/reference/item"><tt>Item</tt></a>
-&mdash;&nbsp;The item to be appended as a child
-
-</li>
-
-</ul>
-
-	
-	
-	
-</div>
-</div>
-</div>
-
-	
-<div id="moveabove-item" class="member">
-<div class="member-link">
-<a name="moveabove-item" href="#moveabove-item"><tt><b>moveAbove</b>(item)</tt></a>
-</div>
-<div class="member-description hidden">
-<div class="member-text">
-	<p>Moves this item above the specified item.</p>
-	
-<ul><b>Parameters:</b>
-
-<li>
-<tt>item:</tt> 
-<a href="/reference/item"><tt>Item</tt></a>
-&mdash;&nbsp;The item above which it should be moved
-
-</li>
-
-</ul>
-
-	
-	<ul><b>Returns:</b>
-	
-		<li>
-<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if it was moved, <tt>false</tt> otherwise
-</li>
-	
-	</ul>
-
-	
-	
-</div>
-</div>
-</div>
-
-	
-<div id="movebelow-item" class="member">
-<div class="member-link">
-<a name="movebelow-item" href="#movebelow-item"><tt><b>moveBelow</b>(item)</tt></a>
-</div>
-<div class="member-description hidden">
-<div class="member-text">
-	<p>Moves the item below the specified item.</p>
-	
-<ul><b>Parameters:</b>
-
-<li>
-<tt>item:</tt> 
-<a href="/reference/item"><tt>Item</tt></a>
-&mdash;&nbsp;the item below which it should be moved
-
-</li>
-
-</ul>
-
-	
-	<ul><b>Returns:</b>
-	
-		<li>
-<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if it was moved, <tt>false</tt> otherwise
-</li>
-	
-	</ul>
-
-	
-	
-</div>
-</div>
-</div>
-
-	
-<div id="reduce" class="member">
-<div class="member-link">
-<a name="reduce" href="#reduce"><tt><b>reduce</b>()</tt></a>
-</div>
-<div class="member-description hidden">
-<div class="member-text">
-	<p>If this is a group, layer or compound-path with only one child-item,
-the child-item is moved outside and the parent is erased. Otherwise, the
-item itself is returned unmodified.</p>
-	
-	
-	<ul><b>Returns:</b>
-	
-		<li>
-<tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the reduced item
-</li>
-	
-	</ul>
-
-	
-	
-</div>
-</div>
-</div>
-
-	
-<div id="remove" class="member">
-<div class="member-link">
-<a name="remove" href="#remove"><tt><b>remove</b>()</tt></a>
-</div>
-<div class="member-description hidden">
-<div class="member-text">
-	<p>Removes the item from the project. If the item has children, they are also
-removed.</p>
-	
-	
-	<ul><b>Returns:</b>
-	
-		<li>
-<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the item was removed, <tt>false</tt> otherwise
 </li>
 	
 	</ul>
@@ -3627,451 +3145,6 @@ removed.</p>
 </div>
 
 	
-<div id="reversechildren" class="member">
-<div class="member-link">
-<a name="reversechildren" href="#reversechildren"><tt><b>reverseChildren</b>()</tt></a>
-</div>
-<div class="member-description hidden">
-<div class="member-text">
-	<p>Reverses the order of the item's children</p>
-	
-	
-	
-	
-</div>
-</div>
-</div>
-
-	
-<h3>Tests</h3>
-
-<div id="isempty" class="member">
-<div class="member-link">
-<a name="isempty" href="#isempty"><tt><b>isEmpty</b>()</tt></a>
-</div>
-<div class="member-description hidden">
-<div class="member-text">
-	<p>Specifies whether the item has any content or not. The meaning of what
-content is differs from type to type. For example, a <a href="/reference/group"><tt>Group</tt></a> with
-no children, a <a href="/reference/textitem"><tt>TextItem</tt></a> with no text content and a <a href="/reference/path"><tt>Path</tt></a>
-with no segments all are considered empty.</p>
-	
-	
-	<ul><b>Returns:</b>
-	
-		<li>
-<tt></tt>&nbsp;&mdash;&nbsp;Boolean
-</li>
-	
-	</ul>
-
-	
-	
-</div>
-</div>
-</div>
-
-	
-<h3>Hierarchy Tests</h3>
-
-<div id="haschildren" class="member">
-<div class="member-link">
-<a name="haschildren" href="#haschildren"><tt><b>hasChildren</b>()</tt></a>
-</div>
-<div class="member-description hidden">
-<div class="member-text">
-	<p>Checks if the item contains any children items.</p>
-	
-	
-	<ul><b>Returns:</b>
-	
-		<li>
-<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> it has one or more children, <tt>false</tt> otherwise
-</li>
-	
-	</ul>
-
-	
-	
-</div>
-</div>
-</div>
-
-	
-<div id="isabove-item" class="member">
-<div class="member-link">
-<a name="isabove-item" href="#isabove-item"><tt><b>isAbove</b>(item)</tt></a>
-</div>
-<div class="member-description hidden">
-<div class="member-text">
-	<p>Checks if this item is above the specified item in the stacking order
-of the project.</p>
-	
-<ul><b>Parameters:</b>
-
-<li>
-<tt>item:</tt> 
-<a href="/reference/item"><tt>Item</tt></a>
-&mdash;&nbsp;The item to check against
-
-</li>
-
-</ul>
-
-	
-	<ul><b>Returns:</b>
-	
-		<li>
-<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if it is above the specified item, <tt>false</tt> otherwise
-</li>
-	
-	</ul>
-
-	
-	
-</div>
-</div>
-</div>
-
-	
-<div id="isbelow-item" class="member">
-<div class="member-link">
-<a name="isbelow-item" href="#isbelow-item"><tt><b>isBelow</b>(item)</tt></a>
-</div>
-<div class="member-description hidden">
-<div class="member-text">
-	<p>Checks if the item is below the specified item in the stacking order of
-the project.</p>
-	
-<ul><b>Parameters:</b>
-
-<li>
-<tt>item:</tt> 
-<a href="/reference/item"><tt>Item</tt></a>
-&mdash;&nbsp;The item to check against
-
-</li>
-
-</ul>
-
-	
-	<ul><b>Returns:</b>
-	
-		<li>
-<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if it is below the specified item, <tt>false</tt> otherwise
-</li>
-	
-	</ul>
-
-	
-	
-</div>
-</div>
-</div>
-
-	
-<div id="isparent-item" class="member">
-<div class="member-link">
-<a name="isparent-item" href="#isparent-item"><tt><b>isParent</b>(item)</tt></a>
-</div>
-<div class="member-description hidden">
-<div class="member-text">
-	<p>Checks whether the specified item is the parent of the item.</p>
-	
-<ul><b>Parameters:</b>
-
-<li>
-<tt>item:</tt> 
-<a href="/reference/item"><tt>Item</tt></a>
-&mdash;&nbsp;The item to check against
-
-</li>
-
-</ul>
-
-	
-	<ul><b>Returns:</b>
-	
-		<li>
-<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if it is the parent of the item, <tt>false</tt> otherwise
-</li>
-	
-	</ul>
-
-	
-	
-</div>
-</div>
-</div>
-
-	
-<div id="ischild-item" class="member">
-<div class="member-link">
-<a name="ischild-item" href="#ischild-item"><tt><b>isChild</b>(item)</tt></a>
-</div>
-<div class="member-description hidden">
-<div class="member-text">
-	<p>Checks whether the specified item is a child of the item.</p>
-	
-<ul><b>Parameters:</b>
-
-<li>
-<tt>item:</tt> 
-<a href="/reference/item"><tt>Item</tt></a>
-&mdash;&nbsp;The item to check against
-
-</li>
-
-</ul>
-
-	
-	<ul><b>Returns:</b>
-	
-		<li>
-<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> it is a child of the item, <tt>false</tt> otherwise
-</li>
-	
-	</ul>
-
-	
-	
-</div>
-</div>
-</div>
-
-	
-<div id="isdescendant-item" class="member">
-<div class="member-link">
-<a name="isdescendant-item" href="#isdescendant-item"><tt><b>isDescendant</b>(item)</tt></a>
-</div>
-<div class="member-description hidden">
-<div class="member-text">
-	<p>Checks if the item is contained within the specified item.</p>
-	
-<ul><b>Parameters:</b>
-
-<li>
-<tt>item:</tt> 
-<a href="/reference/item"><tt>Item</tt></a>
-&mdash;&nbsp;The item to check against
-
-</li>
-
-</ul>
-
-	
-	<ul><b>Returns:</b>
-	
-		<li>
-<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if it is inside the specified item, <tt>false</tt> otherwise
-</li>
-	
-	</ul>
-
-	
-	
-</div>
-</div>
-</div>
-
-	
-<div id="isancestor-item" class="member">
-<div class="member-link">
-<a name="isancestor-item" href="#isancestor-item"><tt><b>isAncestor</b>(item)</tt></a>
-</div>
-<div class="member-description hidden">
-<div class="member-text">
-	<p>Checks if the item is an ancestor of the specified item.</p>
-	
-<ul><b>Parameters:</b>
-
-<li>
-<tt>item:</tt> 
-<a href="/reference/item"><tt>Item</tt></a>
-&mdash;&nbsp;the item to check against
-
-</li>
-
-</ul>
-
-	
-	<ul><b>Returns:</b>
-	
-		<li>
-<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the item is an ancestor of the specified
-item, <tt>false</tt> otherwise
-</li>
-	
-	</ul>
-
-	
-	
-</div>
-</div>
-</div>
-
-	
-<div id="isgroupedwith-item" class="member">
-<div class="member-link">
-<a name="isgroupedwith-item" href="#isgroupedwith-item"><tt><b>isGroupedWith</b>(item)</tt></a>
-</div>
-<div class="member-description hidden">
-<div class="member-text">
-	<p>Checks whether the item is grouped with the specified item.</p>
-	
-<ul><b>Parameters:</b>
-
-<li>
-<tt>item:</tt> 
-<a href="/reference/item"><tt>Item</tt></a>
-
-
-</li>
-
-</ul>
-
-	
-	<ul><b>Returns:</b>
-	
-		<li>
-<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the items are grouped together, <tt>false</tt> otherwise
-</li>
-	
-	</ul>
-
-	
-	
-</div>
-</div>
-</div>
-
-	
-<h3>Transform Functions</h3>
-
-<div id="translate-delta" class="member">
-<div class="member-link">
-<a name="translate-delta" href="#translate-delta"><tt><b>translate</b>(delta)</tt></a>
-</div>
-<div class="member-description hidden">
-<div class="member-text">
-	<p>Translates (moves) the item by the given offset point.</p>
-	
-<ul><b>Parameters:</b>
-
-<li>
-<tt>delta:</tt> 
-<a href="/reference/point"><tt>Point</tt></a>
-&mdash;&nbsp;the offset to translate the item by
-
-</li>
-
-</ul>
-
-	
-	
-	
-</div>
-</div>
-</div>
-
-	
-<div id="rotate-angle" class="member">
-<div class="member-link">
-<a name="rotate-angle" href="#rotate-angle"><tt><b>rotate</b>(angle[, center])</tt></a>
-</div>
-<div class="member-description hidden">
-<div class="member-text">
-	<p>Rotates the item by a given angle around the given point.</p>
-<p>Angles are oriented clockwise and measured in degrees.</p>
-	
-<ul><b>Parameters:</b>
-
-<li>
-<tt>angle:</tt> 
-<tt>Number</tt>
-&mdash;&nbsp;the rotation angle
-
-</li>
-
-<li>
-<tt>center:</tt> 
-<a href="/reference/point"><tt>Point</tt></a>
-
-&mdash;&nbsp;optional, default: <tt><a href="/reference/item#position"><tt>item.position</tt></a></tt>
-</li>
-
-</ul>
-
-	
-	
-	<p><b>See also:</b>
-	<tt><a href="/reference/matrix#rotate"><tt>matrix.rotate</tt></a></tt>
-	</p>
-
-	<p>
-<b>Example</b> &mdash; Rotating an item:
-</p>
-
-<div class="paperscript split">
-
-<div class="buttons">
-<div class="button run">Run</div>
-</div>
-
-<script type="text/paperscript" canvas="canvas-40">
-// Create a rectangle shaped path with its top left
-// point at {x: 80, y: 25} and a size of {width: 50, height: 50}:
-var path = new Path.Rectangle(new Point(80, 25), new Size(50, 50));
-path.fillColor = 'black';
-
-// Rotate the path by 30 degrees:
-path.rotate(30);
-</script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-40"></canvas></div>
-</div>
-
-
-<p>
-<b>Example</b> &mdash; Rotating an item around a specific point:
-</p>
-
-<div class="paperscript split">
-
-<div class="buttons">
-<div class="button run">Run</div>
-</div>
-
-<script type="text/paperscript" canvas="canvas-41">
-// Create a rectangle shaped path with its top left
-// point at {x: 175, y: 50} and a size of {width: 100, height: 100}:
-var topLeft = new Point(175, 50);
-var size = new Size(100, 100);
-var path = new Path.Rectangle(topLeft, size);
-path.fillColor = 'black';
-
-// Draw a circle shaped path in the center of the view,
-// to show the rotation point:
-var circle = new Path.Circle({
-	center: view.center,
-	radius: 5,
-	fillColor: 'white'
-});
-
-// Each frame rotate the path 3 degrees around the center point
-// of the view:
-function onFrame(event) {
-	path.rotate(3, view.center);
-}
-</script>
-<div class="canvas"><canvas width="516" height="200" id="canvas-41"></canvas></div>
-</div>
-
-
-</div>
-</div>
-</div>
-
-	
 <div id="scale-scale" class="member">
 <div class="member-link">
 <a name="scale-scale" href="#scale-scale"><tt><b>scale</b>(scale[, center])</tt></a>
@@ -4111,7 +3184,7 @@ from a supplied point.</p>
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-42">
+<script type="text/paperscript" canvas="canvas-40">
 // Create a circle shaped path at { x: 80, y: 50 }
 // with a radius of 20:
 var circle = new Path.Circle({
@@ -4123,7 +3196,7 @@ var circle = new Path.Circle({
 // Scale the path by 150% from its center point
 circle.scale(1.5);
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-42"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-40"></canvas></div>
 </div>
 
 
@@ -4137,7 +3210,7 @@ circle.scale(1.5);
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-43">
+<script type="text/paperscript" canvas="canvas-41">
 // Create a circle shaped path at { x: 80, y: 50 }
 // with a radius of 20:
 var circle = new Path.Circle({
@@ -4149,7 +3222,7 @@ var circle = new Path.Circle({
 // Scale the path 150% from its bottom left corner
 circle.scale(1.5, circle.bounds.bottomLeft);
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-43"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-41"></canvas></div>
 </div>
 
 
@@ -4204,7 +3277,7 @@ from a supplied point.</p>
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-44">
+<script type="text/paperscript" canvas="canvas-42">
 // Create a circle shaped path at { x: 100, y: 50 }
 // with a radius of 20:
 var circle = new Path.Circle({
@@ -4216,7 +3289,7 @@ var circle = new Path.Circle({
 // Scale the path horizontally by 300%
 circle.scale(3, 1);
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-44"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-42"></canvas></div>
 </div>
 
 
@@ -4533,7 +3606,7 @@ rectangle, without changing its aspect ratio.</p>
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-45">
+<script type="text/paperscript" canvas="canvas-43">
 // Create a rectangle shaped path with its top left corner
 // at {x: 80, y: 25} and a size of {width: 75, height: 50}:
 var path = new Path.Rectangle({
@@ -4554,7 +3627,7 @@ var circlePath = new Path.Circle({
 // the rectangular path:
 circlePath.fitBounds(path.bounds);
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-45"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-43"></canvas></div>
 </div>
 
 
@@ -4568,7 +3641,7 @@ circlePath.fitBounds(path.bounds);
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-46">
+<script type="text/paperscript" canvas="canvas-44">
 // Create a rectangle shaped path with its top left corner
 // at {x: 80, y: 25} and a size of {width: 75, height: 50}:
 var path = new Path.Rectangle({
@@ -4589,7 +3662,7 @@ var circlePath = new Path.Circle({
 // the rectangular path:
 circlePath.fitBounds(path.bounds, true);
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-46"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-44"></canvas></div>
 </div>
 
 
@@ -4603,7 +3676,7 @@ circlePath.fitBounds(path.bounds, true);
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-47">
+<script type="text/paperscript" canvas="canvas-45">
 var path = new Path.Circle({
 	center: [80, 50],
 	radius: 30,
@@ -4613,7 +3686,7 @@ var path = new Path.Circle({
 // Fit the path to the bounding rectangle of the view:
 path.fitBounds(view.bounds);
 </script>
-<div class="canvas"><canvas width="516" height="200" id="canvas-47"></canvas></div>
+<div class="canvas"><canvas width="516" height="200" id="canvas-45"></canvas></div>
 </div>
 
 
@@ -4664,7 +3737,7 @@ occurs
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-48">
+<script type="text/paperscript" canvas="canvas-46">
 // Create a circle shaped path at the center of the view:
 var path = new Path.Circle({
 	center: view.center,
@@ -4682,7 +3755,7 @@ path.on('mouseleave', function() {
 	this.fillColor = 'black';
 });
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-48"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-46"></canvas></div>
 </div>
 
 
@@ -4724,7 +3797,7 @@ doubleclick, mousemove, mouseenter, mouseleave</tt>.
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-49">
+<script type="text/paperscript" canvas="canvas-47">
 // Create a circle shaped path at the center of the view:
 var path = new Path.Circle({
 	center: view.center,
@@ -4742,7 +3815,7 @@ path.on({
 	}
 });
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-49"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-47"></canvas></div>
 </div>
 
 
@@ -4756,7 +3829,7 @@ path.on({
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-50">
+<script type="text/paperscript" canvas="canvas-48">
 var pathHandlers = {
 	mouseenter: function(event) {
 		this.fillColor = 'red';
@@ -4779,7 +3852,7 @@ function onMouseDown(event) {
 	path.on(pathHandlers);
 }
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-50"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-48"></canvas></div>
 </div>
 
 
@@ -4968,7 +4041,7 @@ fired: <tt>object.up = true</tt></p>
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-51">
+<script type="text/paperscript" canvas="canvas-49">
 function onMouseDrag(event) {
 	// Create a circle shaped path at the mouse position,
 	// with a radius of 10:
@@ -4985,7 +4058,7 @@ function onMouseDrag(event) {
 	});
 }
 </script>
-<div class="canvas"><canvas width="516" height="200" id="canvas-51"></canvas></div>
+<div class="canvas"><canvas width="516" height="200" id="canvas-49"></canvas></div>
 </div>
 
 
@@ -5014,7 +4087,7 @@ function onMouseDrag(event) {
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-52">
+<script type="text/paperscript" canvas="canvas-50">
 function onMouseMove(event) {
 	// Create a circle shaped path at the mouse position,
 	// with a radius of 10:
@@ -5028,7 +4101,7 @@ function onMouseMove(event) {
 	path.removeOnMove();
 }
 </script>
-<div class="canvas"><canvas width="516" height="200" id="canvas-52"></canvas></div>
+<div class="canvas"><canvas width="516" height="200" id="canvas-50"></canvas></div>
 </div>
 
 
@@ -5057,7 +4130,7 @@ function onMouseMove(event) {
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-53">
+<script type="text/paperscript" canvas="canvas-51">
 function onMouseDown(event) {
 	// Create a circle shaped path at the mouse position,
 	// with a radius of 10:
@@ -5071,7 +4144,7 @@ function onMouseDown(event) {
 	path.removeOnDown();
 }
 </script>
-<div class="canvas"><canvas width="516" height="200" id="canvas-53"></canvas></div>
+<div class="canvas"><canvas width="516" height="200" id="canvas-51"></canvas></div>
 </div>
 
 
@@ -5100,7 +4173,7 @@ function onMouseDown(event) {
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-54">
+<script type="text/paperscript" canvas="canvas-52">
 function onMouseDrag(event) {
 	// Create a circle shaped path at the mouse position,
 	// with a radius of 10:
@@ -5114,7 +4187,7 @@ function onMouseDrag(event) {
 	path.removeOnDrag();
 }
 </script>
-<div class="canvas"><canvas width="516" height="200" id="canvas-54"></canvas></div>
+<div class="canvas"><canvas width="516" height="200" id="canvas-52"></canvas></div>
 </div>
 
 
@@ -5143,7 +4216,7 @@ function onMouseDrag(event) {
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-55">
+<script type="text/paperscript" canvas="canvas-53">
 function onMouseDown(event) {
 	// Create a circle shaped path at the mouse position,
 	// with a radius of 10:
@@ -5157,7 +4230,7 @@ function onMouseDown(event) {
 	path.removeOnUp();
 }
 </script>
-<div class="canvas"><canvas width="516" height="200" id="canvas-55"></canvas></div>
+<div class="canvas"><canvas width="516" height="200" id="canvas-53"></canvas></div>
 </div>
 
 

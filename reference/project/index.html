@@ -53,7 +53,7 @@
 document: The top level object that holds all the items contained in the
 scene graph. As the term document is already taken in the browser context,
 it is called Project.</p>
-<p>Projects allow the manipluation of the styles that are applied to all newly
+<p>Projects allow the manipulation of the styles that are applied to all newly
 created items, give access to the selected items, and will in future versions
 offer ways to query for items in the scene graph defining specific
 requirements, and means to persist and load from different formats, such as
@@ -354,7 +354,7 @@ in it.</p>
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Specifies whether the project has any content or not. Note that since
-projects by default are created with one empty layer, this returns alos
+projects by default are created with one empty layer, this returns also
 <tt>true</tt> if that layer exists but is itself empty.</p>
 	
 	
@@ -435,9 +435,9 @@ and may contain a combination of the following values:</p>
 <p><b>options.tolerance:</b> <tt>Number</tt> – the tolerance of the hit test
 in points, can also be controlled through
 <a href="/reference/project#options"><tt>project.options</tt></a><tt>.hitTolerance</tt>.</p>
-<p><b>options.type:</b> Only hit test again a certain item
-type: {String('group', 'layer', 'path', 'compound-path', 'shape',
-'raster', 'placed-symbol', 'point-text')}, etc.</p>
+<p><b>options.type:</b> Only hit test again a certain item type:</p>
+<p><tt>Group, Layer, Path, CompoundPath, Shape, Raster, PlacedSymbol,
+PointText</tt>, etc.</p>
 <p><b>options.fill:</b> <tt>Boolean</tt> – hit test the fill of items.</p>
 <p><b>options.stroke:</b> <tt>Boolean</tt> – hit test the curves of path
 items, taking into account stroke width.</p>
@@ -504,8 +504,8 @@ hit
 	<p>Exports (serializes) the project with all its layers and child items to
 a JSON data string.</p>
 <p>The options object offers control over some aspects of the SVG export:</p>
-<p><b>options.asString:</b> <tt>Boolean</tt> – wether the JSON is returned as
-a <tt>Object</tt> or a <tt>String</tt>.</p>
+<p><b>options.asString:</b> <tt>Boolean</tt> – whether the JSON is returned
+as a <tt>Object</tt> or a <tt>String</tt>.</p>
 <p><b>options.precision:</b> <tt>Number</tt> – the amount of fractional
 digits in numbers used in JSON data.</p>
 	
@@ -575,11 +575,11 @@ serialization options
 	<p>Exports the project with all its layers and child items as an SVG DOM,
 all contained in one top level SVG group node.</p>
 <p>The options object offers control over some aspects of the SVG export:</p>
-<p><b>options.asString:</b> <tt>Boolean</tt> – wether a SVG node or a
+<p><b>options.asString:</b> <tt>Boolean</tt> – whether a SVG node or a
 <tt>String</tt> is to be returned.</p>
 <p><b>options.precision:</b> <tt>Number</tt> – the amount of fractional
 digits in numbers used in SVG data.</p>
-<p><b>options.matchShapes:</b> <tt>Boolean</tt> – wether imported path
+<p><b>options.matchShapes:</b> <tt>Boolean</tt> – whether imported path
 items should tried to be converted to shape items, if their geometries
 match.</p>
 	
@@ -622,7 +622,7 @@ the active layer of this project.</p>
 <p>Note that the project is not cleared first. You can call
 <tt>Project#clear</tt>() to do so.</p>
 <p>The options object offers control over some aspects of the SVG import:</p>
-<p><b>options.expandShapes:</b> <tt>Boolean</tt> – wether imported shape
+<p><b>options.expandShapes:</b> <tt>Boolean</tt> – whether imported shape
 items should be expanded to path items.</p>
 	
 <ul><b>Parameters:</b>

@@ -408,6 +408,888 @@ instead.</p>
 
 
 
+<!-- ============================== methods ================================ -->
+	<div class="reference-members"><h2>Methods</h2>
+		
+			
+<div id="importjson-json" class="member">
+<div class="member-link">
+<a name="importjson-json" href="#importjson-json"><tt><b>importJSON</b>(json)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Imports (deserializes) the stored JSON data into this item. If the data
+describes an item of the same class or a parent class of the item, the
+data is imported into the item itself. If not, the imported item is added
+to this item's <a href="/reference/item#children"><tt>item.children</tt></a> list. Note that not all type of
+items can have children.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>json:</tt> 
+<tt>String</tt>
+&mdash;&nbsp;the JSON data to import from.
+
+</li>
+
+</ul>
+
+	
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<h3>Hierarchy Operations</h3>
+
+<div id="addchild-item-_preserve" class="member">
+<div class="member-link">
+<a name="addchild-item-_preserve" href="#addchild-item-_preserve"><tt><b>addChild</b>(item)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Adds the specified item as a child of this item at the end of the
+its children list. You can use this function for groups, compound
+paths and layers.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>item:</tt> 
+<a href="/reference/item"><tt>Item</tt></a>
+&mdash;&nbsp;the item to be added as a child
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the added item, or <tt>null</tt> if adding was not
+possible.
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="insertchild-index-item-_preserve" class="member">
+<div class="member-link">
+<a name="insertchild-index-item-_preserve" href="#insertchild-index-item-_preserve"><tt><b>insertChild</b>(index, item)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Inserts the specified item as a child of this item at the specified
+index in its <tt>#children</tt> list. You can use this function for
+groups, compound paths and layers.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>index:</tt> 
+<tt>Number</tt>
+
+
+</li>
+
+<li>
+<tt>item:</tt> 
+<a href="/reference/item"><tt>Item</tt></a>
+&mdash;&nbsp;the item to be inserted as a child
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the inserted item, or <tt>null</tt> if inserting was not
+possible.
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="addchildren-items-_preserve" class="member">
+<div class="member-link">
+<a name="addchildren-items-_preserve" href="#addchildren-items-_preserve"><tt><b>addChildren</b>(items)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Adds the specified items as children of this item at the end of the
+its children list. You can use this function for groups, compound
+paths and layers.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>items:</tt> 
+Array of <a href="/reference/item"><tt>Item</tt></a> objects
+&mdash;&nbsp;The items to be added as children
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt>Array of <a href="/reference/item"><tt>Item</tt></a> objects</tt>&nbsp;&mdash;&nbsp;the added items, or <tt>null</tt> if adding was not
+possible.
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="insertchildren-index-items-_preserve-_proto" class="member">
+<div class="member-link">
+<a name="insertchildren-index-items-_preserve-_proto" href="#insertchildren-index-items-_preserve-_proto"><tt><b>insertChildren</b>(index, items)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Inserts the specified items as children of this item at the specified
+index in its <tt>#children</tt> list. You can use this function for
+groups, compound paths and layers.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>index:</tt> 
+<tt>Number</tt>
+
+
+</li>
+
+<li>
+<tt>items:</tt> 
+Array of <a href="/reference/item"><tt>Item</tt></a> objects
+&mdash;&nbsp;The items to be appended as children
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt>Array of <a href="/reference/item"><tt>Item</tt></a> objects</tt>&nbsp;&mdash;&nbsp;the inserted items, or <tt>null</tt> if inserted was not
+possible.
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="insertabove-item-_preserve" class="member">
+<div class="member-link">
+<a name="insertabove-item-_preserve" href="#insertabove-item-_preserve"><tt><b>insertAbove</b>(item)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Inserts this item above the specified item.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>item:</tt> 
+<a href="/reference/item"><tt>Item</tt></a>
+&mdash;&nbsp;the item above which it should be inserted
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the inserted item, or <tt>null</tt> if inserting was not
+possible.
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="insertbelow-item-_preserve" class="member">
+<div class="member-link">
+<a name="insertbelow-item-_preserve" href="#insertbelow-item-_preserve"><tt><b>insertBelow</b>(item)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Inserts this item below the specified item.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>item:</tt> 
+<a href="/reference/item"><tt>Item</tt></a>
+&mdash;&nbsp;the item below which it should be inserted
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the inserted item, or <tt>null</tt> if inserting was not
+possible.
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="sendtoback" class="member">
+<div class="member-link">
+<a name="sendtoback" href="#sendtoback"><tt><b>sendToBack</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Sends this item to the back of all other items within the same parent.</p>
+	
+	
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="bringtofront" class="member">
+<div class="member-link">
+<a name="bringtofront" href="#bringtofront"><tt><b>bringToFront</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Brings this item to the front of all other items within the same parent.</p>
+	
+	
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="reduce" class="member">
+<div class="member-link">
+<a name="reduce" href="#reduce"><tt><b>reduce</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>If this is a group, layer or compound-path with only one child-item,
+the child-item is moved outside and the parent is erased. Otherwise, the
+item itself is returned unmodified.</p>
+	
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the reduced item
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="_removenamed" class="member">
+<div class="member-link">
+<a name="_removenamed" href="#_removenamed"><tt><b>_removeNamed</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Removes the item from its parent's named children list.</p>
+	
+	
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="_remove-notifySelf-notifyParent" class="member">
+<div class="member-link">
+<a name="_remove-notifySelf-notifyParent" href="#_remove-notifySelf-notifyParent"><tt><b>_remove</b>(notifySelf, notifyParent)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Removes the item from its parent's children list.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>notifySelf:</tt> 
+
+
+
+</li>
+
+<li>
+<tt>notifyParent:</tt> 
+
+
+
+</li>
+
+</ul>
+
+	
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="remove" class="member">
+<div class="member-link">
+<a name="remove" href="#remove"><tt><b>remove</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Removes the item from the project. If the item has children, they are also
+removed.</p>
+	
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the item was removed, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="reversechildren" class="member">
+<div class="member-link">
+<a name="reversechildren" href="#reversechildren"><tt><b>reverseChildren</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Reverses the order of the item's children</p>
+	
+	
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<h3>Tests</h3>
+
+<div id="isempty" class="member">
+<div class="member-link">
+<a name="isempty" href="#isempty"><tt><b>isEmpty</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Specifies whether the item has any content or not. The meaning of what
+content is differs from type to type. For example, a <a href="/reference/group"><tt>Group</tt></a> with
+no children, a <a href="/reference/textitem"><tt>TextItem</tt></a> with no text content and a <a href="/reference/path"><tt>Path</tt></a>
+with no segments all are considered empty.</p>
+	
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt></tt>&nbsp;&mdash;&nbsp;Boolean
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="_getorder-item" class="member">
+<div class="member-link">
+<a name="_getorder-item" href="#_getorder-item"><tt><b>_getOrder</b>(item)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Returns -1 if 'this' is above 'item', 1 if below, 0 if their order is not
+defined in such a way, e.g. if one is a descendant of the other.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>item:</tt> 
+
+
+
+</li>
+
+</ul>
+
+	
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<h3>Hierarchy Tests</h3>
+
+<div id="haschildren" class="member">
+<div class="member-link">
+<a name="haschildren" href="#haschildren"><tt><b>hasChildren</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Checks if the item contains any children items.</p>
+	
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> it has one or more children, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="isabove-item" class="member">
+<div class="member-link">
+<a name="isabove-item" href="#isabove-item"><tt><b>isAbove</b>(item)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Checks if this item is above the specified item in the stacking order
+of the project.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>item:</tt> 
+<a href="/reference/item"><tt>Item</tt></a>
+&mdash;&nbsp;The item to check against
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if it is above the specified item, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="isbelow-item" class="member">
+<div class="member-link">
+<a name="isbelow-item" href="#isbelow-item"><tt><b>isBelow</b>(item)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Checks if the item is below the specified item in the stacking order of
+the project.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>item:</tt> 
+<a href="/reference/item"><tt>Item</tt></a>
+&mdash;&nbsp;The item to check against
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if it is below the specified item, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="isparent-item" class="member">
+<div class="member-link">
+<a name="isparent-item" href="#isparent-item"><tt><b>isParent</b>(item)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Checks whether the specified item is the parent of the item.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>item:</tt> 
+<a href="/reference/item"><tt>Item</tt></a>
+&mdash;&nbsp;The item to check against
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if it is the parent of the item, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="ischild-item" class="member">
+<div class="member-link">
+<a name="ischild-item" href="#ischild-item"><tt><b>isChild</b>(item)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Checks whether the specified item is a child of the item.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>item:</tt> 
+<a href="/reference/item"><tt>Item</tt></a>
+&mdash;&nbsp;The item to check against
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> it is a child of the item, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="isdescendant-item" class="member">
+<div class="member-link">
+<a name="isdescendant-item" href="#isdescendant-item"><tt><b>isDescendant</b>(item)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Checks if the item is contained within the specified item.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>item:</tt> 
+<a href="/reference/item"><tt>Item</tt></a>
+&mdash;&nbsp;The item to check against
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if it is inside the specified item, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="isancestor-item" class="member">
+<div class="member-link">
+<a name="isancestor-item" href="#isancestor-item"><tt><b>isAncestor</b>(item)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Checks if the item is an ancestor of the specified item.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>item:</tt> 
+<a href="/reference/item"><tt>Item</tt></a>
+&mdash;&nbsp;the item to check against
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the item is an ancestor of the specified
+item, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="isgroupedwith-item" class="member">
+<div class="member-link">
+<a name="isgroupedwith-item" href="#isgroupedwith-item"><tt><b>isGroupedWith</b>(item)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Checks whether the item is grouped with the specified item.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>item:</tt> 
+<a href="/reference/item"><tt>Item</tt></a>
+
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the items are grouped together, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<h3>Transform Functions</h3>
+
+<div id="translate-delta" class="member">
+<div class="member-link">
+<a name="translate-delta" href="#translate-delta"><tt><b>translate</b>(delta)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Translates (moves) the item by the given offset point.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>delta:</tt> 
+<a href="/reference/point"><tt>Point</tt></a>
+&mdash;&nbsp;the offset to translate the item by
+
+</li>
+
+</ul>
+
+	
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="rotate-angle" class="member">
+<div class="member-link">
+<a name="rotate-angle" href="#rotate-angle"><tt><b>rotate</b>(angle[, center])</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Rotates the item by a given angle around the given point.</p>
+<p>Angles are oriented clockwise and measured in degrees.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>angle:</tt> 
+<tt>Number</tt>
+&mdash;&nbsp;the rotation angle
+
+</li>
+
+<li>
+<tt>center:</tt> 
+<a href="/reference/point"><tt>Point</tt></a>
+
+&mdash;&nbsp;optional, default: <tt><a href="/reference/item#position"><tt>item.position</tt></a></tt>
+</li>
+
+</ul>
+
+	
+	
+	<p><b>See also:</b>
+	<tt><a href="/reference/matrix#rotate"><tt>matrix.rotate</tt></a></tt>
+	</p>
+
+	<p>
+<b>Example</b> &mdash; Rotating an item:
+</p>
+
+<div class="paperscript split">
+
+<div class="buttons">
+<div class="button run">Run</div>
+</div>
+
+<script type="text/paperscript" canvas="canvas-0">
+// Create a rectangle shaped path with its top left
+// point at {x: 80, y: 25} and a size of {width: 50, height: 50}:
+var path = new Path.Rectangle(new Point(80, 25), new Size(50, 50));
+path.fillColor = 'black';
+
+// Rotate the path by 30 degrees:
+path.rotate(30);
+</script>
+<div class="canvas"><canvas width="516" height="100" id="canvas-0"></canvas></div>
+</div>
+
+
+<p>
+<b>Example</b> &mdash; Rotating an item around a specific point:
+</p>
+
+<div class="paperscript split">
+
+<div class="buttons">
+<div class="button run">Run</div>
+</div>
+
+<script type="text/paperscript" canvas="canvas-1">
+// Create a rectangle shaped path with its top left
+// point at {x: 175, y: 50} and a size of {width: 100, height: 100}:
+var topLeft = new Point(175, 50);
+var size = new Size(100, 100);
+var path = new Path.Rectangle(topLeft, size);
+path.fillColor = 'black';
+
+// Draw a circle shaped path in the center of the view,
+// to show the rotation point:
+var circle = new Path.Circle({
+	center: view.center,
+	radius: 5,
+	fillColor: 'white'
+});
+
+// Each frame rotate the path 3 degrees around the center point
+// of the view:
+function onFrame(event) {
+	path.rotate(3, view.center);
+}
+</script>
+<div class="canvas"><canvas width="516" height="200" id="canvas-1"></canvas></div>
+</div>
+
+
+</div>
+</div>
+</div>
+		
+	</div>
+
 
 
 </div>
