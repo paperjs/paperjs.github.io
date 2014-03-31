@@ -649,15 +649,27 @@ function onMouseDrag(event) {
 </div>
 		
 			
-<div id="closepath" class="member">
+<div id="closepath-join" class="member">
 <div class="member-link">
-<a name="closepath" href="#closepath"><tt><b>closePath</b>()</tt></a>
+<a name="closepath-join" href="#closepath-join"><tt><b>closePath</b>(join)</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Closes the path. When closed, Paper.js connects the first and last
-segments.</p>
+	<p>Closes the path. When closed, Paper.js connects the first and
+last segment of the path with an additional curve.</p>
 	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>join:</tt> 
+<tt>Boolean</tt>
+&mdash;&nbsp;controls whether the method should attempt to merge
+the first segment with the last if they lie in the same location.
+
+</li>
+
+</ul>
+
 	
 	
 	<p><b>See also:</b>
@@ -1989,7 +2001,8 @@ relation to its parent item in which it is contained.</p>
 
 <div class="member-text">
 	<p>The item's global transformation matrix in relation to the global project
-coordinate space.</p>
+coordinate space. Note that the view's transformations resulting from
+zooming and panning are not factored in.</p>
 	
 		<p>Read only.</p>
 	
