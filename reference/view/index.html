@@ -307,8 +307,8 @@ var path = new Path.Rectangle(new Point(50, 25), new Size(50, 50));
 path.fillColor = 'black';
 
 function onFrame(event) {
-	// Every frame, rotate the path by 3 degrees:
-	path.rotate(3);
+    // Every frame, rotate the path by 3 degrees:
+    path.rotate(3);
 }
 </script>
 <div class="canvas"><canvas width="516" height="100" id="canvas-0"></canvas></div>
@@ -347,8 +347,8 @@ var path = new Path.Circle(view.bounds.center, 30);
 path.fillColor = 'red';
 
 function onResize(event) {
-	// Whenever the view is resized, move the path to its center:
-	path.position = view.center;
+    // Whenever the view is resized, move the path to its center:
+    path.position = view.center;
 }</pre>
 
 </div>
@@ -530,8 +530,8 @@ var path = new Path.Rectangle(new Point(50, 25), new Size(50, 50));
 path.fillColor = 'black';
 
 var frameHandler = function(event) {
-	// Every frame, rotate the path by 3 degrees:
-	path.rotate(3);
+    // Every frame, rotate the path by 3 degrees:
+    path.rotate(3);
 };
 
 view.on('frame', frameHandler);
@@ -566,12 +566,12 @@ var path = new Path.Rectangle(new Point(50, 25), new Size(50, 50));
 path.fillColor = 'black';
 
 var frameHandler = function(event) {
-	// Every frame, rotate the path by 3 degrees:
-	path.rotate(3);
+    // Every frame, rotate the path by 3 degrees:
+    path.rotate(3);
 };
 
 view.on({
-	frame: frameHandler
+    frame: frameHandler
 });
 
 </li>
@@ -629,18 +629,18 @@ var path = new Path.Rectangle(new Point(50, 25), new Size(50, 50));
 path.fillColor = 'black';
 
 var frameHandler = function(event) {
-	// Every frame, rotate the path by 3 degrees:
-	path.rotate(3);
+    // Every frame, rotate the path by 3 degrees:
+    path.rotate(3);
 };
 
 view.on({
-	frame: frameHandler
+    frame: frameHandler
 });
 
 // When the user presses the mouse,
 // detach the frame handler from the view:
 function onMouseDown(event) {
-	view.detach('frame');
+    view.detach('frame');
 }
 </script>
 <div class="canvas"><canvas width="516" height="100" id="canvas-2"></canvas></div>

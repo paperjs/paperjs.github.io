@@ -107,7 +107,7 @@ var raster = new Raster(url);
 // If you create a Raster using a url, you can use the onLoad
 // handler to do something once it is loaded:
 raster.onLoad = function() {
-	console.log('The image has loaded.');
+    console.log('The image has loaded.');
 };
 </script>
 <div class="canvas"><canvas width="516" height="300" id="canvas-0"></canvas></div>
@@ -145,8 +145,8 @@ var raster = new Raster(imageElement);</pre>
 
 <script type="text/paperscript" canvas="canvas-1">
 var raster = new Raster({
-	source: 'http://upload.wikimedia.org/wikipedia/en/2/24/Lenna.png',
-	position: view.center
+    source: 'http://upload.wikimedia.org/wikipedia/en/2/24/Lenna.png',
+    position: view.center
 });
 
 raster.scale(0.5);
@@ -391,8 +391,8 @@ raster.position = view.center;
 
 <script type="text/paperscript" canvas="canvas-3">
 var raster = new Raster({
-	source: 'http://paperjs.org/about/resources/paper-js.gif',
-	position: view.center
+    source: 'http://paperjs.org/about/resources/paper-js.gif',
+    position: view.center
 });
 </script>
 <div class="canvas"><canvas width="516" height="100" id="canvas-3"></canvas></div>
@@ -939,8 +939,8 @@ through its parent's children list.</p>
 
 <script type="text/paperscript" canvas="canvas-4">
 var path = new Path.Circle({
-	center: [80, 50],
-	radius: 35
+    center: [80, 50],
+    radius: 35
 });
 // Set the name of the path:
 path.name = 'example';
@@ -990,13 +990,13 @@ group.children['example'].fillColor = 'red';
 
 <script type="text/paperscript" canvas="canvas-5">
 var circle = new Path.Circle({
-	center: [80, 50],
-	radius: 30
+    center: [80, 50],
+    radius: 30
 });
 circle.style = {
-	fillColor: 'blue',
-	strokeColor: 'red',
-	strokeWidth: 5
+    fillColor: 'blue',
+    strokeColor: 'red',
+    strokeWidth: 5
 };
 </script>
 <div class="canvas"><canvas width="516" height="100" id="canvas-5"></canvas></div>
@@ -1015,14 +1015,14 @@ circle.style = {
 
 <script type="text/paperscript" canvas="canvas-6">
 var path = new Path.Circle({
-	center: [50, 50],
-	radius: 30,
-	fillColor: 'red'
+    center: [50, 50],
+    radius: 30,
+    fillColor: 'red'
 });
 
 var path2 = new Path.Circle({
-	center: new Point(180, 50),
-	radius: 20
+    center: new Point(180, 50),
+    radius: 20
 });
 
 // Copy the path style of path:
@@ -1044,20 +1044,20 @@ path2.style = path.style;
 
 <script type="text/paperscript" canvas="canvas-7">
 var myStyle = {
-	fillColor: 'red',
-	strokeColor: 'blue',
-	strokeWidth: 4
+    fillColor: 'red',
+    strokeColor: 'blue',
+    strokeWidth: 4
 };
 
 var path = new Path.Circle({
-	center: [50, 50],
-	radius: 30
+    center: [50, 50],
+    radius: 30
 });
 path.style = myStyle;
 
 var path2 = new Path.Circle({
-	center: new Point(150, 50),
-	radius: 20
+    center: new Point(150, 50),
+    radius: 20
 });
 path2.style = myStyle;
 </script>
@@ -1106,9 +1106,9 @@ item won't be drawn.</p>
 
 <script type="text/paperscript" canvas="canvas-8">
 var path = new Path.Circle({
-	center: [50, 50],
-	radius: 20,
-	fillColor: 'red'
+    center: [50, 50],
+    radius: 20,
+    fillColor: 'red'
 });
 
 // Hide the path:
@@ -1172,15 +1172,15 @@ var background = new Path.Rectangle(view.bounds);
 background.fillColor = 'white';
 
 var circle = new Path.Circle({
-	center: [80, 50],
-	radius: 35,
-	fillColor: 'red'
+    center: [80, 50],
+    radius: 35,
+    fillColor: 'red'
 });
 
 var circle2 = new Path.Circle({
-	center: new Point(120, 50),
-	radius: 35,
-	fillColor: 'blue'
+    center: new Point(120, 50),
+    radius: 35,
+    fillColor: 'blue'
 });
 
 // Set the blend mode of circle2:
@@ -1230,17 +1230,17 @@ circle2.blendMode = 'multiply';
 
 <script type="text/paperscript" canvas="canvas-10">
 var circle = new Path.Circle({
-	center: [80, 50],
-	radius: 35,
-	fillColor: 'red'
+    center: [80, 50],
+    radius: 35,
+    fillColor: 'red'
 });
 
 var circle2 = new Path.Circle({
-	center: new Point(120, 50),
-	radius: 35,
-	fillColor: 'blue',
-	strokeColor: 'green',
-	strokeWidth: 10
+    center: new Point(120, 50),
+    radius: 35,
+    fillColor: 'blue',
+    strokeColor: 'green',
+    strokeWidth: 10
 });
 
 // Make circle2 50% transparent:
@@ -1294,8 +1294,8 @@ and bounding boxes of symbol and raster items.</p>
 
 <script type="text/paperscript" canvas="canvas-11">
 var path = new Path.Circle({
-	center: [80, 50],
-	radius: 35
+    center: [80, 50],
+    radius: 35
 });
 path.selected = true; // Select the path
 </script>
@@ -1375,9 +1375,9 @@ console.log(path.data.malcolm.x); // 20</pre>
 
 <pre class="code">var path = new Path();
 path.data = {
-	home: 'Omicron Theta',
-	found: 2338,
-	pets: ['Spot']
+    home: 'Omicron Theta',
+    found: 2338,
+    pets: ['Spot']
 };
 console.log(path.data.pets.length); // 1</pre>
 
@@ -1387,11 +1387,11 @@ console.log(path.data.pets.length); // 1</pre>
 
 
 <pre class="code">var path = new Path({
-	data: {
-		home: 'Omicron Theta',
-		found: 2338,
-		pets: ['Spot']
-	}
+    data: {
+        home: 'Omicron Theta',
+        found: 2338,
+        pets: ['Spot']
+    }
 });
 console.log(path.data.pets.length); // 1</pre>
 
@@ -1434,9 +1434,9 @@ default, this is the <a href="/reference/rectangle#center"><tt>rectangle.center<
 <script type="text/paperscript" canvas="canvas-12">
 // Create a circle at position { x: 10, y: 10 }
 var circle = new Path.Circle({
-	center: new Point(10, 10),
-	radius: 10,
-	fillColor: 'red'
+    center: new Point(10, 10),
+    radius: 10,
+    fillColor: 'red'
 });
 
 // Move the circle to { x: 20, y: 20 }
@@ -1462,9 +1462,9 @@ circle.position += new Point(100, 50);
 <script type="text/paperscript" canvas="canvas-13">
 // Create a circle at position { x: 20, y: 20 }
 var circle = new Path.Circle({
-	center: new Point(20, 20),
-	radius: 10,
-	fillColor: 'red'
+    center: new Point(20, 20),
+    radius: 10,
+    fillColor: 'red'
 });
 
 // Move the circle 100 points to the right
@@ -1500,23 +1500,7 @@ reference point for <a href="/reference/item#position" onclick="return toggleMem
 	</li>
 	</ul>
 	
-	<p>
-<b>Example</b> 
-</p>
-
-<div class="paperscript split">
-
-<div class="buttons">
-<div class="button run">Run</div>
-</div>
-
-<script type="text/paperscript" canvas="canvas-14">
-
-</script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-14"></canvas></div>
-</div>
-
-
+	
 </div>
 
 </div>
@@ -1670,9 +1654,9 @@ relation to its parent item in which it is contained.</p>
 </div>
 
 	
-<div id="globalmatrix" class="member">
+<div id="globalmatrix-_internal" class="member">
 <div class="member-link">
-<a name="globalmatrix" href="#globalmatrix"><tt><b>globalMatrix</b></tt></a>
+<a name="globalmatrix-_internal" href="#globalmatrix-_internal"><tt><b>globalMatrix</b></tt></a>
 </div>
 <div class="member-description hidden">
 
@@ -1867,7 +1851,7 @@ console.log(group.children[0] == path); // true</pre>
 <pre class="code">var group = new Group();
 
 var path = new Path({
-	parent: group
+    parent: group
 });
 
 // The parent of the path is the group:
@@ -1893,9 +1877,9 @@ console.log(group.children[0] == path); // true</pre>
 <a href="/reference/item#name" onclick="return toggleMember('name', true);"><tt>name</tt></a> can also be accessed by name.</p>
 <p><b>Please note:</b> The children array should not be modified directly
 using array functions. To remove single items from the children list, use
-<tt>Item#remove</tt>(), to remove all items from the children list, use
+<a href="/reference/item#remove"><tt>item.remove</tt></a>(), to remove all items from the children list, use
 <a href="/reference/item#removechildren"><tt>item.removeChildren</tt></a>(). To add items to the children list, use
-<tt>Item#addChild(item)</tt> or <tt>Item#insertChild(index, item)</tt>.</p>
+<a href="/reference/item#addchild-item"><tt>item.addChild(item)</tt></a> or <a href="/reference/item#insertchild-index-item"><tt>item.insertChild(index, item)</tt></a>.</p>
 	
 	
 	<ul><b>Type:</b>
@@ -1914,10 +1898,10 @@ using array functions. To remove single items from the children list, use
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-15">
+<script type="text/paperscript" canvas="canvas-14">
 var path = new Path.Circle({
-	center: [80, 50],
-	radius: 35
+    center: [80, 50],
+    radius: 35
 });
 
 // Create a group and move the path into it:
@@ -1927,7 +1911,7 @@ group.addChild(path);
 // Access the path through the group's children array:
 group.children[0].fillColor = 'red';
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-15"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-14"></canvas></div>
 </div>
 
 
@@ -1941,10 +1925,10 @@ group.children[0].fillColor = 'red';
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-16">
+<script type="text/paperscript" canvas="canvas-15">
 var path = new Path.Circle({
-	center: [80, 50],
-	radius: 35
+    center: [80, 50],
+    radius: 35
 });
 // Set the name of the path:
 path.name = 'example';
@@ -1956,7 +1940,7 @@ group.addChild(path);
 // The path can be accessed by name:
 group.children['example'].fillColor = 'orange';
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-16"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-15"></canvas></div>
 </div>
 
 
@@ -1970,10 +1954,10 @@ group.children['example'].fillColor = 'orange';
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-17">
+<script type="text/paperscript" canvas="canvas-16">
 var path = new Path.Circle({
-	center: [80, 50],
-	radius: 35
+    center: [80, 50],
+    radius: 35
 });
 
 var group = new Group();
@@ -1982,7 +1966,7 @@ group.children = [path];
 // The path is the first child of the group:
 group.firstChild.fillColor = 'green';
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-17"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-16"></canvas></div>
 </div>
 
 
@@ -2147,18 +2131,18 @@ accessing <tt>item.children[item.children.length - 1]</tt>.</p>
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-18">
+<script type="text/paperscript" canvas="canvas-17">
 // Create a circle shaped path at { x: 80, y: 50 }
 // with a radius of 35:
 var circle = new Path.Circle({
-	center: [80, 50],
-	radius: 35
+    center: [80, 50],
+    radius: 35
 });
 
 // Set its stroke color to RGB red:
 circle.strokeColor = new Color(1, 0, 0);
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-18"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-17"></canvas></div>
 </div>
 
 
@@ -2194,19 +2178,19 @@ circle.strokeColor = new Color(1, 0, 0);
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-19">
+<script type="text/paperscript" canvas="canvas-18">
 // Create a circle shaped path at { x: 80, y: 50 }
 // with a radius of 35:
 var circle = new Path.Circle({
-	center: [80, 50],
-	radius: 35,
-	strokeColor: 'red'
+    center: [80, 50],
+    radius: 35,
+    strokeColor: 'red'
 });
 
 // Set its stroke width to 10:
 circle.strokeWidth = 10;
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-19"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-18"></canvas></div>
 </div>
 
 
@@ -2249,12 +2233,12 @@ have a stroke.</p>
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-20">
+<script type="text/paperscript" canvas="canvas-19">
 var line = new Path({
-	segments: [[80, 50], [420, 50]],
-	strokeColor: 'black',
-	strokeWidth: 20,
-	selected: true
+    segments: [[80, 50], [420, 50]],
+    strokeColor: 'black',
+    strokeWidth: 20,
+    selected: true
 });
 
 // Set the stroke cap of the line to be round:
@@ -2270,7 +2254,7 @@ var line2 = line.clone();
 line2.position.y += 100;
 line2.strokeCap = 'butt';
 </script>
-<div class="canvas"><canvas width="516" height="200" id="canvas-20"></canvas></div>
+<div class="canvas"><canvas width="516" height="200" id="canvas-19"></canvas></div>
 </div>
 
 
@@ -2312,13 +2296,13 @@ line2.strokeCap = 'butt';
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-21">
+<script type="text/paperscript" canvas="canvas-20">
 var path = new Path({
-	segments: [[80, 100], [120, 40], [160, 100]],
-	strokeColor: 'black',
-	strokeWidth: 20,
-	// Select the path, in order to see where the stroke is formed:
-	selected: true
+    segments: [[80, 100], [120, 40], [160, 100]],
+    strokeColor: 'black',
+    strokeWidth: 20,
+    // Select the path, in order to see where the stroke is formed:
+    selected: true
 });
 
 var path2 = path.clone();
@@ -2329,7 +2313,7 @@ var path3 = path2.clone();
 path3.position.x += path3.bounds.width * 1.5;
 path3.strokeJoin = 'bevel';
 </script>
-<div class="canvas"><canvas width="516" height="120" id="canvas-21"></canvas></div>
+<div class="canvas"><canvas width="516" height="120" id="canvas-20"></canvas></div>
 </div>
 
 
@@ -2400,18 +2384,18 @@ path3.strokeJoin = 'bevel';
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-22">
+<script type="text/paperscript" canvas="canvas-21">
 var path = new Path.Circle({
-	center: [80, 50],
-	radius: 40,
-	strokeWidth: 2,
-	strokeColor: 'black'
+    center: [80, 50],
+    radius: 40,
+    strokeWidth: 2,
+    strokeColor: 'black'
 });
 
 // Set the dashed stroke to [10pt dash, 4pt gap]:
 path.dashArray = [10, 4];
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-22"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-21"></canvas></div>
 </div>
 
 
@@ -2513,18 +2497,18 @@ modern browsers support winding-rules other than <tt>'nonzero'</tt>.</p>
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-23">
+<script type="text/paperscript" canvas="canvas-22">
 // Create a circle shaped path at { x: 80, y: 50 }
 // with a radius of 35:
 var circle = new Path.Circle({
-	center: [80, 50],
-	radius: 35
+    center: [80, 50],
+    radius: 35
 });
 
 // Set the fill color of the circle to RGB red:
 circle.fillColor = new Color(1, 0, 0);
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-23"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-22"></canvas></div>
 </div>
 
 
@@ -2600,18 +2584,18 @@ frame event.</p>
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-24">
+<script type="text/paperscript" canvas="canvas-23">
 // Create a rectangle shaped path with its top left point at:
 // {x: 50, y: 25} and a size of {width: 50, height: 50}
 var path = new Path.Rectangle(new Point(50, 25), new Size(50, 50));
 path.fillColor = 'black';
 
 path.onFrame = function(event) {
-	// Every frame, rotate the path by 3 degrees:
-	this.rotate(3);
+    // Every frame, rotate the path by 3 degrees:
+    this.rotate(3);
 }
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-24"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-23"></canvas></div>
 </div>
 
 
@@ -2649,21 +2633,21 @@ information about the mouse event.</p>
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-25">
+<script type="text/paperscript" canvas="canvas-24">
 // Create a circle shaped path at the center of the view:
 var path = new Path.Circle({
-	center: view.center,
-	radius: 25,
-	fillColor: 'black'
+    center: view.center,
+    radius: 25,
+    fillColor: 'black'
 });
 
 // When the mouse is pressed on the item,
 // set its fill color to red:
 path.onMouseDown = function(event) {
-	this.fillColor = 'red';
+    this.fillColor = 'red';
 }
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-25"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-24"></canvas></div>
 </div>
 
 
@@ -2677,25 +2661,25 @@ path.onMouseDown = function(event) {
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-26">
+<script type="text/paperscript" canvas="canvas-25">
 // Loop 30 times:
 for (var i = 0; i < 30; i++) {
-	// Create a circle shaped path at a random position
-	// in the view:
-	var path = new Path.Circle({
-		center: Point.random() * view.size,
-		radius: 25,
-		fillColor: 'black',
-		strokeColor: 'white'
-	});
+    // Create a circle shaped path at a random position
+    // in the view:
+    var path = new Path.Circle({
+        center: Point.random() * view.size,
+        radius: 25,
+        fillColor: 'black',
+        strokeColor: 'white'
+    });
 
-	// When the mouse is pressed on the item, remove it:
-	path.onMouseDown = function(event) {
-		this.remove();
-	}
+    // When the mouse is pressed on the item, remove it:
+    path.onMouseDown = function(event) {
+        this.remove();
+    }
 }
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-26"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-25"></canvas></div>
 </div>
 
 
@@ -2733,21 +2717,21 @@ information about the mouse event.</p>
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-27">
+<script type="text/paperscript" canvas="canvas-26">
 // Create a circle shaped path at the center of the view:
 var path = new Path.Circle({
-	center: view.center,
-	radius: 25,
-	fillColor: 'black'
+    center: view.center,
+    radius: 25,
+    fillColor: 'black'
 });
 
 // When the mouse is released over the item,
 // set its fill color to red:
 path.onMouseUp = function(event) {
-	this.fillColor = 'red';
+    this.fillColor = 'red';
 }
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-27"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-26"></canvas></div>
 </div>
 
 
@@ -2785,21 +2769,21 @@ mouse event.</p>
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-28">
+<script type="text/paperscript" canvas="canvas-27">
 // Create a circle shaped path at the center of the view:
 var path = new Path.Circle({
-	center: view.center,
-	radius: 25,
-	fillColor: 'black'
+    center: view.center,
+    radius: 25,
+    fillColor: 'black'
 });
 
 // When the mouse is clicked on the item,
 // set its fill color to red:
 path.onClick = function(event) {
-	this.fillColor = 'red';
+    this.fillColor = 'red';
 }
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-28"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-27"></canvas></div>
 </div>
 
 
@@ -2813,25 +2797,25 @@ path.onClick = function(event) {
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-29">
+<script type="text/paperscript" canvas="canvas-28">
 // Loop 30 times:
 for (var i = 0; i < 30; i++) {
-	// Create a circle shaped path at a random position
-	// in the view:
-	var path = new Path.Circle({
-		center: Point.random() * view.size,
-		radius: 25,
-		fillColor: 'black',
-		strokeColor: 'white'
-	});
+    // Create a circle shaped path at a random position
+    // in the view:
+    var path = new Path.Circle({
+        center: Point.random() * view.size,
+        radius: 25,
+        fillColor: 'black',
+        strokeColor: 'white'
+    });
 
-	// When the mouse clicks on the item, remove it:
-	path.onClick = function(event) {
-		this.remove();
-	}
+    // When the mouse clicks on the item, remove it:
+    path.onClick = function(event) {
+        this.remove();
+    }
 }
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-29"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-28"></canvas></div>
 </div>
 
 
@@ -2869,21 +2853,21 @@ about the mouse event.</p>
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-30">
+<script type="text/paperscript" canvas="canvas-29">
 // Create a circle shaped path at the center of the view:
 var path = new Path.Circle({
-	center: view.center,
-	radius: 25,
-	fillColor: 'black'
+    center: view.center,
+    radius: 25,
+    fillColor: 'black'
 });
 
 // When the mouse is double clicked on the item,
 // set its fill color to red:
 path.onDoubleClick = function(event) {
-	this.fillColor = 'red';
+    this.fillColor = 'red';
 }
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-30"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-29"></canvas></div>
 </div>
 
 
@@ -2897,25 +2881,25 @@ path.onDoubleClick = function(event) {
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-31">
+<script type="text/paperscript" canvas="canvas-30">
 // Loop 30 times:
 for (var i = 0; i < 30; i++) {
-	// Create a circle shaped path at a random position
-	// in the view:
-	var path = new Path.Circle({
-		center: Point.random() * view.size,
-		radius: 25,
-		fillColor: 'black',
-		strokeColor: 'white'
-	});
+    // Create a circle shaped path at a random position
+    // in the view:
+    var path = new Path.Circle({
+        center: Point.random() * view.size,
+        radius: 25,
+        fillColor: 'black',
+        strokeColor: 'white'
+    });
 
-	// When the mouse is double clicked on the item, remove it:
-	path.onDoubleClick = function(event) {
-		this.remove();
-	}
+    // When the mouse is double clicked on the item, remove it:
+    path.onDoubleClick = function(event) {
+        this.remove();
+    }
 }
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-31"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-30"></canvas></div>
 </div>
 
 
@@ -2953,21 +2937,21 @@ information about the mouse event.</p>
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-32">
+<script type="text/paperscript" canvas="canvas-31">
 // Create a circle shaped path at the center of the view:
-	var path = new Path.Circle({
-	center: view.center,
-	radius: 25,
-	fillColor: 'black'
-	});
+    var path = new Path.Circle({
+    center: view.center,
+    radius: 25,
+    fillColor: 'black'
+    });
 
 // When the mouse moves on top of the item, set its opacity
 // to a random value between 0 and 1:
 path.onMouseMove = function(event) {
-	this.opacity = Math.random();
+    this.opacity = Math.random();
 }
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-32"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-31"></canvas></div>
 </div>
 
 
@@ -3006,25 +2990,25 @@ contains information about the mouse event.</p>
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-33">
+<script type="text/paperscript" canvas="canvas-32">
 // Create a circle shaped path at the center of the view:
 var path = new Path.Circle({
-	center: view.center,
-	radius: 25,
-	fillColor: 'black'
+    center: view.center,
+    radius: 25,
+    fillColor: 'black'
 });
 
 // When the mouse enters the item, set its fill color to red:
 path.onMouseEnter = function(event) {
-	this.fillColor = 'red';
+    this.fillColor = 'red';
 }
 
 // When the mouse leaves the item, set its fill color to black:
 path.onMouseLeave = function(event) {
-	this.fillColor = 'black';
+    this.fillColor = 'black';
 }
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-33"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-32"></canvas></div>
 </div>
 
 
@@ -3038,29 +3022,29 @@ path.onMouseLeave = function(event) {
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-34">
+<script type="text/paperscript" canvas="canvas-33">
 function enter(event) {
-	this.fillColor = 'red';
+    this.fillColor = 'red';
 }
 
 function leave(event) {
-	this.fillColor = 'black';
+    this.fillColor = 'black';
 }
 
 // When the mouse is pressed:
 function onMouseDown(event) {
-	// Create a circle shaped path at the position of the mouse:
-	var path = new Path.Circle(event.point, 25);
-	path.fillColor = 'black';
+    // Create a circle shaped path at the position of the mouse:
+    var path = new Path.Circle(event.point, 25);
+    path.fillColor = 'black';
 
-	// When the mouse enters the item, set its fill color to red:
-	path.onMouseEnter = enter;
+    // When the mouse enters the item, set its fill color to red:
+    path.onMouseEnter = enter;
 
-	// When the mouse leaves the item, set its fill color to black:
-	path.onMouseLeave = leave;
+    // When the mouse leaves the item, set its fill color to black:
+    path.onMouseLeave = leave;
 }
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-34"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-33"></canvas></div>
 </div>
 
 
@@ -3098,20 +3082,20 @@ information about the mouse event.</p>
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-35">
+<script type="text/paperscript" canvas="canvas-34">
 // Create a circle shaped path at the center of the view:
 var path = new Path.Circle({
-	center: view.center,
-	radius: 25,
-	fillColor: 'black'
+    center: view.center,
+    radius: 25,
+    fillColor: 'black'
 });
 
 // When the mouse leaves the item, set its fill color to red:
 path.onMouseLeave = function(event) {
-	this.fillColor = 'red';
+    this.fillColor = 'red';
 }
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-35"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-34"></canvas></div>
 </div>
 
 
@@ -3168,20 +3152,20 @@ given name (or a setter defined for it).</p>
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-36">
+<script type="text/paperscript" canvas="canvas-35">
 var circle = new Path.Circle({
-	center: [80, 50],
-	radius: 35
+    center: [80, 50],
+    radius: 35
 });
 
 circle.set({
-	strokeColor: 'red',
-	strokeWidth: 10,
-	fillColor: 'black',
-	selected: true
+    strokeColor: 'red',
+    strokeWidth: 10,
+    fillColor: 'black',
+    selected: true
 });
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-36"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-35"></canvas></div>
 </div>
 
 
@@ -3257,22 +3241,22 @@ original.
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-37">
+<script type="text/paperscript" canvas="canvas-36">
 var circle = new Path.Circle({
-	center: [50, 50],
-	radius: 10,
-	fillColor: 'red'
+    center: [50, 50],
+    radius: 10,
+    fillColor: 'red'
 });
 
 // Make 20 copies of the circle:
 for (var i = 0; i < 20; i++) {
-	var copy = circle.clone();
+    var copy = circle.clone();
 
-	// Distribute the copies horizontally, so we can see them:
-	copy.position.x += i * copy.bounds.width;
+    // Distribute the copies horizontally, so we can see them:
+    copy.position.x += i * copy.bounds.width;
 }
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-37"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-36"></canvas></div>
 </div>
 
 
@@ -3361,11 +3345,11 @@ in pixels per inch (DPI). If not speceified, the value of
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-38">
+<script type="text/paperscript" canvas="canvas-37">
 var circle = new Path.Circle({
-	center: [50, 50],
-	radius: 5,
-	fillColor: 'red'
+    center: [50, 50],
+    radius: 5,
+    fillColor: 'red'
 });
 
 // Create a rasterized version of the path:
@@ -3378,7 +3362,7 @@ raster.position.x += 100;
 circle.scale(5);
 raster.scale(5);
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-38"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-37"></canvas></div>
 </div>
 
 
@@ -3418,28 +3402,28 @@ raster.scale(5);
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-39">
+<script type="text/paperscript" canvas="canvas-38">
 var path = new Path.Star({
-	center: [50, 50],
-	points: 12,
-	radius1: 20,
-	radius2: 40,
-	fillColor: 'black'
+    center: [50, 50],
+    points: 12,
+    radius1: 20,
+    radius2: 40,
+    fillColor: 'black'
 });
 
 // Whenever the user presses the mouse:
 function onMouseDown(event) {
-	// If the position of the mouse is within the path,
-	// set its fill color to red, otherwise set it to
-	// black:
-	if (path.contains(event.point)) {
-		path.fillColor = 'red';
-	} else {
-		path.fillColor = 'black';
-	}
+    // If the position of the mouse is within the path,
+    // set its fill color to red, otherwise set it to
+    // black:
+    if (path.contains(event.point)) {
+        path.fillColor = 'red';
+    } else {
+        path.fillColor = 'black';
+    }
 }
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-39"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-38"></canvas></div>
 </div>
 
 
@@ -3563,6 +3547,37 @@ serialization options
 </div>
 
 	
+<div id="importjson-json" class="member">
+<div class="member-link">
+<a name="importjson-json" href="#importjson-json"><tt><b>importJSON</b>(json)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Imports (deserializes) the stored JSON data into this item. If the data
+describes an item of the same class or a parent class of the item, the
+data is imported into the item itself. If not, the imported item is added
+to this item's <a href="/reference/item#children"><tt>item.children</tt></a> list. Note that not all type of
+items can have children.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>json:</tt> 
+<tt>String</tt>
+&mdash;&nbsp;the JSON data to import from.
+
+</li>
+
+</ul>
+
+	
+	
+	
+</div>
+</div>
+</div>
+
+	
 <div id="exportsvg" class="member">
 <div class="member-link">
 <a name="exportsvg" href="#exportsvg"><tt><b>exportSVG</b>([options])</tt></a>
@@ -3655,6 +3670,457 @@ items should be expanded to path items.</p>
 </div>
 
 	
+<h3>Hierarchy Operations</h3>
+
+<div id="addchild-item-_preserve" class="member">
+<div class="member-link">
+<a name="addchild-item-_preserve" href="#addchild-item-_preserve"><tt><b>addChild</b>(item)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Adds the specified item as a child of this item at the end of the
+its children list. You can use this function for groups, compound
+paths and layers.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>item:</tt> 
+<a href="/reference/item"><tt>Item</tt></a>
+&mdash;&nbsp;the item to be added as a child
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the added item, or <tt>null</tt> if adding was not
+possible.
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+
+	
+<div id="insertchild-index-item-_preserve" class="member">
+<div class="member-link">
+<a name="insertchild-index-item-_preserve" href="#insertchild-index-item-_preserve"><tt><b>insertChild</b>(index, item)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Inserts the specified item as a child of this item at the specified
+index in its <a href="/reference/item#children" onclick="return toggleMember('children', true);"><tt>children</tt></a> list. You can use this function for
+groups, compound paths and layers.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>index:</tt> 
+<tt>Number</tt>
+
+
+</li>
+
+<li>
+<tt>item:</tt> 
+<a href="/reference/item"><tt>Item</tt></a>
+&mdash;&nbsp;the item to be inserted as a child
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the inserted item, or <tt>null</tt> if inserting was not
+possible.
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+
+	
+<div id="addchildren-items-_preserve" class="member">
+<div class="member-link">
+<a name="addchildren-items-_preserve" href="#addchildren-items-_preserve"><tt><b>addChildren</b>(items)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Adds the specified items as children of this item at the end of the
+its children list. You can use this function for groups, compound
+paths and layers.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>items:</tt> 
+Array of <a href="/reference/item"><tt>Item</tt></a> objects
+&mdash;&nbsp;The items to be added as children
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt>Array of <a href="/reference/item"><tt>Item</tt></a> objects</tt>&nbsp;&mdash;&nbsp;the added items, or <tt>null</tt> if adding was not
+possible.
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+
+	
+<div id="insertchildren-index-items-_preserve-_proto" class="member">
+<div class="member-link">
+<a name="insertchildren-index-items-_preserve-_proto" href="#insertchildren-index-items-_preserve-_proto"><tt><b>insertChildren</b>(index, items)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Inserts the specified items as children of this item at the specified
+index in its <a href="/reference/item#children" onclick="return toggleMember('children', true);"><tt>children</tt></a> list. You can use this function for
+groups, compound paths and layers.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>index:</tt> 
+<tt>Number</tt>
+
+
+</li>
+
+<li>
+<tt>items:</tt> 
+Array of <a href="/reference/item"><tt>Item</tt></a> objects
+&mdash;&nbsp;The items to be appended as children
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt>Array of <a href="/reference/item"><tt>Item</tt></a> objects</tt>&nbsp;&mdash;&nbsp;the inserted items, or <tt>null</tt> if inserted was not
+possible.
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+
+	
+<div id="insertabove-item-_preserve" class="member">
+<div class="member-link">
+<a name="insertabove-item-_preserve" href="#insertabove-item-_preserve"><tt><b>insertAbove</b>(item)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Inserts this item above the specified item.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>item:</tt> 
+<a href="/reference/item"><tt>Item</tt></a>
+&mdash;&nbsp;the item above which it should be inserted
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the inserted item, or <tt>null</tt> if inserting was not
+possible.
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+
+	
+<div id="insertbelow-item-_preserve" class="member">
+<div class="member-link">
+<a name="insertbelow-item-_preserve" href="#insertbelow-item-_preserve"><tt><b>insertBelow</b>(item)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Inserts this item below the specified item.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>item:</tt> 
+<a href="/reference/item"><tt>Item</tt></a>
+&mdash;&nbsp;the item below which it should be inserted
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the inserted item, or <tt>null</tt> if inserting was not
+possible.
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+
+	
+<div id="sendtoback" class="member">
+<div class="member-link">
+<a name="sendtoback" href="#sendtoback"><tt><b>sendToBack</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Sends this item to the back of all other items within the same parent.</p>
+	
+	
+	
+	
+</div>
+</div>
+</div>
+
+	
+<div id="bringtofront" class="member">
+<div class="member-link">
+<a name="bringtofront" href="#bringtofront"><tt><b>bringToFront</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Brings this item to the front of all other items within the same parent.</p>
+	
+	
+	
+	
+</div>
+</div>
+</div>
+
+	
+<div id="appendtop-item" class="member">
+<div class="member-link">
+<a name="appendtop-item" href="#appendtop-item"><tt><b>appendTop</b>(item)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Inserts the specified item as a child of this item by appending it to
+the list of children and moving it above all other children. You can
+use this function for groups, compound paths and layers.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>item:</tt> 
+<a href="/reference/item"><tt>Item</tt></a>
+&mdash;&nbsp;The item to be appended as a child
+
+</li>
+
+</ul>
+
+	
+	
+	
+</div>
+</div>
+</div>
+
+	
+<div id="appendbottom-item" class="member">
+<div class="member-link">
+<a name="appendbottom-item" href="#appendbottom-item"><tt><b>appendBottom</b>(item)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Inserts the specified item as a child of this item by appending it to
+the list of children and moving it below all other children. You can
+use this function for groups, compound paths and layers.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>item:</tt> 
+<a href="/reference/item"><tt>Item</tt></a>
+&mdash;&nbsp;The item to be appended as a child
+
+</li>
+
+</ul>
+
+	
+	
+	
+</div>
+</div>
+</div>
+
+	
+<div id="moveabove-item" class="member">
+<div class="member-link">
+<a name="moveabove-item" href="#moveabove-item"><tt><b>moveAbove</b>(item)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Moves this item above the specified item.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>item:</tt> 
+<a href="/reference/item"><tt>Item</tt></a>
+&mdash;&nbsp;The item above which it should be moved
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if it was moved, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+
+	
+<div id="movebelow-item" class="member">
+<div class="member-link">
+<a name="movebelow-item" href="#movebelow-item"><tt><b>moveBelow</b>(item)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Moves the item below the specified item.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>item:</tt> 
+<a href="/reference/item"><tt>Item</tt></a>
+&mdash;&nbsp;the item below which it should be moved
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if it was moved, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+
+	
+<div id="reduce" class="member">
+<div class="member-link">
+<a name="reduce" href="#reduce"><tt><b>reduce</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>If this is a group, layer or compound-path with only one child-item,
+the child-item is moved outside and the parent is erased. Otherwise, the
+item itself is returned unmodified.</p>
+	
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the reduced item
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+
+	
+<div id="remove" class="member">
+<div class="member-link">
+<a name="remove" href="#remove"><tt><b>remove</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Removes the item from the project. If the item has children, they are also
+removed.</p>
+	
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the item was removed, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+
+	
 <div id="removechildren" class="member">
 <div class="member-link">
 <a name="removechildren" href="#removechildren"><tt><b>removeChildren</b>()</tt></a>
@@ -3722,6 +4188,451 @@ items should be expanded to path items.</p>
 </div>
 
 	
+<div id="reversechildren" class="member">
+<div class="member-link">
+<a name="reversechildren" href="#reversechildren"><tt><b>reverseChildren</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Reverses the order of the item's children</p>
+	
+	
+	
+	
+</div>
+</div>
+</div>
+
+	
+<h3>Tests</h3>
+
+<div id="isempty" class="member">
+<div class="member-link">
+<a name="isempty" href="#isempty"><tt><b>isEmpty</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Specifies whether the item has any content or not. The meaning of what
+content is differs from type to type. For example, a <a href="/reference/group"><tt>Group</tt></a> with
+no children, a <a href="/reference/textitem"><tt>TextItem</tt></a> with no text content and a <a href="/reference/path"><tt>Path</tt></a>
+with no segments all are considered empty.</p>
+	
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt></tt>&nbsp;&mdash;&nbsp;Boolean
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+
+	
+<h3>Hierarchy Tests</h3>
+
+<div id="haschildren" class="member">
+<div class="member-link">
+<a name="haschildren" href="#haschildren"><tt><b>hasChildren</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Checks if the item contains any children items.</p>
+	
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> it has one or more children, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+
+	
+<div id="isabove-item" class="member">
+<div class="member-link">
+<a name="isabove-item" href="#isabove-item"><tt><b>isAbove</b>(item)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Checks if this item is above the specified item in the stacking order
+of the project.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>item:</tt> 
+<a href="/reference/item"><tt>Item</tt></a>
+&mdash;&nbsp;The item to check against
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if it is above the specified item, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+
+	
+<div id="isbelow-item" class="member">
+<div class="member-link">
+<a name="isbelow-item" href="#isbelow-item"><tt><b>isBelow</b>(item)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Checks if the item is below the specified item in the stacking order of
+the project.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>item:</tt> 
+<a href="/reference/item"><tt>Item</tt></a>
+&mdash;&nbsp;The item to check against
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if it is below the specified item, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+
+	
+<div id="isparent-item" class="member">
+<div class="member-link">
+<a name="isparent-item" href="#isparent-item"><tt><b>isParent</b>(item)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Checks whether the specified item is the parent of the item.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>item:</tt> 
+<a href="/reference/item"><tt>Item</tt></a>
+&mdash;&nbsp;The item to check against
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if it is the parent of the item, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+
+	
+<div id="ischild-item" class="member">
+<div class="member-link">
+<a name="ischild-item" href="#ischild-item"><tt><b>isChild</b>(item)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Checks whether the specified item is a child of the item.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>item:</tt> 
+<a href="/reference/item"><tt>Item</tt></a>
+&mdash;&nbsp;The item to check against
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> it is a child of the item, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+
+	
+<div id="isdescendant-item" class="member">
+<div class="member-link">
+<a name="isdescendant-item" href="#isdescendant-item"><tt><b>isDescendant</b>(item)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Checks if the item is contained within the specified item.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>item:</tt> 
+<a href="/reference/item"><tt>Item</tt></a>
+&mdash;&nbsp;The item to check against
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if it is inside the specified item, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+
+	
+<div id="isancestor-item" class="member">
+<div class="member-link">
+<a name="isancestor-item" href="#isancestor-item"><tt><b>isAncestor</b>(item)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Checks if the item is an ancestor of the specified item.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>item:</tt> 
+<a href="/reference/item"><tt>Item</tt></a>
+&mdash;&nbsp;the item to check against
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the item is an ancestor of the specified
+item, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+
+	
+<div id="isgroupedwith-item" class="member">
+<div class="member-link">
+<a name="isgroupedwith-item" href="#isgroupedwith-item"><tt><b>isGroupedWith</b>(item)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Checks whether the item is grouped with the specified item.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>item:</tt> 
+<a href="/reference/item"><tt>Item</tt></a>
+
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the items are grouped together, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+
+	
+<h3>Transform Functions</h3>
+
+<div id="translate-delta" class="member">
+<div class="member-link">
+<a name="translate-delta" href="#translate-delta"><tt><b>translate</b>(delta)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Translates (moves) the item by the given offset point.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>delta:</tt> 
+<a href="/reference/point"><tt>Point</tt></a>
+&mdash;&nbsp;the offset to translate the item by
+
+</li>
+
+</ul>
+
+	
+	
+	
+</div>
+</div>
+</div>
+
+	
+<div id="rotate-angle" class="member">
+<div class="member-link">
+<a name="rotate-angle" href="#rotate-angle"><tt><b>rotate</b>(angle[, center])</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Rotates the item by a given angle around the given point.</p>
+<p>Angles are oriented clockwise and measured in degrees.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>angle:</tt> 
+<tt>Number</tt>
+&mdash;&nbsp;the rotation angle
+
+</li>
+
+<li>
+<tt>center:</tt> 
+<a href="/reference/point"><tt>Point</tt></a>
+
+&mdash;&nbsp;optional, default: <tt><a href="/reference/item#position"><tt>item.position</tt></a></tt>
+</li>
+
+</ul>
+
+	
+	
+	<p><b>See also:</b>
+	<tt><a href="/reference/matrix#rotate"><tt>matrix.rotate</tt></a></tt>
+	</p>
+
+	<p>
+<b>Example</b> &mdash; Rotating an item:
+</p>
+
+<div class="paperscript split">
+
+<div class="buttons">
+<div class="button run">Run</div>
+</div>
+
+<script type="text/paperscript" canvas="canvas-39">
+// Create a rectangle shaped path with its top left
+// point at {x: 80, y: 25} and a size of {width: 50, height: 50}:
+var path = new Path.Rectangle(new Point(80, 25), new Size(50, 50));
+path.fillColor = 'black';
+
+// Rotate the path by 30 degrees:
+path.rotate(30);
+</script>
+<div class="canvas"><canvas width="516" height="100" id="canvas-39"></canvas></div>
+</div>
+
+
+<p>
+<b>Example</b> &mdash; Rotating an item around a specific point:
+</p>
+
+<div class="paperscript split">
+
+<div class="buttons">
+<div class="button run">Run</div>
+</div>
+
+<script type="text/paperscript" canvas="canvas-40">
+// Create a rectangle shaped path with its top left
+// point at {x: 175, y: 50} and a size of {width: 100, height: 100}:
+var topLeft = new Point(175, 50);
+var size = new Size(100, 100);
+var path = new Path.Rectangle(topLeft, size);
+path.fillColor = 'black';
+
+// Draw a circle shaped path in the center of the view,
+// to show the rotation point:
+var circle = new Path.Circle({
+    center: view.center,
+    radius: 5,
+    fillColor: 'white'
+});
+
+// Each frame rotate the path 3 degrees around the center point
+// of the view:
+function onFrame(event) {
+    path.rotate(3, view.center);
+}
+</script>
+<div class="canvas"><canvas width="516" height="200" id="canvas-40"></canvas></div>
+</div>
+
+
+</div>
+</div>
+</div>
+
+	
 <div id="scale-scale" class="member">
 <div class="member-link">
 <a name="scale-scale" href="#scale-scale"><tt><b>scale</b>(scale[, center])</tt></a>
@@ -3761,19 +4672,19 @@ from a supplied point.</p>
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-40">
+<script type="text/paperscript" canvas="canvas-41">
 // Create a circle shaped path at { x: 80, y: 50 }
 // with a radius of 20:
 var circle = new Path.Circle({
-	center: [80, 50],
-	radius: 20,
-	fillColor: 'red'
+    center: [80, 50],
+    radius: 20,
+    fillColor: 'red'
 });
 
 // Scale the path by 150% from its center point
 circle.scale(1.5);
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-40"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-41"></canvas></div>
 </div>
 
 
@@ -3787,19 +4698,19 @@ circle.scale(1.5);
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-41">
+<script type="text/paperscript" canvas="canvas-42">
 // Create a circle shaped path at { x: 80, y: 50 }
 // with a radius of 20:
 var circle = new Path.Circle({
-	center: [80, 50],
-	radius: 20,
-	fillColor: 'red'
+    center: [80, 50],
+    radius: 20,
+    fillColor: 'red'
 });
 
 // Scale the path 150% from its bottom left corner
 circle.scale(1.5, circle.bounds.bottomLeft);
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-41"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-42"></canvas></div>
 </div>
 
 
@@ -3854,19 +4765,19 @@ from a supplied point.</p>
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-42">
+<script type="text/paperscript" canvas="canvas-43">
 // Create a circle shaped path at { x: 100, y: 50 }
 // with a radius of 20:
 var circle = new Path.Circle({
-	center: [100, 50],
-	radius: 20,
-	fillColor: 'red'
+    center: [100, 50],
+    radius: 20,
+    fillColor: 'red'
 });
 
 // Scale the path horizontally by 300%
 circle.scale(3, 1);
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-42"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-43"></canvas></div>
 </div>
 
 
@@ -4183,28 +5094,28 @@ rectangle, without changing its aspect ratio.</p>
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-43">
+<script type="text/paperscript" canvas="canvas-44">
 // Create a rectangle shaped path with its top left corner
 // at {x: 80, y: 25} and a size of {width: 75, height: 50}:
 var path = new Path.Rectangle({
-	point: [80, 25],
-	size: [75, 50],
-	fillColor: 'black'
+    point: [80, 25],
+    size: [75, 50],
+    fillColor: 'black'
 });
 
 // Create a circle shaped path with its center at {x: 80, y: 50}
 // and a radius of 30.
 var circlePath = new Path.Circle({
-	center: [80, 50],
-	radius: 30,
-	fillColor: 'red'
+    center: [80, 50],
+    radius: 30,
+    fillColor: 'red'
 });
 
 // Fit the circlePath to the bounding rectangle of
 // the rectangular path:
 circlePath.fitBounds(path.bounds);
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-43"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-44"></canvas></div>
 </div>
 
 
@@ -4218,28 +5129,28 @@ circlePath.fitBounds(path.bounds);
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-44">
+<script type="text/paperscript" canvas="canvas-45">
 // Create a rectangle shaped path with its top left corner
 // at {x: 80, y: 25} and a size of {width: 75, height: 50}:
 var path = new Path.Rectangle({
-	point: [80, 25],
-	size: [75, 50],
-	fillColor: 'black'
+    point: [80, 25],
+    size: [75, 50],
+    fillColor: 'black'
 });
 
 // Create a circle shaped path with its center at {x: 80, y: 50}
 // and a radius of 30.
 var circlePath = new Path.Circle({
-	center: [80, 50],
-	radius: 30,
-	fillColor: 'red'
+    center: [80, 50],
+    radius: 30,
+    fillColor: 'red'
 });
 
 // Fit the circlePath to the bounding rectangle of
 // the rectangular path:
 circlePath.fitBounds(path.bounds, true);
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-44"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-45"></canvas></div>
 </div>
 
 
@@ -4253,17 +5164,17 @@ circlePath.fitBounds(path.bounds, true);
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-45">
+<script type="text/paperscript" canvas="canvas-46">
 var path = new Path.Circle({
-	center: [80, 50],
-	radius: 30,
-	fillColor: 'red'
+    center: [80, 50],
+    radius: 30,
+    fillColor: 'red'
 });
 
 // Fit the path to the bounding rectangle of the view:
 path.fitBounds(view.bounds);
 </script>
-<div class="canvas"><canvas width="516" height="200" id="canvas-45"></canvas></div>
+<div class="canvas"><canvas width="516" height="200" id="canvas-46"></canvas></div>
 </div>
 
 
@@ -4314,25 +5225,25 @@ occurs
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-46">
+<script type="text/paperscript" canvas="canvas-47">
 // Create a circle shaped path at the center of the view:
 var path = new Path.Circle({
-	center: view.center,
-	radius: 25,
-	fillColor: 'black'
+    center: view.center,
+    radius: 25,
+    fillColor: 'black'
 });
 
 // When the mouse enters the item, set its fill color to red:
 path.on('mouseenter', function() {
-	this.fillColor = 'red';
+    this.fillColor = 'red';
 });
 
 // When the mouse leaves the item, set its fill color to black:
 path.on('mouseleave', function() {
-	this.fillColor = 'black';
+    this.fillColor = 'black';
 });
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-46"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-47"></canvas></div>
 </div>
 
 
@@ -4374,25 +5285,25 @@ doubleclick, mousemove, mouseenter, mouseleave</tt>.
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-47">
+<script type="text/paperscript" canvas="canvas-48">
 // Create a circle shaped path at the center of the view:
 var path = new Path.Circle({
-	center: view.center,
-	radius: 25
+    center: view.center,
+    radius: 25
 });
 path.fillColor = 'black';
 
 // When the mouse enters the item, set its fill color to red:
 path.on({
-	mouseenter: function(event) {
-		this.fillColor = 'red';
-	},
-	mouseleave: function(event) {
-		this.fillColor = 'black';
-	}
+    mouseenter: function(event) {
+        this.fillColor = 'red';
+    },
+    mouseleave: function(event) {
+        this.fillColor = 'black';
+    }
 });
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-47"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-48"></canvas></div>
 </div>
 
 
@@ -4406,30 +5317,30 @@ path.on({
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-48">
+<script type="text/paperscript" canvas="canvas-49">
 var pathHandlers = {
-	mouseenter: function(event) {
-		this.fillColor = 'red';
-	},
-	mouseleave: function(event) {
-		this.fillColor = 'black';
-	}
+    mouseenter: function(event) {
+        this.fillColor = 'red';
+    },
+    mouseleave: function(event) {
+        this.fillColor = 'black';
+    }
 }
 
 // When the mouse is pressed:
 function onMouseDown(event) {
-	// Create a circle shaped path at the position of the mouse:
-	var path = new Path.Circle({
-		center: event.point,
-		radius: 25,
-		fillColor: 'black'
-	});
+    // Create a circle shaped path at the position of the mouse:
+    var path = new Path.Circle({
+        center: event.point,
+        radius: 25,
+        fillColor: 'black'
+    });
 
-	// Attach the handers inside the object literal to the path:
-	path.on(pathHandlers);
+    // Attach the handers inside the object literal to the path:
+    path.on(pathHandlers);
 }
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-48"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-49"></canvas></div>
 </div>
 
 
@@ -4618,24 +5529,24 @@ fired: <tt>object.up = true</tt></p>
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-49">
+<script type="text/paperscript" canvas="canvas-50">
 function onMouseDrag(event) {
-	// Create a circle shaped path at the mouse position,
-	// with a radius of 10:
-	var path = new Path.Circle({
-		center: event.point,
-		radius: 10,
-		fillColor: 'black'
-	});
+    // Create a circle shaped path at the mouse position,
+    // with a radius of 10:
+    var path = new Path.Circle({
+        center: event.point,
+        radius: 10,
+        fillColor: 'black'
+    });
 
-	// Remove the path on the next onMouseDrag or onMouseDown event:
-	path.removeOn({
-		drag: true,
-		down: true
-	});
+    // Remove the path on the next onMouseDrag or onMouseDown event:
+    path.removeOn({
+        drag: true,
+        down: true
+    });
 }
 </script>
-<div class="canvas"><canvas width="516" height="200" id="canvas-49"></canvas></div>
+<div class="canvas"><canvas width="516" height="200" id="canvas-50"></canvas></div>
 </div>
 
 
@@ -4664,21 +5575,21 @@ function onMouseDrag(event) {
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-50">
+<script type="text/paperscript" canvas="canvas-51">
 function onMouseMove(event) {
-	// Create a circle shaped path at the mouse position,
-	// with a radius of 10:
-	var path = new Path.Circle({
-		center: event.point,
-		radius: 10,
-		fillColor: 'black'
-	});
+    // Create a circle shaped path at the mouse position,
+    // with a radius of 10:
+    var path = new Path.Circle({
+        center: event.point,
+        radius: 10,
+        fillColor: 'black'
+    });
 
-	// On the next move event, automatically remove the path:
-	path.removeOnMove();
+    // On the next move event, automatically remove the path:
+    path.removeOnMove();
 }
 </script>
-<div class="canvas"><canvas width="516" height="200" id="canvas-50"></canvas></div>
+<div class="canvas"><canvas width="516" height="200" id="canvas-51"></canvas></div>
 </div>
 
 
@@ -4707,21 +5618,21 @@ function onMouseMove(event) {
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-51">
+<script type="text/paperscript" canvas="canvas-52">
 function onMouseDown(event) {
-	// Create a circle shaped path at the mouse position,
-	// with a radius of 10:
-	var path = new Path.Circle({
-		center: event.point,
-		radius: 10,
-		fillColor: 'black'
-	});
+    // Create a circle shaped path at the mouse position,
+    // with a radius of 10:
+    var path = new Path.Circle({
+        center: event.point,
+        radius: 10,
+        fillColor: 'black'
+    });
 
-	// Remove the path, next time the mouse is pressed:
-	path.removeOnDown();
+    // Remove the path, next time the mouse is pressed:
+    path.removeOnDown();
 }
 </script>
-<div class="canvas"><canvas width="516" height="200" id="canvas-51"></canvas></div>
+<div class="canvas"><canvas width="516" height="200" id="canvas-52"></canvas></div>
 </div>
 
 
@@ -4750,21 +5661,21 @@ function onMouseDown(event) {
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-52">
+<script type="text/paperscript" canvas="canvas-53">
 function onMouseDrag(event) {
-	// Create a circle shaped path at the mouse position,
-	// with a radius of 10:
-	var path = new Path.Circle({
-		center: event.point,
-		radius: 10,
-		fillColor: 'black'
-	});
+    // Create a circle shaped path at the mouse position,
+    // with a radius of 10:
+    var path = new Path.Circle({
+        center: event.point,
+        radius: 10,
+        fillColor: 'black'
+    });
 
-	// On the next drag event, automatically remove the path:
-	path.removeOnDrag();
+    // On the next drag event, automatically remove the path:
+    path.removeOnDrag();
 }
 </script>
-<div class="canvas"><canvas width="516" height="200" id="canvas-52"></canvas></div>
+<div class="canvas"><canvas width="516" height="200" id="canvas-53"></canvas></div>
 </div>
 
 
@@ -4793,21 +5704,21 @@ function onMouseDrag(event) {
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-53">
+<script type="text/paperscript" canvas="canvas-54">
 function onMouseDown(event) {
-	// Create a circle shaped path at the mouse position,
-	// with a radius of 10:
-	var path = new Path.Circle({
-		center: event.point,
-		radius: 10,
-		fillColor: 'black'
-	});
+    // Create a circle shaped path at the mouse position,
+    // with a radius of 10:
+    var path = new Path.Circle({
+        center: event.point,
+        radius: 10,
+        fillColor: 'black'
+    });
 
-	// Remove the path, when the mouse is released:
-	path.removeOnUp();
+    // Remove the path, when the mouse is released:
+    path.removeOnUp();
 }
 </script>
-<div class="canvas"><canvas width="516" height="200" id="canvas-53"></canvas></div>
+<div class="canvas"><canvas width="516" height="200" id="canvas-54"></canvas></div>
 </div>
 
 
