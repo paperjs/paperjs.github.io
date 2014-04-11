@@ -2646,10 +2646,12 @@ in points. Can also be controlled through
 <p><tt>Group, Layer, Path, CompoundPath, Shape, Raster, PlacedSymbol,
 PointText</tt>, etc.</p>
 <p><b>options.fill:</b> <tt>Boolean</tt> – hit test the fill of items.</p>
-<p><b>options.stroke:</b> <tt>Boolean</tt> – hit test the curves of path
-items, taking into account stroke width.</p>
-<p><b>options.segment:</b> <tt>Boolean</tt> – hit test for
+<p><b>options.stroke:</b> <tt>Boolean</tt> – hit test the stroke of path
+items, taking into account the setting of stroke color and width.</p>
+<p><b>options.segments:</b> <tt>Boolean</tt> – hit test for
 <a href="/reference/segment#point"><tt>segment.point</tt></a> of <a href="/reference/path"><tt>Path</tt></a> items.</p>
+<p><b>options.curves:</b> <tt>Boolean</tt> – hit test the curves of path
+items, without taking the stroke color or width into account.</p>
 <p><b>options.handles:</b> <tt>Boolean</tt> – hit test for the handles
 (<a href="/reference/segment#handlein"><tt>segment.handleIn</tt></a> / <a href="/reference/segment#handleout"><tt>segment.handleOut</tt></a>) of path segments.</p>
 <p><b>options.ends:</b> <tt>Boolean</tt> – only hit test for the first or
