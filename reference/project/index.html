@@ -505,12 +505,11 @@ hit
 <div class="member-text">
 	<p>Fetch items contained within the project whose properties match the
 criteria in the specified object.</p>
-<p>Matching supports regular expressions for 
-strings, function callbacks, and plain object matching (as a subset).</p>
-<p>Matching segments is not supported yet. Matching points, colors only 
-work as a comparison of the full object, not partial matching 
-(e.g. only providing the x-coordinate to match all points with that
-x-value). Partial matching does work for <a href="/reference/item#data"><tt>item.data</tt></a>.</p>
+<p>Extended matching is possible by providing a compare function or
+regular expression. Matching points, colors only work as a comparison 
+of the full object, not partial matching (e.g. only providing the x-
+coordinate to match all points with that x-value). Partial matching 
+does work for <a href="/reference/item#data"><tt>item.data</tt></a>.</p>
 	
 <ul><b>Parameters:</b>
 
@@ -565,7 +564,7 @@ items[0].fillColor = 'red';
 
 
 <p>
-<b>Example</b> &mdash; Fetch items at a specific position:
+<b>Example</b> &mdash; Fetch all items with a specific fill color:
 </p>
 
 <div class="paperscript split">
@@ -575,6 +574,41 @@ items[0].fillColor = 'red';
 </div>
 
 <script type="text/paperscript" canvas="canvas-3">
+var path1 = new Path.Circle({
+    center: [50, 50],
+    radius: 25,
+    fillColor: 'black'
+});
+
+var path2 = new Path.Circle({
+    center: [150, 50],
+    radius: 25,
+    fillColor: 'purple'
+});
+
+// Fetch all items with a purple fill color:
+var items = project.getItems({
+    fillColor: 'purple'
+});
+
+// Change the fill color of the selected path to red:
+items[0].selected = true;
+</script>
+<div class="canvas"><canvas width="516" height="100" id="canvas-3"></canvas></div>
+</div>
+
+
+<p>
+<b>Example</b> &mdash; Fetch items at a specific position:
+</p>
+
+<div class="paperscript split">
+
+<div class="buttons">
+<div class="button run">Run</div>
+</div>
+
+<script type="text/paperscript" canvas="canvas-4">
 var path1 = new Path.Circle({
     center: [50, 50],
     radius: 25,
@@ -595,7 +629,7 @@ var items = project.getItems({
 // Select the fetched path:
 items[0].selected = true;
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-3"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-4"></canvas></div>
 </div>
 
 
@@ -609,7 +643,7 @@ items[0].selected = true;
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-4">
+<script type="text/paperscript" canvas="canvas-5">
 // Create a circle shaped path:
 var path1 = new Path.Circle({
     center: [50, 50],
@@ -635,7 +669,7 @@ var items = paper.project.getItems({
 // Select the fetched item:
 items[0].selected = true;
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-4"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-5"></canvas></div>
 </div>
 
 
@@ -649,7 +683,7 @@ items[0].selected = true;
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-5">
+<script type="text/paperscript" canvas="canvas-6">
 // Create a rectangle shaped path (4 segments):
 var path1 = new Path.Rectangle({
     from: [25, 25],
@@ -677,7 +711,7 @@ var items = project.getItems({
 // Select the fetched path:
 items[0].selected = true;
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-5"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-6"></canvas></div>
 </div>
 
 
@@ -691,7 +725,7 @@ items[0].selected = true;
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-6">
+<script type="text/paperscript" canvas="canvas-7">
 // Create a black circle shaped path:
 var path1 = new Path.Circle({
     center: [50, 50],
@@ -734,7 +768,7 @@ var items = paper.project.getItems({
 // Select the fetched item:
 items[0].selected = true;
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-6"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-7"></canvas></div>
 </div>
 
 
@@ -748,7 +782,7 @@ items[0].selected = true;
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-7">
+<script type="text/paperscript" canvas="canvas-8">
 // Create a path named 'aardvark':
 var path1 = new Path.Circle({
     center: [50, 50],
@@ -783,7 +817,7 @@ for (var i = 0; i < items.length; i++) {
 	items[i].fillColor = 'red';
 }
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-7"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-8"></canvas></div>
 </div>
 
 
