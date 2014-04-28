@@ -2712,31 +2712,6 @@ circle.set({
 </div>
 
 	
-<div id="isinserted" class="member">
-<div class="member-link">
-<a name="isinserted" href="#isinserted"><tt><b>isInserted</b>()</tt></a>
-</div>
-<div class="member-description hidden">
-<div class="member-text">
-	<p>Checks whether the item and all its parents are inserted into the DOM or
-not.</p>
-	
-	
-	<ul><b>Returns:</b>
-	
-		<li>
-<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the item is inserted into the DOM, <tt>false</tt> otherwise
-</li>
-	
-	</ul>
-
-	
-	
-</div>
-</div>
-</div>
-
-	
 <div id="clone" class="member">
 <div class="member-link">
 <a name="clone" href="#clone"><tt><b>clone</b>([insert])</tt></a>
@@ -3043,6 +3018,142 @@ hit
 </div>
 
 	
+<h3>Fetching and matching items</h3>
+
+<div id="matches-match" class="member">
+<div class="member-link">
+<a name="matches-match" href="#matches-match"><tt><b>matches</b>(match)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Check whether the item matches the properties in the specified object.</p>
+<p>Extended matching is possible by providing a compare function or
+regular expression. Matching points, colors only work as a comparison
+of the full object, not partial matching (e.g. only providing the x-
+coordinate to match all points with that x-value). Partial matching
+does work for <a href="/reference/item#data"><tt>item.data</tt></a>.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>match:</tt> 
+<tt>Object</tt>
+&mdash;&nbsp;The criteria to match against.
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the item matches the criteria, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	<p><b>See also:</b>
+	<tt><a href="/reference/project#getitems-match"><tt>project.getItems(match)</tt></a></tt>
+	</p>
+
+	
+</div>
+</div>
+</div>
+
+	
+<div id="getitems-match" class="member">
+<div class="member-link">
+<a name="getitems-match" href="#getitems-match"><tt><b>getItems</b>(match)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Fetch the descendants (children or children of children) of this item
+that match the properties in the specified object.</p>
+<p>Extended matching is possible by providing a compare function or
+regular expression. Matching points, colors only work as a comparison
+of the full object, not partial matching (e.g. only providing the x-
+coordinate to match all points with that x-value). Partial matching
+does work for <a href="/reference/item#data"><tt>item.data</tt></a>.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>match:</tt> 
+<tt>Object</tt>
+&mdash;&nbsp;The criteria to match against.
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt>Array of <a href="/reference/item"><tt>Item</tt></a> objects</tt>
+</li>
+	
+	</ul>
+
+	
+	<p><b>See also:</b>
+	<tt><a href="/reference/project#getitems-match"><tt>project.getItems(match)</tt></a></tt>
+	</p>
+
+	
+</div>
+</div>
+</div>
+
+	
+<div id="getitem-match" class="member">
+<div class="member-link">
+<a name="getitem-match" href="#getitem-match"><tt><b>getItem</b>(match)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Fetch the first descendant (child or child of child) of this item
+that matches the properties in the specified object.</p>
+<p>Extended matching is possible by providing a compare function or
+regular expression. Matching points, colors only work as a comparison
+of the full object, not partial matching (e.g. only providing the x-
+coordinate to match all points with that x-value). Partial matching
+does work for <a href="/reference/item#data"><tt>item.data</tt></a>.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>match:</tt> 
+<tt>Object</tt>
+&mdash;&nbsp;The criteria to match against.
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/item"><tt>Item</tt></a></tt>
+</li>
+	
+	</ul>
+
+	
+	<p><b>See also:</b>
+	<tt><a href="/reference/project#getitem-match"><tt>project.getItem(match)</tt></a></tt>
+	</p>
+
+	
+</div>
+</div>
+</div>
+
+	
 <h3>Importing / Exporting JSON and SVG</h3>
 
 <div id="exportjson" class="member">
@@ -3150,7 +3261,7 @@ matchShapes: false }</tt>
 	<ul><b>Returns:</b>
 	
 		<li>
-<tt><tt>SVGSVGElement</tt></tt>&nbsp;&mdash;&nbsp;the item converted to an SVG node
+<tt><tt>SVGElement</tt></tt>&nbsp;&mdash;&nbsp;the item converted to an SVG node
 </li>
 	
 	</ul>
@@ -3180,7 +3291,7 @@ items should be expanded to path items.</p>
 
 <li>
 <tt>svg:</tt> 
-<tt>SVGSVGElement</tt> / <tt>String</tt>
+<tt>SVGElement</tt> / <tt>String</tt>
 &mdash;&nbsp;the SVG content to import
 
 </li>
@@ -3773,6 +3884,80 @@ with no segments all are considered empty.</p>
 </div>
 
 	
+<h3>Style Tests</h3>
+
+<div id="hasfill" class="member">
+<div class="member-link">
+<a name="hasfill" href="#hasfill"><tt><b>hasFill</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Checks whether the item has a fill.</p>
+	
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the item has a fill, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+
+	
+<div id="hasstroke" class="member">
+<div class="member-link">
+<a name="hasstroke" href="#hasstroke"><tt><b>hasStroke</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Checks whether the item has a stroke.</p>
+	
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the item has a stroke, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+
+	
+<div id="hasshadow" class="member">
+<div class="member-link">
+<a name="hasshadow" href="#hasshadow"><tt><b>hasShadow</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Checks whether the item has a shadow.</p>
+	
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the item has a shadow, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+
+	
 <h3>Hierarchy Tests</h3>
 
 <div id="haschildren" class="member">
@@ -3788,6 +3973,31 @@ with no segments all are considered empty.</p>
 	
 		<li>
 <tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> it has one or more children, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+
+	
+<div id="isinserted" class="member">
+<div class="member-link">
+<a name="isinserted" href="#isinserted"><tt><b>isInserted</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Checks whether the item and all its parents are inserted into the DOM or
+not.</p>
+	
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the item is inserted into the DOM, <tt>false</tt> otherwise
 </li>
 	
 	</ul>
@@ -5303,9 +5513,9 @@ function onMouseDown(event) {
 <div class="reference-members"><h2>Methods inherited from <a href="/reference/pathitem"><tt>PathItem</tt></a></h2>
 
 	
-<div id="getintersections(path, sorted)-path" class="member">
+<div id="getintersections-path" class="member">
 <div class="member-link">
-<a name="getintersections(path, sorted)-path" href="#getintersections(path, sorted)-path"><tt><b>getIntersections(path, sorted)</b>(path)</tt></a>
+<a name="getintersections-path" href="#getintersections-path"><tt><b>getIntersections</b>(path[, sorted])</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
@@ -5322,6 +5532,14 @@ supported.</p>
 
 </li>
 
+<li>
+<tt>sorted:</tt> 
+<tt>Boolean</tt>
+&mdash;&nbsp;specifies whether the returned
+<a href="/reference/curvelocation"><tt>CurveLocation</tt></a> objects should be sorted by path and offset
+&mdash;&nbsp;optional, default: <tt>false</tt>
+</li>
+
 </ul>
 
 	
@@ -5336,7 +5554,7 @@ paths
 
 	
 	<p>
-<b>Example</b> &mdash; Create a rectangular path with its top-left point at {x: 30, y: 25} and a size of {width: 50, height: 50}:
+<b>Example</b> &mdash; Finding the intersections between two paths
 </p>
 
 <div class="paperscript split">
@@ -5353,7 +5571,7 @@ var secondPath = path.clone();
 var intersectionGroup = new Group();
 
 function onFrame(event) {
-    secondPath.rotate(3);
+    secondPath.rotate(1);
 
     var intersections = path.getIntersections(secondPath);
     intersectionGroup.removeChildren();
@@ -5362,9 +5580,9 @@ function onFrame(event) {
         var intersectionPath = new Path.Circle({
             center: intersections[i].point,
             radius: 4,
-            fillColor: 'red'
+            fillColor: 'red',
+            parent: intersectionGroup
         });
-        intersectionGroup.addChild(intersectionPath);
     }
 }
 </script>
