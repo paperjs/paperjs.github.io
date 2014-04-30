@@ -63,9 +63,9 @@
 	<div class="reference-members"><h2>Static Methods</h2>
 		
 			
-<div id="compile-code" class="member">
+<div id="compile-code-url" class="member">
 <div class="member-link">
-<a name="compile-code" href="#compile-code"><tt><b>PaperScript.compile</b>(code)</tt></a>
+<a name="compile-code-url" href="#compile-code-url"><tt><b>PaperScript.compile</b>(code, url)</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
@@ -76,7 +76,14 @@
 <li>
 <tt>code:</tt> 
 <tt>String</tt>
-&mdash;&nbsp;The PaperScript code
+&mdash;&nbsp;The PaperScript code.
+
+</li>
+
+<li>
+<tt>url:</tt> 
+<tt>String</tt>
+&mdash;&nbsp;The url of the source, for source-map debugging.
 
 </li>
 
@@ -86,7 +93,7 @@
 	<ul><b>Returns:</b>
 	
 		<li>
-<tt><tt>String</tt></tt>&nbsp;&mdash;&nbsp;the compiled PaperScript as JavaScript code
+<tt><tt>String</tt></tt>&nbsp;&mdash;&nbsp;The compiled PaperScript as JavaScript code.
 </li>
 	
 	</ul>
@@ -98,9 +105,9 @@
 </div>
 		
 			
-<div id="execute-code-scope" class="member">
+<div id="execute-code-scope-url" class="member">
 <div class="member-link">
-<a name="execute-code-scope" href="#execute-code-scope"><tt><b>PaperScript.execute</b>(code, scope)</tt></a>
+<a name="execute-code-scope-url" href="#execute-code-scope-url"><tt><b>PaperScript.execute</b>(code, scope, url)</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
@@ -114,14 +121,21 @@ and tool handlers automatically for you.</p>
 <li>
 <tt>code:</tt> 
 <tt>String</tt>
-&mdash;&nbsp;The PaperScript code
+&mdash;&nbsp;The PaperScript code.
 
 </li>
 
 <li>
 <tt>scope:</tt> 
 <a href="/reference/paperscript"><tt>PaperScript</tt></a>
-&mdash;&nbsp;The scope for which the code is executed
+&mdash;&nbsp;The scope for which the code is executed.
+
+</li>
+
+<li>
+<tt>url:</tt> 
+<tt>String</tt>
+&mdash;&nbsp;The url of the source, for source-map debugging.
 
 </li>
 
