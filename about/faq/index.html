@@ -2,6 +2,10 @@
 <html>
 <head>
   <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-touch-fullscreen" content="yes"/>
+  <meta name="msapplication-tap-highlight" content="no"/>
   <link rel="stylesheet" href="/assets/css/style.css"/>
   <link rel="icon" href="/assets/favicon.ico" type="image/x-icon"/>
   <link rel="shortcut icon" href="/assets/favicon.ico"/>
@@ -29,23 +33,36 @@
 <ul>
   <li class="active"><a href="/about/faq/">FAQ</a></li>
   <li><a href="/about/roadmap/">Roadmap</a></li>
-</ul></li>
-  <li><a href="/features/">Features</a></li>
+</ul>
+  </li>
+  <li><a href="/features/">Features</a>
+  </li>
   <li class="spacer"></li>
-  <li><a href="/examples/">Examples</a></li>
-  <li><a href="/showcase/">Showcase</a></li>
+  <li><a href="/examples/">Examples</a>
+  </li>
+  <li><a href="/showcase/">Showcase</a>
+  </li>
   <li class="spacer"></li>
-  <li><a href="/tutorials/">Tutorials</a></li>
-  <li><a href="/reference/">Reference</a></li>
-  <li><a href="http://sketch.paperjs.org/">Sketch</a></li>
+  <li><a href="/tutorials/">Tutorials</a>
+  </li>
+  <li><a href="/reference/">Reference</a>
+  </li>
+  <li><a href="http://sketch.paperjs.org/">Sketch</a>
+  </li>
   <li class="spacer"></li>
-  <li><a href="/download/">Download</a></li>
-  <li><a href="/donation/">Donation</a></li>
-  <li><a href="/license/">License</a></li>
+  <li><a href="/download/">Download</a>
+  </li>
+  <li><a href="/donation/">Donation</a>
+  </li>
+  <li><a href="/license/">License</a>
+  </li>
   <li class="spacer"></li>
-  <li><a href="http://groups.google.com/group/paperjs" target="_blank">Mailing List</a></li>
-  <li><a href="http://twitter.com/PaperJS" target="_blank">Follow on Twitter</a></li>
-  <li><a href="http://github.com/paperjs/paper.js" target="_blank">Watch on Github</a></li>
+  <li><a href="http://groups.google.com/group/paperjs" target="_blank">Mailing List</a>
+  </li>
+  <li><a href="http://twitter.com/PaperJS" target="_blank">Follow on Twitter</a>
+  </li>
+  <li><a href="http://github.com/paperjs/paper.js" target="_blank">Watch on Github</a>
+  </li>
 </ul>
     </nav>
 <article class="tutorial">
@@ -64,7 +81,7 @@ Importing from and exporting to SVG is implemented in the library since Since No
 </p>
 <section id="cluttering-global-namespace"><a name="cluttering-global-namespace" title="Cluttering global namespace?" class="anchor"><h2>Aren&apos;t you cluttering the global namespace with lots of variables?</h2></a></section>
 <p>
-Don&apos;t worry, all of Paper.js is compiled in its own scope and housed within a global <b><tt>paper</tt></b> variable. Paper.js runs each of your PaperScript scripts within their own scope, which at the time of the execution appears to be the global scope but is in fact that <tt>paper</tt> object. If you choose to not use PaperScript and prefer plain JavaScript instead, you will lose the added benefit of expressing vector mathematics with <tt>Point</tt> and <tt>Size</tt> objects through simple math operators, and you will have to access all your prototypes on this <tt>paper</tt> object. You could choose to pollute the global scope by calling <tt>paper.install(window)</tt>, injecting all the Paper.js prototypes into it and removing the need to access everything through the <tt>paper</tt> object.
+Don&apos;t worry, all of Paper.js is compiled in its own scope and housed within a global <tt><a href="/reference/global#paper">paper</a></tt> variable. Paper.js runs each of your PaperScript scripts within their own scope, which at the time of the execution appears to be the global scope but is in fact that <tt>paper</tt> object. If you choose to not use PaperScript and prefer plain JavaScript instead, you will lose the added benefit of expressing vector mathematics with <tt>Point</tt> and <tt>Size</tt> objects through simple math operators, and you will have to access all your prototypes on this <tt>paper</tt> object. You could choose to pollute the global scope by calling <tt>paper.install(window)</tt>, injecting all the Paper.js prototypes into it and removing the need to access everything through the <tt>paper</tt> object.
 </p>
 <section id="what-about-the-competition"><a name="what-about-the-competition" title="What about the competition?" class="anchor"><h2>What about the competition? Aren&apos;t there quite a few libraries out there that wrap around the Canvas already?</h2></a></section>
 <p>
@@ -83,6 +100,7 @@ Yes you can, but you loose some advantages such as auto-scoping and operator ove
 <div class="sticky">
   <h1>Content</h1>
   <ul class="toc"></ul>
-</div></aside>
+</div>
+</aside>
   </body>
 </html>

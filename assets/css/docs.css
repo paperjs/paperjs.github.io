@@ -1,9 +1,9 @@
 .reference h1,
 .reference h2,
 .reference h3 {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: normal;
-  height: 18px;
+  height: 19px;
   border-bottom: 1px solid;
   margin-top: 0;
   margin-bottom: 16px; }
@@ -96,13 +96,13 @@ textarea {
 .CodeMirror textarea,
 .CodeMirror pre {
   font-family: Menlo, Consolas, "Vera Mono", monospace;
-  font-size: 12px; }
+  font-size: 13px; }
 
 body {
   background: #fff;
   margin: 16px;
-  font-size: 13px;
-  line-height: 20px;
+  font-size: 15px;
+  line-height: 21px;
   color: #333333;
   max-width: 540px; }
 
@@ -116,8 +116,8 @@ textarea {
 tt,
 pre {
   font-family: Menlo, Consolas, "Vera Mono", monospace;
-  font-size: 12px;
-  line-height: 20px; }
+  font-size: 13px;
+  line-height: 21px; }
 
 a {
   color: #333333;
@@ -130,7 +130,7 @@ img {
   border: 0; }
 
 p {
-  margin: 0 0 20px 0; }
+  margin: 0 0 21px 0; }
 
 ul,
 ol {
@@ -162,10 +162,10 @@ ol {
   border: none; }
 
 .footer {
-  margin-top: 20px; }
+  margin-top: 21px; }
 
 .CodeMirror pre {
-  line-height: 16px;
+  line-height: 18px;
   margin: 0;
   padding: 0;
   background: transparent; }

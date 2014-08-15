@@ -2,6 +2,10 @@
 <html>
 <head>
   <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-touch-fullscreen" content="yes"/>
+  <meta name="msapplication-tap-highlight" content="no"/>
   <link rel="stylesheet" href="/assets/css/style.css"/>
   <link rel="icon" href="/assets/favicon.ico" type="image/x-icon"/>
   <link rel="shortcut icon" href="/assets/favicon.ico"/>
@@ -25,25 +29,38 @@
     <nav>
       <h1><a href="/">Paper.js</a></h1>
 <ul>
-  <li><a href="/about/">About</a></li>
-  <li><a href="/features/">Features</a></li>
+  <li><a href="/about/">About</a>
+  </li>
+  <li><a href="/features/">Features</a>
+  </li>
   <li class="spacer"></li>
-  <li><a href="/examples/">Examples</a></li>
-  <li><a href="/showcase/">Showcase</a></li>
+  <li><a href="/examples/">Examples</a>
+  </li>
+  <li><a href="/showcase/">Showcase</a>
+  </li>
   <li class="spacer"></li>
   <li><a href="/tutorials/">Tutorials</a>
 <ul>
-</ul></li>
-  <li><a href="/reference/">Reference</a></li>
-  <li><a href="http://sketch.paperjs.org/">Sketch</a></li>
+</ul>
+  </li>
+  <li><a href="/reference/">Reference</a>
+  </li>
+  <li><a href="http://sketch.paperjs.org/">Sketch</a>
+  </li>
   <li class="spacer"></li>
-  <li><a href="/download/">Download</a></li>
-  <li><a href="/donation/">Donation</a></li>
-  <li><a href="/license/">License</a></li>
+  <li><a href="/download/">Download</a>
+  </li>
+  <li><a href="/donation/">Donation</a>
+  </li>
+  <li><a href="/license/">License</a>
+  </li>
   <li class="spacer"></li>
-  <li><a href="http://groups.google.com/group/paperjs" target="_blank">Mailing List</a></li>
-  <li><a href="http://twitter.com/PaperJS" target="_blank">Follow on Twitter</a></li>
-  <li><a href="http://github.com/paperjs/paper.js" target="_blank">Watch on Github</a></li>
+  <li><a href="http://groups.google.com/group/paperjs" target="_blank">Mailing List</a>
+  </li>
+  <li><a href="http://twitter.com/PaperJS" target="_blank">Follow on Twitter</a>
+  </li>
+  <li><a href="http://github.com/paperjs/paper.js" target="_blank">Watch on Github</a>
+  </li>
 </ul>
     </nav>
 <article class="tutorial">
@@ -65,10 +82,10 @@ var myPath = new Path({
 });
 </script>
 <div class="canvas">
-<canvas width="538" height="198" id="canvas-1"></canvas>
+<canvas height="198" id="canvas-1" width="538"></canvas>
 </div>
 </div>
-<div class="note"><b>Please note:</b><p>
+<div class="note"><h4>Please note:</h4><p>
 To find out how to create paths with Paper.js, please read the <a href="/tutorials/paths/working-with-path-items/">Working with Path Items</a> tutorial.
 </p><div class="text-end"></div></div>
 <section id="stroke-color"><a name="stroke-color" title="Stroke Color" class="anchor"><h2>Stroke Color</h2></a></section>
@@ -90,7 +107,7 @@ var myPath = new Path({
 myPath.strokeColor = '#ff0000'; // red
 </script>
 <div class="canvas">
-<canvas width="538" height="198" id="canvas-2"></canvas>
+<canvas height="198" id="canvas-2" width="538"></canvas>
 </div>
 </div>
 <p>
@@ -111,10 +128,10 @@ var myPath = new Path({
 myPath.strokeColor = new Color(0.5, 0, 0.5);
 </script>
 <div class="canvas">
-<canvas width="538" height="198" id="canvas-3"></canvas>
+<canvas height="198" id="canvas-3" width="538"></canvas>
 </div>
 </div>
-<div class="note"><b>Please note:</b><p>
+<div class="note"><h4>Please note:</h4><p>
 In Paper.js color component values range from 0 to 1.
 </p><div class="text-end"></div></div>
 <section id="fill-color"><a name="fill-color" title="Fill Color" class="anchor"><h2>Fill Color</h2></a></section>
@@ -134,7 +151,7 @@ var myPath = new Path({
 myPath.fillColor = '#ff0000';
 </script>
 <div class="canvas">
-<canvas width="538" height="198" id="canvas-4"></canvas>
+<canvas height="198" id="canvas-4" width="538"></canvas>
 </div>
 </div>
 <section id="stroke-width"><a name="stroke-width" title="Stroke Width" class="anchor"><h2>Stroke Width</h2></a></section>
@@ -158,7 +175,7 @@ myPath.strokeColor = '#ff0000';
 myPath.strokeWidth = 10;
 </script>
 <div class="canvas">
-<canvas width="538" height="198" id="canvas-5"></canvas>
+<canvas height="198" id="canvas-5" width="538"></canvas>
 </div>
 </div>
 <section id="stroke-cap"><a name="stroke-cap" title="Stroke Cap" class="anchor"><h2>Stroke Cap</h2></a></section>
@@ -181,7 +198,7 @@ myPath.strokeWidth = 10;
 myPath.strokeCap = 'round';
 </script>
 <div class="canvas">
-<canvas width="538" height="198" id="canvas-6"></canvas>
+<canvas height="198" id="canvas-6" width="538"></canvas>
 </div>
 </div>
 <section id="stroke-join"><a name="stroke-join" title="Stroke Join" class="anchor"><h2>Stroke Join</h2></a></section>
@@ -204,7 +221,7 @@ myPath.strokeWidth = 10;
 myPath.strokeJoin = 'round';
 </script>
 <div class="canvas">
-<canvas width="538" height="198" id="canvas-7"></canvas>
+<canvas height="198" id="canvas-7" width="538"></canvas>
 </div>
 </div>
 <section id="dashed-stroke"><a name="dashed-stroke" title="Dashed Stroke" class="anchor"><h2>Dashed Stroke</h2></a></section>
@@ -228,7 +245,7 @@ myPath.strokeCap = 'round';
 myPath.dashArray = [10, 12];
 </script>
 <div class="canvas">
-<canvas width="538" height="198" id="canvas-8"></canvas>
+<canvas height="198" id="canvas-8" width="538"></canvas>
 </div>
 </div>
 <section id="the-pathstyle-object"><a name="the-pathstyle-object" title="The PathStyle Object" class="anchor"><h2>The PathStyle Object</h2></a></section>
@@ -261,7 +278,7 @@ var secondPath = new Path.Circle({
 secondPath.style = firstPath.style;
 </script>
 <div class="canvas">
-<canvas width="538" height="98" id="canvas-9"></canvas>
+<canvas height="98" id="canvas-9" width="538"></canvas>
 </div>
 </div>
 <p>
@@ -288,7 +305,7 @@ var myCircle = new Path.Circle({
 myCircle.style = myStyle;
 </script>
 <div class="canvas">
-<canvas width="538" height="198" id="canvas-10"></canvas>
+<canvas height="198" id="canvas-10" width="538"></canvas>
 </div>
 </div>
 <section id="removing-styles"><a name="removing-styles" title="Removing Styles" class="anchor"><h2>Removing Styles</h2></a></section>
@@ -354,61 +371,69 @@ var secondPath = new Path.Circle({
 });
 </script>
 <div class="canvas">
-<canvas width="538" height="198" id="canvas-11"></canvas>
+<canvas height="198" id="canvas-11" width="538"></canvas>
 </div>
 </div>
 </article>
 <aside>
 <h1>Index</h1>
 <ul class="tutorial-index">
-  <li class="expandable-list undefined"><b><a href="/tutorials/getting-started/">Getting Started</a></b>
+  <li class="expandable-list"><b><a href="/tutorials/getting-started/">Getting Started</a></b>
 <ul class="tutorial-index">
   <li><a href="/tutorials/getting-started/working-with-paper-js/">Working with Paper.js</a></li>
   <li><a href="/tutorials/getting-started/using-javascript-directly/">Using JavaScript Directly</a></li>
   <li><a href="/tutorials/getting-started/paperscript-interoperability/">PaperScript Interoperability</a></li>
-</ul></li>
-  <li class="expandable-list undefined"><b><a href="/tutorials/geometry/">Geometry</a></b>
+</ul>
+  </li>
+  <li class="expandable-list"><b><a href="/tutorials/geometry/">Geometry</a></b>
 <ul class="tutorial-index">
   <li><a href="/tutorials/geometry/point-size-and-rectangle/">Point, Size and Rectangle</a></li>
   <li><a href="/tutorials/geometry/object-conversion/">Object Conversion</a></li>
   <li><a href="/tutorials/geometry/mathematical-operations/">Mathematical Operations</a></li>
   <li><a href="/tutorials/geometry/vector-geometry/">Vector Geometry</a></li>
-</ul></li>
+</ul>
+  </li>
   <li class="expandable-list expanded"><b><a href="/tutorials/paths/">Paths</a></b>
 <ul class="tutorial-index">
   <li><a href="/tutorials/paths/working-with-path-items/">Working with Path Items</a></li>
   <li><a href="/tutorials/paths/creating-predefined-shapes/">Creating Predefined Shapes</a></li>
   <li class="active"><span>Using Color and Style</span></li>
   <li><a href="/tutorials/paths/smoothing-simplifying-flattening/">Smoothing, Simplifying &amp; Flattening</a></li>
-</ul></li>
-  <li class="expandable-list undefined"><b><a href="/tutorials/interaction/">Interaction</a></b>
+</ul>
+  </li>
+  <li class="expandable-list"><b><a href="/tutorials/interaction/">Interaction</a></b>
 <ul class="tutorial-index">
   <li><a href="/tutorials/interaction/creating-mouse-tools/">Creating Mouse Tools</a></li>
   <li><a href="/tutorials/interaction/mouse-tool-events/">Mouse Tool Events</a></li>
   <li><a href="/tutorials/interaction/working-with-mouse-vectors/">Working with Mouse Vectors</a></li>
   <li><a href="/tutorials/interaction/keyboard-interaction/">Keyboard Interaction</a></li>
-</ul></li>
-  <li class="expandable-list undefined"><b><a href="/tutorials/project-items/">Project &amp; Items</a></b>
+</ul>
+  </li>
+  <li class="expandable-list"><b><a href="/tutorials/project-items/">Project &amp; Items</a></b>
 <ul class="tutorial-index">
   <li><a href="/tutorials/project-items/working-with-items/">Working with Items</a></li>
   <li><a href="/tutorials/project-items/transforming-items/">Transforming Items</a></li>
   <li><a href="/tutorials/project-items/project-hierarchy/">Project Hierarchy</a></li>
   <li><a href="/tutorials/project-items/working-with-symbols/">Working with Symbols</a></li>
-</ul></li>
-  <li class="expandable-list undefined"><b><a href="/tutorials/images/">Images</a></b>
+</ul>
+  </li>
+  <li class="expandable-list"><b><a href="/tutorials/images/">Images</a></b>
 <ul class="tutorial-index">
   <li><a href="/tutorials/images/working-with-rasters/">Working with Rasters</a></li>
   <li><a href="/tutorials/images/using-pixel-colors/">Using Pixel Colors</a></li>
   <li><a href="/tutorials/images/color-averaging-image-areas/">Color Averaging Image Areas</a></li>
-</ul></li>
-  <li class="expandable-list undefined"><b><a href="/tutorials/animation/">Animation</a></b>
+</ul>
+  </li>
+  <li class="expandable-list"><b><a href="/tutorials/animation/">Animation</a></b>
 <ul class="tutorial-index">
   <li><a href="/tutorials/animation/creating-animations/">Creating Animations</a></li>
-</ul></li>
+</ul>
+  </li>
 </ul>
 <div class="sticky">
   <h1>Content</h1>
   <ul class="toc"></ul>
-</div></aside>
+</div>
+</aside>
   </body>
 </html>
