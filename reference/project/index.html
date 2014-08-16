@@ -745,9 +745,9 @@ var path2 = new Path.Line({
 // Fetch all paths with 2 segments:
 var items = project.getItems({
     class: Path,
-	segments: function(segments) {
+ segments: function(segments) {
         return segments.length == 2;
-	}
+ }
 });
 
 // Select the fetched path:
@@ -856,7 +856,7 @@ var items = project.getItems({
 
 // Change the fill color of the matched items:
 for (var i = 0; i < items.length; i++) {
-	items[i].fillColor = 'red';
+ items[i].fillColor = 'red';
 }
 </script>
 <div class="canvas"><canvas width="516" height="100" id="canvas-8"></canvas></div>
@@ -1082,9 +1082,9 @@ var path2 = new Path.Line({
 // Fetch first path with 2 segments:
 var item = project.getItem({
     class: Path,
-	segments: function(segments) {
+ segments: function(segments) {
         return segments.length == 2;
-	}
+ }
 });
 
 // Select the fetched path:
