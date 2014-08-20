@@ -415,8 +415,8 @@ function createPaperScript(element) {
 			// Can't get correct dimensions from hidden canvas,
 			// so calculate again.
 			var offset = source.offset();
-			width = $(document).width() - offset.left;
-			height = $(document).height() - offset.top;
+			width = $(window).width() - offset.left;
+			height = $(window).height() - offset.top;
 		}
 		// Resize the main element as well, so that the float:right button
 		// is always positioned correctly.
@@ -426,6 +426,8 @@ function createPaperScript(element) {
 		source
 			.width(width - (hasBorders ? 2 : 1))
 			.height(height - (hasBorders ? 2 : 0));
+		if (editor)
+			editor.refresh();
 	}
 
 	function toggleView() {
@@ -437,7 +439,7 @@ function createPaperScript(element) {
 			runScript();
 		// Add extra margin if there is scrolling
 		runButton.css('margin-right',
-			$('.CodeMirror .CodeMirror-scroll', source).height() > height ? 23 : 8);
+			$('.CodeMirror .CodeMirror-scroll', source).height() > height ? 25 : 8);
 	}
 
 	if (hasResize) {
