@@ -3667,14 +3667,50 @@ item itself is returned unmodified.</p>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Removes the item from the project. If the item has children, they are also
-removed.</p>
+	<p>Removes the item and all its children from the project. The item is not
+destroyed and can be inserted again after removal.</p>
 	
 	
 	<ul><b>Returns:</b>
 	
 		<li>
 <tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the item was removed, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+
+	
+<div id="replacewith-item" class="member">
+<div class="member-link">
+<a name="replacewith-item" href="#replacewith-item"><tt><b>replaceWith</b>(item)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Replaces this item with the provided new item which will takes its place
+in the project hierarchy instead.</p>
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>item:</tt> 
+
+
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the item was replaced, <tt>false</tt> otherwise
 </li>
 	
 	</ul>

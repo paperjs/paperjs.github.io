@@ -246,32 +246,7 @@ var path2 = new Path.Circle(new Point(175, 50), 20);
 </div>
 		
 			
-<div id="selecteditems" class="member">
-<div class="member-link">
-<a name="selecteditems" href="#selecteditems"><tt><b>selectedItems</b></tt></a>
-</div>
-<div class="member-description hidden">
-
-<div class="member-text">
-	<p>The selected items contained within the project.</p>
-	
-		<p>Read only.</p>
-	
-	
-	<ul><b>Type:</b>
-	<li>
-		Array of <a href="/reference/item"><tt>Item</tt></a> objects
-	</li>
-	</ul>
-	
-	
-</div>
-
-</div>
-</div>
-		
-			
-	<h3>Project Hierarchy</h3>
+	<h3>Project Content</h3>
 
 <div id="layers" class="member">
 <div class="member-link">
@@ -306,6 +281,8 @@ var path2 = new Path.Circle(new Point(175, 50), 20);
 	<p>The layer which is currently active. New items will be created on this
 layer by default.</p>
 	
+		<p>Read only.</p>
+	
 	
 	<ul><b>Type:</b>
 	<li>
@@ -333,6 +310,31 @@ layer by default.</p>
 	<ul><b>Type:</b>
 	<li>
 		Array of <a href="/reference/symbol"><tt>Symbol</tt></a> objects
+	</li>
+	</ul>
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
+<div id="selecteditems" class="member">
+<div class="member-link">
+<a name="selecteditems" href="#selecteditems"><tt><b>selectedItems</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The selected items contained within the project.</p>
+	
+		<p>Read only.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		Array of <a href="/reference/item"><tt>Item</tt></a> objects
 	</li>
 	</ul>
 	
@@ -390,9 +392,7 @@ in it.</p>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Checks whether the project has any content or not. Note that since
-projects by default are created with one empty layer, this returns also
-<tt>true</tt> if that layer exists but is itself empty.</p>
+	<p>Checks whether the project has any content or not.</p>
 	
 	
 	<ul><b>Returns:</b>
