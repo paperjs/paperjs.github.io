@@ -179,7 +179,7 @@ function onDocumentDrag(event) {
 function onDocumentDrop(event) {
 	event.preventDefault();
 
-	var file = event.dataTransfer.files[0];
+	var file = event.originalEvent.dataTransfer.files[0];
 	var reader = new FileReader();
 
 	reader.onload = function (event) {
@@ -194,7 +194,7 @@ function onDocumentDrop(event) {
 	reader.readAsDataURL(file);
 }
 
-DomEvent.add(document, {
+$(document).on({
 	drop: onDocumentDrop,
 	dragover: onDocumentDrag,
 	dragleave: onDocumentDrag
