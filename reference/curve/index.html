@@ -965,7 +965,7 @@ specified point if it lies on the path, <tt>null</tt> otherwise.</p>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Returns the point on the curve at the specified offset.</p>
+	<p>Calculates the point on the curve at the given offset.</p>
 	
 <ul><b>Parameters:</b>
 
@@ -1009,7 +1009,7 @@ specified point if it lies on the path, <tt>null</tt> otherwise.</p>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Returns the tangent vector of the curve at the specified position.</p>
+	<p>Calculates the tangent vector of the curve at the given offset.</p>
 	
 <ul><b>Parameters:</b>
 
@@ -1053,7 +1053,7 @@ specified point if it lies on the path, <tt>null</tt> otherwise.</p>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Returns the normal vector of the curve at the specified position.</p>
+	<p>Calculates the normal vector of the curve at the given offset.</p>
 	
 <ul><b>Parameters:</b>
 
@@ -1097,9 +1097,10 @@ specified point if it lies on the path, <tt>null</tt> otherwise.</p>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Returns the curvature vector of the curve at the specified position.</p>
-<p>Curvatures indicate how sharply a curve changes direction. A straight
-line has zero curvature where as a circle has a constant curvature.</p>
+	<p>Calculates the curvature of the curve at the given offset. Curvatures
+indicate how sharply a curve changes direction. A straight line has zero
+curvature, where as a circle has a constant curvature. The curve's radius
+at the given offset is the reciprocal value of its curvature.</p>
 	
 <ul><b>Parameters:</b>
 

@@ -1798,8 +1798,7 @@ for (var i = 0; i < amount + 1; i++) {
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>Calculates the tangent to the path at the given offset as a vector
-point.</p>
+	<p>Calculates the tangent vector of the path at the given offset.</p>
 	
 	
 	<ul><b>Type:</b>
@@ -1905,7 +1904,7 @@ for (var i = 0; i < amount + 1; i++) {
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>Calculates the normal to the path at the given offset as a vector point.</p>
+	<p>Calculates the normal vector of the path at the given offset.</p>
 	
 	
 	<ul><b>Type:</b>
@@ -3260,15 +3259,33 @@ the beginning of the path and <a href="/reference/path#length"><tt>path.length</
 </div>
 		
 			
-<div id="getnearestlocation-point" class="member">
+<div id="getcurvatureat-offset-point" class="member">
 <div class="member-link">
-<a name="getnearestlocation-point" href="#getnearestlocation-point"><tt><b>getNearestLocation</b>(point)</tt></a>
+<a name="getcurvatureat-offset-point" href="#getcurvatureat-offset-point"><tt><b>getCurvatureAt</b>(offset[, isParameter, point])</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Returns the nearest location on the path to the specified point.</p>
+	<p>Calculates the curvature of the path at the given offset. Curvatures
+indicate how sharply a path changes direction. A straight line has zero
+curvature, where as a circle has a constant curvature. The path's radius
+at the given offset is the reciprocal value of its curvature.</p>
 	
 <ul><b>Parameters:</b>
+
+<li>
+<tt>offset:</tt> 
+<tt>Number</tt>
+&mdash;&nbsp;the offset on the path, where <tt>0</tt> is at
+the beginning of the path and <a href="/reference/path#length"><tt>path.length</tt></a> at the end.
+
+</li>
+
+<li>
+<tt>isParameter:</tt> 
+<tt>Boolean</tt>
+
+&mdash;&nbsp;optional, default: <tt>false</tt>
+</li>
 
 <li>
 <tt>point:</tt> 
@@ -3281,6 +3298,14 @@ the beginning of the path and <a href="/reference/path#length"><tt>path.length</
 
 	
 	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the normal vector at the given offset
+
+
+    /**
+Returns the nearest location on the path to the specified point.
+</li>
 	
 		<li>
 <tt><a href="/reference/curvelocation"><tt>CurveLocation</tt></a></tt>&nbsp;&mdash;&nbsp;the location on the path that's the closest to
