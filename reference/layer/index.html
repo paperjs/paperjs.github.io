@@ -2932,52 +2932,6 @@ hit
 </div>
 
 	
-<h3>Fetching and matching items</h3>
-
-<div id="matches-match" class="member">
-<div class="member-link">
-<a name="matches-match" href="#matches-match"><tt><b>matches</b>(match)</tt></a>
-</div>
-<div class="member-description hidden">
-<div class="member-text">
-	<p>Check whether the item matches the properties in the specified object.</p>
-<p>Extended matching is possible by providing a compare function or
-regular expression. Matching points, colors only work as a comparison
-of the full object, not partial matching (e.g. only providing the x-
-coordinate to match all points with that x-value). Partial matching
-does work for <a href="/reference/item#data"><tt>item.data</tt></a>.</p>
-	
-<ul><b>Parameters:</b>
-
-<li>
-<tt>match:</tt> 
-<tt>Object</tt>
-&mdash;&nbsp;The criteria to match against.
-
-</li>
-
-</ul>
-
-	
-	<ul><b>Returns:</b>
-	
-		<li>
-<tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the item matches the criteria, <tt>false</tt> otherwise
-</li>
-	
-	</ul>
-
-	
-	<p><b>See also:</b>
-	<tt><a href="/reference/project#getitems-match"><tt>project.getItems(match)</tt></a></tt>
-	</p>
-
-	
-</div>
-</div>
-</div>
-
-	
 <div id="getitems-match" class="member">
 <div class="member-link">
 <a name="getitems-match" href="#getitems-match"><tt><b>getItems</b>(match)</tt></a>
@@ -4957,9 +4911,9 @@ path.fitBounds(view.bounds);
 	
 <h3>Event Handling</h3>
 
-<div id="attach-type-function" class="member">
+<div id="on-type-function" class="member">
 <div class="member-link">
-<a name="attach-type-function" href="#attach-type-function"><tt><b>attach</b>(type, function)</tt></a>
+<a name="on-type-function" href="#on-type-function"><tt><b>on</b>(type, function)</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
@@ -5024,9 +4978,9 @@ path.on('mouseleave', function() {
 </div>
 
 	
-<div id="attach-object" class="member">
+<div id="on-object" class="member">
 <div class="member-link">
-<a name="attach-object" href="#attach-object"><tt><b>attach</b>(object)</tt></a>
+<a name="on-object" href="#on-object"><tt><b>on</b>(object)</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
