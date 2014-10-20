@@ -86,8 +86,8 @@ objects that are connected by this segment.</p>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-<p>Creates a new Segment object.</p>
-
+    <p>Creates a new Segment object.</p>
+    
 <ul><b>Parameters:</b>
 
 <li>
@@ -117,8 +117,17 @@ objects that are connected by this segment.</p>
 
 </ul>
 
+    
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/segment"><tt>Segment</tt></a></tt>
+</li>
+	
+	</ul>
 
-<p>
+    
+    <p>
 <b>Example</b> 
 </p>
 
@@ -145,7 +154,6 @@ path.strokeColor = 'black';
 </div>
 
 
-
 </div>
 </div>
 </div>
@@ -157,8 +165,8 @@ path.strokeColor = 'black';
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-<p>Creates a new Segment object.</p>
-
+    <p>Creates a new Segment object.</p>
+    
 <ul><b>Parameters:</b>
 
 <li>
@@ -171,8 +179,17 @@ be set on the segment.
 
 </ul>
 
+    
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/segment"><tt>Segment</tt></a></tt>
+</li>
+	
+	</ul>
 
-<p>
+    
+    <p>
 <b>Example</b> &mdash; Creating segments using object notation:
 </p>
 
@@ -200,7 +217,6 @@ var path = new Path({
 </script>
 <div class="canvas"><canvas width="516" height="100" id="canvas-1"></canvas></div>
 </div>
-
 
 
 </div>
@@ -231,6 +247,7 @@ var path = new Path({
 		<a href="/reference/point"><tt>Point</tt></a>
 	</li>
 	</ul>
+    
 	
 	
 </div>
@@ -255,6 +272,7 @@ describes the in tangent of the segment.</p>
 		<a href="/reference/point"><tt>Point</tt></a>
 	</li>
 	</ul>
+    
 	
 	
 </div>
@@ -279,6 +297,7 @@ describes the out tangent of the segment.</p>
 		<a href="/reference/point"><tt>Point</tt></a>
 	</li>
 	</ul>
+    
 	
 	
 </div>
@@ -303,6 +322,7 @@ two straight lines.</p>
 		<tt>Boolean</tt>
 	</li>
 	</ul>
+    
 	
 	
 </div>
@@ -311,14 +331,14 @@ two straight lines.</p>
 </div>
 		
 			
-<div id="selected-_point" class="member">
+<div id="selected" class="member">
 <div class="member-link">
-<a name="selected-_point" href="#selected-_point"><tt><b>selected</b></tt></a>
+<a name="selected" href="#selected"><tt><b>selected</b></tt></a>
 </div>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>Specifies whether the <a href="/reference/segment#point" onclick="return toggleMember('point', true);"><tt>point</tt></a> of the segment is selected.</p>
+	<p>Specifies whether the <a href="/reference/segment#point"><tt>point</tt></a> of the segment is selected.</p>
 	
 	
 	<ul><b>Type:</b>
@@ -326,6 +346,7 @@ two straight lines.</p>
 		<tt>Boolean</tt>
 	</li>
 	</ul>
+    
 	
 	<p>
 <b>Example</b> 
@@ -376,6 +397,7 @@ segment belongs to.</p>
 		<tt>Number</tt>
 	</li>
 	</ul>
+    
 	
 	
 </div>
@@ -401,6 +423,7 @@ segment belongs to.</p>
 		<a href="/reference/path"><tt>Path</tt></a>
 	</li>
 	</ul>
+    
 	
 	
 </div>
@@ -427,6 +450,7 @@ path, the previous segment is returned.</p>
 		<a href="/reference/curve"><tt>Curve</tt></a>
 	</li>
 	</ul>
+    
 	
 	
 </div>
@@ -452,6 +476,7 @@ path, the previous segment is returned.</p>
 		<a href="/reference/curvelocation"><tt>CurveLocation</tt></a>
 	</li>
 	</ul>
+    
 	
 	
 </div>
@@ -481,6 +506,7 @@ is returned for the last segment of the path.</p>
 		<a href="/reference/segment"><tt>Segment</tt></a>
 	</li>
 	</ul>
+    
 	
 	
 </div>
@@ -508,6 +534,7 @@ segment is returned for the first segment of the path.</p>
 		<a href="/reference/segment"><tt>Segment</tt></a>
 	</li>
 	</ul>
+    
 	
 	
 </div>
@@ -531,6 +558,7 @@ segment is returned for the first segment of the path.</p>
 <div class="member-text">
 	<p>Returns true if the the two segments are the beginning of two lines and
 if these two lines are running parallel.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -561,6 +589,7 @@ if these two lines are running parallel.</p>
 orthogonal arc segment. The code looks at the length of the handles and
 their relation to the distance to the imaginary corner point. If the
 relation is kappa, then it's an arc.</p>
+    
 	
 	
 	
@@ -577,6 +606,7 @@ relation is kappa, then it's an arc.</p>
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Returns the reversed the segment, without modifying the segment itself.</p>
+    
 	
 	
 	<ul><b>Returns:</b>
@@ -601,6 +631,7 @@ relation is kappa, then it's an arc.</p>
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Removes the segment from the path that it belongs to.</p>
+    
 	
 	
 	<ul><b>Returns:</b>
@@ -625,6 +656,7 @@ relation is kappa, then it's an arc.</p>
 <div class="member-description hidden">
 <div class="member-text">
 	
+    
 	
 	
 	<ul><b>Returns:</b>
@@ -649,6 +681,7 @@ relation is kappa, then it's an arc.</p>
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Transform the segment by the specified matrix.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -690,6 +723,7 @@ relation is kappa, then it's an arc.</p>
 <h2>Projects</h2>
 <ul>
 <li><a href="/reference/project">Project</a></li>
+<li><a href="/reference/view">View</a></li>
 <li><a href="/reference/symbol">Symbol</a></li>
 </ul>
 <li>
@@ -730,13 +764,10 @@ relation is kappa, then it's an arc.</p>
 <li><a href="/reference/pointtext">PointText</a></li>
 </ul>
 <li>
-<h2>User Interfaces</h2>
+<h2>User Interface & Events</h2>
 <ul>
-<li><a href="/reference/view">View</a></li>
 <li><a href="/reference/tool">Tool</a></li>
 <li><a href="/reference/toolevent">ToolEvent</a></li>
-<li>Palette</li>
-<li>Component</li>
 <li><a href="/reference/key">Key</a></li>
 <li><a href="/reference/keyevent">KeyEvent</a></li>
 </ul>

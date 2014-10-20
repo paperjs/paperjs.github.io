@@ -128,8 +128,8 @@ circle.fillColor = '#ff0000';
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-<p>Creates a RGB Color object.</p>
-
+    <p>Creates a RGB Color object.</p>
+    
 <ul><b>Parameters:</b>
 
 <li>
@@ -166,8 +166,17 @@ between <tt>0</tt> and <tt>1</tt>
 
 </ul>
 
+    
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/color"><tt>Color</tt></a></tt>
+</li>
+	
+	</ul>
 
-<p>
+    
+    <p>
 <b>Example</b> &mdash; Creating a RGB Color:
 </p>
 
@@ -189,7 +198,6 @@ circle.fillColor = new Color(1, 0, 0.5);
 </div>
 
 
-
 </div>
 </div>
 </div>
@@ -201,8 +209,8 @@ circle.fillColor = new Color(1, 0, 0.5);
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-<p>Creates a gray Color object.</p>
-
+    <p>Creates a gray Color object.</p>
+    
 <ul><b>Parameters:</b>
 
 <li>
@@ -223,8 +231,17 @@ between <tt>0</tt> and <tt>1</tt>
 
 </ul>
 
+    
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/color"><tt>Color</tt></a></tt>
+</li>
+	
+	</ul>
 
-<p>
+    
+    <p>
 <b>Example</b> &mdash; Creating a gray Color:
 </p>
 
@@ -246,7 +263,6 @@ circle.fillColor = new Color(0.5);
 </div>
 
 
-
 </div>
 </div>
 </div>
@@ -258,7 +274,7 @@ circle.fillColor = new Color(0.5);
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-<p>Creates a HSB, HSL or gradient Color object from the properties of
+    <p>Creates a HSB, HSL or gradient Color object from the properties of
 the provided object:</p>
 <p><b>HSB Color</b>:<br>
 <tt>hue: Number</tt> — the hue of the color as a value in
@@ -287,7 +303,7 @@ value between <tt>0</tt> and <tt>1</tt><br>
 the gradient, as an alternative to providing a gradient object<br>
 <tt>radial: Boolean</tt> — controls whether the gradient is radial,
 as an alternative to providing a gradient object<br></p>
-
+    
 <ul><b>Parameters:</b>
 
 <li>
@@ -300,8 +316,17 @@ as an alternative to providing a gradient object<br></p>
 
 </ul>
 
+    
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/color"><tt>Color</tt></a></tt>
+</li>
+	
+	</ul>
 
-<p>
+    
+    <p>
 <b>Example</b> &mdash; Creating a HSB Color:
 </p>
 
@@ -379,7 +404,6 @@ var path = new Path.Rectangle({
 </div>
 
 
-
 </div>
 </div>
 </div>
@@ -391,8 +415,8 @@ var path = new Path.Rectangle({
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-<p>Creates a gradient Color object.</p>
-
+    <p>Creates a gradient Color object.</p>
+    
 <ul><b>Parameters:</b>
 
 <li>
@@ -425,8 +449,17 @@ var path = new Path.Rectangle({
 
 </ul>
 
+    
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/color"><tt>Color</tt></a></tt>
+</li>
+	
+	</ul>
 
-<p>
+    
+    <p>
 <b>Example</b> &mdash; Applying a linear gradient color containing evenly distributed color stops:
 </p>
 
@@ -507,7 +540,6 @@ path.fillColor = gradientColor;
 </script>
 <div class="canvas"><canvas width="516" height="200" id="canvas-8"></canvas></div>
 </div>
-
 
 
 </div>
@@ -807,6 +839,7 @@ console.log(result); // { red: 0, blue: 0, green: 1 }</pre>
 		<tt>String('rgb', 'gray', 'hsb', 'hsl')</tt>
 	</li>
 	</ul>
+    
 	
 	<p>
 <b>Example</b> 
@@ -840,6 +873,7 @@ if defined.</p>
 		<tt>Number</tt>
 	</li>
 	</ul>
+    
 	
 	
 </div>
@@ -864,6 +898,7 @@ if defined.</p>
 		<tt>Number</tt>
 	</li>
 	</ul>
+    
 	
 	<p>
 <b>Example</b> &mdash; A filled path with a half transparent stroke:
@@ -916,6 +951,7 @@ circle.strokeColor.alpha = 0.5;
 		<tt>Number</tt>
 	</li>
 	</ul>
+    
 	
 	<p>
 <b>Example</b> &mdash; Changing the amount of red in a color:
@@ -960,6 +996,7 @@ circle.fillColor.red = 1;
 		<tt>Number</tt>
 	</li>
 	</ul>
+    
 	
 	<p>
 <b>Example</b> &mdash; Changing the amount of green in a color:
@@ -1006,6 +1043,7 @@ circle.fillColor.green = 1;
 		<tt>Number</tt>
 	</li>
 	</ul>
+    
 	
 	<p>
 <b>Example</b> &mdash; Changing the amount of blue in a color:
@@ -1054,6 +1092,7 @@ circle.fillColor.blue = 1;
 		<tt>Number</tt>
 	</li>
 	</ul>
+    
 	
 	
 </div>
@@ -1080,6 +1119,7 @@ circle.fillColor.blue = 1;
 		<tt>Number</tt>
 	</li>
 	</ul>
+    
 	
 	<p>
 <b>Example</b> &mdash; Changing the hue of a color:
@@ -1146,6 +1186,7 @@ function onFrame(event) {
 		<tt>Number</tt>
 	</li>
 	</ul>
+    
 	
 	
 </div>
@@ -1170,6 +1211,7 @@ function onFrame(event) {
 		<tt>Number</tt>
 	</li>
 	</ul>
+    
 	
 	
 </div>
@@ -1197,6 +1239,7 @@ function onFrame(event) {
 		<tt>Number</tt>
 	</li>
 	</ul>
+    
 	
 	
 </div>
@@ -1222,6 +1265,7 @@ function onFrame(event) {
 		<a href="/reference/gradient"><tt>Gradient</tt></a>
 	</li>
 	</ul>
+    
 	
 	
 </div>
@@ -1245,6 +1289,7 @@ function onFrame(event) {
 		<a href="/reference/point"><tt>Point</tt></a>
 	</li>
 	</ul>
+    
 	
 	<p>
 <b>Example</b> &mdash; Create a circle shaped path at the center of the view, using 40% of the height of the view as its radius and fill it with a radial gradient color:
@@ -1301,6 +1346,7 @@ function onMouseMove(event) {
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Converts the color another type.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -1337,6 +1383,7 @@ convert to.
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Checks if the color has an alpha value.</p>
+    
 	
 	
 	<ul><b>Returns:</b>
@@ -1362,6 +1409,7 @@ convert to.
 <div class="member-text">
 	<p>Checks if the component color values of the color are the
 same as those of the supplied one.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -1397,6 +1445,7 @@ same as those of the supplied one.</p>
 <div class="member-description hidden">
 <div class="member-text">
 	
+    
 	
 	
 	<ul><b>Returns:</b>
@@ -1423,6 +1472,7 @@ same as those of the supplied one.</p>
 <div class="member-description hidden">
 <div class="member-text">
 	
+    
 	
 	
 	<ul><b>Returns:</b>
@@ -1447,6 +1497,7 @@ same as those of the supplied one.</p>
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Returns the color as a CSS string.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -1483,6 +1534,7 @@ representation or as a CSS RGB / RGBA string.
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Transform the gradient color by the specified matrix.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -1524,6 +1576,7 @@ representation or as a CSS RGB / RGBA string.
 <h2>Projects</h2>
 <ul>
 <li><a href="/reference/project">Project</a></li>
+<li><a href="/reference/view">View</a></li>
 <li><a href="/reference/symbol">Symbol</a></li>
 </ul>
 <li>
@@ -1564,13 +1617,10 @@ representation or as a CSS RGB / RGBA string.
 <li><a href="/reference/pointtext">PointText</a></li>
 </ul>
 <li>
-<h2>User Interfaces</h2>
+<h2>User Interface & Events</h2>
 <ul>
-<li><a href="/reference/view">View</a></li>
 <li><a href="/reference/tool">Tool</a></li>
 <li><a href="/reference/toolevent">ToolEvent</a></li>
-<li>Palette</li>
-<li>Component</li>
 <li><a href="/reference/key">Key</a></li>
 <li><a href="/reference/keyevent">KeyEvent</a></li>
 </ul>

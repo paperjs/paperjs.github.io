@@ -71,9 +71,9 @@ by using the mouse and keyboard and can be accessed through the global
 <tt>tool</tt> variable. All its properties are also available in the paper
 scope.</p>
 <p>The global <tt>tool</tt> variable only exists in scripts that contain mouse
-handler functions (<a href="/reference/tool#onmousemove" onclick="return toggleMember('onmousemove', true);"><tt>onMouseMove</tt></a>, <a href="/reference/tool#onmousedown" onclick="return toggleMember('onmousedown', true);"><tt>onMouseDown</tt></a>,
-<a href="/reference/tool#onmousedrag" onclick="return toggleMember('onmousedrag', true);"><tt>onMouseDrag</tt></a>, <a href="/reference/tool#onmouseup" onclick="return toggleMember('onmouseup', true);"><tt>onMouseUp</tt></a>) or a keyboard handler
-function (<a href="/reference/tool#onkeydown" onclick="return toggleMember('onkeydown', true);"><tt>onKeyDown</tt></a>, <a href="/reference/tool#onkeyup" onclick="return toggleMember('onkeyup', true);"><tt>onKeyUp</tt></a>).</p>
+handler functions (<a href="/reference/tool#onmousemove"><tt>onMouseMove</tt></a>, <a href="/reference/tool#onmousedown"><tt>onMouseDown</tt></a>,
+<a href="/reference/tool#onmousedrag"><tt>onMouseDrag</tt></a>, <a href="/reference/tool#onmouseup"><tt>onMouseUp</tt></a>) or a keyboard handler
+function (<a href="/reference/tool#onkeydown"><tt>onKeyDown</tt></a>, <a href="/reference/tool#onkeyup"><tt>onKeyUp</tt></a>).</p>
 <p>
 <b>Example</b> 
 </p>
@@ -122,6 +122,7 @@ event, since the last onMouseDrag event.</p>
 		<tt>Number</tt>
 	</li>
 	</ul>
+    
 	
 	
 </div>
@@ -146,6 +147,7 @@ event, since the last onMouseDrag event.</p>
 		<tt>Number</tt>
 	</li>
 	</ul>
+    
 	
 	
 </div>
@@ -169,6 +171,7 @@ event, since the last onMouseDrag event.</p>
 		<tt>Number</tt>
 	</li>
 	</ul>
+    
 	
 	
 </div>
@@ -196,6 +199,7 @@ about the mouse event.</p>
 		<tt>Function</tt>
 	</li>
 	</ul>
+    
 	
 	<p>
 <b>Example</b> &mdash; Creating circle shaped paths where the user presses the mouse button:
@@ -245,6 +249,7 @@ contains information about the mouse event.</p>
 		<tt>Function</tt>
 	</li>
 	</ul>
+    
 	
 	<p>
 <b>Example</b> &mdash; Draw a line by adding a segment to a path on every mouse drag event:
@@ -294,6 +299,7 @@ about the mouse event.</p>
 		<tt>Function</tt>
 	</li>
 	</ul>
+    
 	
 	<p>
 <b>Example</b> &mdash; Moving a path to the position of the mouse:
@@ -346,6 +352,7 @@ mouse event.</p>
 		<tt>Function</tt>
 	</li>
 	</ul>
+    
 	
 	<p>
 <b>Example</b> &mdash; Creating circle shaped paths where the user releases the mouse:
@@ -401,6 +408,7 @@ keys.</p>
 		<tt>Function</tt>
 	</li>
 	</ul>
+    
 	
 	<p>
 <b>Example</b> &mdash; Scaling a path whenever the user presses the space bar:
@@ -461,6 +469,7 @@ keys.</p>
 		<tt>Function</tt>
 	</li>
 	</ul>
+    
 	
 	<p>
 <b>Example</b> 
@@ -494,6 +503,7 @@ keys.</p>
 <div class="member-text">
 	<p>Activates this tool, meaning <a href="/reference/paperscope#tool"><tt>paperScope.tool</tt></a> will
 point to it and it will be the one that recieves mouse events.</p>
+    
 	
 	
 	
@@ -510,6 +520,7 @@ point to it and it will be the one that recieves mouse events.</p>
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Removes this tool from the <a href="/reference/paperscope#tools"><tt>paperScope.tools</tt></a> list.</p>
+    
 	
 	
 	
@@ -528,6 +539,7 @@ point to it and it will be the one that recieves mouse events.</p>
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Attach an event handler to the tool.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -563,6 +575,7 @@ occurs
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Attach one or more event handlers to the tool.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -592,6 +605,7 @@ keydown, keyup</tt>.
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Detach an event handler from the tool.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -626,6 +640,7 @@ keydown, keyup</tt>.
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Detach one or more event handlers from the tool.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -655,6 +670,7 @@ keydown, keyup</tt>
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Emit an event on the tool.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -690,6 +706,7 @@ the event.
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Check if the tool has one or more event handlers of the specified type.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -740,6 +757,7 @@ the specified type, <tt>false</tt> otherwise
 <h2>Projects</h2>
 <ul>
 <li><a href="/reference/project">Project</a></li>
+<li><a href="/reference/view">View</a></li>
 <li><a href="/reference/symbol">Symbol</a></li>
 </ul>
 <li>
@@ -780,13 +798,10 @@ the specified type, <tt>false</tt> otherwise
 <li><a href="/reference/pointtext">PointText</a></li>
 </ul>
 <li>
-<h2>User Interfaces</h2>
+<h2>User Interface & Events</h2>
 <ul>
-<li><a href="/reference/view">View</a></li>
 <li><a href="/reference/tool">Tool</a></li>
 <li><a href="/reference/toolevent">ToolEvent</a></li>
-<li>Palette</li>
-<li>Component</li>
 <li><a href="/reference/key">Key</a></li>
 <li><a href="/reference/keyevent">KeyEvent</a></li>
 </ul>

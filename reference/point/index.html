@@ -90,8 +90,8 @@ console.log(point.y); // 5</pre>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-<p>Creates a Point object with the given x and y coordinates.</p>
-
+    <p>Creates a Point object with the given x and y coordinates.</p>
+    
 <ul><b>Parameters:</b>
 
 <li>
@@ -110,8 +110,17 @@ console.log(point.y); // 5</pre>
 
 </ul>
 
+    
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/point"><tt>Point</tt></a></tt>
+</li>
+	
+	</ul>
 
-<p>
+    
+    <p>
 <b>Example</b> &mdash; Create a point at x: 10, y: 5
 </p>
 
@@ -119,7 +128,6 @@ console.log(point.y); // 5</pre>
 <pre class="code">var point = new Point(10, 5);
 console.log(point.x); // 10
 console.log(point.y); // 5</pre>
-
 
 </div>
 </div>
@@ -132,9 +140,9 @@ console.log(point.y); // 5</pre>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-<p>Creates a Point object using the numbers in the given array as
+    <p>Creates a Point object using the numbers in the given array as
 coordinates.</p>
-
+    
 <ul><b>Parameters:</b>
 
 <li>
@@ -146,8 +154,17 @@ coordinates.</p>
 
 </ul>
 
+    
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/point"><tt>Point</tt></a></tt>
+</li>
+	
+	</ul>
 
-<p>
+    
+    <p>
 <b>Example</b> &mdash; Creating a point at x: 10, y: 5 using an array of numbers:
 </p>
 
@@ -171,7 +188,6 @@ path.fillColor = 'red';
 var path = new Path.Circle(new Point(50, 50), 30);
 path.fillColor = 'red';</pre>
 
-
 </div>
 </div>
 </div>
@@ -183,8 +199,8 @@ path.fillColor = 'red';</pre>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-<p>Creates a Point object using the properties in the given object.</p>
-
+    <p>Creates a Point object using the properties in the given object.</p>
+    
 <ul><b>Parameters:</b>
 
 <li>
@@ -196,8 +212,17 @@ path.fillColor = 'red';</pre>
 
 </ul>
 
+    
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/point"><tt>Point</tt></a></tt>
+</li>
+	
+	</ul>
 
-<p>
+    
+    <p>
 <b>Example</b> &mdash; Creating a point using an object literal with length and angle properties:
 </p>
 
@@ -236,7 +261,6 @@ console.log(point.y); // 20</pre>
 var path = new Path.Circle(center, 30);
 path.fillColor = 'red';</pre>
 
-
 </div>
 </div>
 </div>
@@ -248,9 +272,9 @@ path.fillColor = 'red';</pre>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-<p>Creates a Point object using the width and height values of the given
+    <p>Creates a Point object using the width and height values of the given
 Size object.</p>
-
+    
 <ul><b>Parameters:</b>
 
 <li>
@@ -262,8 +286,17 @@ Size object.</p>
 
 </ul>
 
+    
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/point"><tt>Point</tt></a></tt>
+</li>
+	
+	</ul>
 
-<p>
+    
+    <p>
 <b>Example</b> &mdash; Creating a point using a size object.
 </p>
 
@@ -273,7 +306,6 @@ var size = new Size(100, 50);
 console.log(size); // { width: 100, height: 50 }
 var point = new Point(size);
 console.log(point); // { x: 100, y: 50 }</pre>
-
 
 </div>
 </div>
@@ -286,8 +318,8 @@ console.log(point); // { x: 100, y: 50 }</pre>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-<p>Creates a Point object using the coordinates of the given Point object.</p>
-
+    <p>Creates a Point object using the coordinates of the given Point object.</p>
+    
 <ul><b>Parameters:</b>
 
 <li>
@@ -299,9 +331,17 @@ console.log(point); // { x: 100, y: 50 }</pre>
 
 </ul>
 
+    
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/point"><tt>Point</tt></a></tt>
+</li>
+	
+	</ul>
 
-
-
+    
+    
 </div>
 </div>
 </div>
@@ -657,6 +697,7 @@ console.log(point % new Point(5, 2)); // {x: 2, y: 0}</pre>
 		<tt>Number</tt>
 	</li>
 	</ul>
+    
 	
 	
 </div>
@@ -680,6 +721,7 @@ console.log(point % new Point(5, 2)); // {x: 2, y: 0}</pre>
 		<tt>Number</tt>
 	</li>
 	</ul>
+    
 	
 	
 </div>
@@ -706,6 +748,7 @@ console.log(point % new Point(5, 2)); // {x: 2, y: 0}</pre>
 		<tt>Number</tt>
 	</li>
 	</ul>
+    
 	
 	
 </div>
@@ -729,6 +772,7 @@ console.log(point % new Point(5, 2)); // {x: 2, y: 0}</pre>
 		<tt>Number</tt>
 	</li>
 	</ul>
+    
 	
 	
 </div>
@@ -752,6 +796,7 @@ console.log(point % new Point(5, 2)); // {x: 2, y: 0}</pre>
 		<tt>Number</tt>
 	</li>
 	</ul>
+    
 	
 	
 </div>
@@ -767,7 +812,7 @@ console.log(point % new Point(5, 2)); // {x: 2, y: 0}</pre>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The quadrant of the <a href="/reference/point#angle" onclick="return toggleMember('angle', true);"><tt>angle</tt></a> of the point.</p>
+	<p>The quadrant of the <a href="/reference/point#angle"><tt>angle</tt></a> of the point.</p>
 <p>Angles between 0 and 90 degrees are in quadrant <tt>1</tt>. Angles between
 90 and 180 degrees are in quadrant <tt>2</tt>, angles between 180 and 270
 degrees are in quadrant <tt>3</tt> and angles between 270 and 360 degrees
@@ -781,6 +826,7 @@ are in quadrant <tt>4</tt>.</p>
 		<tt>Number</tt>
 	</li>
 	</ul>
+    
 	
 	<p>
 <b>Example</b> 
@@ -825,6 +871,7 @@ of a <a href="/reference/segment"><tt>Segment</tt></a> or a <a href="/reference/
 		<tt>Boolean</tt>
 	</li>
 	</ul>
+    
 	
 	
 </div>
@@ -848,6 +895,7 @@ of a <a href="/reference/segment"><tt>Segment</tt></a> or a <a href="/reference/
 <div class="member-text">
 	<p>Checks whether the coordinates of the point are equal to that of the
 supplied point.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -892,6 +940,7 @@ console.log(point != new Point(1, 1)); // true</pre>
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Returns a copy of the point.</p>
+    
 	
 	
 	<ul><b>Returns:</b>
@@ -927,6 +976,7 @@ point2.x = 1; // doesn't change point1.x</pre>
 <div class="member-description hidden">
 <div class="member-text">
 	
+    
 	
 	
 	<ul><b>Returns:</b>
@@ -952,6 +1002,7 @@ point2.x = 1; // doesn't change point1.x</pre>
 <div class="member-text">
 	<p>Returns the smaller angle between two vectors. The angle is unsigned, no
 information about rotational direction is given.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -988,6 +1039,7 @@ information about rotational direction is given.</p>
 <div class="member-text">
 	<p>Returns the smaller angle between two vectors in radians. The angle is
 unsigned, no information about rotational direction is given.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -1025,7 +1077,8 @@ unsigned, no information about rotational direction is given.</p>
 	<p>Returns the angle between two vectors. The angle is directional and
 signed, giving information about the rotational direction.</p>
 <p>Read more about angle units and orientation in the description of the
-<a href="/reference/point#angle" onclick="return toggleMember('angle', true);"><tt>angle</tt></a> property.</p>
+<a href="/reference/point#angle"><tt>angle</tt></a> property.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -1061,6 +1114,7 @@ signed, giving information about the rotational direction.</p>
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Returns the distance between the point and another point.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -1103,10 +1157,11 @@ signed, giving information about the rotational direction.</p>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Normalize modifies the <a href="/reference/point#length" onclick="return toggleMember('length', true);"><tt>length</tt></a> of the vector to <tt>1</tt> without
+	<p>Normalize modifies the <a href="/reference/point#length"><tt>length</tt></a> of the vector to <tt>1</tt> without
 changing its angle and returns it as a new point. The optional
 <tt>length</tt> parameter defines the length to normalize to.</p>
 <p>The object itself is not modified!</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -1145,7 +1200,8 @@ changing its angle and returns it as a new point. The optional
 	<p>Rotates the point by the given angle around an optional center point.</p>
 <p>The object itself is not modified.</p>
 <p>Read more about angle units and orientation in the description of the
-<a href="/reference/point#angle" onclick="return toggleMember('angle', true);"><tt>angle</tt></a> property.</p>
+<a href="/reference/point#angle"><tt>angle</tt></a> property.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -1189,6 +1245,7 @@ changing its angle and returns it as a new point. The optional
 <div class="member-text">
 	<p>Transforms the point by the matrix as a new point. The object itself is
 not modified!</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -1226,6 +1283,7 @@ not modified!</p>
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Checks whether the point is inside the boundaries of the rectangle.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -1261,6 +1319,7 @@ not modified!</p>
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Checks if the point is within a given distance of another point.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -1304,6 +1363,7 @@ not modified!</p>
 <div class="member-text">
 	<p>Checks if the vector represented by this point is colinear (parallel) to
 another vector.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -1340,6 +1400,7 @@ another vector.</p>
 <div class="member-text">
 	<p>Checks if the vector represented by this point is orthogonal
 (perpendicular) to another vector.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -1375,6 +1436,7 @@ another vector.</p>
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Checks if this point has both the x and y coordinate set to 0.</p>
+    
 	
 	
 	<ul><b>Returns:</b>
@@ -1400,6 +1462,7 @@ another vector.</p>
 <div class="member-text">
 	<p>Checks if this point has an undefined value for at least one of its
 coordinates.</p>
+    
 	
 	
 	<ul><b>Returns:</b>
@@ -1426,6 +1489,7 @@ coordinates.</p>
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Returns the dot product of the point and another point.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -1461,6 +1525,7 @@ coordinates.</p>
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Returns the cross product of the point and another point.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -1497,6 +1562,7 @@ coordinates.</p>
 <div class="member-text">
 	<p>Returns the projection of the point on another point.</p>
 <p>Both points are interpreted as vectors.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -1533,8 +1599,9 @@ coordinates.</p>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Returns a new point with rounded <a href="/reference/point#x" onclick="return toggleMember('x', true);"><tt>x</tt></a> and <a href="/reference/point#y" onclick="return toggleMember('y', true);"><tt>y</tt></a> values. The
+	<p>Returns a new point with rounded <a href="/reference/point#x"><tt>x</tt></a> and <a href="/reference/point#y"><tt>y</tt></a> values. The
 object itself is not modified!</p>
+    
 	
 	
 	<ul><b>Returns:</b>
@@ -1567,8 +1634,9 @@ console.log(roundPoint); // {x: 10, y: 11}</pre>
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Returns a new point with the nearest greater non-fractional values to the
-specified <a href="/reference/point#x" onclick="return toggleMember('x', true);"><tt>x</tt></a> and <a href="/reference/point#y" onclick="return toggleMember('y', true);"><tt>y</tt></a> values. The object itself is not
+specified <a href="/reference/point#x"><tt>x</tt></a> and <a href="/reference/point#y"><tt>y</tt></a> values. The object itself is not
 modified!</p>
+    
 	
 	
 	<ul><b>Returns:</b>
@@ -1601,8 +1669,9 @@ console.log(ceilPoint); // {x: 11, y: 11}</pre>
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Returns a new point with the nearest smaller non-fractional values to the
-specified <a href="/reference/point#x" onclick="return toggleMember('x', true);"><tt>x</tt></a> and <a href="/reference/point#y" onclick="return toggleMember('y', true);"><tt>y</tt></a> values. The object itself is not
+specified <a href="/reference/point#x"><tt>x</tt></a> and <a href="/reference/point#y"><tt>y</tt></a> values. The object itself is not
 modified!</p>
+    
 	
 	
 	<ul><b>Returns:</b>
@@ -1634,8 +1703,9 @@ console.log(floorPoint); // {x: 10, y: 10}</pre>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Returns a new point with the absolute values of the specified <a href="/reference/point#x" onclick="return toggleMember('x', true);"><tt>x</tt></a>
-and <a href="/reference/point#y" onclick="return toggleMember('y', true);"><tt>y</tt></a> values. The object itself is not modified!</p>
+	<p>Returns a new point with the absolute values of the specified <a href="/reference/point#x"><tt>x</tt></a>
+and <a href="/reference/point#y"><tt>y</tt></a> values. The object itself is not modified!</p>
+    
 	
 	
 	<ul><b>Returns:</b>
@@ -1672,8 +1742,9 @@ console.log(absPoint); // {x: 5, y: 10}</pre>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Returns a new point object with the smallest <a href="/reference/point#x" onclick="return toggleMember('x', true);"><tt>x</tt></a> and
-<a href="/reference/point#y" onclick="return toggleMember('y', true);"><tt>y</tt></a> of the supplied points.</p>
+	<p>Returns a new point object with the smallest <a href="/reference/point#x"><tt>x</tt></a> and
+<a href="/reference/point#y"><tt>y</tt></a> of the supplied points.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -1724,8 +1795,9 @@ console.log(minPoint); // {x: 10, y: 5}</pre>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Returns a new point object with the largest <a href="/reference/point#x" onclick="return toggleMember('x', true);"><tt>x</tt></a> and
-<a href="/reference/point#y" onclick="return toggleMember('y', true);"><tt>y</tt></a> of the supplied points.</p>
+	<p>Returns a new point object with the largest <a href="/reference/point#x"><tt>x</tt></a> and
+<a href="/reference/point#y"><tt>y</tt></a> of the supplied points.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -1776,8 +1848,9 @@ console.log(maxPoint); // {x: 200, y: 100}</pre>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Returns a point object with random <a href="/reference/point#x" onclick="return toggleMember('x', true);"><tt>x</tt></a> and <a href="/reference/point#y" onclick="return toggleMember('y', true);"><tt>y</tt></a> values
+	<p>Returns a point object with random <a href="/reference/point#x"><tt>x</tt></a> and <a href="/reference/point#y"><tt>y</tt></a> values
 between <tt>0</tt> and <tt>1</tt>.</p>
+    
 	
 	
 	<ul><b>Returns:</b>
@@ -1825,6 +1898,7 @@ var point = maxPoint * randomPoint;</pre>
 <h2>Projects</h2>
 <ul>
 <li><a href="/reference/project">Project</a></li>
+<li><a href="/reference/view">View</a></li>
 <li><a href="/reference/symbol">Symbol</a></li>
 </ul>
 <li>
@@ -1865,13 +1939,10 @@ var point = maxPoint * randomPoint;</pre>
 <li><a href="/reference/pointtext">PointText</a></li>
 </ul>
 <li>
-<h2>User Interfaces</h2>
+<h2>User Interface & Events</h2>
 <ul>
-<li><a href="/reference/view">View</a></li>
 <li><a href="/reference/tool">Tool</a></li>
 <li><a href="/reference/toolevent">ToolEvent</a></li>
-<li>Palette</li>
-<li>Component</li>
 <li><a href="/reference/key">Key</a></li>
 <li><a href="/reference/keyevent">KeyEvent</a></li>
 </ul>

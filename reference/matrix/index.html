@@ -95,8 +95,8 @@ matrix multiplication).</p>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-<p>Creates a 2D affine transform.</p>
-
+    <p>Creates a 2D affine transform.</p>
+    
 <ul><b>Parameters:</b>
 
 <li>
@@ -143,9 +143,17 @@ matrix multiplication).</p>
 
 </ul>
 
+    
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/matrix"><tt>Matrix</tt></a></tt>
+</li>
+	
+	</ul>
 
-
-
+    
+    
 </div>
 </div>
 </div>
@@ -175,6 +183,7 @@ or rotating, positioned at (0, 0) in the transformation matrix.</p>
 		<tt>Number</tt>
 	</li>
 	</ul>
+    
 	
 	
 </div>
@@ -199,6 +208,7 @@ or skewing, positioned at (1, 0) in the transformation matrix.</p>
 		<tt>Number</tt>
 	</li>
 	</ul>
+    
 	
 	
 </div>
@@ -223,6 +233,7 @@ or skewing, positioned at (0, 1) in the transformation matrix.</p>
 		<tt>Number</tt>
 	</li>
 	</ul>
+    
 	
 	
 </div>
@@ -247,6 +258,7 @@ or rotating, positioned at (1, 1) in the transformation matrix.</p>
 		<tt>Number</tt>
 	</li>
 	</ul>
+    
 	
 	
 </div>
@@ -271,6 +283,7 @@ in the transformation matrix.</p>
 		<tt>Number</tt>
 	</li>
 	</ul>
+    
 	
 	
 </div>
@@ -295,6 +308,7 @@ in the transformation matrix.</p>
 		<tt>Number</tt>
 	</li>
 	</ul>
+    
 	
 	
 </div>
@@ -311,7 +325,7 @@ in the transformation matrix.</p>
 
 <div class="member-text">
 	<p>The transform values as an array, in the same sequence as they are passed
-to {@link #initialize(a, c, b, d, tx, ty)}.</p>
+to <a href="/reference/matrix#initialize-a-c,b,d,tx,ty"><tt>initialize(a, c,b,d,tx,ty)</tt></a>.</p>
 	
 		<p>Read only.</p>
 	
@@ -321,6 +335,7 @@ to {@link #initialize(a, c, b, d, tx, ty)}.</p>
 		<tt>Number</tt>
 	</li>
 	</ul>
+    
 	
 	
 </div>
@@ -346,6 +361,7 @@ to {@link #initialize(a, c, b, d, tx, ty)}.</p>
 		<a href="/reference/point"><tt>Point</tt></a>
 	</li>
 	</ul>
+    
 	
 	
 </div>
@@ -371,9 +387,10 @@ to {@link #initialize(a, c, b, d, tx, ty)}.</p>
 		<a href="/reference/point"><tt>Point</tt></a>
 	</li>
 	</ul>
+    
 	
 	<p><b>See also:</b>
-	<tt><a href="/reference/matrix#decompose" onclick="return toggleMember('decompose', true);"><tt>decompose</tt></a>()</tt>
+	<tt><a href="/reference/matrix#decompose"><tt>decompose</tt></a>()</tt>
 	</p>
 
 	
@@ -400,9 +417,10 @@ to {@link #initialize(a, c, b, d, tx, ty)}.</p>
 		<tt>Number</tt>
 	</li>
 	</ul>
+    
 	
 	<p><b>See also:</b>
-	<tt><a href="/reference/matrix#decompose" onclick="return toggleMember('decompose', true);"><tt>decompose</tt></a>()</tt>
+	<tt><a href="/reference/matrix#decompose"><tt>decompose</tt></a>()</tt>
 	</p>
 
 	
@@ -419,13 +437,14 @@ to {@link #initialize(a, c, b, d, tx, ty)}.</p>
 	<div class="reference-members"><h2>Methods</h2>
 		
 			
-<div id="set-a-c-b-d-tx-ty-_dontNotify" class="member">
+<div id="set-a-c-b-d-tx-ty" class="member">
 <div class="member-link">
-<a name="set-a-c-b-d-tx-ty-_dontNotify" href="#set-a-c-b-d-tx-ty-_dontNotify"><tt><b>set</b>(a, c, b, d, tx, ty)</tt></a>
+<a name="set-a-c-b-d-tx-ty" href="#set-a-c-b-d-tx-ty"><tt><b>set</b>(a, c, b, d, tx, ty)</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Sets this transform to the matrix specified by the 6 values.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -496,6 +515,7 @@ to {@link #initialize(a, c, b, d, tx, ty)}.</p>
 <div class="member-description hidden">
 <div class="member-text">
 	
+    
 	
 	
 	<ul><b>Returns:</b>
@@ -520,6 +540,7 @@ to {@link #initialize(a, c, b, d, tx, ty)}.</p>
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Checks whether the two matrices describe the same transformation.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -555,6 +576,7 @@ to {@link #initialize(a, c, b, d, tx, ty)}.</p>
 <div class="member-description hidden">
 <div class="member-text">
 	
+    
 	
 	
 	<ul><b>Returns:</b>
@@ -572,14 +594,15 @@ to {@link #initialize(a, c, b, d, tx, ty)}.</p>
 </div>
 		
 			
-<div id="reset-_dontNotify" class="member">
+<div id="reset" class="member">
 <div class="member-link">
-<a name="reset-_dontNotify" href="#reset-_dontNotify"><tt><b>reset</b>()</tt></a>
+<a name="reset" href="#reset"><tt><b>reset</b>()</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Resets the matrix by setting its values to the ones of the identity
 matrix that results in no transformation.</p>
+    
 	
 	
 	
@@ -596,6 +619,7 @@ matrix that results in no transformation.</p>
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Applies the matrix to the item that it belongs to, if possible.</p>
+    
 	
 	
 	<ul><b>Returns:</b>
@@ -620,6 +644,7 @@ matrix that results in no transformation.</p>
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Concatenates this transform with a translate transformation.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -655,6 +680,7 @@ matrix that results in no transformation.</p>
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Concatenates this transform with a translate transformation.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -697,6 +723,7 @@ matrix that results in no transformation.</p>
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Concatenates this transform with a scaling transformation.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -739,6 +766,7 @@ matrix that results in no transformation.</p>
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Concatenates this transform with a scaling transformation.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -789,6 +817,7 @@ matrix that results in no transformation.</p>
 <div class="member-text">
 	<p>Concatenates this transform with a rotation transformation around an
 anchor point.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -832,6 +861,7 @@ anchor point.</p>
 <div class="member-text">
 	<p>Concatenates this transform with a rotation transformation around an
 anchor point.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -881,6 +911,7 @@ anchor point.</p>
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Concatenates this transform with a shear transformation.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -923,6 +954,7 @@ anchor point.</p>
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Concatenates this transform with a shear transformation.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -972,6 +1004,7 @@ anchor point.</p>
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Concatenates this transform with a skew transformation.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -1014,6 +1047,7 @@ anchor point.</p>
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Concatenates this transform with a skew transformation.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -1062,7 +1096,8 @@ anchor point.</p>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Concatenates an affine transform to this transform.</p>
+	<p>Concatenates the given affine transform to this transform.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -1097,7 +1132,8 @@ anchor point.</p>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Pre-concatenates an affine transform to this transform.</p>
+	<p>Pre-concatenates the given affine transform to this transform.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -1126,6 +1162,43 @@ anchor point.</p>
 </div>
 		
 			
+<div id="chain-mx" class="member">
+<div class="member-link">
+<a name="chain-mx" href="#chain-mx"><tt><b>chain</b>(mx)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Returns a new instance of the result of the concatenation of the given
+affine transform with this transform.</p>
+    
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>mx:</tt> 
+<a href="/reference/matrix"><tt>Matrix</tt></a>
+&mdash;&nbsp;the transform to concatenate
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/matrix"><tt>Matrix</tt></a></tt>&nbsp;&mdash;&nbsp;the newly created affine transform
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+		
+			
 <div id="isidentity" class="member">
 <div class="member-link">
 <a name="isidentity" href="#isidentity"><tt><b>isIdentity</b>()</tt></a>
@@ -1133,6 +1206,7 @@ anchor point.</p>
 <div class="member-description hidden">
 <div class="member-text">
 	
+    
 	
 	
 	<ul><b>Returns:</b>
@@ -1158,6 +1232,7 @@ anchor point.</p>
 <div class="member-text">
 	<p>Returns whether the transform is invertible. A transform is not
 invertible if the determinant is 0 or any value is non-finite or NaN.</p>
+    
 	
 	
 	<ul><b>Returns:</b>
@@ -1183,6 +1258,7 @@ invertible if the determinant is 0 or any value is non-finite or NaN.</p>
 <div class="member-text">
 	<p>Checks whether the matrix is singular or not. Singular matrices cannot be
 inverted.</p>
+    
 	
 	
 	<ul><b>Returns:</b>
@@ -1207,6 +1283,7 @@ inverted.</p>
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Transforms a point and returns the result.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -1243,6 +1320,7 @@ inverted.</p>
 <div class="member-text">
 	<p>Transforms an array of coordinates by this matrix and stores the results
 into the destination array, which is also returned.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -1250,7 +1328,7 @@ into the destination array, which is also returned.</p>
 <tt>src:</tt> 
 <tt>Number</tt>
 &mdash;&nbsp;the array containing the source points
-       as x, y value pairs
+as x, y value pairs
 
 </li>
 
@@ -1258,7 +1336,7 @@ into the destination array, which is also returned.</p>
 <tt>dst:</tt> 
 <tt>Number</tt>
 &mdash;&nbsp;the array into which to store the transformed
-       point pairs
+point pairs
 
 </li>
 
@@ -1294,6 +1372,7 @@ into the destination array, which is also returned.</p>
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Inverse transforms a point and returns the result.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -1323,6 +1402,7 @@ into the destination array, which is also returned.</p>
 	<p>Attempts to decompose the affine transformation described by this matrix
 into <tt>scaling</tt>, <tt>rotation</tt> and <tt>shearing</tt>, and returns
 an object with these properties if it succeeded, <tt>null</tt> otherwise.</p>
+    
 	
 	
 	<ul><b>Returns:</b>
@@ -1347,16 +1427,17 @@ is not possible.
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Inverts the transformation of the matrix. If the matrix is not invertible
-(in which case <a href="/reference/matrix#issingular" onclick="return toggleMember('issingular', true);"><tt>isSingular</tt></a>() returns true), <tt>null </tt> is
-returned.</p>
+	<p>Creates the inversion of the transformation of the matrix and returns it
+as a new insteance. If the matrix is not invertible (in which case
+<a href="/reference/matrix#issingular"><tt>isSingular</tt></a>() returns true), <tt>null </tt> is returned.</p>
+    
 	
 	
 	<ul><b>Returns:</b>
 	
 		<li>
 <tt><a href="/reference/matrix"><tt>Matrix</tt></a></tt>&nbsp;&mdash;&nbsp;the inverted matrix, or <tt>null </tt>, if the matrix is
-        singular
+singular
 </li>
 	
 	</ul>
@@ -1375,6 +1456,7 @@ returned.</p>
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Applies this matrix to the specified Canvas Context.</p>
+    
 	
 <ul><b>Parameters:</b>
 
@@ -1416,6 +1498,7 @@ returned.</p>
 <h2>Projects</h2>
 <ul>
 <li><a href="/reference/project">Project</a></li>
+<li><a href="/reference/view">View</a></li>
 <li><a href="/reference/symbol">Symbol</a></li>
 </ul>
 <li>
@@ -1456,13 +1539,10 @@ returned.</p>
 <li><a href="/reference/pointtext">PointText</a></li>
 </ul>
 <li>
-<h2>User Interfaces</h2>
+<h2>User Interface & Events</h2>
 <ul>
-<li><a href="/reference/view">View</a></li>
 <li><a href="/reference/tool">Tool</a></li>
 <li><a href="/reference/toolevent">ToolEvent</a></li>
-<li>Palette</li>
-<li>Component</li>
 <li><a href="/reference/key">Key</a></li>
 <li><a href="/reference/keyevent">KeyEvent</a></li>
 </ul>
