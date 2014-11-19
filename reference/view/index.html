@@ -517,9 +517,9 @@ invoked for you automatically at the end.</p>
 </div>
 		
 			
-<div id="projecttoview-" class="member">
+<div id="projecttoview-point" class="member">
 <div class="member-link">
-<a name="projecttoview-" href="#projecttoview-"><tt><b>projectToView</b>()</tt></a>
+<a name="projecttoview-point" href="#projecttoview-point"><tt><b>projectToView</b>(point)</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
@@ -529,7 +529,7 @@ invoked for you automatically at the end.</p>
 <ul><b>Parameters:</b>
 
 <li>
-<tt>:</tt> 
+<tt>point:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
 
 
@@ -553,9 +553,9 @@ invoked for you automatically at the end.</p>
 </div>
 		
 			
-<div id="viewtoproject-" class="member">
+<div id="viewtoproject-point" class="member">
 <div class="member-link">
-<a name="viewtoproject-" href="#viewtoproject-"><tt><b>viewToProject</b>()</tt></a>
+<a name="viewtoproject-point" href="#viewtoproject-point"><tt><b>viewToProject</b>(point)</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
@@ -565,7 +565,7 @@ invoked for you automatically at the end.</p>
 <ul><b>Parameters:</b>
 
 <li>
-<tt>:</tt> 
+<tt>point:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
 
 
@@ -620,6 +620,14 @@ occurs
 </ul>
 
 	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/view"><tt>View</tt></a></tt>&nbsp;&mdash;&nbsp;this view itself, so calls can be chained
+</li>
+	
+	</ul>
+
 	
 	<p>
 <b>Example</b> &mdash; Create a rectangle shaped path with its top left point at: {x: 50, y: 25} and a size of {width: 50, height: 50}
@@ -667,8 +675,32 @@ view.on('frame', frameHandler);
 <tt>Object</tt>
 &mdash;&nbsp;an object literal containing one or more of the
 following properties: <tt>frame, resize</tt>.
-// Create a rectangle shaped path with its top left point at:
-// {x: 50, y: 25} and a size of {width: 50, height: 50}
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/view"><tt>View</tt></a></tt>&nbsp;&mdash;&nbsp;this view itself, so calls can be chained
+</li>
+	
+	</ul>
+
+	
+	<p>
+<b>Example</b> &mdash; Create a rectangle shaped path with its top left point at: {x: 50, y: 25} and a size of {width: 50, height: 50}
+</p>
+
+<div class="paperscript split">
+
+<div class="buttons">
+<div class="button run">Run</div>
+</div>
+
+<script type="text/paperscript" canvas="canvas-2">
 var path = new Path.Rectangle(new Point(50, 25), new Size(50, 50));
 path.fillColor = 'black';
 
@@ -680,14 +712,11 @@ var frameHandler = function(event) {
 view.on({
     frame: frameHandler
 });
+</script>
+<div class="canvas"><canvas width="516" height="100" id="canvas-2"></canvas></div>
+</div>
 
-</li>
 
-</ul>
-
-	
-	
-	
 </div>
 </div>
 </div>
@@ -721,6 +750,14 @@ view.on({
 </ul>
 
 	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/view"><tt>View</tt></a></tt>&nbsp;&mdash;&nbsp;this view itself, so calls can be chained
+</li>
+	
+	</ul>
+
 	
 	<p>
 <b>Example</b> &mdash; Create a rectangle shaped path with its top left point at: {x: 50, y: 25} and a size of {width: 50, height: 50}
@@ -732,7 +769,7 @@ view.on({
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-2">
+<script type="text/paperscript" canvas="canvas-3">
 var path = new Path.Rectangle(new Point(50, 25), new Size(50, 50));
 path.fillColor = 'black';
 
@@ -751,7 +788,7 @@ function onMouseDown(event) {
     view.off('frame');
 }
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-2"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-3"></canvas></div>
 </div>
 
 
@@ -782,6 +819,14 @@ following properties: <tt>frame, resize</tt>
 </ul>
 
 	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/view"><tt>View</tt></a></tt>&nbsp;&mdash;&nbsp;this view itself, so calls can be chained
+</li>
+	
+	</ul>
+
 	
 	
 </div>
@@ -818,6 +863,14 @@ the event.
 </ul>
 
 	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the event had listeners, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
 	
 	
 </div>
