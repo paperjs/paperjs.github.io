@@ -612,15 +612,28 @@ matrix that results in no transformation.</p>
 </div>
 		
 			
-<div id="apply" class="member">
+<div id="apply-recursively" class="member">
 <div class="member-link">
-<a name="apply" href="#apply"><tt><b>apply</b>()</tt></a>
+<a name="apply-recursively" href="#apply-recursively"><tt><b>apply</b>(recursively)</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Applies the matrix to the item that it belongs to, if possible.</p>
+	<p>Applies the matrix to the content of item that it belongs to, if
+possible, meaning it bakes it into the item's content or children.</p>
     
 	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>recursively:</tt> 
+<tt>Boolean</tt>
+&mdash;&nbsp;controls whether to apply transformations
+recursively on children
+
+</li>
+
+</ul>
+
 	
 	<ul><b>Returns:</b>
 	
