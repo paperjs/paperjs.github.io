@@ -1334,8 +1334,12 @@ zooming and panning are not factored in.</p>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>Specifies whether the group applies transformations directly to its
-children, or whether they are to be stored in its <a href="/reference/item#matrix"><tt>matrix</tt></a></p>
+	<p>Controls whether the transformations applied to the item (e.g. through
+<a href="/reference/item#transform-matrix"><tt>transform(matrix)</tt></a>, <a href="/reference/item#rotate-angle"><tt>rotate(angle)</tt></a>,
+<a href="/reference/item#scale-scale"><tt>scale(scale)</tt></a>, etc.) are stored in its <a href="/reference/item#matrix"><tt>matrix</tt></a> property,
+or whether they are directly applied to its contents or children (passed
+on to the segments in <a href="/reference/path"><tt>Path</tt></a> items, the children of <a href="/reference/group"><tt>Group</tt></a>
+items, etc.).</p>
 	
 	
 	<ul><b>Type:</b>
