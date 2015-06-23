@@ -310,10 +310,12 @@ the frame event:</p>
 	</ul>
     <ul>
 <b>Options:</b>
-<li><tt>event.count: <tt>Number</tt></tt> — the number of times the frame event was
-fired.</li>
-<li><tt>event.time: <tt>Number</tt></tt> — the total amount of time passed since the
-first frame event in seconds.</li>
+<li><tt>event.count: <tt>Number</tt></tt> &mdash; the number of times the frame event was
+firedundefined</li>
+<li><tt>event.time: <tt>Number</tt></tt> &mdash; the total amount of time passed since the
+first frame event in secondsundefined</li>
+<li><tt>event.delta: <tt>Number</tt></tt> &mdash; the time passed in seconds since the last
+frame eventundefined</li>
 </ul>
 	
 	<p>
@@ -422,7 +424,7 @@ viewport.</p>
 	<ul><b>Returns:</b>
 	
 		<li>
-<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;whether the view is visible.
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;whether the view is visible
 </li>
 	
 	</ul>
@@ -500,7 +502,7 @@ loop.</p>
 			
 <div id="update" class="member">
 <div class="member-link">
-<a name="update" href="#update"><tt><b>update</b>()</tt></a>
+<a name="update" href="#update"><tt><b>update</b>([force])</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
@@ -509,7 +511,27 @@ event hanlders for interaction, animation and load events, this method is
 invoked for you automatically at the end.</p>
     
 	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>force:</tt> 
+<tt>Boolean</tt>
+&mdash;&nbsp;<tt>true</tt> if the view should be updated even
+if no change has happened, <tt>false</tt> otherwise
+&mdash;&nbsp;optional, default: <tt>false</tt>
+</li>
+
+</ul>
+
 	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the view was updated, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
 	
 	
 </div>
@@ -674,7 +696,7 @@ view.on('frame', frameHandler);
 <tt>param:</tt> 
 <tt>Object</tt>
 &mdash;&nbsp;an object literal containing one or more of the
-following properties: <tt>frame, resize</tt>.
+following properties: <tt>frame, resize</tt>
 
 </li>
 
@@ -856,7 +878,7 @@ following properties: <tt>frame, resize</tt>
 <tt>event:</tt> 
 <tt>Object</tt>
 &mdash;&nbsp;an object literal containing properties describing
-the event.
+the event
 
 </li>
 

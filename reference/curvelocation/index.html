@@ -83,9 +83,9 @@ etc.</p>
 <div class="reference-members"><h2>Constructors</h2>
 	
 		
-<div id="curvelocation-curve-parameter-point" class="member">
+<div id="curvelocation-curve-parameter" class="member">
 <div class="member-link">
-<a name="curvelocation-curve-parameter-point" href="#curvelocation-curve-parameter-point"><tt><b>CurveLocation</b>(curve, parameter, point)</tt></a>
+<a name="curvelocation-curve-parameter" href="#curvelocation-curve-parameter"><tt><b>CurveLocation</b>(curve, parameter[, point])</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
@@ -111,7 +111,7 @@ etc.</p>
 <tt>point:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
 
-
+&mdash;&nbsp;optional
 </li>
 
 </ul>
@@ -192,34 +192,6 @@ etc.</p>
 </div>
 		
 			
-<div id="intersection" class="member">
-<div class="member-link">
-<a name="intersection" href="#intersection"><tt><b>intersection</b></tt></a>
-</div>
-<div class="member-description hidden">
-
-<div class="member-text">
-	<p>The curve location on the intersecting curve, if this location is the
-result of a call to <a href="/reference/pathitem#getintersections-path"><tt>pathItem.getIntersections(path)</tt></a> /
-<tt>Curve#getIntersections(curve)</tt>.</p>
-	
-		<p>Read only.</p>
-	
-	
-	<ul><b>Type:</b>
-	<li>
-		<a href="/reference/curvelocation"><tt>CurveLocation</tt></a>
-	</li>
-	</ul>
-    
-	
-	
-</div>
-
-</div>
-</div>
-		
-			
 <div id="path" class="member">
 <div class="member-link">
 <a name="path" href="#path"><tt><b>path</b></tt></a>
@@ -262,6 +234,61 @@ curve is part of a <a href="/reference/path"><tt>Path</tt></a> item.</p>
 	<ul><b>Type:</b>
 	<li>
 		<tt>Index</tt>
+	</li>
+	</ul>
+    
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
+<div id="parameter" class="member">
+<div class="member-link">
+<a name="parameter" href="#parameter"><tt><b>parameter</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The curve parameter, as used by various bezier curve calculations. It is
+value between <tt>0</tt> (beginning of the curve) and <tt>1</tt> (end of
+the curve).</p>
+	
+		<p>Read only.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<tt>Number</tt>
+	</li>
+	</ul>
+    
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
+<div id="point" class="member">
+<div class="member-link">
+<a name="point" href="#point"><tt><b>point</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The point which is defined by the <a href="/reference/curvelocation#curve"><tt>curve</tt></a> and
+<a href="/reference/curvelocation#parameter"><tt>parameter</tt></a>.</p>
+	
+		<p>Read only.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<a href="/reference/point"><tt>Point</tt></a>
 	</li>
 	</ul>
     
@@ -328,50 +355,23 @@ by this object.</p>
 </div>
 		
 			
-<div id="parameter" class="member">
+<div id="intersection" class="member">
 <div class="member-link">
-<a name="parameter" href="#parameter"><tt><b>parameter</b></tt></a>
+<a name="intersection" href="#intersection"><tt><b>intersection</b></tt></a>
 </div>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The curve parameter, as used by various bezier curve calculations. It is
-value between <tt>0</tt> (beginning of the curve) and <tt>1</tt> (end of
-the curve).</p>
+	<p>The curve location on the intersecting curve, if this location is the
+result of a call to <a href="/reference/pathitem#getintersections-path"><tt>pathItem.getIntersections(path)</tt></a> /
+<tt>Curve#getIntersections(curve)</tt>.</p>
 	
 		<p>Read only.</p>
 	
 	
 	<ul><b>Type:</b>
 	<li>
-		<tt>Number</tt>
-	</li>
-	</ul>
-    
-	
-	
-</div>
-
-</div>
-</div>
-		
-			
-<div id="point" class="member">
-<div class="member-link">
-<a name="point" href="#point"><tt><b>point</b></tt></a>
-</div>
-<div class="member-description hidden">
-
-<div class="member-text">
-	<p>The point which is defined by the <a href="/reference/curvelocation#curve"><tt>curve</tt></a> and
-<a href="/reference/curvelocation#parameter"><tt>parameter</tt></a>.</p>
-	
-		<p>Read only.</p>
-	
-	
-	<ul><b>Type:</b>
-	<li>
-		<a href="/reference/point"><tt>Point</tt></a>
+		<a href="/reference/curvelocation"><tt>CurveLocation</tt></a>
 	</li>
 	</ul>
     

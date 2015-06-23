@@ -160,7 +160,7 @@ top of the active layer.</p>
 <tt>pathData:</tt> 
 <tt>String</tt>
 &mdash;&nbsp;the SVG path-data that describes the geometry
-of this path.
+of this path
 
 </li>
 
@@ -2269,12 +2269,12 @@ the frame event:</p>
 	</ul>
     <ul>
 <b>Options:</b>
-<li><tt>event.count: <tt>Number</tt></tt> — the number of times the frame event was
-fired.</li>
-<li><tt>event.time: <tt>Number</tt></tt> — the total amount of time passed since the
-first frame event in seconds.</li>
-<li><tt>event.delta: <tt>Number</tt></tt> — the time passed in seconds since the last
-frame event.</li>
+<li><tt>event.count: <tt>Number</tt></tt> &mdash; the number of times the frame event was
+firedundefined</li>
+<li><tt>event.time: <tt>Number</tt></tt> &mdash; the total amount of time passed since the
+first frame event in secondsundefined</li>
+<li><tt>event.delta: <tt>Number</tt></tt> &mdash; the time passed in seconds since the last
+frame eventundefined</li>
 </ul>
 	
 	<p><b>See also:</b>
@@ -2851,7 +2851,7 @@ given name (or a setter defined for it).</p>
 	<ul><b>Returns:</b>
 	
 		<li>
-<tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the item itself.
+<tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the item itself
 </li>
 	
 	</ul>
@@ -2906,7 +2906,7 @@ item.</p>
 <tt>Boolean</tt>
 &mdash;&nbsp;specifies whether the copy should be
 inserted into the DOM. When set to <tt>true</tt>, it is inserted above the
-original.
+original
 &mdash;&nbsp;optional, default: <tt>true</tt>
 </li>
 
@@ -3078,7 +3078,7 @@ raster.scale(5);
 <li>
 <tt>point:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
-&mdash;&nbsp;The point to check for.
+&mdash;&nbsp;The point to check for
 
 </li>
 
@@ -3210,30 +3210,28 @@ function onMouseDown(event) {
 and may contain a combination of the following values:</p>
     <ul>
 <b>Options:</b>
-<li><tt>options.tolerance: <tt>Number</tt></tt> — the tolerance of the hit-test in
-points. Can also be controlled through
-<a href="/reference/paperscope#settings"><tt>paperScope.settings</tt></a><tt>.hitTolerance</tt>.</li>
-<li><tt>options.class: <tt>Function</tt></tt> — only hit-test again a certain item class
+<li><tt>options.tolerance: <tt>Number</tt></tt> &mdash; the tolerance of the hit-test in points &mdash;&nbsp;default: <tt><a href="/reference/paperscope#settings"><tt>paperScope.settings</tt></a>.hitTolerance</tt></li>
+<li><tt>options.class: <tt>Function</tt></tt> &mdash; only hit-test again a certain item class
 and its sub-classes: <tt>Group, Layer, Path, CompoundPath,
-Shape, Raster, PlacedSymbol, PointText</tt>, etc.</li>
-<li><tt>options.fill: <tt>Boolean</tt></tt> — hit-test the fill of items.</li>
-<li><tt>options.stroke: <tt>Boolean</tt></tt> — hit-test the stroke of path items,
-taking into account the setting of stroke color and width.</li>
-<li><tt>options.segments: <tt>Boolean</tt></tt> — hit-test for <a href="/reference/segment#point"><tt>segment.point</tt></a> of
-<a href="/reference/path"><tt>Path</tt></a> items.</li>
-<li><tt>options.curves: <tt>Boolean</tt></tt> — hit-test the curves of path items,
-without taking the stroke color or width into account.</li>
-<li><tt>options.handles: <tt>Boolean</tt></tt> — hit-test for the handles.
-(<a href="/reference/segment#handlein"><tt>segment.handleIn</tt></a> / <a href="/reference/segment#handleout"><tt>segment.handleOut</tt></a>) of path segments.</li>
-<li><tt>options.ends: <tt>Boolean</tt></tt> — only hit-test for the first or last
-segment points of open path items.</li>
-<li><tt>options.bounds: <tt>Boolean</tt></tt> — hit-test the corners and side-centers of
-the bounding rectangle of items (<a href="/reference/item#bounds"><tt>item.bounds</tt></a>).</li>
-<li><tt>options.center: <tt>Boolean</tt></tt> — hit-test the <a href="/reference/rectangle#center"><tt>rectangle.center</tt></a> of
-the bounding rectangle of items (<a href="/reference/item#bounds"><tt>item.bounds</tt></a>).</li>
-<li><tt>options.guides: <tt>Boolean</tt></tt> — hit-test items that have
-<tt>Item#guide</tt> set to <tt>true</tt>.</li>
-<li><tt>options.selected: <tt>Boolean</tt></tt> — only hit selected items.</li>
+Shape, Raster, PlacedSymbol, PointText</tt>, etcundefined</li>
+<li><tt>options.fill: <tt>Boolean</tt></tt> &mdash; hit-test the fill of itemsundefined</li>
+<li><tt>options.stroke: <tt>Boolean</tt></tt> &mdash; hit-test the stroke of path items,
+taking into account the setting of stroke color and widthundefined</li>
+<li><tt>options.segments: <tt>Boolean</tt></tt> &mdash; hit-test for <a href="/reference/segment#point"><tt>segment.point</tt></a> of
+<a href="/reference/path"><tt>Path</tt></a> itemsundefined</li>
+<li><tt>options.curves: <tt>Boolean</tt></tt> &mdash; hit-test the curves of path items,
+without taking the stroke color or width into accountundefined</li>
+<li><tt>options.handles: <tt>Boolean</tt></tt> &mdash; hit-test for the handles
+(<a href="/reference/segment#handlein"><tt>segment.handleIn</tt></a> / <a href="/reference/segment#handleout"><tt>segment.handleOut</tt></a>) of path segmentsundefined</li>
+<li><tt>options.ends: <tt>Boolean</tt></tt> &mdash; only hit-test for the first or last
+segment points of open path itemsundefined</li>
+<li><tt>options.bounds: <tt>Boolean</tt></tt> &mdash; hit-test the corners and side-centers of
+the bounding rectangle of items (<a href="/reference/item#bounds"><tt>item.bounds</tt></a>)undefined</li>
+<li><tt>options.center: <tt>Boolean</tt></tt> &mdash; hit-test the <a href="/reference/rectangle#center"><tt>rectangle.center</tt></a> of
+the bounding rectangle of items (<a href="/reference/item#bounds"><tt>item.bounds</tt></a>)undefined</li>
+<li><tt>options.guides: <tt>Boolean</tt></tt> &mdash; hit-test items that have
+<tt>Item#guide</tt> set to <tt>true</tt>undefined</li>
+<li><tt>options.selected: <tt>Boolean</tt></tt> &mdash; only hit selected itemsundefined</li>
 </ul>
 	
 <ul><b>Parameters:</b>
@@ -3293,7 +3291,7 @@ examples.</p>
 <li>
 <tt>match:</tt> 
 <tt>Object</tt>
-&mdash;&nbsp;the criteria to match against.
+&mdash;&nbsp;the criteria to match against
 
 </li>
 
@@ -3303,7 +3301,7 @@ examples.</p>
 	<ul><b>Returns:</b>
 	
 		<li>
-<tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the item matches all the criteria, <tt>false</tt> otherwise
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the item matches all the criteria, <tt>false</tt> otherwise
 </li>
 	
 	</ul>
@@ -3340,7 +3338,7 @@ examples.</p>
 <li>
 <tt>name:</tt> 
 <tt>String</tt>
-&mdash;&nbsp;the name of the state to match against.
+&mdash;&nbsp;the name of the state to match against
 
 </li>
 
@@ -3348,7 +3346,7 @@ examples.</p>
 <tt>compare:</tt> 
 <tt>Object</tt>
 &mdash;&nbsp;the value, function or regular expression to
-compare against.
+compare against
 
 </li>
 
@@ -3358,7 +3356,7 @@ compare against.
 	<ul><b>Returns:</b>
 	
 		<li>
-<tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the item matches the state, <tt>false</tt> otherwise
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the item matches the state, <tt>false</tt> otherwise
 </li>
 	
 	</ul>
@@ -3395,10 +3393,10 @@ contained.</p>
 examples.</p>
     <ul>
 <b>Options:</b>
-<li><tt>match.inside: <a href="/reference/rectangle"><tt>Rectangle</tt></a></tt> — the rectangle in which the items need to
-be fully contained.</li>
-<li><tt>match.overlapping: <a href="/reference/rectangle"><tt>Rectangle</tt></a></tt> — the rectangle with which the items
-need to at least partly overlap.</li>
+<li><tt>match.inside: <a href="/reference/rectangle"><tt>Rectangle</tt></a></tt> &mdash; the rectangle in which the items need to
+be fully containedundefined</li>
+<li><tt>match.overlapping: <a href="/reference/rectangle"><tt>Rectangle</tt></a></tt> &mdash; the rectangle with which the items
+need to at least partly overlapundefined</li>
 </ul>
 	
 <ul><b>Parameters:</b>
@@ -3406,7 +3404,7 @@ need to at least partly overlap.</li>
 <li>
 <tt>match:</tt> 
 <tt>Object</tt>
-&mdash;&nbsp;the criteria to match against.
+&mdash;&nbsp;the criteria to match against
 
 </li>
 
@@ -3416,7 +3414,7 @@ need to at least partly overlap.</li>
 	<ul><b>Returns:</b>
 	
 		<li>
-<tt>Array of <a href="/reference/item"><tt>Item</tt></a> objects</tt>&nbsp;&mdash;&nbsp;the list of matching descendant items.
+<tt>Array of <a href="/reference/item"><tt>Item</tt></a> objects</tt>&nbsp;&mdash;&nbsp;the list of matching descendant items
 </li>
 	
 	</ul>
@@ -3454,7 +3452,7 @@ examples.</p>
 <li>
 <tt>match:</tt> 
 <tt>Object</tt>
-&mdash;&nbsp;the criteria to match against.
+&mdash;&nbsp;the criteria to match against
 
 </li>
 
@@ -3464,7 +3462,7 @@ examples.</p>
 	<ul><b>Returns:</b>
 	
 		<li>
-<tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the first descendant item  matching the given criteria.
+<tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the first descendant item  matching the given criteria
 </li>
 	
 	</ul>
@@ -3492,10 +3490,10 @@ examples.</p>
 data string.</p>
     <ul>
 <b>Options:</b>
-<li><tt>options.asString: <tt>Boolean</tt></tt> — whether the JSON is returned as a
-<tt>Object</tt> or a <tt>String</tt>.</li>
-<li><tt>options.precision: <tt>Number</tt></tt> — the amount of fractional digits in
-numbers used in JSON data.</li>
+<li><tt>options.asString: <tt>Boolean</tt></tt> &mdash; whether the JSON is returned as a
+<tt>Object</tt> or a <tt>String</tt> &mdash;&nbsp;default: <tt>true</tt></li>
+<li><tt>options.precision: <tt>Number</tt></tt> &mdash; the amount of fractional digits in
+numbers used in JSON data &mdash;&nbsp;default: <tt>5</tt></li>
 </ul>
 	
 <ul><b>Parameters:</b>
@@ -3503,9 +3501,8 @@ numbers used in JSON data.</li>
 <li>
 <tt>options:</tt> 
 <tt>Object</tt>
-&mdash;&nbsp;the
-serialization options
-&mdash;&nbsp;optional, default: <tt>{ asString: true, precision: 5 }</tt>
+&mdash;&nbsp;the serialization options
+&mdash;&nbsp;optional
 </li>
 
 </ul>
@@ -3544,7 +3541,7 @@ items can have children.</p>
 <li>
 <tt>json:</tt> 
 <tt>String</tt>
-&mdash;&nbsp;the JSON data to import from.
+&mdash;&nbsp;the JSON data to import from
 
 </li>
 
@@ -3567,12 +3564,13 @@ items can have children.</p>
 	<p>Exports the item with its content and child items as an SVG DOM.</p>
     <ul>
 <b>Options:</b>
-<li><tt>options.asString: <tt>Boolean</tt></tt> — whether a SVG node or a <tt>String</tt>
-is to be returned.</li>
-<li><tt>options.precision: <tt>Number</tt></tt> — the amount of fractional digits in
-numbers used in SVG data.</li>
-<li><tt>options.matchShapes: <tt>Boolean</tt></tt> — whether path items should tried to
-be converted to shape items, if their geometries can be made to match.</li>
+<li><tt>options.asString: <tt>Boolean</tt></tt> &mdash; whether a SVG node or a
+<tt>String</tt> is to be returned &mdash;&nbsp;default: <tt>false</tt></li>
+<li><tt>options.precision: <tt>Number</tt></tt> &mdash; the amount of fractional digits in
+numbers used in SVG data &mdash;&nbsp;default: <tt>5</tt></li>
+<li><tt>options.matchShapes: <tt>Boolean</tt></tt> &mdash; whether path items should
+tried to be converted to shape items, if their geometries can be made to
+match &mdash;&nbsp;default: <tt>false</tt></li>
 </ul>
 	
 <ul><b>Parameters:</b>
@@ -3580,9 +3578,8 @@ be converted to shape items, if their geometries can be made to match.</li>
 <li>
 <tt>options:</tt> 
 <tt>Object</tt>
-&mdash;&nbsp;the export options.
-&mdash;&nbsp;optional, default: <tt>{ asString: false, precision: 5,
-matchShapes: false }</tt>
+&mdash;&nbsp;the export options
+&mdash;&nbsp;optional
 </li>
 
 </ul>
@@ -3615,8 +3612,13 @@ the this item's children list.</p>
 <a href="/reference/item#removechildren"><tt>item.removeChildren</tt></a>() to do so.</p>
     <ul>
 <b>Options:</b>
-<li><tt>options.expandShapes: <tt>Boolean</tt></tt> — whether imported shape items
-should be expanded to path items.</li>
+<li><tt>options.expandShapes: <tt>Boolean</tt></tt> &mdash; whether imported shape
+items should be expanded to path items &mdash;&nbsp;default: <tt>false</tt></li>
+<li>[options.onLoad] {Function} the callback function to call once
+the SVG content is loaded from the given URL. Only required when loading
+from external files.</li>
+<li><tt>options.applyMatrix: <tt>Boolean</tt></tt> &mdash; whether imported items should have their transformation
+matrices applied to their contents or not &mdash;&nbsp;default: <tt><a href="/reference/paperscope#settings"><tt>paperScope.settings</tt></a>.applyMatrix</tt></li>
 </ul>
 	
 <ul><b>Parameters:</b>
@@ -3624,7 +3626,9 @@ should be expanded to path items.</li>
 <li>
 <tt>svg:</tt> 
 <tt>SVGElement</tt> / <tt>String</tt>
-&mdash;&nbsp;the SVG content to import
+&mdash;&nbsp;the SVG content to import, either as a SVG
+DOM node, a string containing SVG content, or a string describing the URL
+of the SVG file to fetch.
 
 </li>
 
@@ -3632,7 +3636,7 @@ should be expanded to path items.</li>
 <tt>options:</tt> 
 <tt>Object</tt>
 &mdash;&nbsp;the import options
-&mdash;&nbsp;optional, default: <tt>{ expandShapes: false }</tt>
+&mdash;&nbsp;optional
 </li>
 
 </ul>
@@ -3641,7 +3645,56 @@ should be expanded to path items.</li>
 	<ul><b>Returns:</b>
 	
 		<li>
-<tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the imported Paper.js parent item
+<tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the newly created Paper.js item containing the converted
+SVG content
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+
+	
+<div id="importsvg-svg-onLoad" class="member">
+<div class="member-link">
+<a name="importsvg-svg-onLoad" href="#importsvg-svg-onLoad"><tt><b>importSVG</b>(svg, onLoad)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Imports the provided external SVG file, converts it into Paper.js items
+and adds them to the this item's children list.</p>
+<p>Note that the item is not cleared first. You can call
+<a href="/reference/item#removechildren"><tt>item.removeChildren</tt></a>() to do so.</p>
+    
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>svg:</tt> 
+<tt>SVGElement</tt> / <tt>String</tt>
+&mdash;&nbsp;the URL of the SVG file to fetch.
+
+</li>
+
+<li>
+<tt>onLoad:</tt> 
+<tt>Function</tt>
+&mdash;&nbsp;the callback function to call once the SVG
+content is loaded from the given URL.
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the newly created Paper.js item containing the converted
+SVG content
 </li>
 	
 	</ul>
@@ -3682,7 +3735,7 @@ paths and layers.</p>
 	
 		<li>
 <tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the added item, or <tt>null</tt> if adding was not
-possible.
+possible
 </li>
 	
 	</ul>
@@ -3728,7 +3781,7 @@ groups, compound paths and layers.</p>
 	
 		<li>
 <tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the inserted item, or <tt>null</tt> if inserting was not
-possible.
+possible
 </li>
 	
 	</ul>
@@ -3767,7 +3820,7 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 	
 		<li>
 <tt>Array of <a href="/reference/item"><tt>Item</tt></a> objects</tt>&nbsp;&mdash;&nbsp;the added items, or <tt>null</tt> if adding was not
-possible.
+possible
 </li>
 	
 	</ul>
@@ -3813,7 +3866,7 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 	
 		<li>
 <tt>Array of <a href="/reference/item"><tt>Item</tt></a> objects</tt>&nbsp;&mdash;&nbsp;the inserted items, or <tt>null</tt> if inserted was not
-possible.
+possible
 </li>
 	
 	</ul>
@@ -3850,7 +3903,7 @@ possible.
 	
 		<li>
 <tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the inserted item, or <tt>null</tt> if inserting was not
-possible.
+possible
 </li>
 	
 	</ul>
@@ -3887,7 +3940,7 @@ possible.
 	
 		<li>
 <tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the inserted item, or <tt>null</tt> if inserting was not
-possible.
+possible
 </li>
 	
 	</ul>
@@ -5127,7 +5180,7 @@ by a supplied point.</p>
 <li>
 <tt>matrix:</tt> 
 <a href="/reference/matrix"><tt>Matrix</tt></a>
-&mdash;&nbsp;the matrix by which the item shall be transformed.
+&mdash;&nbsp;the matrix by which the item shall be transformed
 
 </li>
 
@@ -6572,7 +6625,7 @@ the specified point by adding one or more segments to the path.</p>
 <tt>clockwise:</tt> 
 <tt>Boolean</tt>
 &mdash;&nbsp;specifies whether the arc should be
-       drawn in clockwise direction.
+       drawn in clockwise direction
 &mdash;&nbsp;optional, default: <tt>true</tt>
 </li>
 
@@ -6665,7 +6718,7 @@ last segment of the path with an additional curve.</p>
 <tt>join:</tt> 
 <tt>Boolean</tt>
 &mdash;&nbsp;controls whether the method should attempt to merge
-the first segment with the last if they lie in the same location.
+the first segment with the last if they lie in the same location
 
 </li>
 
@@ -6730,7 +6783,7 @@ position of the last segment of the current path.</p>
 <tt>to:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
 &mdash;&nbsp;the vector which is added to the position of the last
-segment of the path, to get to the position of the new segment.
+segment of the path, to get to the position of the new segment
 
 </li>
 
