@@ -306,31 +306,6 @@ describes the out tangent of the segment.</p>
 </div>
 		
 			
-<div id="linear" class="member">
-<div class="member-link">
-<a name="linear" href="#linear"><tt><b>linear</b></tt></a>
-</div>
-<div class="member-description hidden">
-
-<div class="member-text">
-	<p>Specifies whether the segment has no handles defined, meaning it connects
-two straight lines.</p>
-	
-	
-	<ul><b>Type:</b>
-	<li>
-		<tt>Boolean</tt>
-	</li>
-	</ul>
-    
-	
-	
-</div>
-
-</div>
-</div>
-		
-			
 <div id="selected" class="member">
 <div class="member-link">
 <a name="selected" href="#selected"><tt><b>selected</b></tt></a>
@@ -550,28 +525,57 @@ segment is returned for the first segment of the path.</p>
 	<div class="reference-members"><h2>Methods</h2>
 		
 			
-<div id="iscollinear-segment" class="member">
+<div id="hashandles" class="member">
 <div class="member-link">
-<a name="iscollinear-segment" href="#iscollinear-segment"><tt><b>isCollinear</b>(segment)</tt></a>
+<a name="hashandles" href="#hashandles"><tt><b>hasHandles</b>()</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Returns true if the the two segments are the beginning of two lines and
-if these two lines are running parallel.</p>
+	<p>Checks whether the segment has curve handles defined, meaning it is not
+a straight segment.</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
-<tt>segment:</tt> 
-
-
-
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the segment has handles defined, <tt>false</tt> otherwise
 </li>
-
-</ul>
+	
+	</ul>
 
 	
+	<p><b>See also:</b>
+	<tt><a href="/reference/curve#hashandles"><tt>curve.hasHandles</tt></a>()</tt>, <tt><a href="/reference/path#hashandles"><tt>path.hasHandles</tt></a>()</tt>
+	</p>
+
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="isstraight" class="member">
+<div class="member-link">
+<a name="isstraight" href="#isstraight"><tt><b>isStraight</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Checks whether the segment is straight, meaning it has no curve
+handles defined.</p>
+<p>If two straight segments are adjacent to each other, the curve between
+them will be a straight line.</p>
+    
+	
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the segment is straight, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
 	
 	
 </div>
@@ -579,20 +583,130 @@ if these two lines are running parallel.</p>
 </div>
 		
 			
-<div id="isarc" class="member">
+<div id="islinear" class="member">
 <div class="member-link">
-<a name="isarc" href="#isarc"><tt><b>isArc</b>()</tt></a>
+<a name="islinear" href="#islinear"><tt><b>isLinear</b>()</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Returns true if the segment at the given index is the beginning of an
-orthogonal arc segment. The code looks at the length of the handles and
-their relation to the distance to the imaginary corner point. If the
-relation is kappa, then it's an arc.</p>
+	<p>Checks if the curve that starts in this segment appears as a line. This
+can mean that it has no handles defined, or that the handles run
+collinear with the line.</p>
     
 	
 	
+	<ul><b>Returns:</b>
 	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the curve is linear, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	<p><b>See also:</b>
+	<tt><a href="/reference/curve#islinear"><tt>curve.isLinear</tt></a>()</tt>, <tt><a href="/reference/path#islinear"><tt>path.isLinear</tt></a>()</tt>
+	</p>
+
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="iscollinear-the" class="member">
+<div class="member-link">
+<a name="iscollinear-the" href="#iscollinear-the"><tt><b>isCollinear</b>(the)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Checks if the the two segments are the beginning of two lines that are
+collinear, meaning they run in parallel.</p>
+    
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>the:</tt> 
+<a href="/reference/segment"><tt>Segment</tt></a>
+&mdash;&nbsp;other segment to check against
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the two lines are collinear, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	<p><b>See also:</b>
+	<tt><a href="/reference/curve#iscollinear-curve"><tt>curve.isCollinear(curve)</tt></a></tt>
+	</p>
+
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="isorthogonal" class="member">
+<div class="member-link">
+<a name="isorthogonal" href="#isorthogonal"><tt><b>isOrthogonal</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Checks if the segment is connecting two lines that are orthogonal,
+meaning they connect at an 90° angle.</p>
+    
+	
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the two lines connected by this segment are
+orthogonal, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="isorthogonalarc" class="member">
+<div class="member-link">
+<a name="isorthogonalarc" href="#isorthogonalarc"><tt><b>isOrthogonalArc</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Checks if the segment is the beginning of an orthogonal arc, as used in
+the construction of circles and ellipses.</p>
+    
+	
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the segment is the beginning of an orthogonal
+arc, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	<p><b>See also:</b>
+	<tt><a href="/reference/curve#isorthogonalarc"><tt>curve.isOrthogonalArc</tt></a>()</tt>
+	</p>
+
 	
 </div>
 </div>

@@ -571,14 +571,43 @@ belongs to.</p>
 	<div class="reference-members"><h2>Methods</h2>
 		
 			
+<div id="hashandles" class="member">
+<div class="member-link">
+<a name="hashandles" href="#hashandles"><tt><b>hasHandles</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Checks if this curve defines any curve handle.</p>
+    
+	
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the curve has handles defined, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	<p><b>See also:</b>
+	<tt><a href="/reference/segment#hashandles"><tt>segment.hasHandles</tt></a>()</tt>, <tt><a href="/reference/path#hashandles"><tt>path.hasHandles</tt></a>()</tt>
+	</p>
+
+	
+</div>
+</div>
+</div>
+		
+			
 <div id="islinear" class="member">
 <div class="member-link">
 <a name="islinear" href="#islinear"><tt><b>isLinear</b>()</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Checks if this curve is linear, meaning it does not define any curve
-handle.</p>
+	<p>Checks if this curve appears as a line. This can mean that it has no
+handles defined, or that the handles run collinear with the line.</p>
     
 	
 	
@@ -591,6 +620,81 @@ handle.</p>
 	</ul>
 
 	
+	<p><b>See also:</b>
+	<tt><a href="/reference/segment#islinear"><tt>segment.isLinear</tt></a>()</tt>, <tt><a href="/reference/path#islinear"><tt>path.isLinear</tt></a>()</tt>
+	</p>
+
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="iscollinear-the" class="member">
+<div class="member-link">
+<a name="iscollinear-the" href="#iscollinear-the"><tt><b>isCollinear</b>(the)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Checks if the the two curves describe lines that are collinear, meaning
+they run in parallel.</p>
+    
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>the:</tt> 
+<a href="/reference/curve"><tt>Curve</tt></a>
+&mdash;&nbsp;other curve to check against
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the two lines are collinear, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	<p><b>See also:</b>
+	<tt><a href="/reference/segment#iscollinear-segment"><tt>segment.isCollinear(segment)</tt></a></tt>
+	</p>
+
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="isorthogonalarc" class="member">
+<div class="member-link">
+<a name="isorthogonalarc" href="#isorthogonalarc"><tt><b>isOrthogonalArc</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Checks if the curve describes an orthogonal arc, as used in the
+construction of circles and ellipses.</p>
+    
+	
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the curve describes an orthogonal arc, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	<p><b>See also:</b>
+	<tt><a href="/reference/segment#isorthogonalarc"><tt>segment.isOrthogonalArc</tt></a>()</tt>
+	</p>
+
 	
 </div>
 </div>

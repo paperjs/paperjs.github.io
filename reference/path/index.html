@@ -1744,6 +1744,66 @@ if (path2.fullySelected) {
 	<div class="reference-members"><h2>Methods</h2>
 		
 			
+<div id="islinear" class="member">
+<div class="member-link">
+<a name="islinear" href="#islinear"><tt><b>isLinear</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Checks if this path consists of only linear curves. This can mean that
+the curves have no handles defined, or that the handles run collinear
+with the line.</p>
+    
+	
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the path is entirely linear, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	<p><b>See also:</b>
+	<tt><a href="/reference/segment#islinear"><tt>segment.isLinear</tt></a>()</tt>, <tt><a href="/reference/curve#islinear"><tt>curve.isLinear</tt></a>()</tt>
+	</p>
+
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="hashandles" class="member">
+<div class="member-link">
+<a name="hashandles" href="#hashandles"><tt><b>hasHandles</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Checks if none of the curves in the path define any curve handles.</p>
+    
+	
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the path contains no curve handles, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	<p><b>See also:</b>
+	<tt><a href="/reference/segment#hashandles"><tt>segment.hasHandles</tt></a>()</tt>, <tt><a href="/reference/curve#hashandles"><tt>curve.hasHandles</tt></a>()</tt>
+	</p>
+
+	
+</div>
+</div>
+</div>
+		
+			
 <div id="add-segment" class="member">
 <div class="member-link">
 <a name="add-segment" href="#add-segment"><tt><b>add</b>(segment)</tt></a>
@@ -6703,8 +6763,8 @@ items can have children.</p>
 <li><tt>options.precision: <tt>Number</tt></tt> &mdash; the amount of fractional digits in
 numbers used in SVG data &mdash;&nbsp;default: <tt>5</tt></li>
 <li><tt>options.matchShapes: <tt>Boolean</tt></tt> &mdash; whether path items should
-tried to be converted to shape items, if their geometries can be made to
-match &mdash;&nbsp;default: <tt>false</tt></li>
+tried to be converted to SVG shape items (rect, circle, ellipse, line,
+polyline, polygon), if their geometries match &mdash;&nbsp;default: <tt>false</tt></li>
 </ul>
 	
 <ul><b>Parameters:</b>
