@@ -3223,7 +3223,7 @@ for (var i = 0; i < amount + 1; i++) {
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Calculates the tangent vector of the path at the given offset.</p>
+	<p>Calculates the normalized tangent vector of the path at the given offset.</p>
     
 	
 <ul><b>Parameters:</b>
@@ -3249,7 +3249,7 @@ the beginning of the path and <a href="/reference/path#length"><tt>path.length</
 	<ul><b>Returns:</b>
 	
 		<li>
-<tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the tangent vector at the given offset
+<tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the normalized tangent vector at the given offset
 </li>
 	
 	</ul>
@@ -3281,11 +3281,9 @@ var offset = path.length / 3;
 // Find the point on the path:
 var point = path.getPointAt(offset);
 
-// Find the tangent vector at the given offset:
-var tangent = path.getTangentAt(offset);
-
-// Make the tangent vector 60pt long:
-tangent.length = 60;
+// Find the tangent vector at the given offset
+// and give it a length of 60:
+var tangent = path.getTangentAt(offset) * 60;
 
 var line = new Path({
     segments: [point, point + tangent],
@@ -3323,11 +3321,9 @@ for (var i = 0; i < amount + 1; i++) {
     // Find the point on the path at the given offset:
     var point = path.getPointAt(offset);
 
-    // Find the normal vector on the path at the given offset:
-    var tangent = path.getTangentAt(offset);
-
-    // Make the tangent vector 60pt long:
-    tangent.length = 60;
+    // Find the tangent vector on the path at the given offset
+    // and give it a length of 60:
+    var tangent = path.getTangentAt(offset) * 60;
 
     var line = new Path({
         segments: [point, point + tangent],
@@ -3408,11 +3404,9 @@ var offset = path.length / 3;
 // Find the point on the path:
 var point = path.getPointAt(offset);
 
-// Find the normal vector at the given offset:
-var normal = path.getNormalAt(offset);
-
-// Make the normal vector 30pt long:
-normal.length = 30;
+// Find the normal vector on the path at the given offset
+// and give it a length of 30:
+var normal = path.getNormalAt(offset) * 30;
 
 var line = new Path({
     segments: [point, point + normal],
@@ -3450,11 +3444,9 @@ for (var i = 0; i < amount + 1; i++) {
     // Find the point on the path at the given offset:
     var point = path.getPointAt(offset);
 
-    // Find the normal vector on the path at the given offset:
-    var normal = path.getNormalAt(offset);
-
-    // Make the normal vector 30pt long:
-    normal.length = 30;
+    // Find the normal vector on the path at the given offset
+    // and give it a length of 30:
+    var normal = path.getNormalAt(offset) * 30;
 
     var line = new Path({
         segments: [point, point + normal],
@@ -3471,9 +3463,97 @@ for (var i = 0; i < amount + 1; i++) {
 </div>
 		
 			
-<div id="getcurvatureat-offset-point" class="member">
+<div id="getweightedtangentat-offset" class="member">
 <div class="member-link">
-<a name="getcurvatureat-offset-point" href="#getcurvatureat-offset-point"><tt><b>getCurvatureAt</b>(offset[, isParameter, point])</tt></a>
+<a name="getweightedtangentat-offset" href="#getweightedtangentat-offset"><tt><b>getWeightedTangentAt</b>(offset[, isParameter])</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Calculates the weighted tangent vector of the path at the given offset.</p>
+    
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>offset:</tt> 
+<tt>Number</tt>
+&mdash;&nbsp;the offset on the path, where <tt>0</tt> is at
+the beginning of the path and <a href="/reference/path#length"><tt>path.length</tt></a> at the end
+
+</li>
+
+<li>
+<tt>isParameter:</tt> 
+<tt>Boolean</tt>
+
+&mdash;&nbsp;optional, default: <tt>false</tt>
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the weighted tangent vector at the given offset
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="getweightednormalat-offset" class="member">
+<div class="member-link">
+<a name="getweightednormalat-offset" href="#getweightednormalat-offset"><tt><b>getWeightedNormalAt</b>(offset[, isParameter])</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Calculates the weighted normal vector of the path at the given offset.</p>
+    
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>offset:</tt> 
+<tt>Number</tt>
+&mdash;&nbsp;the offset on the path, where <tt>0</tt> is at
+the beginning of the path and <a href="/reference/path#length"><tt>path.length</tt></a> at the end
+
+</li>
+
+<li>
+<tt>isParameter:</tt> 
+<tt>Boolean</tt>
+
+&mdash;&nbsp;optional, default: <tt>false</tt>
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the weighted normal vector at the given offset
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="getcurvatureat-offset" class="member">
+<div class="member-link">
+<a name="getcurvatureat-offset" href="#getcurvatureat-offset"><tt><b>getCurvatureAt</b>(offset[, isParameter])</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
@@ -3500,6 +3580,35 @@ the beginning of the path and <a href="/reference/path#length"><tt>path.length</
 &mdash;&nbsp;optional, default: <tt>false</tt>
 </li>
 
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Number</tt></tt>&nbsp;&mdash;&nbsp;the normal vector at the given offset
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="getnearestlocation-point" class="member">
+<div class="member-link">
+<a name="getnearestlocation-point" href="#getnearestlocation-point"><tt><b>getNearestLocation</b>(point)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Returns the nearest location on the path to the specified point.</p>
+    
+	
+<ul><b>Parameters:</b>
+
 <li>
 <tt>point:</tt> 
 
@@ -3511,14 +3620,6 @@ the beginning of the path and <a href="/reference/path#length"><tt>path.length</
 
 	
 	<ul><b>Returns:</b>
-	
-		<li>
-<tt><tt>Number</tt></tt>&nbsp;&mdash;&nbsp;the normal vector at the given offset
-
-
-    /**
-Returns the nearest location on the path to the specified point.
-</li>
 	
 		<li>
 <tt><a href="/reference/curvelocation"><tt>CurveLocation</tt></a></tt>&nbsp;&mdash;&nbsp;the location on the path that's the closest to
@@ -6484,7 +6585,7 @@ examples.</p>
 
 <li>
 <tt>match:</tt> 
-<tt>Object</tt>
+<tt>Object</tt> / <tt>Function</tt>
 &mdash;&nbsp;the criteria to match against
 
 </li>
@@ -6597,7 +6698,7 @@ need to at least partly overlapundefined</li>
 
 <li>
 <tt>match:</tt> 
-<tt>Object</tt>
+<tt>Object</tt> / <tt>Function</tt>
 &mdash;&nbsp;the criteria to match against
 
 </li>
@@ -6645,7 +6746,7 @@ examples.</p>
 
 <li>
 <tt>match:</tt> 
-<tt>Object</tt>
+<tt>Object</tt> / <tt>Function</tt>
 &mdash;&nbsp;the criteria to match against
 
 </li>

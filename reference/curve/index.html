@@ -1139,7 +1139,7 @@ is a curve time parameter
 	<ul><b>Returns:</b>
 	
 		<li>
-<tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the point on the curve at the specified offset
+<tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the point on the curve at the given offset
 </li>
 	
 	</ul>
@@ -1157,7 +1157,8 @@ is a curve time parameter
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Calculates the tangent vector of the curve at the given offset.</p>
+	<p>Calculates the normalized tangent vector of the curve at the given
+offset.</p>
     
 	
 <ul><b>Parameters:</b>
@@ -1184,7 +1185,7 @@ is a curve time parameter
 	<ul><b>Returns:</b>
 	
 		<li>
-<tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the tangent of the curve at the specified offset
+<tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the normalized tangent of the curve at the given offset
 </li>
 	
 	</ul>
@@ -1229,7 +1230,99 @@ is a curve time parameter
 	<ul><b>Returns:</b>
 	
 		<li>
-<tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the normal of the curve at the specified offset
+<tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the normal of the curve at the given offset
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="getweightedtangentat-offset" class="member">
+<div class="member-link">
+<a name="getweightedtangentat-offset" href="#getweightedtangentat-offset"><tt><b>getWeightedTangentAt</b>(offset[, isParameter])</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Calculates the weighted tangent vector of the curve at the given
+offset, its length reflecting the curve velocity at that location.</p>
+    
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>offset:</tt> 
+<tt>Number</tt>
+&mdash;&nbsp;the offset on the curve, or the curve time
+parameter if <tt>isParameter</tt> is <tt>true</tt>
+
+</li>
+
+<li>
+<tt>isParameter:</tt> 
+<tt>Boolean</tt>
+&mdash;&nbsp;pass <tt>true</tt> if <tt>offset</tt>
+is a curve time parameter
+&mdash;&nbsp;optional, default: <tt>false</tt>
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the weighted tangent of the curve at the given offset
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="getweightednormalat-offset" class="member">
+<div class="member-link">
+<a name="getweightednormalat-offset" href="#getweightednormalat-offset"><tt><b>getWeightedNormalAt</b>(offset[, isParameter])</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Calculates the weighted normal vector of the curve at the given offset,
+its length reflecting the curve velocity at that location.</p>
+    
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>offset:</tt> 
+<tt>Number</tt>
+&mdash;&nbsp;the offset on the curve, or the curve time
+parameter if <tt>isParameter</tt> is <tt>true</tt>
+
+</li>
+
+<li>
+<tt>isParameter:</tt> 
+<tt>Boolean</tt>
+&mdash;&nbsp;pass <tt>true</tt> if <tt>offset</tt>
+is a curve time parameter
+&mdash;&nbsp;optional, default: <tt>false</tt>
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the weighted normal of the curve at the given offset
 </li>
 	
 	</ul>
@@ -1277,7 +1370,7 @@ is a curve time parameter
 	<ul><b>Returns:</b>
 	
 		<li>
-<tt><tt>Number</tt></tt>&nbsp;&mdash;&nbsp;the curvature of the curve at the specified offset
+<tt><tt>Number</tt></tt>&nbsp;&mdash;&nbsp;the curvature of the curve at the given offset
 </li>
 	
 	</ul>
