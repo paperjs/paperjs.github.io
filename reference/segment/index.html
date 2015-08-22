@@ -561,10 +561,12 @@ a straight segment.</p>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Checks whether the segment is straight, meaning it has no curve
-handles defined.</p>
-<p>If two straight segments are adjacent to each other, the curve between
-them will be a straight line.</p>
+	<p>Checks whether the segment is straight, meaning it has no curve handles
+defined. If two straight segments follow each each other in a path, the
+curve between them will appear as a straight line.</p>
+<p>Note that this is not the same as <a href="/reference/segment#islinear"><tt>isLinear</tt></a>(), which performs a
+full linearity check that includes handles running collinear to the line
+direction.</p>
     
 	
 	
@@ -577,6 +579,10 @@ them will be a straight line.</p>
 	</ul>
 
 	
+	<p><b>See also:</b>
+	<tt><a href="/reference/curve#isstraight"><tt>curve.isStraight</tt></a>()</tt>
+	</p>
+
 	
 </div>
 </div>

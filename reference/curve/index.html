@@ -600,6 +600,39 @@ belongs to.</p>
 </div>
 		
 			
+<div id="isstraight" class="member">
+<div class="member-link">
+<a name="isstraight" href="#isstraight"><tt><b>isStraight</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Checks whether the curve is straight, meaning it has no curve handles
+defined and thus appears as a line.</p>
+<p>Note that this is not the same as <a href="/reference/curve#islinear"><tt>isLinear</tt></a>(), which performs a
+full linearity check that includes handles running collinear to the line
+direction.</p>
+    
+	
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the curve is straight, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	<p><b>See also:</b>
+	<tt><a href="/reference/segment#isstraight"><tt>segment.isStraight</tt></a>()</tt>
+	</p>
+
+	
+</div>
+</div>
+</div>
+		
+			
 <div id="islinear" class="member">
 <div class="member-link">
 <a name="islinear" href="#islinear"><tt><b>isLinear</b>()</tt></a>
@@ -737,7 +770,8 @@ is a curve time parameter
 	<ul><b>Returns:</b>
 	
 		<li>
-<tt><a href="/reference/curve"><tt>Curve</tt></a></tt>&nbsp;&mdash;&nbsp;the second part of the divided curve
+<tt><a href="/reference/curve"><tt>Curve</tt></a></tt>&nbsp;&mdash;&nbsp;the second part of the divided curve, if the offset
+is within the valid range, {code null} otherwise.
 </li>
 	
 	</ul>
