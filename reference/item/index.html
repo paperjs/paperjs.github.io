@@ -82,78 +82,6 @@ that they inherit from Item.</p>
 	<div class="reference-members"><h2>Properties</h2>
 		
 			
-<div id="tangent" class="member">
-<div class="member-link">
-<a name="tangent" href="#tangent"><tt><b>tangent</b></tt></a>
-</div>
-<div class="member-description hidden">
-
-<div class="member-text">
-	<p>The tangential vector to the <tt>#curve</tt> at the given location.</p>
-	
-	
-	<ul><b>Type:</b>
-	<li>
-		<a href="/reference/point"><tt>Point</tt></a>
-	</li>
-	</ul>
-    
-	
-	
-</div>
-
-</div>
-</div>
-		
-			
-<div id="normal" class="member">
-<div class="member-link">
-<a name="normal" href="#normal"><tt><b>normal</b></tt></a>
-</div>
-<div class="member-description hidden">
-
-<div class="member-text">
-	<p>The normal vector to the <tt>#curve</tt> at the given location.</p>
-	
-	
-	<ul><b>Type:</b>
-	<li>
-		<a href="/reference/point"><tt>Point</tt></a>
-	</li>
-	</ul>
-    
-	
-	
-</div>
-
-</div>
-</div>
-		
-			
-<div id="curvature" class="member">
-<div class="member-link">
-<a name="curvature" href="#curvature"><tt><b>curvature</b></tt></a>
-</div>
-<div class="member-description hidden">
-
-<div class="member-text">
-	<p>The curvature of the <tt>#curve</tt> at the given location.</p>
-	
-	
-	<ul><b>Type:</b>
-	<li>
-		<tt>Number</tt>
-	</li>
-	</ul>
-    
-	
-	
-</div>
-
-</div>
-</div>
-		
-			
 <div id="id" class="member">
 <div class="member-link">
 <a name="id" href="#id"><tt><b>id</b></tt></a>
@@ -2861,7 +2789,7 @@ function onMouseDown(event) {
 and may contain a combination of the following values:</p>
     <ul>
 <b>Options:</b>
-<li><tt>options.tolerance: <tt>Number</tt></tt> &mdash; the tolerance of the hit-test in points &mdash;&nbsp;default: <tt><a href="/reference/paperscope#settings"><tt>paperScope.settings</tt></a>.hitTolerance</tt></li>
+<li><tt>options.tolerance: <tt>Number</tt></tt> &mdash; the tolerance of the hit-test &mdash;&nbsp;default: <tt><a href="/reference/paperscope#settings"><tt>paperScope.settings</tt></a>.hitTolerance</tt></li>
 <li><tt>options.class: <tt>Function</tt></tt> &mdash; only hit-test again a certain item class
 and its sub-classes: <tt>Group, Layer, Path, CompoundPath,
 Shape, Raster, PlacedSymbol, PointText</tt>, etcundefined</li>
@@ -4184,6 +4112,42 @@ the project.</p>
 		<li>
 <tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the item is an ancestor of the specified
 item, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="issibling-item" class="member">
+<div class="member-link">
+<a name="issibling-item" href="#issibling-item"><tt><b>isSibling</b>(item)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Checks if the item is an a sibling of the specified item.</p>
+    
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>item:</tt> 
+<a href="/reference/item"><tt>Item</tt></a>
+&mdash;&nbsp;the item to check against
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the item is aa sibling of the specified item, <tt>false</tt> otherwise
 </li>
 	
 	</ul>

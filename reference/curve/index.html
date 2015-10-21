@@ -466,14 +466,18 @@ belongs to.</p>
 </div>
 		
 			
-<div id="length" class="member">
+<div id="values-matrix" class="member">
 <div class="member-link">
-<a name="length" href="#length"><tt><b>length</b></tt></a>
+<a name="values-matrix" href="#values-matrix"><tt><b>values</b></tt></a>
 </div>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The approximated length of the curve in points.</p>
+	<p>An array of 8 float values, describing this curve's geometry in four
+absolute x/y pairs (point1, handle1, handle2, point2). This format is
+used internally for efficient processing of curve geometries, e.g. when
+calculating intersections or bounds.</p>
+<p>Note that the handles are converted to absolute coordinates.</p>
 	
 		<p>Read only.</p>
 	
@@ -492,6 +496,88 @@ belongs to.</p>
 </div>
 		
 			
+<div id="points" class="member">
+<div class="member-link">
+<a name="points" href="#points"><tt><b>points</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>An array of 4 point objects, describing this curve's geometry in absolute
+coordinates (point1, handle1, handle2, point2).</p>
+<p>Note that the handles are converted to absolute coordinates.</p>
+	
+		<p>Read only.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		Array of <a href="/reference/point"><tt>Point</tt></a> objects
+	</li>
+	</ul>
+    
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
+<div id="length" class="member">
+<div class="member-link">
+<a name="length" href="#length"><tt><b>length</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The approximated length of the curve.</p>
+	
+		<p>Read only.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<tt>Number</tt>
+	</li>
+	</ul>
+    
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
+<div id="area" class="member">
+<div class="member-link">
+<a name="area" href="#area"><tt><b>area</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The area that the curve's geometry is covering.</p>
+	
+		<p>Read only.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<tt>Number</tt>
+	</li>
+	</ul>
+    
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
+	<h3>Bounding Boxes</h3>
+
 <div id="bounds" class="member">
 <div class="member-link">
 <a name="bounds" href="#bounds"><tt><b>bounds</b></tt></a>
@@ -571,114 +657,158 @@ belongs to.</p>
 	<div class="reference-members"><h2>Methods</h2>
 		
 			
-<div id="hashandles" class="member">
+<div id="clone" class="member">
 <div class="member-link">
-<a name="hashandles" href="#hashandles"><tt><b>hasHandles</b>()</tt></a>
+<a name="clone" href="#clone"><tt><b>clone</b>()</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Checks if this curve defines any curve handle.</p>
+	<p>Returns a copy of the curve.</p>
     
 	
 	
 	<ul><b>Returns:</b>
 	
 		<li>
-<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the curve has handles defined, <tt>false</tt> otherwise
+<tt><a href="/reference/curve"><tt>Curve</tt></a></tt>
 </li>
 	
 	</ul>
 
 	
-	<p><b>See also:</b>
-	<tt><a href="/reference/segment#hashandles"><tt>segment.hasHandles</tt></a>()</tt>, <tt><a href="/reference/path#hashandles"><tt>path.hasHandles</tt></a>()</tt>
-	</p>
-
 	
 </div>
 </div>
 </div>
 		
 			
-<div id="isstraight" class="member">
+<div id="tostring" class="member">
 <div class="member-link">
-<a name="isstraight" href="#isstraight"><tt><b>isStraight</b>()</tt></a>
+<a name="tostring" href="#tostring"><tt><b>toString</b>()</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Checks whether the curve is straight, meaning it has no curve handles
-defined and thus appears as a line.</p>
-<p>Note that this is not the same as <a href="/reference/curve#islinear"><tt>isLinear</tt></a>(), which performs a
-full linearity check that includes handles running collinear to the line
-direction.</p>
+	
     
 	
 	
 	<ul><b>Returns:</b>
 	
 		<li>
-<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the curve is straight, <tt>false</tt> otherwise
+<tt><tt>String</tt></tt>&nbsp;&mdash;&nbsp;a string representation of the curve
 </li>
 	
 	</ul>
 
 	
-	<p><b>See also:</b>
-	<tt><a href="/reference/segment#isstraight"><tt>segment.isStraight</tt></a>()</tt>
-	</p>
-
 	
 </div>
 </div>
 </div>
 		
 			
-<div id="islinear" class="member">
+<div id="remove" class="member">
 <div class="member-link">
-<a name="islinear" href="#islinear"><tt><b>isLinear</b>()</tt></a>
+<a name="remove" href="#remove"><tt><b>remove</b>()</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Checks if this curve appears as a line. This can mean that it has no
-handles defined, or that the handles run collinear with the line.</p>
+	<p>Removes the curve from the path that it belongs to, by removing its
+second segment and merging its handle with the first segment.</p>
     
 	
 	
 	<ul><b>Returns:</b>
 	
 		<li>
-<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the curve is linear, <tt>false</tt> otherwise
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the curve was removed, <tt>false</tt> otherwise
 </li>
 	
 	</ul>
 
 	
-	<p><b>See also:</b>
-	<tt><a href="/reference/segment#islinear"><tt>segment.isLinear</tt></a>()</tt>, <tt><a href="/reference/path#islinear"><tt>path.isLinear</tt></a>()</tt>
-	</p>
-
 	
 </div>
 </div>
 </div>
 		
 			
-<div id="iscollinear-the" class="member">
+<div id="isfirst" class="member">
 <div class="member-link">
-<a name="iscollinear-the" href="#iscollinear-the"><tt><b>isCollinear</b>(the)</tt></a>
+<a name="isfirst" href="#isfirst"><tt><b>isFirst</b>()</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Checks if the the two curves describe lines that are collinear, meaning
-they run in parallel.</p>
+	<p>Checks if the this is the first curve in the <a href="/reference/path#curves"><tt>path.curves</tt></a> array.</p>
+    
+	
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if this is the first curve, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="islast" class="member">
+<div class="member-link">
+<a name="islast" href="#islast"><tt><b>isLast</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Checks if the this is the last curve in the <a href="/reference/path#curves"><tt>path.curves</tt></a> array.</p>
+    
+	
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if this is the last curve, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="getpart-from-to" class="member">
+<div class="member-link">
+<a name="getpart-from-to" href="#getpart-from-to"><tt><b>getPart</b>(from, to)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Creates a new curve as a sub-curve from this curve, its range defined by
+the given parameters. If <tt>from</tt> is larger than <tt>to</tt>, then
+the resulting curve will have its direction reversed.</p>
     
 	
 <ul><b>Parameters:</b>
 
 <li>
-<tt>the:</tt> 
-<a href="/reference/curve"><tt>Curve</tt></a>
-&mdash;&nbsp;other curve to check against
+<tt>from:</tt> 
+<tt>Number</tt>
+&mdash;&nbsp;the curve-time parameter at which the sub-curve
+starts
+
+</li>
+
+<li>
+<tt>to:</tt> 
+<tt>Number</tt>
+&mdash;&nbsp;the curve-time parameter at which the sub-curve
+ends
 
 </li>
 
@@ -688,46 +818,52 @@ they run in parallel.</p>
 	<ul><b>Returns:</b>
 	
 		<li>
-<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the two lines are collinear, <tt>false</tt> otherwise
+<tt><a href="/reference/curve"><tt>Curve</tt></a></tt>&nbsp;&mdash;&nbsp;the newly create sub-curve
 </li>
 	
 	</ul>
 
 	
-	<p><b>See also:</b>
-	<tt><a href="/reference/segment#iscollinear-segment"><tt>segment.isCollinear(segment)</tt></a></tt>
-	</p>
-
 	
 </div>
 </div>
 </div>
 		
 			
-<div id="isorthogonalarc" class="member">
+<div id="getintersections-curve" class="member">
 <div class="member-link">
-<a name="isorthogonalarc" href="#isorthogonalarc"><tt><b>isOrthogonalArc</b>()</tt></a>
+<a name="getintersections-curve" href="#getintersections-curve"><tt><b>getIntersections</b>(curve)</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Checks if the curve describes an orthogonal arc, as used in the
-construction of circles and ellipses.</p>
+	<p>Returns all intersections between two <a href="/reference/curve"><tt>Curve</tt></a> objects as an array
+of <a href="/reference/curvelocation"><tt>CurveLocation</tt></a> objects.</p>
     
 	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>curve:</tt> 
+<a href="/reference/curve"><tt>Curve</tt></a>
+&mdash;&nbsp;the other curve to find the intersections with (if
+the curve itself or <tt>null</tt> is passed, the self intersection of the
+curve is returned, if it exists)
+
+</li>
+
+</ul>
+
 	
 	<ul><b>Returns:</b>
 	
 		<li>
-<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the curve describes an orthogonal arc, <tt>false</tt> otherwise
+<tt>Array of <a href="/reference/curvelocation"><tt>CurveLocation</tt></a> objects</tt>&nbsp;&mdash;&nbsp;the locations of all intersections between the
+curves
 </li>
 	
 	</ul>
 
 	
-	<p><b>See also:</b>
-	<tt><a href="/reference/segment#isorthogonalarc"><tt>segment.isOrthogonalArc</tt></a>()</tt>
-	</p>
-
 	
 </div>
 </div>
@@ -834,9 +970,9 @@ is a curve time parameter
 </div>
 		
 			
-<div id="reverse" class="member">
+<div id="reversed" class="member">
 <div class="member-link">
-<a name="reverse" href="#reverse"><tt><b>reverse</b>()</tt></a>
+<a name="reversed" href="#reversed"><tt><b>reversed</b>()</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
@@ -860,21 +996,72 @@ itself.</p>
 </div>
 		
 			
-<div id="remove" class="member">
+<div id="clearhandles" class="member">
 <div class="member-link">
-<a name="remove" href="#remove"><tt><b>remove</b>()</tt></a>
+<a name="clearhandles" href="#clearhandles"><tt><b>clearHandles</b>()</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Removes the curve from the path that it belongs to, by removing its
-second segment and merging its handle with the first segment.</p>
+	<p>Clears the curve's handles by setting their coordinates to zero,
+turning the curve into a straight line.</p>
+    
+	
+	
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<h3>Curve Tests</h3>
+
+<div id="hashandles" class="member">
+<div class="member-link">
+<a name="hashandles" href="#hashandles"><tt><b>hasHandles</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Checks if this curve has any curve handles set.</p>
     
 	
 	
 	<ul><b>Returns:</b>
 	
 		<li>
-<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the curve was removed, <tt>false</tt> otherwise
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the curve has handles set, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	<p><b>See also:</b>
+	<tt><a href="/reference/curve#handle1"><tt>curve.handle1</tt></a></tt>, <tt><a href="/reference/curve#handle2"><tt>curve.handle2</tt></a></tt>, <tt><a href="/reference/segment#hashandles"><tt>segment.hasHandles</tt></a>()</tt>, <tt><a href="/reference/path#hashandles"><tt>path.hasHandles</tt></a>()</tt>
+	</p>
+
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="isstraight" class="member">
+<div class="member-link">
+<a name="isstraight" href="#isstraight"><tt><b>isStraight</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Checks if this curve appears as a straight line. This can mean that
+it has no handles defined, or that the handles run collinear with the
+line that connects the curve's start and end point, not falling
+outside of the line.</p>
+    
+	
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the curve is straight, <tt>false</tt> otherwise
 </li>
 	
 	</ul>
@@ -886,20 +1073,22 @@ second segment and merging its handle with the first segment.</p>
 </div>
 		
 			
-<div id="clone" class="member">
+<div id="islinear" class="member">
 <div class="member-link">
-<a name="clone" href="#clone"><tt><b>clone</b>()</tt></a>
+<a name="islinear" href="#islinear"><tt><b>isLinear</b>()</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Returns a copy of the curve.</p>
+	<p>Checks if this curve is parametrically linear, meaning that it is
+straight and its handles are positioned at 1/3 and 2/3 of the total
+length of the curve.</p>
     
 	
 	
 	<ul><b>Returns:</b>
 	
 		<li>
-<tt><a href="/reference/curve"><tt>Curve</tt></a></tt>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the curve is parametrically linear, <tt>false</tt> otherwise
 </li>
 	
 	</ul>
@@ -911,20 +1100,32 @@ second segment and merging its handle with the first segment.</p>
 </div>
 		
 			
-<div id="tostring" class="member">
+<div id="iscollinear-curve" class="member">
 <div class="member-link">
-<a name="tostring" href="#tostring"><tt><b>toString</b>()</tt></a>
+<a name="iscollinear-curve" href="#iscollinear-curve"><tt><b>isCollinear</b>(curve)</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	
+	<p>Checks if the the two curves describe straight lines that are
+collinear, meaning they run in parallel.</p>
     
 	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>curve:</tt> 
+<a href="/reference/curve"><tt>Curve</tt></a>
+&mdash;&nbsp;the other curve to check against
+
+</li>
+
+</ul>
+
 	
 	<ul><b>Returns:</b>
 	
 		<li>
-<tt><tt>String</tt></tt>&nbsp;&mdash;&nbsp;a string representation of the curve
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the two lines are collinear, <tt>false</tt> otherwise
 </li>
 	
 	</ul>
@@ -936,6 +1137,58 @@ second segment and merging its handle with the first segment.</p>
 </div>
 		
 			
+<div id="ishorizontal" class="member">
+<div class="member-link">
+<a name="ishorizontal" href="#ishorizontal"><tt><b>isHorizontal</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Checks if the curve is a straight horizontal line.</p>
+    
+	
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the line is horizontal, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="isvertical" class="member">
+<div class="member-link">
+<a name="isvertical" href="#isvertical"><tt><b>isVertical</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Checks if the curve is a straight vertical line.</p>
+    
+	
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the line is vertical, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<h3>Positions on Curves</h3>
+
 <div id="getparameterat-offset" class="member">
 <div class="member-link">
 <a name="getparameterat-offset" href="#getparameterat-offset"><tt><b>getParameterAt</b>(offset[, start])</tt></a>
@@ -1129,6 +1382,80 @@ specified point if it lies on the path, <tt>null</tt> otherwise.</p>
 	
 		<li>
 <tt><tt>Number</tt></tt>&nbsp;&mdash;&nbsp;the length of the path up to the specified point
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="getnearestlocation-point" class="member">
+<div class="member-link">
+<a name="getnearestlocation-point" href="#getnearestlocation-point"><tt><b>getNearestLocation</b>(point)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Returns the nearest location on the curve to the specified point.</p>
+    
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>point:</tt> 
+<a href="/reference/point"><tt>Point</tt></a>
+&mdash;&nbsp;the point for which we search the nearest location
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/curvelocation"><tt>CurveLocation</tt></a></tt>&nbsp;&mdash;&nbsp;the location on the curve that's the closest to
+the specified point
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="getnearestpoint-point" class="member">
+<div class="member-link">
+<a name="getnearestpoint-point" href="#getnearestpoint-point"><tt><b>getNearestPoint</b>(point)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Returns the nearest point on the curve to the specified point.</p>
+    
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>point:</tt> 
+<a href="/reference/point"><tt>Point</tt></a>
+&mdash;&nbsp;the point for which we search the nearest point
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the point on the curve that's the closest to the
+specified point
 </li>
 	
 	</ul>
@@ -1417,6 +1744,45 @@ is a curve time parameter
 		
 	</div>
 
+
+	<div class="reference-members"><h2>Static Methods</h2>
+		
+			
+<div id="getoverlaps-v1-v2" class="member">
+<div class="member-link">
+<a name="getoverlaps-v1-v2" href="#getoverlaps-v1-v2"><tt><b>Curve.getOverlaps</b>(v1, v2)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Code to detect overlaps of intersecting based on work by</p>
+    
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>v1:</tt> 
+
+
+
+</li>
+
+<li>
+<tt>v2:</tt> 
+
+
+
+</li>
+
+</ul>
+
+	
+	
+	
+</div>
+</div>
+</div>
+		
+	</div>
 
 
 

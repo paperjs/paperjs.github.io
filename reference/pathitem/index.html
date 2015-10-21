@@ -114,7 +114,7 @@ and offer standardised methods for drawing and path manipulation, such as
 			
 <div id="getintersections-path" class="member">
 <div class="member-link">
-<a name="getintersections-path" href="#getintersections-path"><tt><b>getIntersections</b>(path[, sorted])</tt></a>
+<a name="getintersections-path" href="#getintersections-path"><tt><b>getIntersections</b>(path[, include])</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
@@ -133,11 +133,12 @@ supported.</p>
 </li>
 
 <li>
-<tt>sorted:</tt> 
-<tt>Boolean</tt>
-&mdash;&nbsp;specifies whether the returned
-<a href="/reference/curvelocation"><tt>CurveLocation</tt></a> objects should be sorted by path and offset
-&mdash;&nbsp;optional, default: <tt>false</tt>
+<tt>include:</tt> 
+<tt>Function</tt>
+&mdash;&nbsp;a callback function that can be used to
+filter out undesired locations right while they are collected.
+When defined, it shall return <tt>true</tt> to include a location, <tt>false</tt> otherwise.
+&mdash;&nbsp;optional
 </li>
 
 </ul>
@@ -153,6 +154,10 @@ paths
 	</ul>
 
 	
+	<p><b>See also:</b>
+	<tt><a href="/reference/pathitem#getcrossings-path"><tt>getCrossings(path)</tt></a></tt>
+	</p>
+
 	<p>
 <b>Example</b> &mdash; Finding the intersections between two paths
 </p>
@@ -190,6 +195,42 @@ function onFrame(event) {
 </div>
 
 
+</div>
+</div>
+</div>
+		
+			
+<div id="getcrossings-path" class="member">
+<div class="member-link">
+<a name="getcrossings-path" href="#getcrossings-path"><tt><b>getCrossings</b>(path)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Returns all crossings between two <a href="/reference/pathitem"><tt>PathItem</tt></a> items as an array
+of <a href="/reference/curvelocation"><tt>CurveLocation</tt></a> objects. <a href="/reference/compoundpath"><tt>CompoundPath</tt></a> items are also
+supported.</p>
+<p>Crossings are intersections where the paths actually are crossing each
+other, as opposed to simply touching.</p>
+    
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>path:</tt> 
+<a href="/reference/pathitem"><tt>PathItem</tt></a>
+&mdash;&nbsp;the other item to find the crossings with
+
+</li>
+
+</ul>
+
+	
+	
+	<p><b>See also:</b>
+	<tt><a href="/reference/pathitem#getintersections-path"><tt>getIntersections(path)</tt></a></tt>
+	</p>
+
+	
 </div>
 </div>
 </div>
@@ -1255,78 +1296,6 @@ path returns the result as a new group item.</p>
 
 <!-- =========================== inherited properties ====================== -->
 <div class="reference-members"><h2>Properties inherited from <a href="/reference/item"><tt>Item</tt></a></h2>
-
-	
-<div id="tangent" class="member">
-<div class="member-link">
-<a name="tangent" href="#tangent"><tt><b>tangent</b></tt></a>
-</div>
-<div class="member-description hidden">
-
-<div class="member-text">
-	<p>The tangential vector to the <tt>#curve</tt> at the given location.</p>
-	
-	
-	<ul><b>Type:</b>
-	<li>
-		<a href="/reference/point"><tt>Point</tt></a>
-	</li>
-	</ul>
-    
-	
-	
-</div>
-
-</div>
-</div>
-
-	
-<div id="normal" class="member">
-<div class="member-link">
-<a name="normal" href="#normal"><tt><b>normal</b></tt></a>
-</div>
-<div class="member-description hidden">
-
-<div class="member-text">
-	<p>The normal vector to the <tt>#curve</tt> at the given location.</p>
-	
-	
-	<ul><b>Type:</b>
-	<li>
-		<a href="/reference/point"><tt>Point</tt></a>
-	</li>
-	</ul>
-    
-	
-	
-</div>
-
-</div>
-</div>
-
-	
-<div id="curvature" class="member">
-<div class="member-link">
-<a name="curvature" href="#curvature"><tt><b>curvature</b></tt></a>
-</div>
-<div class="member-description hidden">
-
-<div class="member-text">
-	<p>The curvature of the <tt>#curve</tt> at the given location.</p>
-	
-	
-	<ul><b>Type:</b>
-	<li>
-		<tt>Number</tt>
-	</li>
-	</ul>
-    
-	
-	
-</div>
-
-</div>
-</div>
 
 	
 <div id="id" class="member">
@@ -4045,7 +4014,7 @@ function onMouseDown(event) {
 and may contain a combination of the following values:</p>
     <ul>
 <b>Options:</b>
-<li><tt>options.tolerance: <tt>Number</tt></tt> &mdash; the tolerance of the hit-test in points &mdash;&nbsp;default: <tt><a href="/reference/paperscope#settings"><tt>paperScope.settings</tt></a>.hitTolerance</tt></li>
+<li><tt>options.tolerance: <tt>Number</tt></tt> &mdash; the tolerance of the hit-test &mdash;&nbsp;default: <tt><a href="/reference/paperscope#settings"><tt>paperScope.settings</tt></a>.hitTolerance</tt></li>
 <li><tt>options.class: <tt>Function</tt></tt> &mdash; only hit-test again a certain item class
 and its sub-classes: <tt>Group, Layer, Path, CompoundPath,
 Shape, Raster, PlacedSymbol, PointText</tt>, etcundefined</li>
@@ -5500,6 +5469,42 @@ the project.</p>
 		<li>
 <tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the item is an ancestor of the specified
 item, <tt>false</tt> otherwise
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+
+	
+<div id="issibling-item" class="member">
+<div class="member-link">
+<a name="issibling-item" href="#issibling-item"><tt><b>isSibling</b>(item)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Checks if the item is an a sibling of the specified item.</p>
+    
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>item:</tt> 
+<a href="/reference/item"><tt>Item</tt></a>
+&mdash;&nbsp;the item to check against
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the item is aa sibling of the specified item, <tt>false</tt> otherwise
 </li>
 	
 	</ul>

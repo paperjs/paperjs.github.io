@@ -531,22 +531,21 @@ segment is returned for the first segment of the path.</p>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Checks whether the segment has curve handles defined, meaning it is not
-a straight segment.</p>
+	<p>Checks if the segment has any curve handles set.</p>
     
 	
 	
 	<ul><b>Returns:</b>
 	
 		<li>
-<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the segment has handles defined, <tt>false</tt> otherwise
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the segment has handles set, <tt>false</tt> otherwise
 </li>
 	
 	</ul>
 
 	
 	<p><b>See also:</b>
-	<tt><a href="/reference/curve#hashandles"><tt>curve.hasHandles</tt></a>()</tt>, <tt><a href="/reference/path#hashandles"><tt>path.hasHandles</tt></a>()</tt>
+	<tt><tt>Segment#getHandleIn</tt>()</tt>, <tt><tt>Segment#getHandleOut</tt>()</tt>, <tt><a href="/reference/curve#hashandles"><tt>curve.hasHandles</tt></a>()</tt>, <tt><a href="/reference/path#hashandles"><tt>path.hasHandles</tt></a>()</tt>
 	</p>
 
 	
@@ -555,128 +554,39 @@ a straight segment.</p>
 </div>
 		
 			
-<div id="isstraight" class="member">
+<div id="clearhandles" class="member">
 <div class="member-link">
-<a name="isstraight" href="#isstraight"><tt><b>isStraight</b>()</tt></a>
+<a name="clearhandles" href="#clearhandles"><tt><b>clearHandles</b>()</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Checks whether the segment is straight, meaning it has no curve handles
-defined. If two straight segments follow each each other in a path, the
-curve between them will appear as a straight line.</p>
-<p>Note that this is not the same as <a href="/reference/segment#islinear"><tt>isLinear</tt></a>(), which performs a
-full linearity check that includes handles running collinear to the line
-direction.</p>
+	<p>Clears the segment's handles by setting their coordinates to zero,
+turning the segment into a corner.</p>
     
 	
 	
-	<ul><b>Returns:</b>
 	
-		<li>
-<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the segment is straight, <tt>false</tt> otherwise
-</li>
-	
-	</ul>
-
-	
-	<p><b>See also:</b>
-	<tt><a href="/reference/curve#isstraight"><tt>curve.isStraight</tt></a>()</tt>
-	</p>
-
 	
 </div>
 </div>
 </div>
 		
 			
-<div id="islinear" class="member">
+<div id="isfirst" class="member">
 <div class="member-link">
-<a name="islinear" href="#islinear"><tt><b>isLinear</b>()</tt></a>
+<a name="isfirst" href="#isfirst"><tt><b>isFirst</b>()</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Checks if the curve that starts in this segment appears as a line. This
-can mean that it has no handles defined, or that the handles run
-collinear with the line.</p>
+	<p>Checks if the this is the first segment in the <a href="/reference/path#segments"><tt>path.segments</tt></a>
+array.</p>
     
 	
 	
 	<ul><b>Returns:</b>
 	
 		<li>
-<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the curve is linear, <tt>false</tt> otherwise
-</li>
-	
-	</ul>
-
-	
-	<p><b>See also:</b>
-	<tt><a href="/reference/curve#islinear"><tt>curve.isLinear</tt></a>()</tt>, <tt><a href="/reference/path#islinear"><tt>path.isLinear</tt></a>()</tt>
-	</p>
-
-	
-</div>
-</div>
-</div>
-		
-			
-<div id="iscollinear-the" class="member">
-<div class="member-link">
-<a name="iscollinear-the" href="#iscollinear-the"><tt><b>isCollinear</b>(the)</tt></a>
-</div>
-<div class="member-description hidden">
-<div class="member-text">
-	<p>Checks if the the two segments are the beginning of two lines that are
-collinear, meaning they run in parallel.</p>
-    
-	
-<ul><b>Parameters:</b>
-
-<li>
-<tt>the:</tt> 
-<a href="/reference/segment"><tt>Segment</tt></a>
-&mdash;&nbsp;other segment to check against
-
-</li>
-
-</ul>
-
-	
-	<ul><b>Returns:</b>
-	
-		<li>
-<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the two lines are collinear, <tt>false</tt> otherwise
-</li>
-	
-	</ul>
-
-	
-	<p><b>See also:</b>
-	<tt><a href="/reference/curve#iscollinear-curve"><tt>curve.isCollinear(curve)</tt></a></tt>
-	</p>
-
-	
-</div>
-</div>
-</div>
-		
-			
-<div id="isorthogonal" class="member">
-<div class="member-link">
-<a name="isorthogonal" href="#isorthogonal"><tt><b>isOrthogonal</b>()</tt></a>
-</div>
-<div class="member-description hidden">
-<div class="member-text">
-	<p>Checks if the segment is connecting two lines that are orthogonal,
-meaning they connect at an 90° angle.</p>
-    
-	
-	
-	<ul><b>Returns:</b>
-	
-		<li>
-<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the two lines connected by this segment are
-orthogonal, <tt>false</tt> otherwise
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if this is the first segment, <tt>false</tt> otherwise
 </li>
 	
 	</ul>
@@ -688,31 +598,26 @@ orthogonal, <tt>false</tt> otherwise
 </div>
 		
 			
-<div id="isorthogonalarc" class="member">
+<div id="islast" class="member">
 <div class="member-link">
-<a name="isorthogonalarc" href="#isorthogonalarc"><tt><b>isOrthogonalArc</b>()</tt></a>
+<a name="islast" href="#islast"><tt><b>isLast</b>()</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Checks if the segment is the beginning of an orthogonal arc, as used in
-the construction of circles and ellipses.</p>
+	<p>Checks if the this is the last segment in the <a href="/reference/path#segments"><tt>path.segments</tt></a>
+array.</p>
     
 	
 	
 	<ul><b>Returns:</b>
 	
 		<li>
-<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the segment is the beginning of an orthogonal
-arc, <tt>false</tt> otherwise
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if this is the last segment, <tt>false</tt> otherwise
 </li>
 	
 	</ul>
 
 	
-	<p><b>See also:</b>
-	<tt><a href="/reference/curve#isorthogonalarc"><tt>curve.isOrthogonalArc</tt></a>()</tt>
-	</p>
-
 	
 </div>
 </div>
@@ -722,6 +627,32 @@ arc, <tt>false</tt> otherwise
 <div id="reverse" class="member">
 <div class="member-link">
 <a name="reverse" href="#reverse"><tt><b>reverse</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Reverses the <a href="/reference/segment#handlein"><tt>handleIn</tt></a> and <a href="/reference/segment#handleout"><tt>handleOut</tt></a> vectors of this
+segment. Note: the actual segment is modified, no copy is created.</p>
+    
+	
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/segment"><tt>Segment</tt></a></tt>&nbsp;&mdash;&nbsp;the reversed segment
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+		
+			
+<div id="reversed" class="member">
+<div class="member-link">
+<a name="reversed" href="#reversed"><tt><b>reversed</b>()</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">

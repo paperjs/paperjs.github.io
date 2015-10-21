@@ -152,7 +152,9 @@
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The starting point of the line</p>
+	<p>The starting point of the line.</p>
+	
+		<p>Read only.</p>
 	
 	
 	<ul><b>Type:</b>
@@ -176,7 +178,9 @@
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The vector of the line</p>
+	<p>The direction of the line as a vector.</p>
+	
+		<p>Read only.</p>
 	
 	
 	<ul><b>Type:</b>
@@ -200,7 +204,9 @@
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The length of the line</p>
+	<p>The length of the line.</p>
+	
+		<p>Read only.</p>
 	
 	
 	<ul><b>Type:</b>
@@ -270,7 +276,7 @@ if the two lines are collinear, or <tt>null</tt> if they don't intersect.
 			
 <div id="getside-point" class="member">
 <div class="member-link">
-<a name="getside-point" href="#getside-point"><tt><b>getSide</b>(point)</tt></a>
+<a name="getside-point" href="#getside-point"><tt><b>getSide</b>(point[, isInfinite])</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
@@ -284,6 +290,13 @@ if the two lines are collinear, or <tt>null</tt> if they don't intersect.
 <a href="/reference/point"><tt>Point</tt></a>
 
 
+</li>
+
+<li>
+<tt>isInfinite:</tt> 
+<tt>Boolean</tt>
+
+&mdash;&nbsp;optional, default: <tt>false</tt>
 </li>
 
 </ul>
