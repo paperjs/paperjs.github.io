@@ -1111,8 +1111,8 @@ path.smooth();
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Merges the geometry of the specified path from this path's
-geometry and returns the result as a new path item.</p>
+	<p>Merges the geometry of the specified path with this path's geometry
+and returns the result as a new path item.</p>
     
 	
 <ul><b>Parameters:</b>
@@ -1223,7 +1223,7 @@ geometry and returns the result as a new path item.</p>
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Excludes the intersection of the geometry of the specified path with
-this path's geometry and returns the result as a new group item.</p>
+this path's geometry and returns the result as a new path item.</p>
     
 	
 <ul><b>Parameters:</b>
@@ -1241,7 +1241,7 @@ this path's geometry and returns the result as a new group item.</p>
 	<ul><b>Returns:</b>
 	
 		<li>
-<tt><a href="/reference/group"><tt>Group</tt></a></tt>&nbsp;&mdash;&nbsp;the resulting group item
+<tt><a href="/reference/pathitem"><tt>PathItem</tt></a></tt>&nbsp;&mdash;&nbsp;the resulting group item
 </li>
 	
 	</ul>
@@ -1260,7 +1260,9 @@ this path's geometry and returns the result as a new group item.</p>
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Splits the geometry of this path along the geometry of the specified
-path returns the result as a new group item.</p>
+path returns the result as a new group item. This is equivalent to
+calling <a href="/reference/pathitem#subtract-path"><tt>subtract(path)</tt></a> and <a href="/reference/pathitem#subtract-path"><tt>subtract(path)</tt></a> and
+putting the results into a new group.</p>
     
 	
 <ul><b>Parameters:</b>
