@@ -136,7 +136,7 @@ In the code above we use <tt>window.onload = handler</tt> to get a callback for 
 </p><div class="text-end"></div></div>
 <section id="making-the-scope-global"><a name="making-the-scope-global" title="Making the Scope Global" class="anchor"><h2>Making the Scope Global</h2></a></section>
 <p>
-It might not seem so practical to access all classes and objects through the <tt>paper</tt> object, so here two strategies for circumventing that.
+It might not seem so practical to access all classes and objects through the <tt>paper</tt> object, so here are two strategies for circumventing that.
 </p>
 <p>
 The most straight forward approach is to copy over all fields from the <tt>paper</tt> object into the global scope. This could be done manually, which would work well as long as there is only one project, view and tool. But with multiples of these, the global references to the active ones (<tt><a href="/reference/paperscope#project">project</a></tt>, <tt><a href="/reference/paperscope#view">view</a></tt> and <tt><a href="/reference/paperscope#tool">tool</a></tt>) would not be kept up to date. Luckily there is a method for us that internally performs some JavaScript trickery so these references are kept in sync: <tt><a href="/reference/paperscope#install-scope">paper.install(window)</a></tt>. Equipped with this we can rewrite the code of the above example:
