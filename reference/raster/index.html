@@ -488,6 +488,8 @@ console.log(view.element.toDataURL('image/png').substring(0, 32));
 
 
 
+
+
 <!-- ============================== methods ================================ -->
 	<div class="reference-members"><h2>Methods</h2>
 		
@@ -2719,11 +2721,11 @@ the frame event:</p>
     <ul>
 <b>Options:</b>
 <li><tt>event.count: <tt>Number</tt></tt> &mdash; the number of times the frame event was
-firedundefined</li>
+fired</li>
 <li><tt>event.time: <tt>Number</tt></tt> &mdash; the total amount of time passed since the
-first frame event in secondsundefined</li>
+first frame event in seconds</li>
 <li><tt>event.delta: <tt>Number</tt></tt> &mdash; the time passed in seconds since the last
-frame eventundefined</li>
+frame event</li>
 </ul>
 	
 	<p><b>See also:</b>
@@ -3662,25 +3664,25 @@ and may contain a combination of the following values:</p>
 <li><tt>options.tolerance: <tt>Number</tt></tt> &mdash; the tolerance of the hit-test &mdash;&nbsp;default: <tt><a href="/reference/paperscope#settings"><tt>paperScope.settings</tt></a>.hitTolerance</tt></li>
 <li><tt>options.class: <tt>Function</tt></tt> &mdash; only hit-test again a certain item class
 and its sub-classes: <tt>Group, Layer, Path, CompoundPath,
-Shape, Raster, PlacedSymbol, PointText</tt>, etcundefined</li>
-<li><tt>options.fill: <tt>Boolean</tt></tt> &mdash; hit-test the fill of itemsundefined</li>
+Shape, Raster, PlacedSymbol, PointText</tt>, etc</li>
+<li><tt>options.fill: <tt>Boolean</tt></tt> &mdash; hit-test the fill of items</li>
 <li><tt>options.stroke: <tt>Boolean</tt></tt> &mdash; hit-test the stroke of path items,
-taking into account the setting of stroke color and widthundefined</li>
+taking into account the setting of stroke color and width</li>
 <li><tt>options.segments: <tt>Boolean</tt></tt> &mdash; hit-test for <a href="/reference/segment#point"><tt>segment.point</tt></a> of
-<a href="/reference/path"><tt>Path</tt></a> itemsundefined</li>
+<a href="/reference/path"><tt>Path</tt></a> items</li>
 <li><tt>options.curves: <tt>Boolean</tt></tt> &mdash; hit-test the curves of path items,
-without taking the stroke color or width into accountundefined</li>
+without taking the stroke color or width into account</li>
 <li><tt>options.handles: <tt>Boolean</tt></tt> &mdash; hit-test for the handles
-(<a href="/reference/segment#handlein"><tt>segment.handleIn</tt></a> / <a href="/reference/segment#handleout"><tt>segment.handleOut</tt></a>) of path segmentsundefined</li>
+(<a href="/reference/segment#handlein"><tt>segment.handleIn</tt></a> / <a href="/reference/segment#handleout"><tt>segment.handleOut</tt></a>) of path segments</li>
 <li><tt>options.ends: <tt>Boolean</tt></tt> &mdash; only hit-test for the first or last
-segment points of open path itemsundefined</li>
+segment points of open path items</li>
 <li><tt>options.bounds: <tt>Boolean</tt></tt> &mdash; hit-test the corners and side-centers of
-the bounding rectangle of items (<a href="/reference/item#bounds"><tt>item.bounds</tt></a>)undefined</li>
+the bounding rectangle of items (<a href="/reference/item#bounds"><tt>item.bounds</tt></a>)</li>
 <li><tt>options.center: <tt>Boolean</tt></tt> &mdash; hit-test the <a href="/reference/rectangle#center"><tt>rectangle.center</tt></a> of
-the bounding rectangle of items (<a href="/reference/item#bounds"><tt>item.bounds</tt></a>)undefined</li>
+the bounding rectangle of items (<a href="/reference/item#bounds"><tt>item.bounds</tt></a>)</li>
 <li><tt>options.guides: <tt>Boolean</tt></tt> &mdash; hit-test items that have
-<tt>Item#guide</tt> set to <tt>true</tt>undefined</li>
-<li><tt>options.selected: <tt>Boolean</tt></tt> &mdash; only hit selected itemsundefined</li>
+<tt>Item#guide</tt> set to <tt>true</tt></li>
+<li><tt>options.selected: <tt>Boolean</tt></tt> &mdash; only hit selected items</li>
 </ul>
 	
 <ul><b>Parameters:</b>
@@ -3843,9 +3845,9 @@ examples.</p>
     <ul>
 <b>Options:</b>
 <li><tt>match.inside: <a href="/reference/rectangle"><tt>Rectangle</tt></a></tt> &mdash; the rectangle in which the items need to
-be fully containedundefined</li>
+be fully contained</li>
 <li><tt>match.overlapping: <a href="/reference/rectangle"><tt>Rectangle</tt></a></tt> &mdash; the rectangle with which the items
-need to at least partly overlapundefined</li>
+need to at least partly overlap</li>
 </ul>
 	
 <ul><b>Parameters:</b>
@@ -6554,6 +6556,7 @@ function onMouseDown(event) {
 </div>
 
 </div>
+
 
 
 

@@ -113,7 +113,9 @@ the keyboard event.</p>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The string character of the key that caused this key event.</p>
+	<p>The character representation of the key that caused this key event,
+taking into account the current key-modifiers (e.g. shift, control,
+caps-lock, etc.)</p>
 	
 	
 	<ul><b>Type:</b>
@@ -137,7 +139,8 @@ the keyboard event.</p>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The key that caused this key event.</p>
+	<p>The key that caused this key event, either as a lower-case character or
+special key descriptor, e.g.: <tt>'enter'</tt>, <tt>'space'</tt>, <tt>'shift'</tt>, <tt>'control'</tt>, <tt>'alt'</tt>, <tt>'meta'</tt>, <tt>'caps-lock'</tt>, <tt>'left'</tt>, <tt>'up'</tt>, <tt>'right'</tt>, <tt>'down'</tt>, <tt>'escape'</tt>, <tt>'delete'</tt>, &hellip;</p>
 	
 	
 	<ul><b>Type:</b>
@@ -154,6 +157,8 @@ the keyboard event.</p>
 </div>
 		
 	</div>
+
+
 
 
 
@@ -194,6 +199,32 @@ the keyboard event.</p>
 <div class="reference-members"><h2>Properties inherited from <a href="/reference/event"><tt>Event</tt></a></h2>
 
 	
+<div id="timestamp" class="member">
+<div class="member-link">
+<a name="timestamp" href="#timestamp"><tt><b>timeStamp</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The time at which the event was created, in milliseconds since the epoch.</p>
+	
+		<p>Read only.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<tt>Number</tt>
+	</li>
+	</ul>
+    
+	
+	
+</div>
+
+</div>
+</div>
+
+	
 <div id="modifiers" class="member">
 <div class="member-link">
 <a name="modifiers" href="#modifiers"><tt><b>modifiers</b></tt></a>
@@ -201,7 +232,7 @@ the keyboard event.</p>
 <div class="member-description hidden">
 
 <div class="member-text">
-	
+	<p>The current state of the keyboard modifiers.</p>
 	
 		<p>Read only.</p>
 	
@@ -213,6 +244,10 @@ the keyboard event.</p>
 	</ul>
     
 	
+	<p><b>See also:</b>
+	<tt><a href="/reference/key#modifiers"><tt>Key.modifiers</tt></a></tt>
+	</p>
+
 	
 </div>
 
@@ -220,6 +255,7 @@ the keyboard event.</p>
 </div>
 
 </div>
+
 
 
 
