@@ -166,6 +166,118 @@ group.style = {
 	<div class="reference-members"><h2>Properties</h2>
 		
 			
+	<h3>Shadow Style</h3>
+
+<div id="shadowcolor" class="member">
+<div class="member-link">
+<a name="shadowcolor" href="#shadowcolor"><tt><b>shadowColor</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The shadow color.</p>
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<a href="/reference/color"><tt>Color</tt></a>
+	</li>
+	</ul>
+    
+	
+	<p>
+<b>Example</b> &mdash; Creating a circle with a black shadow:
+</p>
+
+<div class="paperscript split">
+
+<div class="buttons">
+<div class="button run">Run</div>
+</div>
+
+<script type="text/paperscript" canvas="canvas-3">
+var circle = new Path.Circle({
+    center: [80, 50],
+    radius: 35,
+    fillColor: 'white',
+    // Set the shadow color of the circle to RGB black:
+    shadowColor: new Color(0, 0, 0),
+    // Set the shadow blur radius to 12:
+    shadowBlur: 12,
+    // Offset the shadow by { x: 5, y: 5 }
+    shadowOffset: new Point(5, 5)
+});
+</script>
+<div class="canvas"><canvas width="516" height="100" id="canvas-3"></canvas></div>
+</div>
+
+
+</div>
+
+</div>
+</div>
+		
+			
+<div id="shadowblur" class="member">
+<div class="member-link">
+<a name="shadowblur" href="#shadowblur"><tt><b>shadowBlur</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The shadow's blur radius.</p>
+	
+	
+		<ul><b>Default:</b>
+		<li>
+		<tt>0</tt>
+		</li>
+		</ul>
+	
+	<ul><b>Type:</b>
+	<li>
+		<tt>Number</tt>
+	</li>
+	</ul>
+    
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
+<div id="shadowoffset" class="member">
+<div class="member-link">
+<a name="shadowoffset" href="#shadowoffset"><tt><b>shadowOffset</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The shadow's offset.</p>
+	
+	
+		<ul><b>Default:</b>
+		<li>
+		<tt>0</tt>
+		</li>
+		</ul>
+	
+	<ul><b>Type:</b>
+	<li>
+		<a href="/reference/point"><tt>Point</tt></a>
+	</li>
+	</ul>
+    
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
 <div id="view" class="member">
 <div class="member-link">
 <a name="view" href="#view"><tt><b>view</b></tt></a>
@@ -221,7 +333,7 @@ group.style = {
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-3">
+<script type="text/paperscript" canvas="canvas-4">
 // Create a circle shaped path at { x: 80, y: 50 }
 // with a radius of 35:
 var circle = new Path.Circle(new Point(80, 50), 35);
@@ -229,7 +341,7 @@ var circle = new Path.Circle(new Point(80, 50), 35);
 // Set its stroke color to RGB red:
 circle.strokeColor = new Color(1, 0, 0);
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-3"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-4"></canvas></div>
 </div>
 
 
@@ -272,7 +384,7 @@ circle.strokeColor = new Color(1, 0, 0);
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-4">
+<script type="text/paperscript" canvas="canvas-5">
 // Create a circle shaped path at { x: 80, y: 50 }
 // with a radius of 35:
 var circle = new Path.Circle(new Point(80, 50), 35);
@@ -283,7 +395,7 @@ circle.strokeColor = 'black';
 // Set its stroke width to 10:
 circle.strokeWidth = 10;
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-4"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-5"></canvas></div>
 </div>
 
 
@@ -327,7 +439,7 @@ when they have a stroke.</p>
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-5">
+<script type="text/paperscript" canvas="canvas-6">
 var line = new Path(new Point(80, 50), new Point(420, 50));
 line.strokeColor = 'black';
 line.strokeWidth = 20;
@@ -348,7 +460,7 @@ var line2 = line.clone();
 line2.position.y += 100;
 line2.strokeCap = 'butt';
 </script>
-<div class="canvas"><canvas width="516" height="200" id="canvas-5"></canvas></div>
+<div class="canvas"><canvas width="516" height="200" id="canvas-6"></canvas></div>
 </div>
 
 
@@ -392,7 +504,7 @@ when they have a stroke.</p>
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-6">
+<script type="text/paperscript" canvas="canvas-7">
 var path = new Path();
 path.add(new Point(80, 100));
 path.add(new Point(120, 40));
@@ -411,7 +523,7 @@ var path3 = path2.clone();
 path3.position.x += path3.bounds.width * 1.5;
 path3.strokeJoin = 'bevel';
 </script>
-<div class="canvas"><canvas width="516" height="120" id="canvas-6"></canvas></div>
+<div class="canvas"><canvas width="516" height="120" id="canvas-7"></canvas></div>
 </div>
 
 
@@ -516,7 +628,7 @@ appear as a non-scaling stroke.</p>
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-7">
+<script type="text/paperscript" canvas="canvas-8">
 var path = new Path.Circle(new Point(80, 50), 40);
 path.strokeWidth = 2;
 path.strokeColor = 'black';
@@ -524,7 +636,7 @@ path.strokeColor = 'black';
 // Set the dashed stroke to [10pt dash, 4pt gap]:
 path.dashArray = [10, 4];
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-7"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-8"></canvas></div>
 </div>
 
 
@@ -597,65 +709,13 @@ to the <a href="/reference/style#strokewidth"><tt>strokeWidth</tt></a>.</p>
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-8">
+<script type="text/paperscript" canvas="canvas-9">
 // Create a circle shaped path at { x: 80, y: 50 }
 // with a radius of 35:
 var circle = new Path.Circle(new Point(80, 50), 35);
 
 // Set the fill color of the circle to RGB red:
 circle.fillColor = new Color(1, 0, 0);
-</script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-8"></canvas></div>
-</div>
-
-
-</div>
-
-</div>
-</div>
-		
-			
-	<h3>Shadow Style</h3>
-
-<div id="shadowcolor" class="member">
-<div class="member-link">
-<a name="shadowcolor" href="#shadowcolor"><tt><b>shadowColor</b></tt></a>
-</div>
-<div class="member-description hidden">
-
-<div class="member-text">
-	<p>The shadow color.</p>
-	
-	
-	<ul><b>Type:</b>
-	<li>
-		<a href="/reference/color"><tt>Color</tt></a>
-	</li>
-	</ul>
-    
-	
-	<p>
-<b>Example</b> &mdash; Creating a circle with a black shadow:
-</p>
-
-<div class="paperscript split">
-
-<div class="buttons">
-<div class="button run">Run</div>
-</div>
-
-<script type="text/paperscript" canvas="canvas-9">
-var circle = new Path.Circle({
-    center: [80, 50],
-    radius: 35,
-    fillColor: 'white',
-    // Set the shadow color of the circle to RGB black:
-    shadowColor: new Color(0, 0, 0),
-    // Set the shadow blur radius to 12:
-    shadowBlur: 12,
-    // Offset the shadow by { x: 5, y: 5 }
-    shadowOffset: new Point(5, 5)
-});
 </script>
 <div class="canvas"><canvas width="516" height="100" id="canvas-9"></canvas></div>
 </div>
@@ -667,55 +727,26 @@ var circle = new Path.Circle({
 </div>
 		
 			
-<div id="shadowblur" class="member">
+<div id="fillrule" class="member">
 <div class="member-link">
-<a name="shadowblur" href="#shadowblur"><tt><b>shadowBlur</b></tt></a>
+<a name="fillrule" href="#fillrule"><tt><b>fillRule</b></tt></a>
 </div>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The shadow's blur radius.</p>
+	<p>The fill-rule with which the shape gets filled. Please note that only
+modern browsers support fill-rules other than <tt>'nonzero'</tt>.</p>
 	
 	
 		<ul><b>Default:</b>
 		<li>
-		<tt>0</tt>
+		<tt>'nonzero'</tt>
 		</li>
 		</ul>
 	
 	<ul><b>Type:</b>
 	<li>
-		<tt>Number</tt>
-	</li>
-	</ul>
-    
-	
-	
-</div>
-
-</div>
-</div>
-		
-			
-<div id="shadowoffset" class="member">
-<div class="member-link">
-<a name="shadowoffset" href="#shadowoffset"><tt><b>shadowOffset</b></tt></a>
-</div>
-<div class="member-description hidden">
-
-<div class="member-text">
-	<p>The shadow's offset.</p>
-	
-	
-		<ul><b>Default:</b>
-		<li>
-		<tt>0</tt>
-		</li>
-		</ul>
-	
-	<ul><b>Type:</b>
-	<li>
-		<a href="/reference/point"><tt>Point</tt></a>
+		<tt>String('nonzero', 'evenodd')</tt>
 	</li>
 	</ul>
     
