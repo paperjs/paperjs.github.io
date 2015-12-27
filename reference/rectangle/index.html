@@ -84,6 +84,7 @@ rectangular path, it is not an item.</p>
 <div class="member-text">
     <p>Creates a Rectangle object.</p>
     
+    
 <ul><b>Parameters:</b>
 
 <li>
@@ -125,6 +126,7 @@ rectangular path, it is not an item.</p>
 <div class="member-description hidden">
 <div class="member-text">
     <p>Creates a Rectangle object.</p>
+    
     
 <ul><b>Parameters:</b>
 
@@ -180,6 +182,7 @@ rectangle
 <div class="member-description hidden">
 <div class="member-text">
     <p>Creates a rectangle object.</p>
+    
     
 <ul><b>Parameters:</b>
 
@@ -239,6 +242,7 @@ rectangle
 necessarily need to be the top left and bottom right corners, the
 constructor figures out how to fit a rectangle between them.</p>
     
+    
 <ul><b>Parameters:</b>
 
 <li>
@@ -280,6 +284,7 @@ constructor figures out how to fit a rectangle between them.</p>
 <div class="member-description hidden">
 <div class="member-text">
     <p>Creates a new rectangle object from the passed rectangle object.</p>
+    
     
 <ul><b>Parameters:</b>
 
@@ -1309,15 +1314,13 @@ rectangle and this rectangle
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Adds a point to this rectangle. The resulting rectangle is the
-smallest rectangle that contains both the original rectangle and the
-specified point.</p>
+	<p>Adds a point to this rectangle. The resulting rectangle is the smallest
+rectangle that contains both the original rectangle and the specified
+point.</p>
 <p>After adding a point, a call to <a href="/reference/rectangle#contains-point"><tt>contains(point)</tt></a> with the added
-point as an argument does not necessarily return <tt>true</tt>.</p>
-<p>The <a href="/reference/rectangle#contains-point"><tt>rectangle.contains(point)</tt></a> method does not return <tt>true</tt>
-for points on the right or bottom edges of a rectangle. Therefore, if the
-added point falls on the left or bottom edge of the enlarged rectangle,
-<a href="/reference/rectangle#contains-point"><tt>rectangle.contains(point)</tt></a> returns <tt>false</tt> for that point.</p>
+point as an argument does not necessarily return <tt>true</tt>. The <a href="/reference/rectangle#contains-point"><tt>rectangle.contains(point)</tt></a> method does not return <tt>true</tt> for points on
+the right or bottom edges of a rectangle. Therefore, if the added point
+falls on the left or bottom edge of the enlarged rectangle, <a href="/reference/rectangle#contains-point"><tt>rectangle.contains(point)</tt></a> returns <tt>false</tt> for that point.</p>
     
 	
 <ul><b>Parameters:</b>
@@ -1441,9 +1444,9 @@ direction
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Scales the rectangle in horizontal direction by the specified
-<tt>hor</tt> amount and in vertical direction by the specified <tt>ver</tt>
-amount from its center.</p>
+	<p>Scales the rectangle in horizontal direction by the specified <tt>hor</tt>
+amount and in vertical direction by the specified <tt>ver</tt> amount from its
+center.</p>
     
 	
 <ul><b>Parameters:</b>

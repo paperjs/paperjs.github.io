@@ -66,14 +66,14 @@
   <div class="reference"><div class="reference-class">
 
 
-<p>The Tool object refers to a script that the user can interact with
-by using the mouse and keyboard and can be accessed through the global
-<tt>tool</tt> variable. All its properties are also available in the paper
-scope.</p>
-<p>The global <tt>tool</tt> variable only exists in scripts that contain mouse
-handler functions (<a href="/reference/tool#onmousemove"><tt>onMouseMove</tt></a>, <a href="/reference/tool#onmousedown"><tt>onMouseDown</tt></a>,
-<a href="/reference/tool#onmousedrag"><tt>onMouseDrag</tt></a>, <a href="/reference/tool#onmouseup"><tt>onMouseUp</tt></a>) or a keyboard handler
-function (<a href="/reference/tool#onkeydown"><tt>onKeyDown</tt></a>, <a href="/reference/tool#onkeyup"><tt>onKeyUp</tt></a>).</p>
+<p>The Tool object refers to a script that the user can interact with by
+    using the mouse and keyboard and can be accessed through the global
+    <tt>tool</tt> variable. All its properties are also available in the paper
+    scope.</p>
+<p>The global <tt>tool</tt> variable only exists in scripts that contain mouse handler
+functions (<a href="/reference/tool#onmousemove"><tt>onMouseMove</tt></a>, <a href="/reference/tool#onmousedown"><tt>onMouseDown</tt></a>, <a href="/reference/tool#onmousedrag"><tt>onMouseDrag</tt></a>,
+<a href="/reference/tool#onmouseup"><tt>onMouseUp</tt></a>) or a keyboard handler function (<a href="/reference/tool#onkeydown"><tt>onKeyDown</tt></a>,
+<a href="/reference/tool#onkeyup"><tt>onKeyUp</tt></a>).</p>
 <p>
 <b>Example</b> 
 </p>
@@ -397,10 +397,9 @@ function onMouseUp(event) {
 	<p>The function to be called when the user presses a key on the keyboard.</p>
 <p>The function receives a <a href="/reference/keyevent"><tt>KeyEvent</tt></a> object which contains
 information about the keyboard event.</p>
-<p>If the function returns <tt>false</tt>, the keyboard event will be
-prevented from bubbling up. This can be used for example to stop the
-window from scrolling, when you need the user to interact with arrow
-keys.</p>
+<p>If the function returns <tt>false</tt>, the keyboard event will be prevented
+from bubbling up. This can be used for example to stop the window from
+scrolling, when you need the user to interact with arrow keys.</p>
 	
 	
 	<ul><b>Type:</b>
@@ -458,10 +457,9 @@ function onKeyDown(event) {
 	<p>The function to be called when the user releases a key on the keyboard.</p>
 <p>The function receives a <a href="/reference/keyevent"><tt>KeyEvent</tt></a> object which contains
 information about the keyboard event.</p>
-<p>If the function returns <tt>false</tt>, the keyboard event will be
-prevented from bubbling up. This can be used for example to stop the
-window from scrolling, when you need the user to interact with arrow
-keys.</p>
+<p>If the function returns <tt>false</tt>, the keyboard event will be prevented
+from bubbling up. This can be used for example to stop the window from
+scrolling, when you need the user to interact with arrow keys.</p>
 	
 	
 	<ul><b>Type:</b>

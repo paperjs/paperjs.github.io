@@ -90,6 +90,7 @@ tangents at given offsets.</p>
 <div class="member-text">
     <p>Creates a new curve object.</p>
     
+    
 <ul><b>Parameters:</b>
 
 <li>
@@ -131,6 +132,7 @@ tangents at given offsets.</p>
 <div class="member-description hidden">
 <div class="member-text">
     <p>Creates a new curve object.</p>
+    
     
 <ul><b>Parameters:</b>
 
@@ -848,8 +850,8 @@ of <a href="/reference/curvelocation"><tt>CurveLocation</tt></a> objects.</p>
 <tt>curve:</tt> 
 <a href="/reference/curve"><tt>Curve</tt></a>
 &mdash;&nbsp;the other curve to find the intersections with (if
-the curve itself or <tt>null</tt> is passed, the self intersection of the
-curve is returned, if it exists)
+    the curve itself or <tt>null</tt> is passed, the self intersection of the
+    curve is returned, if it exists)
 
 </li>
 
@@ -860,7 +862,7 @@ curve is returned, if it exists)
 	
 		<li>
 <tt>Array of <a href="/reference/curvelocation"><tt>CurveLocation</tt></a> objects</tt>&nbsp;&mdash;&nbsp;the locations of all intersections between the
-curves
+    curves
 </li>
 	
 	</ul>
@@ -890,15 +892,15 @@ is also added to the path.</p>
 <tt>offset:</tt> 
 <tt>Number</tt>
 &mdash;&nbsp;the offset on the curve at which to split,
-or the curve time parameter if <tt>isParameter</tt> is <tt>true</tt>
+    or the curve time parameter if <tt>isParameter</tt> is <tt>true</tt>
 &mdash;&nbsp;optional, default: <tt>0.5</tt>
 </li>
 
 <li>
 <tt>isParameter:</tt> 
 <tt>Boolean</tt>
-&mdash;&nbsp;pass <tt>true</tt> if <tt>offset</tt>
-is a curve time parameter
+&mdash;&nbsp;pass <tt>true</tt> if <tt>offset</tt> is a curve
+    time parameter
 &mdash;&nbsp;optional, default: <tt>false</tt>
 </li>
 
@@ -908,8 +910,8 @@ is a curve time parameter
 	<ul><b>Returns:</b>
 	
 		<li>
-<tt><a href="/reference/curve"><tt>Curve</tt></a></tt>&nbsp;&mdash;&nbsp;the second part of the divided curve, if the offset
-is within the valid range, {code null} otherwise.
+<tt><a href="/reference/curve"><tt>Curve</tt></a></tt>&nbsp;&mdash;&nbsp;the second part of the divided curve, if the offset is
+    within the valid range, {code null} otherwise.
 </li>
 	
 	</ul>
@@ -938,15 +940,15 @@ will result in two paths.</p>
 <tt>offset:</tt> 
 <tt>Number</tt>
 &mdash;&nbsp;the offset on the curve at which to split,
-or the curve time parameter if <tt>isParameter</tt> is <tt>true</tt>
+    or the curve time parameter if <tt>isParameter</tt> is <tt>true</tt>
 &mdash;&nbsp;optional, default: <tt>0.5</tt>
 </li>
 
 <li>
 <tt>isParameter:</tt> 
 <tt>Boolean</tt>
-&mdash;&nbsp;pass <tt>true</tt> if <tt>offset</tt>
-is a curve time parameter
+&mdash;&nbsp;pass <tt>true</tt> if <tt>offset</tt> is a curve
+    time parameter
 &mdash;&nbsp;optional, default: <tt>false</tt>
 </li>
 
@@ -1200,8 +1202,8 @@ collinear, meaning they run in parallel.</p>
 	<p>Calculates the curve time parameter of the specified offset on the path,
 relative to the provided start parameter. If offset is a negative value,
 the parameter is searched to the left of the start parameter. If no start
-parameter is provided, a default of <tt>0</tt> for positive values of
-<tt>offset</tt> and <tt>1</tt> for negative values of <tt>offset</tt>.</p>
+parameter is provided, a default of <tt>0</tt> for positive values of <tt>offset</tt>
+and <tt>1</tt> for negative values of <tt>offset</tt>.</p>
     
 	
 <ul><b>Parameters:</b>
@@ -1291,15 +1293,15 @@ parameter.</p>
 <tt>offset:</tt> 
 <tt>Number</tt>
 &mdash;&nbsp;the offset on the curve, or the curve time
-parameter if <tt>isParameter</tt> is <tt>true</tt>
+    parameter if <tt>isParameter</tt> is <tt>true</tt>
 
 </li>
 
 <li>
 <tt>isParameter:</tt> 
 <tt>Boolean</tt>
-&mdash;&nbsp;pass <tt>true</tt> if <tt>offset</tt>
-is a curve time parameter
+&mdash;&nbsp;pass <tt>true</tt> if <tt>offset</tt> is a curve
+    time parameter
 &mdash;&nbsp;optional, default: <tt>false</tt>
 </li>
 
@@ -1484,15 +1486,15 @@ specified point
 <tt>offset:</tt> 
 <tt>Number</tt>
 &mdash;&nbsp;the offset on the curve, or the curve time
-parameter if <tt>isParameter</tt> is <tt>true</tt>
+    parameter if <tt>isParameter</tt> is <tt>true</tt>
 
 </li>
 
 <li>
 <tt>isParameter:</tt> 
 <tt>Boolean</tt>
-&mdash;&nbsp;pass <tt>true</tt> if <tt>offset</tt>
-is a curve time parameter
+&mdash;&nbsp;pass <tt>true</tt> if <tt>offset</tt> is a curve
+    time parameter
 &mdash;&nbsp;optional, default: <tt>false</tt>
 </li>
 
@@ -1530,15 +1532,15 @@ offset.</p>
 <tt>offset:</tt> 
 <tt>Number</tt>
 &mdash;&nbsp;the offset on the curve, or the curve time
-parameter if <tt>isParameter</tt> is <tt>true</tt>
+    parameter if <tt>isParameter</tt> is <tt>true</tt>
 
 </li>
 
 <li>
 <tt>isParameter:</tt> 
 <tt>Boolean</tt>
-&mdash;&nbsp;pass <tt>true</tt> if <tt>offset</tt>
-is a curve time parameter
+&mdash;&nbsp;pass <tt>true</tt> if <tt>offset</tt> is a curve
+    time parameter
 &mdash;&nbsp;optional, default: <tt>false</tt>
 </li>
 
@@ -1575,15 +1577,15 @@ is a curve time parameter
 <tt>offset:</tt> 
 <tt>Number</tt>
 &mdash;&nbsp;the offset on the curve, or the curve time
-parameter if <tt>isParameter</tt> is <tt>true</tt>
+    parameter if <tt>isParameter</tt> is <tt>true</tt>
 
 </li>
 
 <li>
 <tt>isParameter:</tt> 
 <tt>Boolean</tt>
-&mdash;&nbsp;pass <tt>true</tt> if <tt>offset</tt>
-is a curve time parameter
+&mdash;&nbsp;pass <tt>true</tt> if <tt>offset</tt> is a curve
+    time parameter
 &mdash;&nbsp;optional, default: <tt>false</tt>
 </li>
 
@@ -1611,8 +1613,8 @@ is a curve time parameter
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Calculates the weighted tangent vector of the curve at the given
-offset, its length reflecting the curve velocity at that location.</p>
+	<p>Calculates the weighted tangent vector of the curve at the given offset,
+its length reflecting the curve velocity at that location.</p>
     
 	
 <ul><b>Parameters:</b>
@@ -1621,15 +1623,15 @@ offset, its length reflecting the curve velocity at that location.</p>
 <tt>offset:</tt> 
 <tt>Number</tt>
 &mdash;&nbsp;the offset on the curve, or the curve time
-parameter if <tt>isParameter</tt> is <tt>true</tt>
+    parameter if <tt>isParameter</tt> is <tt>true</tt>
 
 </li>
 
 <li>
 <tt>isParameter:</tt> 
 <tt>Boolean</tt>
-&mdash;&nbsp;pass <tt>true</tt> if <tt>offset</tt>
-is a curve time parameter
+&mdash;&nbsp;pass <tt>true</tt> if <tt>offset</tt> is a curve
+    time parameter
 &mdash;&nbsp;optional, default: <tt>false</tt>
 </li>
 
@@ -1667,15 +1669,15 @@ its length reflecting the curve velocity at that location.</p>
 <tt>offset:</tt> 
 <tt>Number</tt>
 &mdash;&nbsp;the offset on the curve, or the curve time
-parameter if <tt>isParameter</tt> is <tt>true</tt>
+    parameter if <tt>isParameter</tt> is <tt>true</tt>
 
 </li>
 
 <li>
 <tt>isParameter:</tt> 
 <tt>Boolean</tt>
-&mdash;&nbsp;pass <tt>true</tt> if <tt>offset</tt>
-is a curve time parameter
+&mdash;&nbsp;pass <tt>true</tt> if <tt>offset</tt> is a curve
+    time parameter
 &mdash;&nbsp;optional, default: <tt>false</tt>
 </li>
 
@@ -1715,15 +1717,15 @@ at the given offset is the reciprocal value of its curvature.</p>
 <tt>offset:</tt> 
 <tt>Number</tt>
 &mdash;&nbsp;the offset on the curve, or the curve time
-parameter if <tt>isParameter</tt> is <tt>true</tt>
+    parameter if <tt>isParameter</tt> is <tt>true</tt>
 
 </li>
 
 <li>
 <tt>isParameter:</tt> 
 <tt>Boolean</tt>
-&mdash;&nbsp;pass <tt>true</tt> if <tt>offset</tt>
-is a curve time parameter
+&mdash;&nbsp;pass <tt>true</tt> if <tt>offset</tt> is a curve
+    time parameter
 &mdash;&nbsp;optional, default: <tt>false</tt>
 </li>
 

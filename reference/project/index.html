@@ -97,6 +97,7 @@ by <a href="/reference/project#activelayer"><tt>project.activeLayer</tt></a>.</p
 <p>Note that when working with PaperScript, a project is automatically
 created for us and the <a href="/reference/paperscope#project"><tt>paperScope.project</tt></a> variable points to it.</p>
     
+    
 <ul><b>Parameters:</b>
 
 <li>
@@ -496,25 +497,23 @@ and may contain a combination of the following values:</p>
 <b>Options:</b>
 <li><tt>options.tolerance: <tt>Number</tt></tt> &mdash; the tolerance of the hit-test &mdash;&nbsp;default: <tt><a href="/reference/paperscope#settings"><tt>paperScope.settings</tt></a>.hitTolerance</tt></li>
 <li><tt>options.class: <tt>Function</tt></tt> &mdash; only hit-test again a certain item class
-and its sub-classes: <tt>Group, Layer, Path, CompoundPath,
-Shape, Raster, PlacedSymbol, PointText</tt>, etc</li>
+    and its sub-classes: <tt>Group, Layer, Path, CompoundPath, Shape,
+    Raster, PlacedSymbol, PointText</tt>, etc</li>
 <li><tt>options.fill: <tt>Boolean</tt></tt> &mdash; hit-test the fill of items</li>
 <li><tt>options.stroke: <tt>Boolean</tt></tt> &mdash; hit-test the stroke of path items,
-taking into account the setting of stroke color and width</li>
+    taking into account the setting of stroke color and width</li>
 <li><tt>options.segments: <tt>Boolean</tt></tt> &mdash; hit-test for <a href="/reference/segment#point"><tt>segment.point</tt></a> of
-<a href="/reference/path"><tt>Path</tt></a> items</li>
+    <a href="/reference/path"><tt>Path</tt></a> items</li>
 <li><tt>options.curves: <tt>Boolean</tt></tt> &mdash; hit-test the curves of path items,
-without taking the stroke color or width into account</li>
-<li><tt>options.handles: <tt>Boolean</tt></tt> &mdash; hit-test for the handles
-(<a href="/reference/segment#handlein"><tt>segment.handleIn</tt></a> / <a href="/reference/segment#handleout"><tt>segment.handleOut</tt></a>) of path segments.</li>
+    without taking the stroke color or width into account</li>
+<li><tt>options.handles: <tt>Boolean</tt></tt> &mdash; hit-test for the handles (<a href="/reference/segment#handlein"><tt>segment.handleIn</tt></a> / <a href="/reference/segment#handleout"><tt>segment.handleOut</tt></a>) of path segments.</li>
 <li><tt>options.ends: <tt>Boolean</tt></tt> &mdash; only hit-test for the first or last
-segment points of open path items</li>
+    segment points of open path items</li>
 <li><tt>options.bounds: <tt>Boolean</tt></tt> &mdash; hit-test the corners and side-centers of
-the bounding rectangle of items (<a href="/reference/item#bounds"><tt>item.bounds</tt></a>)</li>
+    the bounding rectangle of items (<a href="/reference/item#bounds"><tt>item.bounds</tt></a>)</li>
 <li><tt>options.center: <tt>Boolean</tt></tt> &mdash; hit-test the <a href="/reference/rectangle#center"><tt>rectangle.center</tt></a> of
-the bounding rectangle of items (<a href="/reference/item#bounds"><tt>item.bounds</tt></a>)</li>
-<li><tt>options.guides: <tt>Boolean</tt></tt> &mdash; hit-test items that have
-<tt>Item#guide</tt> set to <tt>true</tt></li>
+    the bounding rectangle of items (<a href="/reference/item#bounds"><tt>item.bounds</tt></a>)</li>
+<li><tt>options.guides: <tt>Boolean</tt></tt> &mdash; hit-test items that have <tt>Item#guide</tt> set to <tt>true</tt></li>
 <li><tt>options.selected: <tt>Boolean</tt></tt> &mdash; only hit selected items</li>
 </ul>
 	
@@ -532,7 +531,7 @@ the bounding rectangle of items (<a href="/reference/item#bounds"><tt>item.bound
 <tt>Object</tt>
 
 &mdash;&nbsp;optional, default: <tt>{ fill: true, stroke: true, segments: true,
-tolerance: true }</tt>
+    tolerance: true }</tt>
 </li>
 
 </ul>
@@ -541,9 +540,8 @@ tolerance: true }</tt>
 	<ul><b>Returns:</b>
 	
 		<li>
-<tt><a href="/reference/hitresult"><tt>HitResult</tt></a></tt>&nbsp;&mdash;&nbsp;a hit result object that contains more
-information about what exactly was hit or <tt>null</tt> if nothing was
-hit
+<tt><a href="/reference/hitresult"><tt>HitResult</tt></a></tt>&nbsp;&mdash;&nbsp;a hit result object that contains more information
+    about what exactly was hit or <tt>null</tt> if nothing was hit
 </li>
 	
 	</ul>
@@ -565,21 +563,28 @@ hit
 <div class="member-text">
 	<p>Fetch items contained within the project whose properties match the
 criteria in the specified object.</p>
-<p>Extended matching is possible by providing a compare function or
-regular expression. Matching points, colors only work as a comparison
-of the full object, not partial matching (e.g. only providing the x-
-coordinate to match all points with that x-value). Partial matching
-does work for <a href="/reference/item#data"><tt>item.data</tt></a>.</p>
+<p>Extended matching of properties is possible by providing a comparator
+function or regular expression. Matching points, colors only work as a
+comparison of the full object, not partial matching (e.g. only providing
+the x- coordinate to match all points with that x-value). Partial
+matching does work for <a href="/reference/item#data"><tt>item.data</tt></a>.</p>
 <p>Matching items against a rectangular area is also possible, by setting
-either <tt>match.inside</tt> or <tt>match.overlapping</tt> to a rectangle
-describing the area in which the items either have to be fully or partly
-contained.</p>
+either <tt>match.inside</tt> or <tt>match.overlapping</tt> to a rectangle describing
+the area in which the items either have to be fully or partly contained.</p>
     <ul>
 <b>Options:</b>
+<li><tt>match.recursive: <tt>Boolean</tt></tt> &mdash; whether to loop recursively
+    through all children, or stop at the current level &mdash;&nbsp;default: <tt>true</tt></li>
+<li><tt>match.match: <tt>Function</tt></tt> &mdash; a match function to be called for each
+    item, allowing the definition of more flexible item checks that are
+    not bound to properties. If no other match properties are defined,
+    this function can also be passed instead of the <tt>match</tt> object</li>
+<li><tt>match.class: <tt>Function</tt></tt> &mdash; the constructor function of the item type
+    to match against</li>
 <li><tt>match.inside: <a href="/reference/rectangle"><tt>Rectangle</tt></a></tt> &mdash; the rectangle in which the items need to
-be fully contained</li>
+    be fully contained</li>
 <li><tt>match.overlapping: <a href="/reference/rectangle"><tt>Rectangle</tt></a></tt> &mdash; the rectangle with which the items
-need to at least partly overlap</li>
+    need to at least partly overlap</li>
 </ul>
 	
 <ul><b>Parameters:</b>
@@ -717,7 +722,7 @@ items[0].selected = true;
 
 
 <p>
-<b>Example</b> &mdash; Fetch items using a comparing function:
+<b>Example</b> &mdash; Fetch items using a comparator function:
 </p>
 
 <div class="paperscript split">
@@ -757,7 +762,7 @@ items[0].selected = true;
 
 
 <p>
-<b>Example</b> &mdash; Fetch items using a comparing function (2):
+<b>Example</b> &mdash; Fetch items using a comparator function (2):
 </p>
 
 <div class="paperscript split">
@@ -960,14 +965,14 @@ does work for <a href="/reference/item#data"><tt>item.data</tt></a>.</p>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Exports (serializes) the project with all its layers and child items to
-a JSON data object or string.</p>
+	<p>Exports (serializes) the project with all its layers and child items to a
+JSON data object or string.</p>
     <ul>
 <b>Options:</b>
 <li><tt>options.asString: <tt>Boolean</tt></tt> &mdash; whether the JSON is returned as
-a <tt>Object</tt> or a <tt>String</tt> &mdash;&nbsp;default: <tt>true</tt></li>
+    a <tt>Object</tt> or a <tt>String</tt> &mdash;&nbsp;default: <tt>true</tt></li>
 <li><tt>options.precision: <tt>Number</tt></tt> &mdash; the amount of fractional digits in
-numbers used in JSON data &mdash;&nbsp;default: <tt>5</tt></li>
+    numbers used in JSON data &mdash;&nbsp;default: <tt>5</tt></li>
 </ul>
 	
 <ul><b>Parameters:</b>
@@ -1038,15 +1043,15 @@ all contained in one top level SVG group node.</p>
     <ul>
 <b>Options:</b>
 <li><tt>options.asString: <tt>Boolean</tt></tt> &mdash; whether a SVG node or a
-<tt>String</tt> is to be returned &mdash;&nbsp;default: <tt>false</tt></li>
+    <tt>String</tt> is to be returned &mdash;&nbsp;default: <tt>false</tt></li>
 <li><tt>options.precision: <tt>Number</tt></tt> &mdash; the amount of fractional digits in
-numbers used in SVG data &mdash;&nbsp;default: <tt>5</tt></li>
+    numbers used in SVG data &mdash;&nbsp;default: <tt>5</tt></li>
 <li><tt>options.matchShapes: <tt>Boolean</tt></tt> &mdash; whether path items should
-tried to be converted to SVG shape items (rect, circle, ellipse, line,
-polyline, polygon), if their geometries match &mdash;&nbsp;default: <tt>false</tt></li>
-<li><tt>options.embedImages: <tt>Boolean</tt></tt> &mdash; whether raster images
-should be embedded as base64 data inlined in the xlink:href attribute,
-or kept as a link to their external URL. &mdash;&nbsp;default: <tt>true</tt></li>
+    tried to be converted to SVG shape items (rect, circle, ellipse,
+    line, polyline, polygon), if their geometries match &mdash;&nbsp;default: <tt>false</tt></li>
+<li><tt>options.embedImages: <tt>Boolean</tt></tt> &mdash; whether raster images should
+    be embedded as base64 data inlined in the xlink:href attribute, or
+    kept as a link to their external URL. &mdash;&nbsp;default: <tt>true</tt></li>
 </ul>
 	
 <ul><b>Parameters:</b>

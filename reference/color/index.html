@@ -130,13 +130,14 @@ circle.fillColor = '#ff0000';
 <div class="member-text">
     <p>Creates a RGB Color object.</p>
     
+    
 <ul><b>Parameters:</b>
 
 <li>
 <tt>red:</tt> 
 <tt>Number</tt>
-&mdash;&nbsp;the amount of red in the color as a value
-between <tt>0</tt> and <tt>1</tt>
+&mdash;&nbsp;the amount of red in the color as a value between
+    <tt>0</tt> and <tt>1</tt>
 
 </li>
 
@@ -144,7 +145,7 @@ between <tt>0</tt> and <tt>1</tt>
 <tt>green:</tt> 
 <tt>Number</tt>
 &mdash;&nbsp;the amount of green in the color as a value
-between <tt>0</tt> and <tt>1</tt>
+    between <tt>0</tt> and <tt>1</tt>
 
 </li>
 
@@ -152,15 +153,15 @@ between <tt>0</tt> and <tt>1</tt>
 <tt>blue:</tt> 
 <tt>Number</tt>
 &mdash;&nbsp;the amount of blue in the color as a value
-between <tt>0</tt> and <tt>1</tt>
+    between <tt>0</tt> and <tt>1</tt>
 
 </li>
 
 <li>
 <tt>alpha:</tt> 
 <tt>Number</tt>
-&mdash;&nbsp;the alpha of the color as a value between
-<tt>0</tt> and <tt>1</tt>
+&mdash;&nbsp;the alpha of the color as a value between <tt>0</tt>
+    and <tt>1</tt>
 &mdash;&nbsp;optional
 </li>
 
@@ -211,21 +212,22 @@ circle.fillColor = new Color(1, 0, 0.5);
 <div class="member-text">
     <p>Creates a gray Color object.</p>
     
+    
 <ul><b>Parameters:</b>
 
 <li>
 <tt>gray:</tt> 
 <tt>Number</tt>
 &mdash;&nbsp;the amount of gray in the color as a value
-between <tt>0</tt> and <tt>1</tt>
+    between <tt>0</tt> and <tt>1</tt>
 
 </li>
 
 <li>
 <tt>alpha:</tt> 
 <tt>Number</tt>
-&mdash;&nbsp;the alpha of the color as a value between
-<tt>0</tt> and <tt>1</tt>
+&mdash;&nbsp;the alpha of the color as a value between <tt>0</tt>
+    and <tt>1</tt>
 &mdash;&nbsp;optional
 </li>
 
@@ -276,33 +278,34 @@ circle.fillColor = new Color(0.5);
 <div class="member-text">
     <p>Creates a HSB, HSL or gradient Color object from the properties of
 the provided object:</p>
-<p><b>HSB Color</b>:<br>
-<tt>hue: Number</tt> — the hue of the color as a value in
-degrees between <tt>0</tt> and <tt>360</tt><br>
-<tt>saturation: Number</tt> — the saturation of the color as a
-value between <tt>0</tt> and <tt>1</tt><br>
-<tt>brightness: Number</tt> — the brightness of the color as a
-value between <tt>0</tt> and <tt>1</tt><br>
-<tt>alpha: Number</tt> — the alpha of the color as a value between
-<tt>0</tt> and <tt>1</tt></p>
-<p><b>HSL Color</b>:<br>
-<tt>hue: Number</tt> — the hue of the color as a value in
-degrees between <tt>0</tt> and <tt>360</tt><br>
-<tt>saturation: Number</tt> — the saturation of the color as a
-value between <tt>0</tt> and <tt>1</tt><br>
-<tt>lightness: Number</tt> — the lightness of the color as a
-value between <tt>0</tt> and <tt>1</tt><br>
-<tt>alpha: Number</tt> — the alpha of the color as a value between
-<tt>0</tt> and <tt>1</tt></p>
-<p><b>Gradient Color</b>:<br>
-<tt>gradient: Gradient</tt> — the gradient object that describes the
- color stops and type of gradient to be used.<br>
-<tt>origin: Point</tt> — the origin point of the gradient<br>
-<tt>destination: Point</tt> — the destination point of the gradient
-<tt>stops: Array of GradientStop</tt> — the gradient stops describing
-the gradient, as an alternative to providing a gradient object<br>
-<tt>radial: Boolean</tt> — controls whether the gradient is radial,
-as an alternative to providing a gradient object<br></p>
+    <ul>
+<b>Options:</b>
+<li><tt>hsb.hue: <tt>Number</tt></tt> &mdash; the hue of the color as a value in degrees
+    between <tt>0</tt> and <tt>360</tt></li>
+<li><tt>hsb.saturation: <tt>Number</tt></tt> &mdash; the saturation of the color as a
+    value between <tt>0</tt> and <tt>1</tt></li>
+<li><tt>hsb.brightness: <tt>Number</tt></tt> &mdash; the brightness of the color as a
+    value between <tt>0</tt> and <tt>1</tt></li>
+<li><tt>hsb.alpha: <tt>Number</tt></tt> &mdash; the alpha of the color as a value between
+    <tt>0</tt> and <tt>1</tt></li>
+<li><tt>hsl.hue: <tt>Number</tt></tt> &mdash; the hue of the color as a value in degrees
+    between <tt>0</tt> and <tt>360</tt></li>
+<li><tt>hsl.saturation: <tt>Number</tt></tt> &mdash; the saturation of the color as a
+    value between <tt>0</tt> and <tt>1</tt></li>
+<li><tt>hsl.lightness: <tt>Number</tt></tt> &mdash; the lightness of the color as a value
+    between <tt>0</tt> and <tt>1</tt><br></li>
+<li><tt>hsl.alpha: <tt>Number</tt></tt> &mdash; the alpha of the color as a value between
+    <tt>0</tt> and <tt>1</tt></li>
+<li><tt>gradient.gradient: <a href="/reference/gradient"><tt>Gradient</tt></a></tt> &mdash; the gradient object that
+    describes the color stops and type of gradient to be used</li>
+<li><tt>gradient.origin: <a href="/reference/point"><tt>Point</tt></a></tt> &mdash; the origin point of the gradient</li>
+<li><tt>gradient.destination: <a href="/reference/point"><tt>Point</tt></a></tt> &mdash; the destination point of the
+    gradient</li>
+<li><tt>gradient.stops: undefined</tt> &mdash; {GradientStop[]} the gradient stops describing
+    the gradient, as an alternative to providing a gradient object</li>
+<li><tt>gradient.radial: <tt>Boolean</tt></tt> &mdash; controls whether the gradient is
+    radial, as an alternative to providing a gradient object</li>
+</ul>
     
 <ul><b>Parameters:</b>
 
@@ -416,6 +419,7 @@ var path = new Path.Rectangle({
 <div class="member-description hidden">
 <div class="member-text">
     <p>Creates a gradient Color object.</p>
+    
     
 <ul><b>Parameters:</b>
 
@@ -942,8 +946,7 @@ circle.strokeColor.alpha = 0.5;
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The amount of red in the color as a value between <tt>0</tt> and
-<tt>1</tt>.</p>
+	<p>The amount of red in the color as a value between <tt>0</tt> and <tt>1</tt>.</p>
 	
 	
 	<ul><b>Type:</b>
@@ -987,8 +990,7 @@ circle.fillColor.red = 1;
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The amount of green in the color as a value between <tt>0</tt> and
-<tt>1</tt>.</p>
+	<p>The amount of green in the color as a value between <tt>0</tt> and <tt>1</tt>.</p>
 	
 	
 	<ul><b>Type:</b>
@@ -1034,8 +1036,7 @@ circle.fillColor.green = 1;
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The amount of blue in the color as a value between <tt>0</tt> and
-<tt>1</tt>.</p>
+	<p>The amount of blue in the color as a value between <tt>0</tt> and <tt>1</tt>.</p>
 	
 	
 	<ul><b>Type:</b>
@@ -1083,8 +1084,7 @@ circle.fillColor.blue = 1;
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The amount of gray in the color as a value between <tt>0</tt> and
-<tt>1</tt>.</p>
+	<p>The amount of gray in the color as a value between <tt>0</tt> and <tt>1</tt>.</p>
 	
 	
 	<ul><b>Type:</b>
@@ -1110,8 +1110,7 @@ circle.fillColor.blue = 1;
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The hue of the color as a value in degrees between <tt>0</tt> and
-<tt>360</tt>.</p>
+	<p>The hue of the color as a value in degrees between <tt>0</tt> and <tt>360</tt>.</p>
 	
 	
 	<ul><b>Type:</b>
@@ -1177,8 +1176,7 @@ function onFrame(event) {
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The saturation of the color as a value between <tt>0</tt> and
-<tt>1</tt>.</p>
+	<p>The saturation of the color as a value between <tt>0</tt> and <tt>1</tt>.</p>
 	
 	
 	<ul><b>Type:</b>
@@ -1202,8 +1200,7 @@ function onFrame(event) {
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The brightness of the color as a value between <tt>0</tt> and
-<tt>1</tt>.</p>
+	<p>The brightness of the color as a value between <tt>0</tt> and <tt>1</tt>.</p>
 	
 	
 	<ul><b>Type:</b>
@@ -1229,8 +1226,7 @@ function onFrame(event) {
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The lightness of the color as a value between <tt>0</tt> and
-<tt>1</tt>.</p>
+	<p>The lightness of the color as a value between <tt>0</tt> and <tt>1</tt>.</p>
 <p>Note that all other components are shared with HSB.</p>
 	
 	

@@ -176,14 +176,13 @@ and tool handlers automatically for you.</p>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Loads, compiles and executes PaperScript code in the HTML document.</p>
-<p>Note that this method is executed automatically for all scripts in the
+	<p>Loads, compiles and executes PaperScript code in the HTML document. Note
+that this method is executed automatically for all scripts in the
 document through a window load event. You can optionally call it earlier
 (e.g. from a DOM ready event), or you can mark scripts to be ignored by
-setting the attribute <tt>ignore="true"</tt> or
-<tt>data-paper-ignore="true"</tt>, and call the
-<tt>PaperScript.load(script)</tt> method for each script separately when
-needed.</p>
+setting the attribute <tt>ignore="true"</tt> or <tt>data-paper-ignore="true"</tt>, and
+call the <tt>PaperScript.load(script)</tt> method for each script separately
+when needed.</p>
     
 	
 <ul><b>Parameters:</b>
@@ -192,7 +191,8 @@ needed.</p>
 <tt>script:</tt> 
 <tt>HTMLScriptElement</tt>
 &mdash;&nbsp;the script to load. If none is
-provided, all scripts of the HTML document are iterated over and loaded
+    provided, all scripts of the HTML document are iterated over and
+    loaded
 &mdash;&nbsp;optional, default: <tt>null</tt>
 </li>
 
@@ -203,7 +203,7 @@ provided, all scripts of the HTML document are iterated over and loaded
 	
 		<li>
 <tt><a href="/reference/paperscope"><tt>PaperScope</tt></a></tt>&nbsp;&mdash;&nbsp;the scope produced for the passed <tt>script</tt>, or
-<tt>undefined</tt> of multiple scripts area loaded
+    <tt>undefined</tt> of multiple scripts area loaded
 </li>
 	
 	</ul>
