@@ -2845,8 +2845,8 @@ item.</p>
 <tt>insert:</tt> 
 <tt>Boolean</tt>
 &mdash;&nbsp;specifies whether the copy should be
-    inserted into the DOM. When set to <tt>true</tt>, it is inserted above the
-    original
+    inserted into the scene graph. When set to <tt>true</tt>, it is inserted
+    above the original
 &mdash;&nbsp;optional, default: <tt>true</tt>
 </li>
 
@@ -3003,7 +3003,7 @@ copy the item to
 	
 <div id="rasterize" class="member">
 <div class="member-link">
-<a name="rasterize" href="#rasterize"><tt><b>rasterize</b>([resolution])</tt></a>
+<a name="rasterize" href="#rasterize"><tt><b>rasterize</b>([resolution[, insert]])</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
@@ -3020,6 +3020,15 @@ is not removed after rasterization.</p>
     in pixels per inch (DPI). If not specified, the value of
     <tt>view.resolution</tt> is used.
 &mdash;&nbsp;optional, default: <tt>view.resolution</tt>
+</li>
+
+<li>
+<tt>insert:</tt> 
+<tt>Boolean</tt>
+&mdash;&nbsp;specifies whether the raster should be
+    inserted into the scene graph. When set to <tt>true</tt>, it is inserted
+    above the original
+&mdash;&nbsp;optional, default: <tt>true</tt>
 </li>
 
 </ul>
@@ -3470,7 +3479,7 @@ examples.</p>
 	<ul><b>Returns:</b>
 	
 		<li>
-<tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the first descendant item  matching the given criteria
+<tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the first descendant item matching the given criteria
 </li>
 	
 	</ul>
@@ -4438,15 +4447,15 @@ with no segments all are considered empty.</p>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Checks whether the item and all its parents are inserted into the DOM or
-not.</p>
+	<p>Checks whether the item and all its parents are inserted into scene graph
+or not.</p>
     
 	
 	
 	<ul><b>Returns:</b>
 	
 		<li>
-<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the item is inserted into the DOM, <tt>false</tt> otherwise
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the item is inserted into the scene graph, <tt>false</tt> otherwise
 </li>
 	
 	</ul>
