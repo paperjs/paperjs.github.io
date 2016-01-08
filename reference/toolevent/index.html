@@ -80,7 +80,9 @@ information about the mouse event.</p>
 
 
 
-	<div class="reference-members"><h2>Properties</h2>
+<!-- ================================ properties =========================== -->
+	<div class="reference-members">
+		<h2>Properties</h2>
 		
 			
 <div id="type" class="member">
@@ -93,9 +95,14 @@ information about the mouse event.</p>
 	<p>The type of tool event.</p>
 	
 	
+		<ul><b>Values:</b>
+		<li><tt>'mousedown'</tt>, <tt>'mouseup'</tt>, <tt>'mousemove'</tt>, <tt>'mousedrag'</tt></li>
+		</ul>
+	
+	
 	<ul><b>Type:</b>
 	<li>
-		<tt>String('mousedown', 'mouseup', 'mousemove', 'mousedrag')</tt>
+		<tt>String</tt>
 	</li>
 	</ul>
     
@@ -116,6 +123,7 @@ information about the mouse event.</p>
 <div class="member-text">
 	<p>The position of the mouse in project coordinates when the event was
 fired.</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -157,6 +165,7 @@ function onMouseUp(event) {
 event was fired.</p>
 	
 	
+	
 	<ul><b>Type:</b>
 	<li>
 		<a href="/reference/point"><tt>Point</tt></a>
@@ -180,6 +189,7 @@ event was fired.</p>
 <div class="member-text">
 	<p>The position of the mouse in project coordinates when the mouse button
 was last clicked.</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -209,6 +219,7 @@ artwork based on the moving direction of the mouse, as returned by
 <a href="/reference/toolevent#delta"><tt>delta</tt></a>.</p>
 	
 	
+	
 	<ul><b>Type:</b>
 	<li>
 		<a href="/reference/point"><tt>Point</tt></a>
@@ -235,6 +246,7 @@ mouse when the event was fired. In case of the mouseup event, the
 difference to the mousedown position is returned.</p>
 	
 	
+	
 	<ul><b>Type:</b>
 	<li>
 		<a href="/reference/point"><tt>Point</tt></a>
@@ -257,6 +269,7 @@ difference to the mousedown position is returned.</p>
 
 <div class="member-text">
 	<p>The number of times the mouse event was fired.</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -286,6 +299,7 @@ difference to the mousedown position is returned.</p>
 that it is contained within is returned.</p>
 	
 	
+	
 	<ul><b>Type:</b>
 	<li>
 		<a href="/reference/item"><tt>Item</tt></a>
@@ -306,9 +320,10 @@ that it is contained within is returned.</p>
 
 
 <!-- ============================== methods ================================ -->
-	<div class="reference-members"><h2>Methods</h2>
+	<div class="reference-members">
+		<h2>Methods</h2>
 		
-			
+	
 <div id="tostring" class="member">
 <div class="member-link">
 <a name="tostring" href="#tostring"><tt><b>toString</b>()</tt></a>
@@ -332,6 +347,8 @@ that it is contained within is returned.</p>
 </div>
 </div>
 </div>
+
+
 		
 	</div>
 
@@ -352,6 +369,7 @@ that it is contained within is returned.</p>
 	<p>The time at which the event was created, in milliseconds since the epoch.</p>
 	
 		<p>Read only.</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -380,6 +398,7 @@ that it is contained within is returned.</p>
 		<p>Read only.</p>
 	
 	
+	
 	<ul><b>Type:</b>
 	<li>
 		<tt>object</tt>
@@ -400,6 +419,67 @@ that it is contained within is returned.</p>
 </div>
 
 
+<!-- =========================== inherited methods ========================= -->
+<div class="reference-members"><h2>Methods inherited from <a href="/reference/event"><tt>Event</tt></a></h2>
+
+	
+<div id="preventdefault" class="member">
+<div class="member-link">
+<a name="preventdefault" href="#preventdefault"><tt><b>preventDefault</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Cancels the event if it is cancelable, without stopping further
+propagation of the event.</p>
+    
+	
+	
+	
+	
+</div>
+</div>
+</div>
+
+	
+<div id="stoppropagation" class="member">
+<div class="member-link">
+<a name="stoppropagation" href="#stoppropagation"><tt><b>stopPropagation</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Prevents further propagation of the current event.</p>
+    
+	
+	
+	
+	
+</div>
+</div>
+</div>
+
+	
+<div id="stop" class="member">
+<div class="member-link">
+<a name="stop" href="#stop"><tt><b>stop</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Cancels the event if it is cancelable, and stops stopping further
+propagation of the event. This is has the same effect as calling both
+<a href="/reference/event#stoppropagation"><tt>stopPropagation</tt></a>() and <a href="/reference/event#preventdefault"><tt>preventDefault</tt></a>().</p>
+<p>Any handler can also return <tt>false</tt> to indicate that <tt>stop()</tt> should be
+called right after.</p>
+    
+	
+	
+	
+	
+</div>
+</div>
+</div>
+
+</div>
+
 
 
 
@@ -417,20 +497,15 @@ that it is contained within is returned.</p>
 <li><a href="/reference/matrix">Matrix</a></li>
 </ul>
 <li>
-<h2>Projects</h2>
+<h2>Project & Items</h2>
 <ul>
 <li><a href="/reference/project">Project</a></li>
-<li><a href="/reference/view">View</a></li>
-<li><a href="/reference/symbol">Symbol</a></li>
-</ul>
-<li>
-<h2>Items</h2>
-<ul>
 <li><a href="/reference/item">Item</a></li>
 <li><a href="/reference/layer">Layer</a></li>
 <li><a href="/reference/group">Group</a></li>
 <li><a href="/reference/shape">Shape</a></li>
 <li><a href="/reference/raster">Raster</a></li>
+<li><a href="/reference/symbol">Symbol</a></li>
 <li><a href="/reference/placedsymbol">PlacedSymbol</a></li>
 <li><hr /></li>
 <li><a href="/reference/hitresult">HitResult</a></li>
@@ -461,8 +536,11 @@ that it is contained within is returned.</p>
 <li><a href="/reference/pointtext">PointText</a></li>
 </ul>
 <li>
-<h2>User Interface & Events</h2>
+<h2>User Interaction & Events</h2>
 <ul>
+<li><a href="/reference/view">View</a></li>
+<li><a href="/reference/event">Event</a></li>
+<li><a href="/reference/mouseevent">MouseEvent</a></li>
 <li><a href="/reference/tool">Tool</a></li>
 <li><a href="/reference/toolevent">ToolEvent</a></li>
 <li><a href="/reference/key">Key</a></li>

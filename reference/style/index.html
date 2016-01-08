@@ -163,7 +163,9 @@ group.style = {
 
 
 
-	<div class="reference-members"><h2>Properties</h2>
+<!-- ================================ properties =========================== -->
+	<div class="reference-members">
+		<h2>Properties</h2>
 		
 			
 <div id="view" class="member">
@@ -176,6 +178,7 @@ group.style = {
 	<p>The view that this style belongs to.</p>
 	
 		<p>Read only.</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -202,6 +205,7 @@ group.style = {
 
 <div class="member-text">
 	<p>The color of the stroke.</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -247,6 +251,7 @@ circle.strokeColor = new Color(1, 0, 0);
 
 <div class="member-text">
 	<p>The width of the stroke.</p>
+	
 	
 	
 		<ul><b>Default:</b>
@@ -304,6 +309,11 @@ circle.strokeWidth = 10;
 when they have a stroke.</p>
 	
 	
+		<ul><b>Values:</b>
+		<li><tt>'round'</tt>, <tt>'square'</tt>, <tt>'butt'</tt></li>
+		</ul>
+	
+	
 		<ul><b>Default:</b>
 		<li>
 		<tt>'butt'</tt>
@@ -312,7 +322,7 @@ when they have a stroke.</p>
 	
 	<ul><b>Type:</b>
 	<li>
-		<tt>String('round', 'square', 'butt')</tt>
+		<tt>String</tt>
 	</li>
 	</ul>
     
@@ -369,6 +379,11 @@ line2.strokeCap = 'butt';
 when they have a stroke.</p>
 	
 	
+		<ul><b>Values:</b>
+		<li><tt>'miter'</tt>, <tt>'round'</tt>, <tt>'bevel'</tt></li>
+		</ul>
+	
+	
 		<ul><b>Default:</b>
 		<li>
 		<tt>'miter'</tt>
@@ -377,7 +392,7 @@ when they have a stroke.</p>
 	
 	<ul><b>Type:</b>
 	<li>
-		<tt>String('miter', 'round', 'bevel')</tt>
+		<tt>String</tt>
 	</li>
 	</ul>
     
@@ -433,6 +448,7 @@ transformation into account (the default behavior), or whether it should
 appear as a non-scaling stroke.</p>
 	
 	
+	
 		<ul><b>Default:</b>
 		<li>
 		<tt>true</tt>
@@ -463,6 +479,7 @@ appear as a non-scaling stroke.</p>
 	<p>The dash offset of the stroke.</p>
 	
 	
+	
 		<ul><b>Default:</b>
 		<li>
 		<tt>0</tt>
@@ -491,6 +508,7 @@ appear as a non-scaling stroke.</p>
 
 <div class="member-text">
 	<p>Specifies an array containing the dash and gap lengths of the stroke.</p>
+	
 	
 	
 		<ul><b>Default:</b>
@@ -548,6 +566,7 @@ the path. The miterLimit imposes a limit on the ratio of the miter length
 to the <a href="/reference/style#strokewidth"><tt>strokeWidth</tt></a>.</p>
 	
 	
+	
 		<ul><b>Default:</b>
 		<li>
 		<tt>10</tt>
@@ -578,6 +597,7 @@ to the <a href="/reference/style#strokewidth"><tt>strokeWidth</tt></a>.</p>
 
 <div class="member-text">
 	<p>The fill color.</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -626,6 +646,11 @@ circle.fillColor = new Color(1, 0, 0);
 modern browsers support fill-rules other than <tt>'nonzero'</tt>.</p>
 	
 	
+		<ul><b>Values:</b>
+		<li><tt>'nonzero'</tt>, <tt>'evenodd'</tt></li>
+		</ul>
+	
+	
 		<ul><b>Default:</b>
 		<li>
 		<tt>'nonzero'</tt>
@@ -634,7 +659,7 @@ modern browsers support fill-rules other than <tt>'nonzero'</tt>.</p>
 	
 	<ul><b>Type:</b>
 	<li>
-		<tt>String('nonzero', 'evenodd')</tt>
+		<tt>String</tt>
 	</li>
 	</ul>
     
@@ -656,6 +681,7 @@ modern browsers support fill-rules other than <tt>'nonzero'</tt>.</p>
 
 <div class="member-text">
 	<p>The shadow color.</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -708,6 +734,7 @@ var circle = new Path.Circle({
 	<p>The shadow's blur radius.</p>
 	
 	
+	
 		<ul><b>Default:</b>
 		<li>
 		<tt>0</tt>
@@ -736,6 +763,7 @@ var circle = new Path.Circle({
 
 <div class="member-text">
 	<p>The shadow's offset.</p>
+	
 	
 	
 		<ul><b>Default:</b>
@@ -771,6 +799,7 @@ var circle = new Path.Circle({
 not specify its own color, the color defined by its layer is used instead.</p>
 	
 	
+	
 	<ul><b>Type:</b>
 	<li>
 		<a href="/reference/color"><tt>Color</tt></a>
@@ -795,6 +824,7 @@ not specify its own color, the color defined by its layer is used instead.</p>
 
 <div class="member-text">
 	<p>The font-family to be used in text content.</p>
+	
 	
 	
 		<ul><b>Default:</b>
@@ -825,6 +855,7 @@ not specify its own color, the color defined by its layer is used instead.</p>
 
 <div class="member-text">
 	<p>The font-weight to be used in text content.</p>
+	
 	
 	
 		<ul><b>Default:</b>
@@ -858,6 +889,7 @@ not specify its own color, the color defined by its layer is used instead.</p>
 optional units <tt>'px'</tt>, <tt>'pt'</tt> and <tt>'em'</tt>.</p>
 	
 	
+	
 		<ul><b>Default:</b>
 		<li>
 		<tt>10</tt>
@@ -886,6 +918,7 @@ optional units <tt>'px'</tt>, <tt>'pt'</tt> and <tt>'em'</tt>.</p>
 
 <div class="member-text">
 	<p>The text leading of text content.</p>
+	
 	
 	
 		<ul><b>Default:</b>
@@ -920,6 +953,11 @@ optional units <tt>'px'</tt>, <tt>'pt'</tt> and <tt>'em'</tt>.</p>
 	<p>The justification of text paragraphs.</p>
 	
 	
+		<ul><b>Values:</b>
+		<li><tt>'left'</tt>, <tt>'right'</tt>, <tt>'center'</tt></li>
+		</ul>
+	
+	
 		<ul><b>Default:</b>
 		<li>
 		<tt>'left'</tt>
@@ -928,7 +966,7 @@ optional units <tt>'px'</tt>, <tt>'pt'</tt> and <tt>'em'</tt>.</p>
 	
 	<ul><b>Type:</b>
 	<li>
-		<tt>String('left', 'right', 'center')</tt>
+		<tt>String</tt>
 	</li>
 	</ul>
     
@@ -963,20 +1001,15 @@ optional units <tt>'px'</tt>, <tt>'pt'</tt> and <tt>'em'</tt>.</p>
 <li><a href="/reference/matrix">Matrix</a></li>
 </ul>
 <li>
-<h2>Projects</h2>
+<h2>Project & Items</h2>
 <ul>
 <li><a href="/reference/project">Project</a></li>
-<li><a href="/reference/view">View</a></li>
-<li><a href="/reference/symbol">Symbol</a></li>
-</ul>
-<li>
-<h2>Items</h2>
-<ul>
 <li><a href="/reference/item">Item</a></li>
 <li><a href="/reference/layer">Layer</a></li>
 <li><a href="/reference/group">Group</a></li>
 <li><a href="/reference/shape">Shape</a></li>
 <li><a href="/reference/raster">Raster</a></li>
+<li><a href="/reference/symbol">Symbol</a></li>
 <li><a href="/reference/placedsymbol">PlacedSymbol</a></li>
 <li><hr /></li>
 <li><a href="/reference/hitresult">HitResult</a></li>
@@ -1007,8 +1040,11 @@ optional units <tt>'px'</tt>, <tt>'pt'</tt> and <tt>'em'</tt>.</p>
 <li><a href="/reference/pointtext">PointText</a></li>
 </ul>
 <li>
-<h2>User Interface & Events</h2>
+<h2>User Interaction & Events</h2>
 <ul>
+<li><a href="/reference/view">View</a></li>
+<li><a href="/reference/event">Event</a></li>
+<li><a href="/reference/mouseevent">MouseEvent</a></li>
 <li><a href="/reference/tool">Tool</a></li>
 <li><a href="/reference/toolevent">ToolEvent</a></li>
 <li><a href="/reference/key">Key</a></li>

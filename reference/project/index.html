@@ -82,8 +82,9 @@ SVG and PDF.</p>
 
 </div>
 
-<!-- ============================== constructors ========================= -->
-<div class="reference-members"><h2>Constructors</h2>
+<!-- =============================== constructors ========================== -->
+<div class="reference-members">
+	<h2>Constructors</h2>
 	
 		
 <div id="project-element" class="member">
@@ -132,7 +133,9 @@ find the element.
 
 
 
-	<div class="reference-members"><h2>Properties</h2>
+<!-- ================================ properties =========================== -->
+	<div class="reference-members">
+		<h2>Properties</h2>
 		
 			
 <div id="view" class="member">
@@ -145,6 +148,7 @@ find the element.
 	<p>The reference to the project's view.</p>
 	
 		<p>Read only.</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -170,6 +174,7 @@ find the element.
 <div class="member-text">
 	<p>The currently active path style. All selected items and newly
 created items will be styled with this style.</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -244,6 +249,7 @@ var path2 = new Path.Circle(new Point(175, 50), 20);
 		<p>Read only.</p>
 	
 	
+	
 	<ul><b>Type:</b>
 	<li>
 		<tt>Number</tt>
@@ -268,6 +274,7 @@ var path2 = new Path.Circle(new Point(175, 50), 20);
 
 <div class="member-text">
 	<p>The layers contained within the project.</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -297,6 +304,7 @@ layer by default.</p>
 		<p>Read only.</p>
 	
 	
+	
 	<ul><b>Type:</b>
 	<li>
 		<a href="/reference/layer"><tt>Layer</tt></a>
@@ -319,6 +327,7 @@ layer by default.</p>
 
 <div class="member-text">
 	<p>The symbols contained within the project.</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -347,6 +356,7 @@ layer by default.</p>
 		<p>Read only.</p>
 	
 	
+	
 	<ul><b>Type:</b>
 	<li>
 		Array of <a href="/reference/item"><tt>Item</tt></a> objects
@@ -367,9 +377,10 @@ layer by default.</p>
 
 
 <!-- ============================== methods ================================ -->
-	<div class="reference-members"><h2>Methods</h2>
+	<div class="reference-members">
+		<h2>Methods</h2>
 		
-			
+	
 <div id="activate" class="member">
 <div class="member-link">
 <a name="activate" href="#activate"><tt><b>activate</b>()</tt></a>
@@ -386,8 +397,8 @@ in it.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="clear" class="member">
 <div class="member-link">
 <a name="clear" href="#clear"><tt><b>clear</b>()</tt></a>
@@ -404,8 +415,8 @@ in it.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="isempty" class="member">
 <div class="member-link">
 <a name="isempty" href="#isempty"><tt><b>isEmpty</b>()</tt></a>
@@ -429,8 +440,8 @@ in it.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="remove" class="member">
 <div class="member-link">
 <a name="remove" href="#remove"><tt><b>remove</b>()</tt></a>
@@ -447,8 +458,8 @@ removes its view, if one was defined.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="selectall" class="member">
 <div class="member-link">
 <a name="selectall" href="#selectall"><tt><b>selectAll</b>()</tt></a>
@@ -464,8 +475,8 @@ removes its view, if one was defined.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="deselectall" class="member">
 <div class="member-link">
 <a name="deselectall" href="#deselectall"><tt><b>deselectAll</b>()</tt></a>
@@ -481,8 +492,8 @@ removes its view, if one was defined.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="hittest-point" class="member">
 <div class="member-link">
 <a name="hittest-point" href="#hittest-point"><tt><b>hitTest</b>(point[, options])</tt></a>
@@ -497,8 +508,7 @@ and may contain a combination of the following values:</p>
 <b>Options:</b>
 <li><tt>options.tolerance: <tt>Number</tt></tt> &mdash; the tolerance of the hit-test &mdash;&nbsp;default: <tt><a href="/reference/paperscope#settings"><tt>paperScope.settings</tt></a>.hitTolerance</tt></li>
 <li><tt>options.class: <tt>Function</tt></tt> &mdash; only hit-test again a certain item class
-    and its sub-classes: <tt>Group, Layer, Path, CompoundPath, Shape,
-    Raster, PlacedSymbol, PointText</tt>, etc</li>
+    and its sub-classes: <tt>Group</tt>, <tt>Layer</tt>, <tt>Path</tt>, <tt>CompoundPath</tt>, <tt>Shape</tt>, <tt>Raster</tt>, <tt>PlacedSymbol</tt>, <tt>PointText</tt>, &hellip;</li>
 <li><tt>options.fill: <tt>Boolean</tt></tt> &mdash; hit-test the fill of items</li>
 <li><tt>options.stroke: <tt>Boolean</tt></tt> &mdash; hit-test the stroke of path items,
     taking into account the setting of stroke color and width</li>
@@ -551,8 +561,8 @@ and may contain a combination of the following values:</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <h3>Fetching and matching items</h3>
 
 <div id="getitems-match" class="member">
@@ -912,8 +922,8 @@ for (var i = 0; i < items.length; i++) {
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="getitem-match" class="member">
 <div class="member-link">
 <a name="getitem-match" href="#getitem-match"><tt><b>getItem</b>(match)</tt></a>
@@ -955,8 +965,8 @@ does work for <a href="/reference/item#data"><tt>item.data</tt></a>.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <h3>Importing / Exporting JSON and SVG</h3>
 
 <div id="exportjson" class="member">
@@ -1000,8 +1010,8 @@ JSON data object or string.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="importjson-json" class="member">
 <div class="member-link">
 <a name="importjson-json" href="#importjson-json"><tt><b>importJSON</b>(json)</tt></a>
@@ -1030,8 +1040,8 @@ JSON data object or string.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="exportsvg" class="member">
 <div class="member-link">
 <a name="exportsvg" href="#exportsvg"><tt><b>exportSVG</b>([options])</tt></a>
@@ -1079,8 +1089,8 @@ all contained in one top level SVG group node.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="importsvg-svg" class="member">
 <div class="member-link">
 <a name="importsvg-svg" href="#importsvg-svg"><tt><b>importSVG</b>(svg[, options])</tt></a>
@@ -1137,8 +1147,8 @@ SVG content
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="importsvg-svg-onLoad" class="member">
 <div class="member-link">
 <a name="importsvg-svg-onLoad" href="#importsvg-svg-onLoad"><tt><b>importSVG</b>(svg, onLoad)</tt></a>
@@ -1185,6 +1195,8 @@ SVG content
 </div>
 </div>
 </div>
+
+
 		
 	</div>
 
@@ -1206,20 +1218,15 @@ SVG content
 <li><a href="/reference/matrix">Matrix</a></li>
 </ul>
 <li>
-<h2>Projects</h2>
+<h2>Project & Items</h2>
 <ul>
 <li><a href="/reference/project">Project</a></li>
-<li><a href="/reference/view">View</a></li>
-<li><a href="/reference/symbol">Symbol</a></li>
-</ul>
-<li>
-<h2>Items</h2>
-<ul>
 <li><a href="/reference/item">Item</a></li>
 <li><a href="/reference/layer">Layer</a></li>
 <li><a href="/reference/group">Group</a></li>
 <li><a href="/reference/shape">Shape</a></li>
 <li><a href="/reference/raster">Raster</a></li>
+<li><a href="/reference/symbol">Symbol</a></li>
 <li><a href="/reference/placedsymbol">PlacedSymbol</a></li>
 <li><hr /></li>
 <li><a href="/reference/hitresult">HitResult</a></li>
@@ -1250,8 +1257,11 @@ SVG content
 <li><a href="/reference/pointtext">PointText</a></li>
 </ul>
 <li>
-<h2>User Interface & Events</h2>
+<h2>User Interaction & Events</h2>
 <ul>
+<li><a href="/reference/view">View</a></li>
+<li><a href="/reference/event">Event</a></li>
+<li><a href="/reference/mouseevent">MouseEvent</a></li>
 <li><a href="/reference/tool">Tool</a></li>
 <li><a href="/reference/toolevent">ToolEvent</a></li>
 <li><a href="/reference/key">Key</a></li>

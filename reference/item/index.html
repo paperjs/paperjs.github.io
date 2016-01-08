@@ -79,7 +79,9 @@ that they inherit from Item.</p>
 
 
 
-	<div class="reference-members"><h2>Properties</h2>
+<!-- ================================ properties =========================== -->
+	<div class="reference-members">
+		<h2>Properties</h2>
 		
 			
 <div id="id" class="member">
@@ -92,6 +94,7 @@ that they inherit from Item.</p>
 	<p>The unique id of the item.</p>
 	
 		<p>Read only.</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -118,10 +121,14 @@ that they inherit from Item.</p>
 	<p>The class name of the item as a string.</p>
 	
 	
+		<ul><b>Values:</b>
+		<li><tt>'Group'</tt>, <tt>'Layer'</tt>, <tt>'Path'</tt>, <tt>'CompoundPath'</tt>, <tt>'Shape'</tt>, <tt>'Raster'</tt>, <tt>'PlacedSymbol'</tt>, <tt>'PointText'</tt></li>
+		</ul>
+	
+	
 	<ul><b>Type:</b>
 	<li>
-		<tt>String('Group', 'Layer', 'Path', 'CompoundPath', 'Shape',
-'Raster', 'PlacedSymbol', 'PointText')</tt>
+		<tt>String</tt>
 	</li>
 	</ul>
     
@@ -142,6 +149,7 @@ that they inherit from Item.</p>
 <div class="member-text">
 	<p>The name of the item. If the item has a name, it can be accessed by name
 through its parent's children list.</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -194,6 +202,7 @@ group.children['example'].fillColor = 'red';
 
 <div class="member-text">
 	<p>The path style of the item.</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -307,6 +316,7 @@ path2.style = myStyle;
 won't be drawn.</p>
 	
 	
+	
 		<ul><b>Default:</b>
 		<li>
 		<tt>true</tt>
@@ -363,6 +373,12 @@ are supported. If blend-modes cannot be rendered natively, they are
 emulated. Be aware that emulation can have an impact on performance.</p>
 	
 	
+		<ul><b>Values:</b>
+		<li><tt>'normal'</tt>, <tt>'multiply'</tt>, <tt>'screen'</tt>, <tt>'overlay'</tt>, <tt>'soft-light'</tt>, <tt>'hard-
+    light'</tt>, <tt>'color-dodge'</tt>, <tt>'color-burn'</tt>, <tt>'darken'</tt>, <tt>'lighten'</tt>, <tt>'difference'</tt>, <tt>'exclusion'</tt>, <tt>'hue'</tt>, <tt>'saturation'</tt>, <tt>'luminosity'</tt>, <tt>'color'</tt>, <tt>'add'</tt>, <tt>'subtract'</tt>, <tt>'average'</tt>, <tt>'pin-light'</tt>, <tt>'negation'</tt>, <tt>'source- over'</tt>, <tt>'source-in'</tt>, <tt>'source-out'</tt>, <tt>'source-atop'</tt>, <tt>'destination-over'</tt>, <tt>'destination-in'</tt>, <tt>'destination-out'</tt>, <tt>'destination-atop'</tt>, <tt>'lighter'</tt>, <tt>'darker'</tt>, <tt>'copy'</tt>, <tt>'xor'</tt></li>
+		</ul>
+	
+	
 		<ul><b>Default:</b>
 		<li>
 		<tt>'normal'</tt>
@@ -371,13 +387,7 @@ emulated. Be aware that emulation can have an impact on performance.</p>
 	
 	<ul><b>Type:</b>
 	<li>
-		<tt>String('normal', 'multiply', 'screen', 'overlay', 'soft-light',
-'hard-light', 'color-dodge', 'color-burn', 'darken', 'lighten',
-'difference', 'exclusion', 'hue', 'saturation', 'luminosity', 'color',
-'add', 'subtract', 'average', 'pin-light', 'negation', 'source-over',
-'source-in', 'source-out', 'source-atop', 'destination-over',
-'destination-in', 'destination-out', 'destination-atop', 'lighter',
-'darker', 'copy', 'xor')</tt>
+		<tt>String</tt>
 	</li>
 	</ul>
     
@@ -431,6 +441,7 @@ circle2.blendMode = 'multiply';
 
 <div class="member-text">
 	<p>The opacity of the item as a value between <tt>0</tt> and <tt>1</tt>.</p>
+	
 	
 	
 		<ul><b>Default:</b>
@@ -500,6 +511,7 @@ construction of paths, position of path curves, individual segment points
 and bounding boxes of symbol and raster items.</p>
 	
 	
+	
 	<ul><b>Type:</b>
 	<li>
 		<tt>Boolean</tt>
@@ -550,6 +562,7 @@ paths, compound paths, and text frame objects, and only if the item is
 already contained within a clipping group.</p>
 	
 	
+	
 	<ul><b>Type:</b>
 	<li>
 		<tt>Boolean</tt>
@@ -573,6 +586,7 @@ already contained within a clipping group.</p>
 <div class="member-text">
 	<p>A plain javascript object which can be used to store
 arbitrary data on the item.</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -644,6 +658,7 @@ console.log(path.data.pets.length); // 1</pre>
 	<p>The item's position within the parent item's coordinate system. By
 default, this is the <a href="/reference/rectangle#center"><tt>rectangle.center</tt></a> of the item's
 <a href="/reference/item#bounds"><tt>bounds</tt></a> rectangle.</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -726,6 +741,7 @@ meaning the <a href="/reference/rectangle#center"><tt>rectangle.center</tt></a> 
 rectangle is used as pivot.</p>
 	
 	
+	
 	<ul><b>Type:</b>
 	<li>
 		<a href="/reference/point"><tt>Point</tt></a>
@@ -748,6 +764,7 @@ rectangle is used as pivot.</p>
 
 <div class="member-text">
 	<p>The bounding rectangle of the item excluding stroke width.</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -774,6 +791,7 @@ rectangle is used as pivot.</p>
 	<p>The bounding rectangle of the item including stroke width.</p>
 	
 	
+	
 	<ul><b>Type:</b>
 	<li>
 		<a href="/reference/rectangle"><tt>Rectangle</tt></a>
@@ -796,6 +814,7 @@ rectangle is used as pivot.</p>
 
 <div class="member-text">
 	<p>The bounding rectangle of the item including handles.</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -823,6 +842,7 @@ rectangle is used as pivot.</p>
 <a href="/reference/item#matrix"><tt>matrix</tt></a>.</p>
 	
 	
+	
 	<ul><b>Type:</b>
 	<li>
 		<tt>Number</tt>
@@ -848,6 +868,7 @@ rectangle is used as pivot.</p>
 <a href="/reference/item#matrix"><tt>matrix</tt></a>.</p>
 	
 	
+	
 	<ul><b>Type:</b>
 	<li>
 		<a href="/reference/point"><tt>Point</tt></a>
@@ -871,6 +892,7 @@ rectangle is used as pivot.</p>
 <div class="member-text">
 	<p>The item's transformation matrix, defining position and dimensions in
 relation to its parent item in which it is contained.</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -899,6 +921,7 @@ coordinate space. Note that the view's transformations resulting from
 zooming and panning are not factored in.</p>
 	
 		<p>Read only.</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -930,6 +953,7 @@ on to the segments in <a href="/reference/path"><tt>Path</tt></a> items, the chi
 items, etc.).</p>
 	
 	
+	
 	<ul><b>Type:</b>
 	<li>
 		<tt>Boolean</tt>
@@ -958,6 +982,7 @@ items, etc.).</p>
 		<p>Read only.</p>
 	
 	
+	
 	<ul><b>Type:</b>
 	<li>
 		<a href="/reference/project"><tt>Project</tt></a>
@@ -982,6 +1007,7 @@ items, etc.).</p>
 	<p>The view that this item belongs to.</p>
 	
 		<p>Read only.</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -1010,6 +1036,7 @@ items, etc.).</p>
 		<p>Read only.</p>
 	
 	
+	
 	<ul><b>Type:</b>
 	<li>
 		<a href="/reference/layer"><tt>Layer</tt></a>
@@ -1032,6 +1059,7 @@ items, etc.).</p>
 
 <div class="member-text">
 	<p>The item that this item is contained within.</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -1113,6 +1141,7 @@ using array functions. To remove single items from the children list, use
 <a href="/reference/item#remove"><tt>item.remove</tt></a>(), to remove all items from the children list, use
 <a href="/reference/item#removechildren"><tt>item.removeChildren</tt></a>(). To add items to the children list, use
 <a href="/reference/item#addchild-item"><tt>item.addChild(item)</tt></a> or <a href="/reference/item#insertchild-index-item"><tt>item.insertChild(index, item)</tt></a>.</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -1223,6 +1252,7 @@ accessing <tt>item.children[0]</tt>.</p>
 		<p>Read only.</p>
 	
 	
+	
 	<ul><b>Type:</b>
 	<li>
 		<a href="/reference/item"><tt>Item</tt></a>
@@ -1248,6 +1278,7 @@ accessing <tt>item.children[0]</tt>.</p>
 accessing <tt>item.children[item.children.length - 1]</tt>.</p>
 	
 		<p>Read only.</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -1276,6 +1307,7 @@ accessing <tt>item.children[item.children.length - 1]</tt>.</p>
 		<p>Read only.</p>
 	
 	
+	
 	<ul><b>Type:</b>
 	<li>
 		<a href="/reference/item"><tt>Item</tt></a>
@@ -1300,6 +1332,7 @@ accessing <tt>item.children[item.children.length - 1]</tt>.</p>
 	<p>The previous item on the same level as this item.</p>
 	
 		<p>Read only.</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -1328,6 +1361,7 @@ accessing <tt>item.children[item.children.length - 1]</tt>.</p>
 		<p>Read only.</p>
 	
 	
+	
 	<ul><b>Type:</b>
 	<li>
 		<tt>Number</tt>
@@ -1352,6 +1386,7 @@ accessing <tt>item.children[item.children.length - 1]</tt>.</p>
 
 <div class="member-text">
 	<p>The color of the stroke.</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -1400,6 +1435,7 @@ circle.strokeColor = new Color(1, 0, 0);
 
 <div class="member-text">
 	<p>The width of the stroke.</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -1452,6 +1488,11 @@ circle.strokeWidth = 10;
 when they have a stroke.</p>
 	
 	
+		<ul><b>Values:</b>
+		<li><tt>'round'</tt>, <tt>'square'</tt>, <tt>'butt'</tt></li>
+		</ul>
+	
+	
 		<ul><b>Default:</b>
 		<li>
 		<tt>'butt'</tt>
@@ -1460,7 +1501,7 @@ when they have a stroke.</p>
 	
 	<ul><b>Type:</b>
 	<li>
-		<tt>String('round', 'square', 'butt')</tt>
+		<tt>String</tt>
 	</li>
 	</ul>
     
@@ -1517,6 +1558,11 @@ line2.strokeCap = 'butt';
 when they have a stroke.</p>
 	
 	
+		<ul><b>Values:</b>
+		<li><tt>'miter'</tt>, <tt>'round'</tt>, <tt>'bevel'</tt></li>
+		</ul>
+	
+	
 		<ul><b>Default:</b>
 		<li>
 		<tt>'miter'</tt>
@@ -1525,7 +1571,7 @@ when they have a stroke.</p>
 	
 	<ul><b>Type:</b>
 	<li>
-		<tt>String('miter', 'round', 'bevel')</tt>
+		<tt>String</tt>
 	</li>
 	</ul>
     
@@ -1577,6 +1623,7 @@ path3.strokeJoin = 'bevel';
 	<p>The dash offset of the stroke.</p>
 	
 	
+	
 		<ul><b>Default:</b>
 		<li>
 		<tt>0</tt>
@@ -1609,6 +1656,7 @@ transformation into account (the default behavior), or whether it should
 appear as a non-scaling stroke.</p>
 	
 	
+	
 		<ul><b>Default:</b>
 		<li>
 		<tt>true</tt>
@@ -1637,6 +1685,7 @@ appear as a non-scaling stroke.</p>
 
 <div class="member-text">
 	<p>Specifies an array containing the dash and gap lengths of the stroke.</p>
+	
 	
 	
 		<ul><b>Default:</b>
@@ -1698,6 +1747,7 @@ miterLimit imposes a limit on the ratio of the miter length to the
 <a href="/reference/item#strokewidth"><tt>item.strokeWidth</tt></a>.</p>
 	
 	
+	
 		<ul><b>Default:</b>
 		<li>
 		<tt>10</tt>
@@ -1728,6 +1778,7 @@ miterLimit imposes a limit on the ratio of the miter length to the
 
 <div class="member-text">
 	<p>The fill color of the item.</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -1779,6 +1830,11 @@ circle.fillColor = new Color(1, 0, 0);
 modern browsers support fill-rules other than <tt>'nonzero'</tt>.</p>
 	
 	
+		<ul><b>Values:</b>
+		<li><tt>'nonzero'</tt>, <tt>'evenodd'</tt></li>
+		</ul>
+	
+	
 		<ul><b>Default:</b>
 		<li>
 		<tt>'nonzero'</tt>
@@ -1787,7 +1843,7 @@ modern browsers support fill-rules other than <tt>'nonzero'</tt>.</p>
 	
 	<ul><b>Type:</b>
 	<li>
-		<tt>String('nonzero', 'evenodd')</tt>
+		<tt>String</tt>
 	</li>
 	</ul>
     
@@ -1809,6 +1865,7 @@ modern browsers support fill-rules other than <tt>'nonzero'</tt>.</p>
 
 <div class="member-text">
 	<p>The shadow color.</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -1861,6 +1918,7 @@ var circle = new Path.Circle({
 	<p>The shadow's blur radius.</p>
 	
 	
+	
 		<ul><b>Default:</b>
 		<li>
 		<tt>0</tt>
@@ -1889,6 +1947,7 @@ var circle = new Path.Circle({
 
 <div class="member-text">
 	<p>The shadow's offset.</p>
+	
 	
 	
 		<ul><b>Default:</b>
@@ -1924,6 +1983,7 @@ var circle = new Path.Circle({
 not specify its own color, the color defined by its layer is used instead.</p>
 	
 	
+	
 	<ul><b>Type:</b>
 	<li>
 		<a href="/reference/color"><tt>Color</tt></a>
@@ -1950,6 +2010,7 @@ not specify its own color, the color defined by its layer is used instead.</p>
 	<p>Item level handler function to be called on each frame of an animation.</p>
 <p>The function receives an event object which contains information about
 the frame event:</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -2012,6 +2073,7 @@ path.onFrame = function(event) {
 	<p>The function to be called when the mouse button is pushed down on the
 item. The function receives a <a href="/reference/mouseevent"><tt>MouseEvent</tt></a> object which contains
 information about the mouse event.</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -2087,6 +2149,58 @@ for (var i = 0; i < 30; i++) {
 </div>
 		
 			
+<div id="onmousedrag" class="member">
+<div class="member-link">
+<a name="onmousedrag" href="#onmousedrag"><tt><b>onMouseDrag</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The function to be called when the mouse position changes while the mouse
+is being dragged over the item. The function receives a <a href="/reference/mouseevent"><tt>MouseEvent</tt></a> object which contains information about the mouse event.</p>
+	
+	
+	
+	<ul><b>Type:</b>
+	<li>
+		<tt>Function</tt>
+	</li>
+	</ul>
+    
+	
+	<p>
+<b>Example</b> &mdash; Press and drag the mouse on the blue circle to move it:
+</p>
+
+<div class="paperscript split">
+
+<div class="buttons">
+<div class="button run">Run</div>
+</div>
+
+<script type="text/paperscript" canvas="canvas-23">
+// Create a circle shaped path at the center of the view:
+var path = new Path.Circle({
+    center: view.center,
+    radius: 50,
+    fillColor: 'blue'
+});
+
+// Install a drag event handler that moves the path along.
+path.onMouseDrag = function(event) {
+    path.position += event.delta;
+}
+</script>
+<div class="canvas"><canvas width="516" height="240" id="canvas-23"></canvas></div>
+</div>
+
+
+</div>
+
+</div>
+</div>
+		
+			
 <div id="onmouseup" class="member">
 <div class="member-link">
 <a name="onmouseup" href="#onmouseup"><tt><b>onMouseUp</b></tt></a>
@@ -2097,6 +2211,7 @@ for (var i = 0; i < 30; i++) {
 	<p>The function to be called when the mouse button is released over the item.</p>
 <p>The function receives a <a href="/reference/mouseevent"><tt>MouseEvent</tt></a> object which contains
 information about the mouse event.</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -2116,7 +2231,7 @@ information about the mouse event.</p>
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-23">
+<script type="text/paperscript" canvas="canvas-24">
 // Create a circle shaped path at the center of the view:
 var path = new Path.Circle({
     center: view.center,
@@ -2130,7 +2245,7 @@ path.onMouseUp = function(event) {
     this.fillColor = 'red';
 }
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-23"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-24"></canvas></div>
 </div>
 
 
@@ -2152,6 +2267,7 @@ receives a <a href="/reference/mouseevent"><tt>MouseEvent</tt></a> object which 
 mouse event.</p>
 	
 	
+	
 	<ul><b>Type:</b>
 	<li>
 		<tt>Function</tt>
@@ -2169,7 +2285,7 @@ mouse event.</p>
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-24">
+<script type="text/paperscript" canvas="canvas-25">
 // Create a circle shaped path at the center of the view:
 var path = new Path.Circle({
     center: view.center,
@@ -2183,7 +2299,7 @@ path.onClick = function(event) {
     this.fillColor = 'red';
 }
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-24"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-25"></canvas></div>
 </div>
 
 
@@ -2197,7 +2313,7 @@ path.onClick = function(event) {
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-25">
+<script type="text/paperscript" canvas="canvas-26">
 // Loop 30 times:
 for (var i = 0; i < 30; i++) {
     // Create a circle shaped path at a random position
@@ -2215,7 +2331,7 @@ for (var i = 0; i < 30; i++) {
     }
 }
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-25"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-26"></canvas></div>
 </div>
 
 
@@ -2237,6 +2353,7 @@ function receives a <a href="/reference/mouseevent"><tt>MouseEvent</tt></a> obje
 about the mouse event.</p>
 	
 	
+	
 	<ul><b>Type:</b>
 	<li>
 		<tt>Function</tt>
@@ -2254,7 +2371,7 @@ about the mouse event.</p>
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-26">
+<script type="text/paperscript" canvas="canvas-27">
 // Create a circle shaped path at the center of the view:
 var path = new Path.Circle({
     center: view.center,
@@ -2268,7 +2385,7 @@ path.onDoubleClick = function(event) {
     this.fillColor = 'red';
 }
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-26"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-27"></canvas></div>
 </div>
 
 
@@ -2282,7 +2399,7 @@ path.onDoubleClick = function(event) {
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-27">
+<script type="text/paperscript" canvas="canvas-28">
 // Loop 30 times:
 for (var i = 0; i < 30; i++) {
     // Create a circle shaped path at a random position
@@ -2300,7 +2417,7 @@ for (var i = 0; i < 30; i++) {
     }
 }
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-27"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-28"></canvas></div>
 </div>
 
 
@@ -2322,6 +2439,7 @@ item. The function receives a <a href="/reference/mouseevent"><tt>MouseEvent</tt
 information about the mouse event.</p>
 	
 	
+	
 	<ul><b>Type:</b>
 	<li>
 		<tt>Function</tt>
@@ -2339,7 +2457,7 @@ information about the mouse event.</p>
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-28">
+<script type="text/paperscript" canvas="canvas-29">
 // Create a circle shaped path at the center of the view:
     var path = new Path.Circle({
     center: view.center,
@@ -2353,7 +2471,7 @@ path.onMouseMove = function(event) {
     this.opacity = Math.random();
 }
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-28"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-29"></canvas></div>
 </div>
 
 
@@ -2376,6 +2494,7 @@ item first. The function receives a <a href="/reference/mouseevent"><tt>MouseEve
 contains information about the mouse event.</p>
 	
 	
+	
 	<ul><b>Type:</b>
 	<li>
 		<tt>Function</tt>
@@ -2393,7 +2512,7 @@ contains information about the mouse event.</p>
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-29">
+<script type="text/paperscript" canvas="canvas-30">
 // Create a circle shaped path at the center of the view:
 var path = new Path.Circle({
     center: view.center,
@@ -2411,7 +2530,7 @@ path.onMouseLeave = function(event) {
     this.fillColor = 'black';
 }
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-29"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-30"></canvas></div>
 </div>
 
 
@@ -2425,7 +2544,7 @@ path.onMouseLeave = function(event) {
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-30">
+<script type="text/paperscript" canvas="canvas-31">
 function enter(event) {
     this.fillColor = 'red';
 }
@@ -2447,7 +2566,7 @@ function onMouseDown(event) {
     path.onMouseLeave = leave;
 }
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-30"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-31"></canvas></div>
 </div>
 
 
@@ -2469,6 +2588,7 @@ function onMouseDown(event) {
 information about the mouse event.</p>
 	
 	
+	
 	<ul><b>Type:</b>
 	<li>
 		<tt>Function</tt>
@@ -2486,7 +2606,7 @@ information about the mouse event.</p>
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-31">
+<script type="text/paperscript" canvas="canvas-32">
 // Create a circle shaped path at the center of the view:
 var path = new Path.Circle({
     center: view.center,
@@ -2499,7 +2619,7 @@ path.onMouseLeave = function(event) {
     this.fillColor = 'red';
 }
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-31"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-32"></canvas></div>
 </div>
 
 
@@ -2515,9 +2635,10 @@ path.onMouseLeave = function(event) {
 
 
 <!-- ============================== methods ================================ -->
-	<div class="reference-members"><h2>Methods</h2>
+	<div class="reference-members">
+		<h2>Methods</h2>
 		
-			
+	
 <div id="set-props" class="member">
 <div class="member-link">
 <a name="set-props" href="#set-props"><tt><b>set</b>(props)</tt></a>
@@ -2560,7 +2681,7 @@ given name (or a setter defined for it).</p>
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-32">
+<script type="text/paperscript" canvas="canvas-33">
 var circle = new Path.Circle({
     center: [80, 50],
     radius: 35
@@ -2573,15 +2694,15 @@ circle.set({
     selected: true
 });
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-32"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-33"></canvas></div>
 </div>
 
 
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="clone" class="member">
 <div class="member-link">
 <a name="clone" href="#clone"><tt><b>clone</b>([insert])</tt></a>
@@ -2625,7 +2746,7 @@ item.</p>
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-33">
+<script type="text/paperscript" canvas="canvas-34">
 var circle = new Path.Circle({
     center: [50, 50],
     radius: 10,
@@ -2640,15 +2761,15 @@ for (var i = 0; i < 20; i++) {
     copy.position.x += i * copy.bounds.width;
 }
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-33"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-34"></canvas></div>
 </div>
 
 
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="copycontent-source" class="member">
 <div class="member-link">
 <a name="copycontent-source" href="#copycontent-source"><tt><b>copyContent</b>(source)</tt></a>
@@ -2675,8 +2796,8 @@ for (var i = 0; i < 20; i++) {
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="copyattributes-source-excludeMatrix" class="member">
 <div class="member-link">
 <a name="copyattributes-source-excludeMatrix" href="#copyattributes-source-excludeMatrix"><tt><b>copyAttributes</b>(source, excludeMatrix)</tt></a>
@@ -2713,8 +2834,8 @@ matrix when copying all attributes
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="copyto-item" class="member">
 <div class="member-link">
 <a name="copyto-item" href="#copyto-item"><tt><b>copyTo</b>(item)</tt></a>
@@ -2752,8 +2873,8 @@ copy the item to
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="rasterize" class="member">
 <div class="member-link">
 <a name="rasterize" href="#rasterize"><tt><b>rasterize</b>([resolution[, insert]])</tt></a>
@@ -2806,7 +2927,7 @@ is not removed after rasterization.</p>
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-34">
+<script type="text/paperscript" canvas="canvas-35">
 var circle = new Path.Circle({
     center: [50, 50],
     radius: 5,
@@ -2823,15 +2944,15 @@ raster.position.x += 100;
 circle.scale(5);
 raster.scale(5);
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-34"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-35"></canvas></div>
 </div>
 
 
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="contains-point" class="member">
 <div class="member-link">
 <a name="contains-point" href="#contains-point"><tt><b>contains</b>(point)</tt></a>
@@ -2864,7 +2985,7 @@ raster.scale(5);
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-35">
+<script type="text/paperscript" canvas="canvas-36">
 var path = new Path.Star({
     center: [50, 50],
     points: 12,
@@ -2885,15 +3006,15 @@ function onMouseDown(event) {
     }
 }
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-35"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-36"></canvas></div>
 </div>
 
 
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="isinside-rect" class="member">
 <div class="member-link">
 <a name="isinside-rect" href="#isinside-rect"><tt><b>isInside</b>(rect)</tt></a>
@@ -2928,8 +3049,8 @@ function onMouseDown(event) {
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="intersects-item" class="member">
 <div class="member-link">
 <a name="intersects-item" href="#intersects-item"><tt><b>intersects</b>(item)</tt></a>
@@ -2964,8 +3085,8 @@ function onMouseDown(event) {
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="hittest-point" class="member">
 <div class="member-link">
 <a name="hittest-point" href="#hittest-point"><tt><b>hitTest</b>(point[, options])</tt></a>
@@ -2979,8 +3100,7 @@ and may contain a combination of the following values:</p>
 <b>Options:</b>
 <li><tt>options.tolerance: <tt>Number</tt></tt> &mdash; the tolerance of the hit-test &mdash;&nbsp;default: <tt><a href="/reference/paperscope#settings"><tt>paperScope.settings</tt></a>.hitTolerance</tt></li>
 <li><tt>options.class: <tt>Function</tt></tt> &mdash; only hit-test again a certain item class
-    and its sub-classes: <tt>Group, Layer, Path, CompoundPath, Shape,
-    Raster, PlacedSymbol, PointText</tt>, etc</li>
+    and its sub-classes: <tt>Group</tt>, <tt>Layer</tt>, <tt>Path</tt>, <tt>CompoundPath</tt>, <tt>Shape</tt>, <tt>Raster</tt>, <tt>PlacedSymbol</tt>, <tt>PointText</tt>, &hellip;</li>
 <li><tt>options.fill: <tt>Boolean</tt></tt> &mdash; hit-test the fill of items</li>
 <li><tt>options.stroke: <tt>Boolean</tt></tt> &mdash; hit-test the stroke of path items,
     taking into account the setting of stroke color and width</li>
@@ -3033,8 +3153,8 @@ and may contain a combination of the following values:</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <h3>Fetching and matching items</h3>
 
 <div id="matches-match" class="member">
@@ -3079,8 +3199,8 @@ examples.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="matches-name-compare" class="member">
 <div class="member-link">
 <a name="matches-name-compare" href="#matches-name-compare"><tt><b>matches</b>(name, compare)</tt></a>
@@ -3134,8 +3254,8 @@ compare against
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="getitems-match" class="member">
 <div class="member-link">
 <a name="getitems-match" href="#getitems-match"><tt><b>getItems</b>(match)</tt></a>
@@ -3198,8 +3318,8 @@ examples.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="getitem-match" class="member">
 <div class="member-link">
 <a name="getitem-match" href="#getitem-match"><tt><b>getItem</b>(match)</tt></a>
@@ -3246,8 +3366,8 @@ examples.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <h3>Importing / Exporting JSON and SVG</h3>
 
 <div id="exportjson" class="member">
@@ -3291,8 +3411,8 @@ data string.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="importjson-json" class="member">
 <div class="member-link">
 <a name="importjson-json" href="#importjson-json"><tt><b>importJSON</b>(json)</tt></a>
@@ -3323,8 +3443,8 @@ items can have children.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="exportsvg" class="member">
 <div class="member-link">
 <a name="exportsvg" href="#exportsvg"><tt><b>exportSVG</b>([options])</tt></a>
@@ -3371,8 +3491,8 @@ items can have children.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="importsvg-svg" class="member">
 <div class="member-link">
 <a name="importsvg-svg" href="#importsvg-svg"><tt><b>importSVG</b>(svg[, options])</tt></a>
@@ -3428,8 +3548,8 @@ the this item's children list. Note that the item is not cleared first.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="importsvg-svg-onLoad" class="member">
 <div class="member-link">
 <a name="importsvg-svg-onLoad" href="#importsvg-svg-onLoad"><tt><b>importSVG</b>(svg, onLoad)</tt></a>
@@ -3475,8 +3595,8 @@ cleared first. You can call <a href="/reference/item#removechildren"><tt>item.re
 </div>
 </div>
 </div>
-		
-			
+
+	
 <h3>Hierarchy Operations</h3>
 
 <div id="addchild-item" class="member">
@@ -3515,8 +3635,8 @@ for groups, compound paths and layers.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="insertchild-index-item" class="member">
 <div class="member-link">
 <a name="insertchild-index-item" href="#insertchild-index-item"><tt><b>insertChild</b>(index, item)</tt></a>
@@ -3560,8 +3680,8 @@ compound paths and layers.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="addchildren-items" class="member">
 <div class="member-link">
 <a name="addchildren-items" href="#addchildren-items"><tt><b>addChildren</b>(items)</tt></a>
@@ -3598,8 +3718,8 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="insertchildren-index-items" class="member">
 <div class="member-link">
 <a name="insertchildren-index-items" href="#insertchildren-index-items"><tt><b>insertChildren</b>(index, items)</tt></a>
@@ -3644,8 +3764,8 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="insertabove-item" class="member">
 <div class="member-link">
 <a name="insertabove-item" href="#insertabove-item"><tt><b>insertAbove</b>(item)</tt></a>
@@ -3680,8 +3800,8 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="insertbelow-item" class="member">
 <div class="member-link">
 <a name="insertbelow-item" href="#insertbelow-item"><tt><b>insertBelow</b>(item)</tt></a>
@@ -3716,8 +3836,8 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="sendtoback" class="member">
 <div class="member-link">
 <a name="sendtoback" href="#sendtoback"><tt><b>sendToBack</b>()</tt></a>
@@ -3733,8 +3853,8 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="bringtofront" class="member">
 <div class="member-link">
 <a name="bringtofront" href="#bringtofront"><tt><b>bringToFront</b>()</tt></a>
@@ -3750,8 +3870,8 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="reduce-options" class="member">
 <div class="member-link">
 <a name="reduce-options" href="#reduce-options"><tt><b>reduce</b>(options)</tt></a>
@@ -3788,8 +3908,8 @@ item itself is returned unmodified.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="remove" class="member">
 <div class="member-link">
 <a name="remove" href="#remove"><tt><b>remove</b>()</tt></a>
@@ -3814,8 +3934,8 @@ destroyed and can be inserted again after removal.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="replacewith-item" class="member">
 <div class="member-link">
 <a name="replacewith-item" href="#replacewith-item"><tt><b>replaceWith</b>(item)</tt></a>
@@ -3851,8 +3971,8 @@ in the project hierarchy instead.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="removechildren" class="member">
 <div class="member-link">
 <a name="removechildren" href="#removechildren"><tt><b>removeChildren</b>()</tt></a>
@@ -3876,8 +3996,8 @@ in the project hierarchy instead.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="removechildren-from" class="member">
 <div class="member-link">
 <a name="removechildren-from" href="#removechildren-from"><tt><b>removeChildren</b>(from[, to])</tt></a>
@@ -3920,8 +4040,8 @@ from the parent's <a href="/reference/item#children"><tt>children</tt></a> array
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="reversechildren" class="member">
 <div class="member-link">
 <a name="reversechildren" href="#reversechildren"><tt><b>reverseChildren</b>()</tt></a>
@@ -3937,8 +4057,8 @@ from the parent's <a href="/reference/item#children"><tt>children</tt></a> array
 </div>
 </div>
 </div>
-		
-			
+
+	
 <h3>Tests</h3>
 
 <div id="isempty" class="member">
@@ -3967,8 +4087,8 @@ with no segments all are considered empty.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <h3>Style Tests</h3>
 
 <div id="hasfill" class="member">
@@ -3994,8 +4114,8 @@ with no segments all are considered empty.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="hasstroke" class="member">
 <div class="member-link">
 <a name="hasstroke" href="#hasstroke"><tt><b>hasStroke</b>()</tt></a>
@@ -4019,8 +4139,8 @@ with no segments all are considered empty.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="hasshadow" class="member">
 <div class="member-link">
 <a name="hasshadow" href="#hasshadow"><tt><b>hasShadow</b>()</tt></a>
@@ -4044,8 +4164,8 @@ with no segments all are considered empty.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <h3>Hierarchy Tests</h3>
 
 <div id="haschildren" class="member">
@@ -4071,8 +4191,8 @@ with no segments all are considered empty.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="isinserted" class="member">
 <div class="member-link">
 <a name="isinserted" href="#isinserted"><tt><b>isInserted</b>()</tt></a>
@@ -4097,8 +4217,8 @@ or not.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="isabove-item" class="member">
 <div class="member-link">
 <a name="isabove-item" href="#isabove-item"><tt><b>isAbove</b>(item)</tt></a>
@@ -4134,8 +4254,8 @@ of the project.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="isbelow-item" class="member">
 <div class="member-link">
 <a name="isbelow-item" href="#isbelow-item"><tt><b>isBelow</b>(item)</tt></a>
@@ -4171,8 +4291,8 @@ the project.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="isparent-item" class="member">
 <div class="member-link">
 <a name="isparent-item" href="#isparent-item"><tt><b>isParent</b>(item)</tt></a>
@@ -4207,8 +4327,8 @@ the project.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="ischild-item" class="member">
 <div class="member-link">
 <a name="ischild-item" href="#ischild-item"><tt><b>isChild</b>(item)</tt></a>
@@ -4243,8 +4363,8 @@ the project.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="isdescendant-item" class="member">
 <div class="member-link">
 <a name="isdescendant-item" href="#isdescendant-item"><tt><b>isDescendant</b>(item)</tt></a>
@@ -4279,8 +4399,8 @@ the project.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="isancestor-item" class="member">
 <div class="member-link">
 <a name="isancestor-item" href="#isancestor-item"><tt><b>isAncestor</b>(item)</tt></a>
@@ -4316,8 +4436,8 @@ item, <tt>false</tt> otherwise
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="issibling-item" class="member">
 <div class="member-link">
 <a name="issibling-item" href="#issibling-item"><tt><b>isSibling</b>(item)</tt></a>
@@ -4352,8 +4472,8 @@ item, <tt>false</tt> otherwise
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="isgroupedwith-item" class="member">
 <div class="member-link">
 <a name="isgroupedwith-item" href="#isgroupedwith-item"><tt><b>isGroupedWith</b>(item)</tt></a>
@@ -4388,8 +4508,8 @@ item, <tt>false</tt> otherwise
 </div>
 </div>
 </div>
-		
-			
+
+	
 <h3>Transform Functions</h3>
 
 <div id="translate-delta" class="member">
@@ -4418,8 +4538,8 @@ item, <tt>false</tt> otherwise
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="rotate-angle" class="member">
 <div class="member-link">
 <a name="rotate-angle" href="#rotate-angle"><tt><b>rotate</b>(angle[, center])</tt></a>
@@ -4464,7 +4584,7 @@ item, <tt>false</tt> otherwise
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-36">
+<script type="text/paperscript" canvas="canvas-37">
 // Create a rectangle shaped path with its top left
 // point at {x: 80, y: 25} and a size of {width: 50, height: 50}:
 var path = new Path.Rectangle(new Point(80, 25), new Size(50, 50));
@@ -4473,7 +4593,7 @@ path.fillColor = 'black';
 // Rotate the path by 30 degrees:
 path.rotate(30);
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-36"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-37"></canvas></div>
 </div>
 
 
@@ -4487,7 +4607,7 @@ path.rotate(30);
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-37">
+<script type="text/paperscript" canvas="canvas-38">
 // Create a rectangle shaped path with its top left
 // point at {x: 175, y: 50} and a size of {width: 100, height: 100}:
 var topLeft = new Point(175, 50);
@@ -4509,15 +4629,15 @@ function onFrame(event) {
     path.rotate(3, view.center);
 }
 </script>
-<div class="canvas"><canvas width="516" height="200" id="canvas-37"></canvas></div>
+<div class="canvas"><canvas width="516" height="200" id="canvas-38"></canvas></div>
 </div>
 
 
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="scale-scale" class="member">
 <div class="member-link">
 <a name="scale-scale" href="#scale-scale"><tt><b>scale</b>(scale[, center])</tt></a>
@@ -4558,7 +4678,7 @@ from a supplied point.</p>
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-38">
+<script type="text/paperscript" canvas="canvas-39">
 // Create a circle shaped path at { x: 80, y: 50 }
 // with a radius of 20:
 var circle = new Path.Circle({
@@ -4570,7 +4690,7 @@ var circle = new Path.Circle({
 // Scale the path by 150% from its center point
 circle.scale(1.5);
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-38"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-39"></canvas></div>
 </div>
 
 
@@ -4584,7 +4704,7 @@ circle.scale(1.5);
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-39">
+<script type="text/paperscript" canvas="canvas-40">
 // Create a circle shaped path at { x: 80, y: 50 }
 // with a radius of 20:
 var circle = new Path.Circle({
@@ -4596,15 +4716,15 @@ var circle = new Path.Circle({
 // Scale the path 150% from its bottom left corner
 circle.scale(1.5, circle.bounds.bottomLeft);
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-39"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-40"></canvas></div>
 </div>
 
 
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="scale-hor-ver" class="member">
 <div class="member-link">
 <a name="scale-hor-ver" href="#scale-hor-ver"><tt><b>scale</b>(hor, ver[, center])</tt></a>
@@ -4652,7 +4772,7 @@ from a supplied point.</p>
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-40">
+<script type="text/paperscript" canvas="canvas-41">
 // Create a circle shaped path at { x: 100, y: 50 }
 // with a radius of 20:
 var circle = new Path.Circle({
@@ -4664,15 +4784,15 @@ var circle = new Path.Circle({
 // Scale the path horizontally by 300%
 circle.scale(3, 1);
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-40"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-41"></canvas></div>
 </div>
 
 
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="shear-shear" class="member">
 <div class="member-link">
 <a name="shear-shear" href="#shear-shear"><tt><b>shear</b>(shear[, center])</tt></a>
@@ -4711,8 +4831,8 @@ by a supplied point.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="shear-hor-ver" class="member">
 <div class="member-link">
 <a name="shear-hor-ver" href="#shear-hor-ver"><tt><b>shear</b>(hor, ver[, center])</tt></a>
@@ -4758,8 +4878,8 @@ by a supplied point.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="skew-skew" class="member">
 <div class="member-link">
 <a name="skew-skew" href="#skew-skew"><tt><b>skew</b>(skew[, center])</tt></a>
@@ -4798,8 +4918,8 @@ by a supplied point.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="skew-hor-ver" class="member">
 <div class="member-link">
 <a name="skew-hor-ver" href="#skew-hor-ver"><tt><b>skew</b>(hor, ver[, center])</tt></a>
@@ -4845,8 +4965,8 @@ by a supplied point.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="transform-matrix" class="member">
 <div class="member-link">
 <a name="transform-matrix" href="#transform-matrix"><tt><b>transform</b>(matrix)</tt></a>
@@ -4873,8 +4993,8 @@ by a supplied point.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="globaltolocal-point" class="member">
 <div class="member-link">
 <a name="globaltolocal-point" href="#globaltolocal-point"><tt><b>globalToLocal</b>(point)</tt></a>
@@ -4910,8 +5030,8 @@ item's own local coordinate space.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="localtoglobal-point" class="member">
 <div class="member-link">
 <a name="localtoglobal-point" href="#localtoglobal-point"><tt><b>localToGlobal</b>(point)</tt></a>
@@ -4947,8 +5067,8 @@ to the global project coordinate space.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="parenttolocal-point" class="member">
 <div class="member-link">
 <a name="parenttolocal-point" href="#parenttolocal-point"><tt><b>parentToLocal</b>(point)</tt></a>
@@ -4984,8 +5104,8 @@ item's own local coordinate space.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="localtoparent-point" class="member">
 <div class="member-link">
 <a name="localtoparent-point" href="#localtoparent-point"><tt><b>localToParent</b>(point)</tt></a>
@@ -5021,8 +5141,8 @@ to the parent's coordinate space.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="fitbounds-rectangle" class="member">
 <div class="member-link">
 <a name="fitbounds-rectangle" href="#fitbounds-rectangle"><tt><b>fitBounds</b>(rectangle[, fill])</tt></a>
@@ -5063,7 +5183,7 @@ rectangle, without changing its aspect ratio.</p>
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-41">
+<script type="text/paperscript" canvas="canvas-42">
 // Create a rectangle shaped path with its top left corner
 // at {x: 80, y: 25} and a size of {width: 75, height: 50}:
 var path = new Path.Rectangle({
@@ -5084,7 +5204,7 @@ var circlePath = new Path.Circle({
 // the rectangular path:
 circlePath.fitBounds(path.bounds);
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-41"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-42"></canvas></div>
 </div>
 
 
@@ -5098,7 +5218,7 @@ circlePath.fitBounds(path.bounds);
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-42">
+<script type="text/paperscript" canvas="canvas-43">
 // Create a rectangle shaped path with its top left corner
 // at {x: 80, y: 25} and a size of {width: 75, height: 50}:
 var path = new Path.Rectangle({
@@ -5119,7 +5239,7 @@ var circlePath = new Path.Circle({
 // the rectangular path:
 circlePath.fitBounds(path.bounds, true);
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-42"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-43"></canvas></div>
 </div>
 
 
@@ -5133,7 +5253,7 @@ circlePath.fitBounds(path.bounds, true);
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-43">
+<script type="text/paperscript" canvas="canvas-44">
 var path = new Path.Circle({
     center: [80, 50],
     radius: 30,
@@ -5143,15 +5263,15 @@ var path = new Path.Circle({
 // Fit the path to the bounding rectangle of the view:
 path.fitBounds(view.bounds);
 </script>
-<div class="canvas"><canvas width="516" height="200" id="canvas-43"></canvas></div>
+<div class="canvas"><canvas width="516" height="200" id="canvas-44"></canvas></div>
 </div>
 
 
 </div>
 </div>
 </div>
-		
-			
+
+	
 <h3>Event Handling</h3>
 
 <div id="on-type-function" class="member">
@@ -5167,86 +5287,17 @@ path.fitBounds(view.bounds);
 
 <li>
 <tt>type:</tt> 
-<tt>String('mousedown'|'mouseup'|'mousedrag'|'click'|'doubleclick'|'mousemove'|'mouseenter'|'mouseleave')</tt>
-&mdash;&nbsp;the event
-type
+<tt>String</tt>
+&mdash;&nbsp;the type of event: <tt>'frame'</tt>, <tt>mousedown'</tt>, <tt>'mouseup'</tt>, <tt>'mousedrag'</tt>, <tt>'click'</tt>, <tt>'doubleclick'</tt>, <tt>'mousemove'</tt>, <tt>'mouseenter'</tt>, <tt>'mouseleave'</tt>
 
 </li>
 
 <li>
 <tt>function:</tt> 
 <tt>Function</tt>
-&mdash;&nbsp;The function to be called when the event
-occurs
-
-</li>
-
-</ul>
-
-	
-	<ul><b>Returns:</b>
-	
-		<li>
-<tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;this item itself, so calls can be chained
-</li>
-	
-	</ul>
-
-	
-	<p>
-<b>Example</b> &mdash; Change the fill color of the path to red when the mouse enters its shape and back to black again, when it leaves its shape.
-</p>
-
-<div class="paperscript split">
-
-<div class="buttons">
-<div class="button run">Run</div>
-</div>
-
-<script type="text/paperscript" canvas="canvas-44">
-// Create a circle shaped path at the center of the view:
-var path = new Path.Circle({
-    center: view.center,
-    radius: 25,
-    fillColor: 'black'
-});
-
-// When the mouse enters the item, set its fill color to red:
-path.on('mouseenter', function() {
-    this.fillColor = 'red';
-});
-
-// When the mouse leaves the item, set its fill color to black:
-path.on('mouseleave', function() {
-    this.fillColor = 'black';
-});
-</script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-44"></canvas></div>
-</div>
-
-
-</div>
-</div>
-</div>
-		
-			
-<div id="on-object" class="member">
-<div class="member-link">
-<a name="on-object" href="#on-object"><tt><b>on</b>(object)</tt></a>
-</div>
-<div class="member-description hidden">
-<div class="member-text">
-	<p>Attaches one or more event handlers to the item.</p>
-    
-	
-<ul><b>Parameters:</b>
-
-<li>
-<tt>object:</tt> 
-<tt>Object</tt>
-&mdash;&nbsp;an object literal containing one or more of the
-following properties: <tt>mousedown, mouseup, mousedrag, click,
-doubleclick, mousemove, mouseenter, mouseleave</tt>
+&mdash;&nbsp;the function to be called when the event
+    occurs, receiving a <a href="/reference/mouseevent"><tt>MouseEvent</tt></a> or <a href="/reference/event"><tt>Event</tt></a> object as its
+    sole argument
 
 </li>
 
@@ -5276,6 +5327,74 @@ doubleclick, mousemove, mouseenter, mouseleave</tt>
 // Create a circle shaped path at the center of the view:
 var path = new Path.Circle({
     center: view.center,
+    radius: 25,
+    fillColor: 'black'
+});
+
+// When the mouse enters the item, set its fill color to red:
+path.on('mouseenter', function() {
+    this.fillColor = 'red';
+});
+
+// When the mouse leaves the item, set its fill color to black:
+path.on('mouseleave', function() {
+    this.fillColor = 'black';
+});
+</script>
+<div class="canvas"><canvas width="516" height="100" id="canvas-45"></canvas></div>
+</div>
+
+
+</div>
+</div>
+</div>
+
+	
+<div id="on-object" class="member">
+<div class="member-link">
+<a name="on-object" href="#on-object"><tt><b>on</b>(object)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Attaches one or more event handlers to the item.</p>
+    
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>object:</tt> 
+<tt>Object</tt>
+&mdash;&nbsp;an object literal containing one or more of the
+    following properties: <tt>frame</tt>, <tt>mousedown</tt>, <tt>mouseup</tt>, <tt>mousedrag</tt>, <tt>click</tt>, <tt>doubleclick</tt>, <tt>mousemove</tt>, <tt>mouseenter</tt>, <tt>mouseleave</tt>
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;this item itself, so calls can be chained
+</li>
+	
+	</ul>
+
+	
+	<p>
+<b>Example</b> &mdash; Change the fill color of the path to red when the mouse enters its shape and back to black again, when it leaves its shape.
+</p>
+
+<div class="paperscript split">
+
+<div class="buttons">
+<div class="button run">Run</div>
+</div>
+
+<script type="text/paperscript" canvas="canvas-46">
+// Create a circle shaped path at the center of the view:
+var path = new Path.Circle({
+    center: view.center,
     radius: 25
 });
 path.fillColor = 'black';
@@ -5290,7 +5409,7 @@ path.on({
     }
 });
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-45"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-46"></canvas></div>
 </div>
 
 
@@ -5304,7 +5423,7 @@ path.on({
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-46">
+<script type="text/paperscript" canvas="canvas-47">
 var pathHandlers = {
     mouseenter: function(event) {
         this.fillColor = 'red';
@@ -5327,15 +5446,15 @@ function onMouseDown(event) {
     path.on(pathHandlers);
 }
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-46"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-47"></canvas></div>
 </div>
 
 
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="off-type-function" class="member">
 <div class="member-link">
 <a name="off-type-function" href="#off-type-function"><tt><b>off</b>(type, function)</tt></a>
@@ -5349,16 +5468,15 @@ function onMouseDown(event) {
 
 <li>
 <tt>type:</tt> 
-<tt>String('mousedown'|'mouseup'|'mousedrag'|'click'|'doubleclick'|'mousemove'|'mouseenter'|'mouseleave')</tt>
-&mdash;&nbsp;the event
-type
+<tt>String</tt>
+&mdash;&nbsp;the type of event: <tt>'frame'</tt>, <tt>mousedown'</tt>, <tt>'mouseup'</tt>, <tt>'mousedrag'</tt>, <tt>'click'</tt>, <tt>'doubleclick'</tt>, <tt>'mousemove'</tt>, <tt>'mouseenter'</tt>, <tt>'mouseleave'</tt>
 
 </li>
 
 <li>
 <tt>function:</tt> 
 <tt>Function</tt>
-&mdash;&nbsp;The function to be detached
+&mdash;&nbsp;the function to be detached
 
 </li>
 
@@ -5378,8 +5496,8 @@ type
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="off-object" class="member">
 <div class="member-link">
 <a name="off-object" href="#off-object"><tt><b>off</b>(object)</tt></a>
@@ -5395,8 +5513,7 @@ type
 <tt>object:</tt> 
 <tt>Object</tt>
 &mdash;&nbsp;an object literal containing one or more of the
-following properties: <tt>mousedown, mouseup, mousedrag, click,
-doubleclick, mousemove, mouseenter, mouseleave</tt>
+    following properties: <tt>frame</tt>, <tt>mousedown</tt>, <tt>mouseup</tt>, <tt>mousedrag</tt>, <tt>click</tt>, <tt>doubleclick</tt>, <tt>mousemove</tt>, <tt>mouseenter</tt>, <tt>mouseleave</tt>
 
 </li>
 
@@ -5416,8 +5533,8 @@ doubleclick, mousemove, mouseenter, mouseleave</tt>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="emit-type-event" class="member">
 <div class="member-link">
 <a name="emit-type-event" href="#emit-type-event"><tt><b>emit</b>(type, event)</tt></a>
@@ -5431,9 +5548,8 @@ doubleclick, mousemove, mouseenter, mouseleave</tt>
 
 <li>
 <tt>type:</tt> 
-<tt>String('mousedown'|'mouseup'|'mousedrag'|'click'|'doubleclick'|'mousemove'|'mouseenter'|'mouseleave')</tt>
-&mdash;&nbsp;the event
-type
+<tt>String</tt>
+&mdash;&nbsp;the type of event: <tt>'frame'</tt>, <tt>mousedown'</tt>, <tt>'mouseup'</tt>, <tt>'mousedrag'</tt>, <tt>'click'</tt>, <tt>'doubleclick'</tt>, <tt>'mousemove'</tt>, <tt>'mouseenter'</tt>, <tt>'mouseleave'</tt>
 
 </li>
 
@@ -5461,8 +5577,8 @@ the event
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="responds-type" class="member">
 <div class="member-link">
 <a name="responds-type" href="#responds-type"><tt><b>responds</b>(type)</tt></a>
@@ -5476,9 +5592,8 @@ the event
 
 <li>
 <tt>type:</tt> 
-<tt>String('mousedown'|'mouseup'|'mousedrag'|'click'|'doubleclick'|'mousemove'|'mouseenter'|'mouseleave')</tt>
-&mdash;&nbsp;the event
-type
+<tt>String</tt>
+&mdash;&nbsp;the type of event: <tt>'frame'</tt>, <tt>mousedown'</tt>, <tt>'mouseup'</tt>, <tt>'mousedrag'</tt>, <tt>'click'</tt>, <tt>'doubleclick'</tt>, <tt>'mousemove'</tt>, <tt>'mouseenter'</tt>, <tt>'mouseleave'</tt>
 
 </li>
 
@@ -5499,8 +5614,8 @@ the specified type, <tt>false</tt> otherwise
 </div>
 </div>
 </div>
-		
-			
+
+	
 <h3>Remove On Event</h3>
 
 <div id="removeon-options" class="member">
@@ -5542,7 +5657,7 @@ occur.</p>
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-47">
+<script type="text/paperscript" canvas="canvas-48">
 function onMouseDrag(event) {
     // Create a circle shaped path at the mouse position,
     // with a radius of 10:
@@ -5559,15 +5674,15 @@ function onMouseDrag(event) {
     });
 }
 </script>
-<div class="canvas"><canvas width="516" height="200" id="canvas-47"></canvas></div>
+<div class="canvas"><canvas width="516" height="200" id="canvas-48"></canvas></div>
 </div>
 
 
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="removeonmove" class="member">
 <div class="member-link">
 <a name="removeonmove" href="#removeonmove"><tt><b>removeOnMove</b>()</tt></a>
@@ -5589,7 +5704,7 @@ function onMouseDrag(event) {
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-48">
+<script type="text/paperscript" canvas="canvas-49">
 function onMouseMove(event) {
     // Create a circle shaped path at the mouse position,
     // with a radius of 10:
@@ -5603,15 +5718,15 @@ function onMouseMove(event) {
     path.removeOnMove();
 }
 </script>
-<div class="canvas"><canvas width="516" height="200" id="canvas-48"></canvas></div>
+<div class="canvas"><canvas width="516" height="200" id="canvas-49"></canvas></div>
 </div>
 
 
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="removeondown" class="member">
 <div class="member-link">
 <a name="removeondown" href="#removeondown"><tt><b>removeOnDown</b>()</tt></a>
@@ -5633,7 +5748,7 @@ function onMouseMove(event) {
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-49">
+<script type="text/paperscript" canvas="canvas-50">
 function onMouseDown(event) {
     // Create a circle shaped path at the mouse position,
     // with a radius of 10:
@@ -5647,15 +5762,15 @@ function onMouseDown(event) {
     path.removeOnDown();
 }
 </script>
-<div class="canvas"><canvas width="516" height="200" id="canvas-49"></canvas></div>
+<div class="canvas"><canvas width="516" height="200" id="canvas-50"></canvas></div>
 </div>
 
 
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="removeondrag" class="member">
 <div class="member-link">
 <a name="removeondrag" href="#removeondrag"><tt><b>removeOnDrag</b>()</tt></a>
@@ -5677,7 +5792,7 @@ function onMouseDown(event) {
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-50">
+<script type="text/paperscript" canvas="canvas-51">
 function onMouseDrag(event) {
     // Create a circle shaped path at the mouse position,
     // with a radius of 10:
@@ -5691,15 +5806,15 @@ function onMouseDrag(event) {
     path.removeOnDrag();
 }
 </script>
-<div class="canvas"><canvas width="516" height="200" id="canvas-50"></canvas></div>
+<div class="canvas"><canvas width="516" height="200" id="canvas-51"></canvas></div>
 </div>
 
 
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="removeonup" class="member">
 <div class="member-link">
 <a name="removeonup" href="#removeonup"><tt><b>removeOnUp</b>()</tt></a>
@@ -5721,7 +5836,7 @@ function onMouseDrag(event) {
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-51">
+<script type="text/paperscript" canvas="canvas-52">
 function onMouseDown(event) {
     // Create a circle shaped path at the mouse position,
     // with a radius of 10:
@@ -5735,13 +5850,15 @@ function onMouseDown(event) {
     path.removeOnUp();
 }
 </script>
-<div class="canvas"><canvas width="516" height="200" id="canvas-51"></canvas></div>
+<div class="canvas"><canvas width="516" height="200" id="canvas-52"></canvas></div>
 </div>
 
 
 </div>
 </div>
 </div>
+
+
 		
 	</div>
 
@@ -5763,20 +5880,15 @@ function onMouseDown(event) {
 <li><a href="/reference/matrix">Matrix</a></li>
 </ul>
 <li>
-<h2>Projects</h2>
+<h2>Project & Items</h2>
 <ul>
 <li><a href="/reference/project">Project</a></li>
-<li><a href="/reference/view">View</a></li>
-<li><a href="/reference/symbol">Symbol</a></li>
-</ul>
-<li>
-<h2>Items</h2>
-<ul>
 <li><a href="/reference/item">Item</a></li>
 <li><a href="/reference/layer">Layer</a></li>
 <li><a href="/reference/group">Group</a></li>
 <li><a href="/reference/shape">Shape</a></li>
 <li><a href="/reference/raster">Raster</a></li>
+<li><a href="/reference/symbol">Symbol</a></li>
 <li><a href="/reference/placedsymbol">PlacedSymbol</a></li>
 <li><hr /></li>
 <li><a href="/reference/hitresult">HitResult</a></li>
@@ -5807,8 +5919,11 @@ function onMouseDown(event) {
 <li><a href="/reference/pointtext">PointText</a></li>
 </ul>
 <li>
-<h2>User Interface & Events</h2>
+<h2>User Interaction & Events</h2>
 <ul>
+<li><a href="/reference/view">View</a></li>
+<li><a href="/reference/event">Event</a></li>
+<li><a href="/reference/mouseevent">MouseEvent</a></li>
 <li><a href="/reference/tool">Tool</a></li>
 <li><a href="/reference/toolevent">ToolEvent</a></li>
 <li><a href="/reference/key">Key</a></li>

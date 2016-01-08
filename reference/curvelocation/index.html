@@ -80,8 +80,9 @@ etc.</p>
 
 </div>
 
-<!-- ============================== constructors ========================= -->
-<div class="reference-members"><h2>Constructors</h2>
+<!-- =============================== constructors ========================== -->
+<div class="reference-members">
+	<h2>Constructors</h2>
 	
 		
 <div id="curvelocation-curve-parameter" class="member">
@@ -139,7 +140,9 @@ etc.</p>
 
 
 
-	<div class="reference-members"><h2>Properties</h2>
+<!-- ================================ properties =========================== -->
+	<div class="reference-members">
+		<h2>Properties</h2>
 		
 			
 <div id="segment" class="member">
@@ -152,6 +155,7 @@ etc.</p>
 	<p>The segment of the curve which is closer to the described location.</p>
 	
 		<p>Read only.</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -180,6 +184,7 @@ etc.</p>
 		<p>Read only.</p>
 	
 	
+	
 	<ul><b>Type:</b>
 	<li>
 		<a href="/reference/curve"><tt>Curve</tt></a>
@@ -201,9 +206,10 @@ etc.</p>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The path this curve belongs to, if any.</p>
+	<p>The path that this locations is situated on.</p>
 	
 		<p>Read only.</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -231,6 +237,7 @@ etc.</p>
 it is part of a <a href="/reference/path"><tt>Path</tt></a> item.</p>
 	
 		<p>Read only.</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -261,6 +268,7 @@ curve).</p>
 		<p>Read only.</p>
 	
 	
+	
 	<ul><b>Type:</b>
 	<li>
 		<tt>Number</tt>
@@ -286,6 +294,7 @@ curve).</p>
 <a href="/reference/curvelocation#parameter"><tt>parameter</tt></a>.</p>
 	
 		<p>Read only.</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -316,6 +325,7 @@ within the curve is returned instead.</p>
 		<p>Read only.</p>
 	
 	
+	
 	<ul><b>Type:</b>
 	<li>
 		<tt>Number</tt>
@@ -341,6 +351,7 @@ within the curve is returned instead.</p>
 by this object.</p>
 	
 		<p>Read only.</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -371,6 +382,7 @@ result of a call to <a href="/reference/pathitem#getintersections-path"><tt>path
 		<p>Read only.</p>
 	
 	
+	
 	<ul><b>Type:</b>
 	<li>
 		<a href="/reference/curvelocation"><tt>CurveLocation</tt></a>
@@ -395,6 +407,7 @@ result of a call to <a href="/reference/pathitem#getintersections-path"><tt>path
 	<p>The tangential vector to the <a href="/reference/curvelocation#curve"><tt>curve</tt></a> at the given location.</p>
 	
 		<p>Read only.</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -423,6 +436,7 @@ result of a call to <a href="/reference/pathitem#getintersections-path"><tt>path
 		<p>Read only.</p>
 	
 	
+	
 	<ul><b>Type:</b>
 	<li>
 		<a href="/reference/point"><tt>Point</tt></a>
@@ -447,6 +461,7 @@ result of a call to <a href="/reference/pathitem#getintersections-path"><tt>path
 	<p>The curvature of the <a href="/reference/curvelocation#curve"><tt>curve</tt></a> at the given location.</p>
 	
 		<p>Read only.</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -475,6 +490,7 @@ result of a call to <a href="/reference/pathitem#getintersections-path"><tt>path
 		<p>Read only.</p>
 	
 	
+	
 	<ul><b>Type:</b>
 	<li>
 		<tt>Number</tt>
@@ -499,9 +515,10 @@ result of a call to <a href="/reference/pathitem#getintersections-path"><tt>path
 
 
 <!-- ============================== methods ================================ -->
-	<div class="reference-members"><h2>Methods</h2>
+	<div class="reference-members">
+		<h2>Methods</h2>
 		
-			
+	
 <div id="equals-location" class="member">
 <div class="member-link">
 <a name="equals-location" href="#equals-location"><tt><b>equals</b>(location)</tt></a>
@@ -538,8 +555,8 @@ curve time parameters.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="tostring" class="member">
 <div class="member-link">
 <a name="tostring" href="#tostring"><tt><b>toString</b>()</tt></a>
@@ -563,8 +580,8 @@ curve time parameters.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <h3>Tests</h3>
 
 <div id="istouching" class="member">
@@ -596,8 +613,8 @@ merely touching another curve, <tt>false</tt> otherwise
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="iscrossing" class="member">
 <div class="member-link">
 <a name="iscrossing" href="#iscrossing"><tt><b>isCrossing</b>()</tt></a>
@@ -627,8 +644,8 @@ crossing another curve, <tt>false</tt> otherwise
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="hasoverlap" class="member">
 <div class="member-link">
 <a name="hasoverlap" href="#hasoverlap"><tt><b>hasOverlap</b>()</tt></a>
@@ -658,6 +675,8 @@ part of an overlap between the two involved paths, <tt>false</tt> otherwise
 </div>
 </div>
 </div>
+
+
 		
 	</div>
 
@@ -679,20 +698,15 @@ part of an overlap between the two involved paths, <tt>false</tt> otherwise
 <li><a href="/reference/matrix">Matrix</a></li>
 </ul>
 <li>
-<h2>Projects</h2>
+<h2>Project & Items</h2>
 <ul>
 <li><a href="/reference/project">Project</a></li>
-<li><a href="/reference/view">View</a></li>
-<li><a href="/reference/symbol">Symbol</a></li>
-</ul>
-<li>
-<h2>Items</h2>
-<ul>
 <li><a href="/reference/item">Item</a></li>
 <li><a href="/reference/layer">Layer</a></li>
 <li><a href="/reference/group">Group</a></li>
 <li><a href="/reference/shape">Shape</a></li>
 <li><a href="/reference/raster">Raster</a></li>
+<li><a href="/reference/symbol">Symbol</a></li>
 <li><a href="/reference/placedsymbol">PlacedSymbol</a></li>
 <li><hr /></li>
 <li><a href="/reference/hitresult">HitResult</a></li>
@@ -723,8 +737,11 @@ part of an overlap between the two involved paths, <tt>false</tt> otherwise
 <li><a href="/reference/pointtext">PointText</a></li>
 </ul>
 <li>
-<h2>User Interface & Events</h2>
+<h2>User Interaction & Events</h2>
 <ul>
+<li><a href="/reference/view">View</a></li>
+<li><a href="/reference/event">Event</a></li>
+<li><a href="/reference/mouseevent">MouseEvent</a></li>
 <li><a href="/reference/tool">Tool</a></li>
 <li><a href="/reference/toolevent">ToolEvent</a></li>
 <li><a href="/reference/key">Key</a></li>

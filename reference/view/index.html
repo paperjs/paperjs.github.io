@@ -78,7 +78,9 @@ screen.</p>
 
 
 
-	<div class="reference-members"><h2>Properties</h2>
+<!-- ================================ properties =========================== -->
+	<div class="reference-members">
+		<h2>Properties</h2>
 		
 			
 <div id="element" class="member">
@@ -91,6 +93,7 @@ screen.</p>
 	<p>The underlying native element.</p>
 	
 		<p>Read only.</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -122,6 +125,7 @@ high-resolution displays.</p>
 		<p>Read only.</p>
 	
 	
+	
 	<ul><b>Type:</b>
 	<li>
 		<tt>Number</tt>
@@ -150,6 +154,7 @@ displays with a pixel-ratio of <tt>2</tt>.</p>
 		<p>Read only.</p>
 	
 	
+	
 	<ul><b>Type:</b>
 	<li>
 		<tt>Number</tt>
@@ -173,6 +178,7 @@ displays with a pixel-ratio of <tt>2</tt>.</p>
 <div class="member-text">
 	<p>The size of the view. Changing the view's size will resize it's
 underlying element.</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -201,6 +207,7 @@ underlying element.</p>
 		<p>Read only.</p>
 	
 	
+	
 	<ul><b>Type:</b>
 	<li>
 		<a href="/reference/rectangle"><tt>Rectangle</tt></a>
@@ -227,6 +234,7 @@ underlying element.</p>
 		<p>Read only.</p>
 	
 	
+	
 	<ul><b>Type:</b>
 	<li>
 		<a href="/reference/size"><tt>Size</tt></a>
@@ -251,6 +259,7 @@ underlying element.</p>
 	<p>The center of the visible area in project coordinates.</p>
 	
 	
+	
 	<ul><b>Type:</b>
 	<li>
 		<a href="/reference/point"><tt>Point</tt></a>
@@ -273,6 +282,7 @@ underlying element.</p>
 
 <div class="member-text">
 	<p>The zoom factor by which the project coordinates are magnified.</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -301,6 +311,7 @@ underlying element.</p>
 	<p>Handler function to be called on each frame of an animation.</p>
 <p>The function receives an event object which contains information about
 the frame event:</p>
+	
 	
 	
 	<ul><b>Type:</b>
@@ -334,7 +345,7 @@ frame event</li>
 var path = new Path.Rectangle(new Point(50, 25), new Size(50, 50));
 path.fillColor = 'black';
 
-function onFrame(event) {
+view.onFrame = function(event) {
     // Every frame, rotate the path by 3 degrees:
     path.rotate(3);
 }
@@ -359,6 +370,7 @@ function onFrame(event) {
 	<p>Handler function that is called whenever a view is resized.</p>
 	
 	
+	
 	<ul><b>Type:</b>
 	<li>
 		<tt>Function</tt>
@@ -375,7 +387,7 @@ function onFrame(event) {
 var path = new Path.Circle(view.bounds.center, 30);
 path.fillColor = 'red';
 
-function onResize(event) {
+view.onResize = function(event) {
     // Whenever the view is resized, move the path to its center:
     path.position = view.center;
 }</pre>
@@ -392,9 +404,10 @@ function onResize(event) {
 
 
 <!-- ============================== methods ================================ -->
-	<div class="reference-members"><h2>Methods</h2>
+	<div class="reference-members">
+		<h2>Methods</h2>
 		
-			
+	
 <div id="remove" class="member">
 <div class="member-link">
 <a name="remove" href="#remove"><tt><b>remove</b>()</tt></a>
@@ -410,8 +423,8 @@ function onResize(event) {
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="isvisible" class="member">
 <div class="member-link">
 <a name="isvisible" href="#isvisible"><tt><b>isVisible</b>()</tt></a>
@@ -436,8 +449,8 @@ viewport.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="scrollby-point" class="member">
 <div class="member-link">
 <a name="scrollby-point" href="#scrollby-point"><tt><b>scrollBy</b>(point)</tt></a>
@@ -464,8 +477,8 @@ viewport.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="play" class="member">
 <div class="member-link">
 <a name="play" href="#play"><tt><b>play</b>()</tt></a>
@@ -482,8 +495,8 @@ loop.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="pause" class="member">
 <div class="member-link">
 <a name="pause" href="#pause"><tt><b>pause</b>()</tt></a>
@@ -500,8 +513,8 @@ loop.</p>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="update" class="member">
 <div class="member-link">
 <a name="update" href="#update"><tt><b>update</b>([force])</tt></a>
@@ -539,8 +552,8 @@ if no change has happened, <tt>false</tt> otherwise
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="projecttoview-point" class="member">
 <div class="member-link">
 <a name="projecttoview-point" href="#projecttoview-point"><tt><b>projectToView</b>(point)</tt></a>
@@ -575,8 +588,8 @@ if no change has happened, <tt>false</tt> otherwise
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="viewtoproject-point" class="member">
 <div class="member-link">
 <a name="viewtoproject-point" href="#viewtoproject-point"><tt><b>viewToProject</b>(point)</tt></a>
@@ -611,8 +624,8 @@ if no change has happened, <tt>false</tt> otherwise
 </div>
 </div>
 </div>
-		
-			
+
+	
 <h3>Event Handling</h3>
 
 <div id="on-type-function" class="member">
@@ -628,16 +641,17 @@ if no change has happened, <tt>false</tt> otherwise
 
 <li>
 <tt>type:</tt> 
-<tt>String('frame'|'resize')</tt>
-&mdash;&nbsp;the event type
+<tt>String</tt>
+&mdash;&nbsp;the type of event: <tt>'frame'</tt>, <tt>'resize'</tt>, <tt>mousedown'</tt>, <tt>'mouseup'</tt>, <tt>'mousedrag'</tt>, <tt>'click'</tt>, <tt>'doubleclick'</tt>, <tt>'mousemove'</tt>, <tt>'mouseenter'</tt>, <tt>'mouseleave'</tt>
 
 </li>
 
 <li>
 <tt>function:</tt> 
 <tt>Function</tt>
-&mdash;&nbsp;The function to be called when the event
-occurs
+&mdash;&nbsp;the function to be called when the event
+    occurs, receiving a <a href="/reference/mouseevent"><tt>MouseEvent</tt></a> or <a href="/reference/event"><tt>Event</tt></a> object as its
+    sole argument
 
 </li>
 
@@ -681,8 +695,8 @@ view.on('frame', frameHandler);
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="on-param" class="member">
 <div class="member-link">
 <a name="on-param" href="#on-param"><tt><b>on</b>(param)</tt></a>
@@ -698,7 +712,7 @@ view.on('frame', frameHandler);
 <tt>param:</tt> 
 <tt>Object</tt>
 &mdash;&nbsp;an object literal containing one or more of the
-following properties: <tt>frame, resize</tt>
+    following properties: <tt>frame</tt>, <tt>resize</tt>
 
 </li>
 
@@ -744,8 +758,8 @@ view.on({
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="off-type-function" class="member">
 <div class="member-link">
 <a name="off-type-function" href="#off-type-function"><tt><b>off</b>(type, function)</tt></a>
@@ -759,15 +773,15 @@ view.on({
 
 <li>
 <tt>type:</tt> 
-<tt>String('frame'|'resize')</tt>
-&mdash;&nbsp;the event type
+<tt>String</tt>
+&mdash;&nbsp;the event type: <tt>'frame'</tt>, <tt>'resize'</tt>
 
 </li>
 
 <li>
 <tt>function:</tt> 
 <tt>Function</tt>
-&mdash;&nbsp;The function to be detached
+&mdash;&nbsp;the function to be detached
 
 </li>
 
@@ -819,8 +833,8 @@ function onMouseDown(event) {
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="off-param" class="member">
 <div class="member-link">
 <a name="off-param" href="#off-param"><tt><b>off</b>(param)</tt></a>
@@ -836,7 +850,7 @@ function onMouseDown(event) {
 <tt>param:</tt> 
 <tt>Object</tt>
 &mdash;&nbsp;an object literal containing one or more of the
-following properties: <tt>frame, resize</tt>
+    following properties: <tt>frame</tt>, <tt>resize</tt>
 
 </li>
 
@@ -856,8 +870,8 @@ following properties: <tt>frame, resize</tt>
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="emit-type-event" class="member">
 <div class="member-link">
 <a name="emit-type-event" href="#emit-type-event"><tt><b>emit</b>(type, event)</tt></a>
@@ -871,8 +885,8 @@ following properties: <tt>frame, resize</tt>
 
 <li>
 <tt>type:</tt> 
-<tt>String('frame'|'resize')</tt>
-&mdash;&nbsp;the event type
+<tt>String</tt>
+&mdash;&nbsp;the event type: <tt>'frame'</tt>, <tt>'resize'</tt>
 
 </li>
 
@@ -900,8 +914,8 @@ the event
 </div>
 </div>
 </div>
-		
-			
+
+	
 <div id="responds-type" class="member">
 <div class="member-link">
 <a name="responds-type" href="#responds-type"><tt><b>responds</b>(type)</tt></a>
@@ -915,8 +929,8 @@ the event
 
 <li>
 <tt>type:</tt> 
-<tt>String('frame'|'resize')</tt>
-&mdash;&nbsp;the event type
+<tt>String</tt>
+&mdash;&nbsp;the event type: <tt>'frame'</tt>, <tt>'resize'</tt>
 
 </li>
 
@@ -937,6 +951,8 @@ the specified type, <tt>false</tt> otherwise
 </div>
 </div>
 </div>
+
+
 		
 	</div>
 
@@ -958,20 +974,15 @@ the specified type, <tt>false</tt> otherwise
 <li><a href="/reference/matrix">Matrix</a></li>
 </ul>
 <li>
-<h2>Projects</h2>
+<h2>Project & Items</h2>
 <ul>
 <li><a href="/reference/project">Project</a></li>
-<li><a href="/reference/view">View</a></li>
-<li><a href="/reference/symbol">Symbol</a></li>
-</ul>
-<li>
-<h2>Items</h2>
-<ul>
 <li><a href="/reference/item">Item</a></li>
 <li><a href="/reference/layer">Layer</a></li>
 <li><a href="/reference/group">Group</a></li>
 <li><a href="/reference/shape">Shape</a></li>
 <li><a href="/reference/raster">Raster</a></li>
+<li><a href="/reference/symbol">Symbol</a></li>
 <li><a href="/reference/placedsymbol">PlacedSymbol</a></li>
 <li><hr /></li>
 <li><a href="/reference/hitresult">HitResult</a></li>
@@ -1002,8 +1013,11 @@ the specified type, <tt>false</tt> otherwise
 <li><a href="/reference/pointtext">PointText</a></li>
 </ul>
 <li>
-<h2>User Interface & Events</h2>
+<h2>User Interaction & Events</h2>
 <ul>
+<li><a href="/reference/view">View</a></li>
+<li><a href="/reference/event">Event</a></li>
+<li><a href="/reference/mouseevent">MouseEvent</a></li>
 <li><a href="/reference/tool">Tool</a></li>
 <li><a href="/reference/toolevent">ToolEvent</a></li>
 <li><a href="/reference/key">Key</a></li>
