@@ -1633,6 +1633,16 @@ var size2 = new Size(200, 5);
 var minSize = Size.min(size1, size2);
 console.log(minSize); // {width: 10, height: 5}</pre>
 
+<p>
+<b>Example</b> &mdash; Find the minimum of multiple sizes:
+</p>
+
+
+<pre class="code">var size1 = new Size(60, 100);
+var size2 = new Size(200, 5);
+var size3 = new Size(250, 35);
+[size1, size2, size3].reduce(Size.min) // {width: 60, height: 5}</pre>
+
 </div>
 </div>
 </div>
@@ -1685,6 +1695,16 @@ console.log(minSize); // {width: 10, height: 5}</pre>
 var size2 = new Size(200, 5);
 var maxSize = Size.max(size1, size2);
 console.log(maxSize); // {width: 200, height: 100}</pre>
+
+<p>
+<b>Example</b> &mdash; Find the maximum of multiple sizes:
+</p>
+
+
+<pre class="code">var size1 = new Size(60, 100);
+var size2 = new Size(200, 5);
+var size3 = new Size(250, 35);
+[size1, size2, size3].reduce(Size.max) // {width: 250, height: 100}</pre>
 
 </div>
 </div>
