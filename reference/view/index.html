@@ -560,7 +560,9 @@ if no change has happened, <tt>false</tt> otherwise
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	
+	<p>Converts the passed point from project coordinate space to view
+coordinate space, which is measured in browser pixels in relation to the
+position of the view element.</p>
     
 	
 <ul><b>Parameters:</b>
@@ -568,7 +570,7 @@ if no change has happened, <tt>false</tt> otherwise
 <li>
 <tt>point:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
-
+&mdash;&nbsp;the point in project coordinates to be converted
 
 </li>
 
@@ -578,7 +580,7 @@ if no change has happened, <tt>false</tt> otherwise
 	<ul><b>Returns:</b>
 	
 		<li>
-<tt><a href="/reference/point"><tt>Point</tt></a></tt>
+<tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the point converted into view coordinates
 </li>
 	
 	</ul>
@@ -596,7 +598,8 @@ if no change has happened, <tt>false</tt> otherwise
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	
+	<p>Converts the passed point from view coordinate space to project
+coordinate space.</p>
     
 	
 <ul><b>Parameters:</b>
@@ -604,7 +607,7 @@ if no change has happened, <tt>false</tt> otherwise
 <li>
 <tt>point:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
-
+&mdash;&nbsp;the point in view coordinates to be converted
 
 </li>
 
@@ -614,7 +617,44 @@ if no change has happened, <tt>false</tt> otherwise
 	<ul><b>Returns:</b>
 	
 		<li>
-<tt><a href="/reference/point"><tt>Point</tt></a></tt>
+<tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the point converted into project coordinates
+</li>
+	
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+
+	
+<div id="geteventpoint-event" class="member">
+<div class="member-link">
+<a name="geteventpoint-event" href="#geteventpoint-event"><tt><b>getEventPoint</b>(event)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Determines and returns the event location in project coordinate space.</p>
+    
+	
+<ul><b>Parameters:</b>
+
+<li>
+<tt>event:</tt> 
+<a href="/reference/event"><tt>Event</tt></a>
+&mdash;&nbsp;the native event object for which to determine the
+    location.
+
+</li>
+
+</ul>
+
+	
+	<ul><b>Returns:</b>
+	
+		<li>
+<tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the event point in project coordinates.
 </li>
 	
 	</ul>
