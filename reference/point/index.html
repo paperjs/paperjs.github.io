@@ -66,17 +66,13 @@
   <div class="reference"><div class="reference-class">
 
 
-<p>The Point object represents a point in the two dimensional space
-of the Paper.js project. It is also used to represent two dimensional
-vector objects.</p>
-<p>
-<b>Example</b> &mdash; Create a point at x: 10, y: 5
-</p>
+<p>The Point object represents a point in the two dimensional space of the Paper.js project. It is also used to represent two dimensional vector objects.</p>
+<h4>Example:<span class="description">Create a point at x: 10, y: 5</span></h4>
 
 
-<pre class="code">var point = new Point(10, 5);
+<pre><code>var point = new Point(10, 5);
 console.log(point.x); // 10
-console.log(point.y); // 5</pre>
+console.log(point.y); // 5</code></pre>
 
 </div>
 
@@ -94,42 +90,42 @@ console.log(point.y); // 5</pre>
     <p>Creates a Point object with the given x and y coordinates.</p>
     
     
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>x:</tt> 
 <tt>Number</tt>
 &mdash;&nbsp;the x coordinate
 
 </li>
-
-<li>
+	
+	<li>
 <tt>y:</tt> 
 <tt>Number</tt>
 &mdash;&nbsp;the y coordinate
 
 </li>
-
+	
 </ul>
 
     
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><a href="/reference/point"><tt>Point</tt></a></tt>
 </li>
-	
+		
 	</ul>
 
     
-    <p>
-<b>Example</b> &mdash; Create a point at x: 10, y: 5
-</p>
+    <h4>Example:<span class="description">Create a point at x: 10, y: 5</span></h4>
 
 
-<pre class="code">var point = new Point(10, 5);
+<pre><code>var point = new Point(10, 5);
 console.log(point.x); // 10
-console.log(point.y); // 5</pre>
+console.log(point.y); // 5</code></pre>
 
 </div>
 </div>
@@ -142,54 +138,51 @@ console.log(point.y); // 5</pre>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-    <p>Creates a Point object using the numbers in the given array as
-coordinates.</p>
+    <p>Creates a Point object using the numbers in the given array as coordinates.</p>
     
     
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>array:</tt> 
 <tt>array</tt>
 
 
 </li>
-
+	
 </ul>
 
     
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><a href="/reference/point"><tt>Point</tt></a></tt>
 </li>
-	
+		
 	</ul>
 
     
-    <p>
-<b>Example</b> &mdash; Creating a point at x: 10, y: 5 using an array of numbers:
-</p>
+    <h4>Example:<span class="description">Creating a point at x: 10, y: 5 using an array of numbers:</span></h4>
 
 
-<pre class="code">var array = [10, 5];
+<pre><code>var array = [10, 5];
 var point = new Point(array);
 console.log(point.x); // 10
-console.log(point.y); // 5</pre>
+console.log(point.y); // 5</code></pre>
 
-<p>
-<b>Example</b> &mdash; Passing an array to a functionality that expects a point:
-</p>
+<h4>Example:<span class="description">Passing an array to a functionality that expects a point:</span></h4>
 
 
-<pre class="code">// Create a circle shaped path at x: 50, y: 50
+<pre><code>// Create a circle shaped path at x: 50, y: 50
 // with a radius of 30:
 var path = new Path.Circle([50, 50], 30);
 path.fillColor = 'red';
 
 // Which is the same as doing:
 var path = new Path.Circle(new Point(50, 50), 30);
-path.fillColor = 'red';</pre>
+path.fillColor = 'red';</code></pre>
 
 </div>
 </div>
@@ -205,57 +198,53 @@ path.fillColor = 'red';</pre>
     <p>Creates a Point object using the properties in the given object.</p>
     
     
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>object:</tt> 
 <tt>Object</tt>
-&mdash;&nbsp;the object describing the point's properties
+&mdash;&nbsp;the object describing the point&rsquo;s properties
 
 </li>
-
+	
 </ul>
 
     
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><a href="/reference/point"><tt>Point</tt></a></tt>
 </li>
-	
+		
 	</ul>
 
     
-    <p>
-<b>Example</b> &mdash; Creating a point using an object literal with length and angle properties:
-</p>
+    <h4>Example:<span class="description">Creating a point using an object literal with length and angle properties:</span></h4>
 
 
-<pre class="code">var point = new Point({
+<pre><code>var point = new Point({
     length: 10,
     angle: 90
 });
 console.log(point.length); // 10
-console.log(point.angle); // 90</pre>
+console.log(point.angle); // 90</code></pre>
 
-<p>
-<b>Example</b> &mdash; Creating a point at x: 10, y: 20 using an object literal:
-</p>
+<h4>Example:<span class="description">Creating a point at x: 10, y: 20 using an object literal:</span></h4>
 
 
-<pre class="code">var point = new Point({
+<pre><code>var point = new Point({
     x: 10,
     y: 20
 });
 console.log(point.x); // 10
-console.log(point.y); // 20</pre>
+console.log(point.y); // 20</code></pre>
 
-<p>
-<b>Example</b> &mdash; Passing an object to a functionality that expects a point:
-</p>
+<h4>Example:<span class="description">Passing an object to a functionality that expects a point:</span></h4>
 
 
-<pre class="code">var center = {
+<pre><code>var center = {
     x: 50,
     y: 50
 };
@@ -263,7 +252,7 @@ console.log(point.y); // 20</pre>
 // Creates a circle shaped path at x: 50, y: 50
 // with a radius of 30:
 var path = new Path.Circle(center, 30);
-path.fillColor = 'red';</pre>
+path.fillColor = 'red';</code></pre>
 
 </div>
 </div>
@@ -276,41 +265,40 @@ path.fillColor = 'red';</pre>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-    <p>Creates a Point object using the width and height values of the given
-Size object.</p>
+    <p>Creates a Point object using the width and height values of the given Size object.</p>
     
     
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>size:</tt> 
 <a href="/reference/size"><tt>Size</tt></a>
 
 
 </li>
-
+	
 </ul>
 
     
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><a href="/reference/point"><tt>Point</tt></a></tt>
 </li>
-	
+		
 	</ul>
 
     
-    <p>
-<b>Example</b> &mdash; Creating a point using a size object.
-</p>
+    <h4>Example:<span class="description">Creating a point using a size object.</span></h4>
 
 
-<pre class="code">// Create a Size with a width of 100pt and a height of 50pt
+<pre><code>// Create a Size with a width of 100pt and a height of 50pt
 var size = new Size(100, 50);
 console.log(size); // { width: 100, height: 50 }
 var point = new Point(size);
-console.log(point); // { x: 100, y: 50 }</pre>
+console.log(point); // { x: 100, y: 50 }</code></pre>
 
 </div>
 </div>
@@ -326,24 +314,26 @@ console.log(point); // { x: 100, y: 50 }</pre>
     <p>Creates a Point object using the coordinates of the given Point object.</p>
     
     
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>point:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
 
 
 </li>
-
+	
 </ul>
 
     
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><a href="/reference/point"><tt>Point</tt></a></tt>
 </li>
-	
+		
 	</ul>
 
     
@@ -368,79 +358,75 @@ console.log(point); // { x: 100, y: 50 }</pre>
 
 
 	<div class="member-text">
-		<p>Returns the addition of the supplied value to both coordinates of
-the point as a new point.</p>
-<p>The object itself is not modified!</p>
+		<p>Returns the addition of the supplied value to both coordinates of the point as a new point. The object itself is not modified!</p>
 		
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>number:</tt> 
 <tt>Number</tt>
 &mdash;&nbsp;the number to add
 
 </li>
-
+	
 </ul>
 
 		
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the addition of the point and the value as a new point
 </li>
-	
+		
 	</ul>
 
 		
-		<p>
-<b>Example</b> 
-</p>
+		<h4>Example:</h4>
 
 
-<pre class="code">var point = new Point(5, 10);
+<pre><code>var point = new Point(5, 10);
 var result = point + 20;
-console.log(result); // {x: 25, y: 30}</pre>
+console.log(result); // {x: 25, y: 30}</code></pre>
 
 	</div>
 
 
 
 	<div class="member-text">
-		<p>Returns the addition of the supplied point to the point as a new
-point.</p>
-<p>The object itself is not modified!</p>
+		<p>Returns the addition of the supplied point to the point as a new point. The object itself is not modified!</p>
 		
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>point:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
 &mdash;&nbsp;the point to add
 
 </li>
-
+	
 </ul>
 
 		
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the addition of the two points as a new point
 </li>
-	
+		
 	</ul>
 
 		
-		<p>
-<b>Example</b> 
-</p>
+		<h4>Example:</h4>
 
 
-<pre class="code">var point1 = new Point(5, 10);
+<pre><code>var point1 = new Point(5, 10);
 var point2 = new Point(10, 20);
 var result = point1 + point2;
-console.log(result); // {x: 15, y: 30}</pre>
+console.log(result); // {x: 15, y: 30}</code></pre>
 
 	</div>
 
@@ -457,79 +443,75 @@ console.log(result); // {x: 15, y: 30}</pre>
 
 
 	<div class="member-text">
-		<p>Returns the subtraction of the supplied value to both coordinates of
-the point as a new point.</p>
-<p>The object itself is not modified!</p>
+		<p>Returns the subtraction of the supplied value to both coordinates of the point as a new point. The object itself is not modified!</p>
 		
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>number:</tt> 
 <tt>Number</tt>
 &mdash;&nbsp;the number to subtract
 
 </li>
-
+	
 </ul>
 
 		
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the subtraction of the point and the value as a new point
 </li>
-	
+		
 	</ul>
 
 		
-		<p>
-<b>Example</b> 
-</p>
+		<h4>Example:</h4>
 
 
-<pre class="code">var point = new Point(10, 20);
+<pre><code>var point = new Point(10, 20);
 var result = point - 5;
-console.log(result); // {x: 5, y: 15}</pre>
+console.log(result); // {x: 5, y: 15}</code></pre>
 
 	</div>
 
 
 
 	<div class="member-text">
-		<p>Returns the subtraction of the supplied point to the point as a new
-point.</p>
-<p>The object itself is not modified!</p>
+		<p>Returns the subtraction of the supplied point to the point as a new point. The object itself is not modified!</p>
 		
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>point:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
 &mdash;&nbsp;the point to subtract
 
 </li>
-
+	
 </ul>
 
 		
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the subtraction of the two points as a new point
 </li>
-	
+		
 	</ul>
 
 		
-		<p>
-<b>Example</b> 
-</p>
+		<h4>Example:</h4>
 
 
-<pre class="code">var firstPoint = new Point(10, 20);
+<pre><code>var firstPoint = new Point(10, 20);
 var secondPoint = new Point(5, 5);
 var result = firstPoint - secondPoint;
-console.log(result); // {x: 5, y: 15}</pre>
+console.log(result); // {x: 5, y: 15}</code></pre>
 
 	</div>
 
@@ -546,79 +528,75 @@ console.log(result); // {x: 5, y: 15}</pre>
 
 
 	<div class="member-text">
-		<p>Returns the multiplication of the supplied value to both coordinates of
-the point as a new point.</p>
-<p>The object itself is not modified!</p>
+		<p>Returns the multiplication of the supplied value to both coordinates of the point as a new point. The object itself is not modified!</p>
 		
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>number:</tt> 
 <tt>Number</tt>
 &mdash;&nbsp;the number to multiply by
 
 </li>
-
+	
 </ul>
 
 		
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the multiplication of the point and the value as a new point
 </li>
-	
+		
 	</ul>
 
 		
-		<p>
-<b>Example</b> 
-</p>
+		<h4>Example:</h4>
 
 
-<pre class="code">var point = new Point(10, 20);
+<pre><code>var point = new Point(10, 20);
 var result = point * 2;
-console.log(result); // {x: 20, y: 40}</pre>
+console.log(result); // {x: 20, y: 40}</code></pre>
 
 	</div>
 
 
 
 	<div class="member-text">
-		<p>Returns the multiplication of the supplied point to the point as a new
-point.</p>
-<p>The object itself is not modified!</p>
+		<p>Returns the multiplication of the supplied point to the point as a new point. The object itself is not modified!</p>
 		
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>point:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
 &mdash;&nbsp;the point to multiply by
 
 </li>
-
+	
 </ul>
 
 		
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the multiplication of the two points as a new point
 </li>
-	
+		
 	</ul>
 
 		
-		<p>
-<b>Example</b> 
-</p>
+		<h4>Example:</h4>
 
 
-<pre class="code">var firstPoint = new Point(5, 10);
+<pre><code>var firstPoint = new Point(5, 10);
 var secondPoint = new Point(4, 2);
 var result = firstPoint * secondPoint;
-console.log(result); // {x: 20, y: 20}</pre>
+console.log(result); // {x: 20, y: 20}</code></pre>
 
 	</div>
 
@@ -635,79 +613,75 @@ console.log(result); // {x: 20, y: 20}</pre>
 
 
 	<div class="member-text">
-		<p>Returns the division of the supplied value to both coordinates of
-the point as a new point.</p>
-<p>The object itself is not modified!</p>
+		<p>Returns the division of the supplied value to both coordinates of the point as a new point. The object itself is not modified!</p>
 		
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>number:</tt> 
 <tt>Number</tt>
 &mdash;&nbsp;the number to divide by
 
 </li>
-
+	
 </ul>
 
 		
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the division of the point and the value as a new point
 </li>
-	
+		
 	</ul>
 
 		
-		<p>
-<b>Example</b> 
-</p>
+		<h4>Example:</h4>
 
 
-<pre class="code">var point = new Point(10, 20);
+<pre><code>var point = new Point(10, 20);
 var result = point / 2;
-console.log(result); // {x: 5, y: 10}</pre>
+console.log(result); // {x: 5, y: 10}</code></pre>
 
 	</div>
 
 
 
 	<div class="member-text">
-		<p>Returns the division of the supplied point to the point as a new
-point.</p>
-<p>The object itself is not modified!</p>
+		<p>Returns the division of the supplied point to the point as a new point. The object itself is not modified!</p>
 		
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>point:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
 &mdash;&nbsp;the point to divide by
 
 </li>
-
+	
 </ul>
 
 		
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the division of the two points as a new point
 </li>
-	
+		
 	</ul>
 
 		
-		<p>
-<b>Example</b> 
-</p>
+		<h4>Example:</h4>
 
 
-<pre class="code">var firstPoint = new Point(8, 10);
+<pre><code>var firstPoint = new Point(8, 10);
 var secondPoint = new Point(2, 5);
 var result = firstPoint / secondPoint;
-console.log(result); // {x: 4, y: 2}</pre>
+console.log(result); // {x: 4, y: 2}</code></pre>
 
 	</div>
 
@@ -724,76 +698,72 @@ console.log(result); // {x: 4, y: 2}</pre>
 
 
 	<div class="member-text">
-		<p>The modulo operator returns the integer remainders of dividing the point
-by the supplied value as a new point.</p>
+		<p>The modulo operator returns the integer remainders of dividing the point by the supplied value as a new point.</p>
 		
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>value:</tt> 
 <tt>Number</tt>
 
 
 </li>
-
+	
 </ul>
 
 		
-	<ul><b>Returns:</b>
-	
-		<li>
-<tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the integer remainders of dividing the point by the value
-as a new point
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
+<tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the integer remainders of dividing the point by the value as a new point
 </li>
-	
+		
 	</ul>
 
 		
-		<p>
-<b>Example</b> 
-</p>
+		<h4>Example:</h4>
 
 
-<pre class="code">var point = new Point(12, 6);
-console.log(point % 5); // {x: 2, y: 1}</pre>
+<pre><code>var point = new Point(12, 6);
+console.log(point % 5); // {x: 2, y: 1}</code></pre>
 
 	</div>
 
 
 
 	<div class="member-text">
-		<p>The modulo operator returns the integer remainders of dividing the point
-by the supplied value as a new point.</p>
+		<p>The modulo operator returns the integer remainders of dividing the point by the supplied value as a new point.</p>
 		
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>point:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
 
 
 </li>
-
+	
 </ul>
 
 		
-	<ul><b>Returns:</b>
-	
-		<li>
-<tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the integer remainders of dividing the points by each
-other as a new point
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
+<tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the integer remainders of dividing the points by each other as a new point
 </li>
-	
+		
 	</ul>
 
 		
-		<p>
-<b>Example</b> 
-</p>
+		<h4>Example:</h4>
 
 
-<pre class="code">var point = new Point(12, 6);
-console.log(point % new Point(5, 2)); // {x: 2, y: 0}</pre>
+<pre><code>var point = new Point(12, 6);
+console.log(point % new Point(5, 2)); // {x: 2, y: 0}</code></pre>
 
 	</div>
 
@@ -822,10 +792,11 @@ console.log(point % new Point(5, 2)); // {x: 2, y: 0}</pre>
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<tt>Number</tt>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<tt>Number</tt>
+		</li>
 	</ul>
     
 	
@@ -847,10 +818,11 @@ console.log(point % new Point(5, 2)); // {x: 2, y: 0}</pre>
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<tt>Number</tt>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<tt>Number</tt>
+		</li>
 	</ul>
     
 	
@@ -868,17 +840,16 @@ console.log(point % new Point(5, 2)); // {x: 2, y: 0}</pre>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The length of the vector that is represented by this point's coordinates.</p>
-<p>Each point can be interpreted as a vector that points from the origin (<tt>x
-= 0</tt>, <tt>y = 0</tt>) to the point's location. Setting the length changes the
-location but keeps the vector's angle.</p>
+	<p>The length of the vector that is represented by this point&rsquo;s coordinates. Each point can be interpreted as a vector that points from the origin (<code>x
+= 0</code>, <code>y = 0</code>) to the point&rsquo;s location. Setting the length changes the location but keeps the vector&rsquo;s angle.</p>
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<tt>Number</tt>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<tt>Number</tt>
+		</li>
 	</ul>
     
 	
@@ -896,14 +867,15 @@ location but keeps the vector's angle.</p>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The vector's angle in degrees, measured from the x-axis to the vector.</p>
+	<p>The vector&rsquo;s angle in degrees, measured from the x-axis to the vector.</p>
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<tt>Number</tt>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<tt>Number</tt>
+		</li>
 	</ul>
     
 	
@@ -921,14 +893,15 @@ location but keeps the vector's angle.</p>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The vector's angle in radians, measured from the x-axis to the vector.</p>
+	<p>The vector&rsquo;s angle in radians, measured from the x-axis to the vector.</p>
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<tt>Number</tt>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<tt>Number</tt>
+		</li>
 	</ul>
     
 	
@@ -947,28 +920,24 @@ location but keeps the vector's angle.</p>
 
 <div class="member-text">
 	<p>The quadrant of the <a href="/reference/point#angle"><tt>angle</tt></a> of the point.</p>
-<p>Angles between 0 and 90 degrees are in quadrant <tt>1</tt>. Angles between 90
-and 180 degrees are in quadrant <tt>2</tt>, angles between 180 and 270 degrees
-are in quadrant <tt>3</tt> and angles between 270 and 360 degrees are in
-quadrant <tt>4</tt>.</p>
+<p>Angles between 0 and 90 degrees are in quadrant <code>1</code>. Angles between 90 and 180 degrees are in quadrant <code>2</code>, angles between 180 and 270 degrees are in quadrant <code>3</code> and angles between 270 and 360 degrees are in quadrant <code>4</code>.</p>
 	
 		<p>Read only.</p>
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<tt>Number</tt>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<tt>Number</tt>
+		</li>
 	</ul>
     
 	
-	<p>
-<b>Example</b> 
-</p>
+	<h4>Example:</h4>
 
 
-<pre class="code">var point = new Point({
+<pre><code>var point = new Point({
     angle: 10,
     length: 20
 });
@@ -981,7 +950,7 @@ point.angle = 190;
 console.log(point.quadrant); // 3
 
 point.angle = 280;
-console.log(point.quadrant); // 4</pre>
+console.log(point.quadrant); // 4</code></pre>
 
 </div>
 
@@ -996,16 +965,15 @@ console.log(point.quadrant); // 4</pre>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>This property is only present if the point is an anchor or control point
-of a <a href="/reference/segment"><tt>Segment</tt></a> or a <a href="/reference/curve"><tt>Curve</tt></a>. In this case, it returns
-<tt>true</tt> it is selected, <tt>false</tt> otherwise</p>
+	<p>This property is only present if the point is an anchor or control point of a <a href="/reference/segment"><tt>Segment</tt></a> or a <a href="/reference/curve"><tt>Curve</tt></a>. In this case, it returns <tt>true</tt> it is selected, <tt>false</tt> otherwise</p>
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<tt>Boolean</tt>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<tt>Boolean</tt>
+		</li>
 	</ul>
     
 	
@@ -1032,40 +1000,39 @@ of a <a href="/reference/segment"><tt>Segment</tt></a> or a <a href="/reference/
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Checks whether the coordinates of the point are equal to that of the
-supplied point.</p>
+	<p>Checks whether the coordinates of the point are equal to that of the supplied point.</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>point:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
 
 
 </li>
-
+	
 </ul>
 
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the points are equal, <tt>false</tt> otherwise
 </li>
-	
+		
 	</ul>
 
 	
-	<p>
-<b>Example</b> 
-</p>
+	<h4>Example:</h4>
 
 
-<pre class="code">var point = new Point(5, 10);
+<pre><code>var point = new Point(5, 10);
 console.log(point == new Point(5, 10)); // true
 console.log(point == new Point(1, 1)); // false
-console.log(point != new Point(1, 1)); // true</pre>
+console.log(point != new Point(1, 1)); // true</code></pre>
 
 </div>
 </div>
@@ -1082,26 +1049,25 @@ console.log(point != new Point(1, 1)); // true</pre>
     
 	
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the cloned point
 </li>
-	
+		
 	</ul>
 
 	
-	<p>
-<b>Example</b> 
-</p>
+	<h4>Example:</h4>
 
 
-<pre class="code">var point1 = new Point();
+<pre><code>var point1 = new Point();
 var point2 = point1;
 point2.x = 1; // also changes point1.x
 
 var point2 = point1.clone();
-point2.x = 1; // doesn't change point1.x</pre>
+point2.x = 1; // doesn't change point1.x</code></pre>
 
 </div>
 </div>
@@ -1118,12 +1084,13 @@ point2.x = 1; // doesn't change point1.x</pre>
     
 	
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><tt>String</tt></tt>&nbsp;&mdash;&nbsp;a string representation of the point
 </li>
-	
+		
 	</ul>
 
 	
@@ -1139,28 +1106,29 @@ point2.x = 1; // doesn't change point1.x</pre>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Returns the smaller angle between two vectors. The angle is unsigned, no
-information about rotational direction is given.</p>
+	<p>Returns the smaller angle between two vectors. The angle is unsigned, no information about rotational direction is given.</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>point:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
 
 
 </li>
-
+	
 </ul>
 
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><tt>Number</tt></tt>&nbsp;&mdash;&nbsp;the angle in degrees
 </li>
-	
+		
 	</ul>
 
 	
@@ -1176,28 +1144,29 @@ information about rotational direction is given.</p>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Returns the smaller angle between two vectors in radians. The angle is
-unsigned, no information about rotational direction is given.</p>
+	<p>Returns the smaller angle between two vectors in radians. The angle is unsigned, no information about rotational direction is given.</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>point:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
 
 
 </li>
-
+	
 </ul>
 
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><tt>Number</tt></tt>&nbsp;&mdash;&nbsp;the angle in radians
 </li>
-	
+		
 	</ul>
 
 	
@@ -1213,30 +1182,30 @@ unsigned, no information about rotational direction is given.</p>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Returns the angle between two vectors. The angle is directional and
-signed, giving information about the rotational direction.</p>
-<p>Read more about angle units and orientation in the description of the
-<a href="/reference/point#angle"><tt>angle</tt></a> property.</p>
+	<p>Returns the angle between two vectors. The angle is directional and signed, giving information about the rotational direction.</p>
+<p>Read more about angle units and orientation in the description of the <a href="/reference/point#angle"><tt>angle</tt></a> property.</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>point:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
 
 
 </li>
-
+	
 </ul>
 
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><tt>Number</tt></tt>&nbsp;&mdash;&nbsp;the angle between the two vectors
 </li>
-	
+		
 	</ul>
 
 	
@@ -1255,32 +1224,33 @@ signed, giving information about the rotational direction.</p>
 	<p>Returns the distance between the point and another point.</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>point:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
 
 
 </li>
-
-<li>
+	
+	<li>
 <tt>squared:</tt> 
 <tt>Boolean</tt>
-&mdash;&nbsp;Controls whether the distance should
-remain squared, or its square root should be calculated
+&mdash;&nbsp;Controls whether the distance should remain squared, or its square root should be calculated
 &mdash;&nbsp;optional, default: <tt>false</tt>
 </li>
-
+	
 </ul>
 
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><tt>Number</tt></tt>
 </li>
-	
+		
 	</ul>
 
 	
@@ -1296,31 +1266,29 @@ remain squared, or its square root should be calculated
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Normalize modifies the <a href="/reference/point#length"><tt>length</tt></a> of the vector to <tt>1</tt> without
-changing its angle and returns it as a new point. The optional <tt>length</tt>
-parameter defines the length to normalize to. The object itself is not
-modified!</p>
+	<p>Normalize modifies the <a href="/reference/point#length"><tt>length</tt></a> of the vector to <code>1</code> without changing its angle and returns it as a new point. The optional <code>length</code> parameter defines the length to normalize to. The object itself is not modified!</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>length:</tt> 
 <tt>Number</tt>
 &mdash;&nbsp;The length of the normalized vector
 &mdash;&nbsp;optional, default: <tt>1</tt>
 </li>
-
+	
 </ul>
 
 	
-	<ul><b>Returns:</b>
-	
-		<li>
-<tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the normalized vector of the vector that is represented
-    by this point's coordinates
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
+<tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the normalized vector of the vector that is represented  by this point&rsquo;s coordinates
 </li>
-	
+		
 	</ul>
 
 	
@@ -1336,37 +1304,37 @@ modified!</p>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Rotates the point by the given angle around an optional center point.</p>
-<p>The object itself is not modified.</p>
-<p>Read more about angle units and orientation in the description of the
-<a href="/reference/point#angle"><tt>angle</tt></a> property.</p>
+	<p>Rotates the point by the given angle around an optional center point. The object itself is not modified.</p>
+<p>Read more about angle units and orientation in the description of the <a href="/reference/point#angle"><tt>angle</tt></a> property.</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>angle:</tt> 
 <tt>Number</tt>
 &mdash;&nbsp;the rotation angle
 
 </li>
-
-<li>
+	
+	<li>
 <tt>center:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
 &mdash;&nbsp;the center point of the rotation
 
 </li>
-
+	
 </ul>
 
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the rotated point
 </li>
-	
+		
 	</ul>
 
 	
@@ -1382,28 +1350,29 @@ modified!</p>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Transforms the point by the matrix as a new point. The object itself is
-not modified!</p>
+	<p>Transforms the point by the matrix as a new point. The object itself is not modified!</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>matrix:</tt> 
 <a href="/reference/matrix"><tt>Matrix</tt></a>
 
 
 </li>
-
+	
 </ul>
 
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the transformed point
 </li>
-	
+		
 	</ul>
 
 	
@@ -1424,24 +1393,26 @@ not modified!</p>
 	<p>Checks whether the point is inside the boundaries of the rectangle.</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>rect:</tt> 
 <a href="/reference/rectangle"><tt>Rectangle</tt></a>
 &mdash;&nbsp;the rectangle to check against
 
 </li>
-
+	
 </ul>
 
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the point is inside the rectangle, <tt>false</tt> otherwise
 </li>
-	
+		
 	</ul>
 
 	
@@ -1460,31 +1431,33 @@ not modified!</p>
 	<p>Checks if the point is within a given distance of another point.</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>point:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
 &mdash;&nbsp;the point to check against
 
 </li>
-
-<li>
+	
+	<li>
 <tt>tolerance:</tt> 
 <tt>Number</tt>
 &mdash;&nbsp;the maximum distance allowed
 
 </li>
-
+	
 </ul>
 
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if it is within the given distance, <tt>false</tt> otherwise
 </li>
-	
+		
 	</ul>
 
 	
@@ -1500,28 +1473,29 @@ not modified!</p>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Checks if the vector represented by this point is collinear (parallel) to
-another vector.</p>
+	<p>Checks if the vector represented by this point is collinear (parallel) to another vector.</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>point:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
 &mdash;&nbsp;the vector to check against
 
 </li>
-
+	
 </ul>
 
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> it is collinear, <tt>false</tt> otherwise
 </li>
-	
+		
 	</ul>
 
 	
@@ -1537,28 +1511,29 @@ another vector.</p>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Checks if the vector represented by this point is orthogonal
-(perpendicular) to another vector.</p>
+	<p>Checks if the vector represented by this point is orthogonal (perpendicular) to another vector.</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>point:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
 &mdash;&nbsp;the vector to check against
 
 </li>
-
+	
 </ul>
 
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> it is orthogonal, <tt>false</tt> otherwise
 </li>
-	
+		
 	</ul>
 
 	
@@ -1578,12 +1553,13 @@ another vector.</p>
     
 	
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if both x and y are 0, <tt>false</tt> otherwise
 </li>
-	
+		
 	</ul>
 
 	
@@ -1599,17 +1575,17 @@ another vector.</p>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Checks if this point has an undefined value for at least one of its
-coordinates.</p>
+	<p>Checks if this point has an undefined value for at least one of its coordinates.</p>
     
 	
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if either x or y are not a number, <tt>false</tt> otherwise
 </li>
-	
+		
 	</ul>
 
 	
@@ -1630,24 +1606,26 @@ coordinates.</p>
 	<p>Returns the dot product of the point and another point.</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>point:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
 
 
 </li>
-
+	
 </ul>
 
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><tt>Number</tt></tt>&nbsp;&mdash;&nbsp;the dot product of the two points
 </li>
-	
+		
 	</ul>
 
 	
@@ -1666,24 +1644,26 @@ coordinates.</p>
 	<p>Returns the cross product of the point and another point.</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>point:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
 
 
 </li>
-
+	
 </ul>
 
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><tt>Number</tt></tt>&nbsp;&mdash;&nbsp;the cross product of the two points
 </li>
-	
+		
 	</ul>
 
 	
@@ -1699,28 +1679,29 @@ coordinates.</p>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Returns the projection of the point onto another point.</p>
-<p>Both points are interpreted as vectors.</p>
+	<p>Returns the projection of the point onto another point. Both points are interpreted as vectors.</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>point:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
 
 
 </li>
-
+	
 </ul>
 
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the projection of the point onto another point
 </li>
-	
+		
 	</ul>
 
 	
@@ -1738,28 +1719,26 @@ coordinates.</p>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Returns a new point with rounded <a href="/reference/point#x"><tt>x</tt></a> and <a href="/reference/point#y"><tt>y</tt></a> values. The
-object itself is not modified!</p>
+	<p>Returns a new point with rounded <a href="/reference/point#x"><tt>x</tt></a> and <a href="/reference/point#y"><tt>y</tt></a> values. The object itself is not modified!</p>
     
 	
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><a href="/reference/point"><tt>Point</tt></a></tt>
 </li>
-	
+		
 	</ul>
 
 	
-	<p>
-<b>Example</b> 
-</p>
+	<h4>Example:</h4>
 
 
-<pre class="code">var point = new Point(10.2, 10.9);
+<pre><code>var point = new Point(10.2, 10.9);
 var roundPoint = point.round();
-console.log(roundPoint); // {x: 10, y: 11}</pre>
+console.log(roundPoint); // {x: 10, y: 11}</code></pre>
 
 </div>
 </div>
@@ -1772,29 +1751,26 @@ console.log(roundPoint); // {x: 10, y: 11}</pre>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Returns a new point with the nearest greater non-fractional values to the
-specified <a href="/reference/point#x"><tt>x</tt></a> and <a href="/reference/point#y"><tt>y</tt></a> values. The object itself is not
-modified!</p>
+	<p>Returns a new point with the nearest greater non-fractional values to the specified <a href="/reference/point#x"><tt>x</tt></a> and <a href="/reference/point#y"><tt>y</tt></a> values. The object itself is not modified!</p>
     
 	
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><a href="/reference/point"><tt>Point</tt></a></tt>
 </li>
-	
+		
 	</ul>
 
 	
-	<p>
-<b>Example</b> 
-</p>
+	<h4>Example:</h4>
 
 
-<pre class="code">var point = new Point(10.2, 10.9);
+<pre><code>var point = new Point(10.2, 10.9);
 var ceilPoint = point.ceil();
-console.log(ceilPoint); // {x: 11, y: 11}</pre>
+console.log(ceilPoint); // {x: 11, y: 11}</code></pre>
 
 </div>
 </div>
@@ -1807,29 +1783,26 @@ console.log(ceilPoint); // {x: 11, y: 11}</pre>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Returns a new point with the nearest smaller non-fractional values to the
-specified <a href="/reference/point#x"><tt>x</tt></a> and <a href="/reference/point#y"><tt>y</tt></a> values. The object itself is not
-modified!</p>
+	<p>Returns a new point with the nearest smaller non-fractional values to the specified <a href="/reference/point#x"><tt>x</tt></a> and <a href="/reference/point#y"><tt>y</tt></a> values. The object itself is not modified!</p>
     
 	
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><a href="/reference/point"><tt>Point</tt></a></tt>
 </li>
-	
+		
 	</ul>
 
 	
-	<p>
-<b>Example</b> 
-</p>
+	<h4>Example:</h4>
 
 
-<pre class="code">var point = new Point(10.2, 10.9);
+<pre><code>var point = new Point(10.2, 10.9);
 var floorPoint = point.floor();
-console.log(floorPoint); // {x: 10, y: 10}</pre>
+console.log(floorPoint); // {x: 10, y: 10}</code></pre>
 
 </div>
 </div>
@@ -1842,28 +1815,26 @@ console.log(floorPoint); // {x: 10, y: 10}</pre>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Returns a new point with the absolute values of the specified <a href="/reference/point#x"><tt>x</tt></a>
-and <a href="/reference/point#y"><tt>y</tt></a> values. The object itself is not modified!</p>
+	<p>Returns a new point with the absolute values of the specified <a href="/reference/point#x"><tt>x</tt></a> and <a href="/reference/point#y"><tt>y</tt></a> values. The object itself is not modified!</p>
     
 	
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><a href="/reference/point"><tt>Point</tt></a></tt>
 </li>
-	
+		
 	</ul>
 
 	
-	<p>
-<b>Example</b> 
-</p>
+	<h4>Example:</h4>
 
 
-<pre class="code">var point = new Point(-5, 10);
+<pre><code>var point = new Point(-5, 10);
 var absPoint = point.abs();
-console.log(absPoint); // {x: 5, y: 10}</pre>
+console.log(absPoint); // {x: 5, y: 10}</code></pre>
 
 </div>
 </div>
@@ -1881,40 +1852,38 @@ console.log(absPoint); // {x: 5, y: 10}</pre>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Returns the addition of the supplied value to both coordinates of
-the point as a new point.</p>
-<p>The object itself is not modified!</p>
+	<p>Returns the addition of the supplied value to both coordinates of the point as a new point. The object itself is not modified!</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>number:</tt> 
 <tt>Number</tt>
 &mdash;&nbsp;the number to add
 
 </li>
-
+	
 </ul>
 
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the addition of the point and the value as a new point
 </li>
-	
+		
 	</ul>
 
 	
-	<p>
-<b>Example</b> 
-</p>
+	<h4>Example:</h4>
 
 
-<pre class="code">var point = new Point(5, 10);
+<pre><code>var point = new Point(5, 10);
 var result = point + 20;
-console.log(result); // {x: 25, y: 30}</pre>
+console.log(result); // {x: 25, y: 30}</code></pre>
 
 </div>
 </div>
@@ -1927,41 +1896,39 @@ console.log(result); // {x: 25, y: 30}</pre>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Returns the addition of the supplied point to the point as a new
-point.</p>
-<p>The object itself is not modified!</p>
+	<p>Returns the addition of the supplied point to the point as a new point. The object itself is not modified!</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>point:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
 &mdash;&nbsp;the point to add
 
 </li>
-
+	
 </ul>
 
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the addition of the two points as a new point
 </li>
-	
+		
 	</ul>
 
 	
-	<p>
-<b>Example</b> 
-</p>
+	<h4>Example:</h4>
 
 
-<pre class="code">var point1 = new Point(5, 10);
+<pre><code>var point1 = new Point(5, 10);
 var point2 = new Point(10, 20);
 var result = point1 + point2;
-console.log(result); // {x: 15, y: 30}</pre>
+console.log(result); // {x: 15, y: 30}</code></pre>
 
 </div>
 </div>
@@ -1977,40 +1944,38 @@ console.log(result); // {x: 15, y: 30}</pre>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Returns the subtraction of the supplied value to both coordinates of
-the point as a new point.</p>
-<p>The object itself is not modified!</p>
+	<p>Returns the subtraction of the supplied value to both coordinates of the point as a new point. The object itself is not modified!</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>number:</tt> 
 <tt>Number</tt>
 &mdash;&nbsp;the number to subtract
 
 </li>
-
+	
 </ul>
 
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the subtraction of the point and the value as a new point
 </li>
-	
+		
 	</ul>
 
 	
-	<p>
-<b>Example</b> 
-</p>
+	<h4>Example:</h4>
 
 
-<pre class="code">var point = new Point(10, 20);
+<pre><code>var point = new Point(10, 20);
 var result = point - 5;
-console.log(result); // {x: 5, y: 15}</pre>
+console.log(result); // {x: 5, y: 15}</code></pre>
 
 </div>
 </div>
@@ -2023,41 +1988,39 @@ console.log(result); // {x: 5, y: 15}</pre>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Returns the subtraction of the supplied point to the point as a new
-point.</p>
-<p>The object itself is not modified!</p>
+	<p>Returns the subtraction of the supplied point to the point as a new point. The object itself is not modified!</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>point:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
 &mdash;&nbsp;the point to subtract
 
 </li>
-
+	
 </ul>
 
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the subtraction of the two points as a new point
 </li>
-	
+		
 	</ul>
 
 	
-	<p>
-<b>Example</b> 
-</p>
+	<h4>Example:</h4>
 
 
-<pre class="code">var firstPoint = new Point(10, 20);
+<pre><code>var firstPoint = new Point(10, 20);
 var secondPoint = new Point(5, 5);
 var result = firstPoint - secondPoint;
-console.log(result); // {x: 5, y: 15}</pre>
+console.log(result); // {x: 5, y: 15}</code></pre>
 
 </div>
 </div>
@@ -2073,40 +2036,38 @@ console.log(result); // {x: 5, y: 15}</pre>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Returns the multiplication of the supplied value to both coordinates of
-the point as a new point.</p>
-<p>The object itself is not modified!</p>
+	<p>Returns the multiplication of the supplied value to both coordinates of the point as a new point. The object itself is not modified!</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>number:</tt> 
 <tt>Number</tt>
 &mdash;&nbsp;the number to multiply by
 
 </li>
-
+	
 </ul>
 
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the multiplication of the point and the value as a new point
 </li>
-	
+		
 	</ul>
 
 	
-	<p>
-<b>Example</b> 
-</p>
+	<h4>Example:</h4>
 
 
-<pre class="code">var point = new Point(10, 20);
+<pre><code>var point = new Point(10, 20);
 var result = point * 2;
-console.log(result); // {x: 20, y: 40}</pre>
+console.log(result); // {x: 20, y: 40}</code></pre>
 
 </div>
 </div>
@@ -2119,41 +2080,39 @@ console.log(result); // {x: 20, y: 40}</pre>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Returns the multiplication of the supplied point to the point as a new
-point.</p>
-<p>The object itself is not modified!</p>
+	<p>Returns the multiplication of the supplied point to the point as a new point. The object itself is not modified!</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>point:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
 &mdash;&nbsp;the point to multiply by
 
 </li>
-
+	
 </ul>
 
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the multiplication of the two points as a new point
 </li>
-	
+		
 	</ul>
 
 	
-	<p>
-<b>Example</b> 
-</p>
+	<h4>Example:</h4>
 
 
-<pre class="code">var firstPoint = new Point(5, 10);
+<pre><code>var firstPoint = new Point(5, 10);
 var secondPoint = new Point(4, 2);
 var result = firstPoint * secondPoint;
-console.log(result); // {x: 20, y: 20}</pre>
+console.log(result); // {x: 20, y: 20}</code></pre>
 
 </div>
 </div>
@@ -2169,40 +2128,38 @@ console.log(result); // {x: 20, y: 20}</pre>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Returns the division of the supplied value to both coordinates of
-the point as a new point.</p>
-<p>The object itself is not modified!</p>
+	<p>Returns the division of the supplied value to both coordinates of the point as a new point. The object itself is not modified!</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>number:</tt> 
 <tt>Number</tt>
 &mdash;&nbsp;the number to divide by
 
 </li>
-
+	
 </ul>
 
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the division of the point and the value as a new point
 </li>
-	
+		
 	</ul>
 
 	
-	<p>
-<b>Example</b> 
-</p>
+	<h4>Example:</h4>
 
 
-<pre class="code">var point = new Point(10, 20);
+<pre><code>var point = new Point(10, 20);
 var result = point / 2;
-console.log(result); // {x: 5, y: 10}</pre>
+console.log(result); // {x: 5, y: 10}</code></pre>
 
 </div>
 </div>
@@ -2215,41 +2172,39 @@ console.log(result); // {x: 5, y: 10}</pre>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Returns the division of the supplied point to the point as a new
-point.</p>
-<p>The object itself is not modified!</p>
+	<p>Returns the division of the supplied point to the point as a new point. The object itself is not modified!</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>point:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
 &mdash;&nbsp;the point to divide by
 
 </li>
-
+	
 </ul>
 
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the division of the two points as a new point
 </li>
-	
+		
 	</ul>
 
 	
-	<p>
-<b>Example</b> 
-</p>
+	<h4>Example:</h4>
 
 
-<pre class="code">var firstPoint = new Point(8, 10);
+<pre><code>var firstPoint = new Point(8, 10);
 var secondPoint = new Point(2, 5);
 var result = firstPoint / secondPoint;
-console.log(result); // {x: 4, y: 2}</pre>
+console.log(result); // {x: 4, y: 2}</code></pre>
 
 </div>
 </div>
@@ -2265,39 +2220,37 @@ console.log(result); // {x: 4, y: 2}</pre>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>The modulo operator returns the integer remainders of dividing the point
-by the supplied value as a new point.</p>
+	<p>The modulo operator returns the integer remainders of dividing the point by the supplied value as a new point.</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>value:</tt> 
 <tt>Number</tt>
 
 
 </li>
-
+	
 </ul>
 
 	
-	<ul><b>Returns:</b>
-	
-		<li>
-<tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the integer remainders of dividing the point by the value
-as a new point
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
+<tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the integer remainders of dividing the point by the value as a new point
 </li>
-	
+		
 	</ul>
 
 	
-	<p>
-<b>Example</b> 
-</p>
+	<h4>Example:</h4>
 
 
-<pre class="code">var point = new Point(12, 6);
-console.log(point % 5); // {x: 2, y: 1}</pre>
+<pre><code>var point = new Point(12, 6);
+console.log(point % 5); // {x: 2, y: 1}</code></pre>
 
 </div>
 </div>
@@ -2310,39 +2263,37 @@ console.log(point % 5); // {x: 2, y: 1}</pre>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>The modulo operator returns the integer remainders of dividing the point
-by the supplied value as a new point.</p>
+	<p>The modulo operator returns the integer remainders of dividing the point by the supplied value as a new point.</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>point:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
 
 
 </li>
-
+	
 </ul>
 
 	
-	<ul><b>Returns:</b>
-	
-		<li>
-<tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the integer remainders of dividing the points by each
-other as a new point
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
+<tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the integer remainders of dividing the points by each other as a new point
 </li>
-	
+		
 	</ul>
 
 	
-	<p>
-<b>Example</b> 
-</p>
+	<h4>Example:</h4>
 
 
-<pre class="code">var point = new Point(12, 6);
-console.log(point % new Point(5, 2)); // {x: 2, y: 0}</pre>
+<pre><code>var point = new Point(12, 6);
+console.log(point % new Point(5, 2)); // {x: 2, y: 0}</code></pre>
 
 </div>
 </div>
@@ -2364,57 +2315,54 @@ console.log(point % new Point(5, 2)); // {x: 2, y: 0}</pre>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Returns a new point object with the smallest <a href="/reference/point#x"><tt>x</tt></a> and
-<a href="/reference/point#y"><tt>y</tt></a> of the supplied points.</p>
+	<p>Returns a new point object with the smallest <a href="/reference/point#x"><tt>x</tt></a> and <a href="/reference/point#y"><tt>y</tt></a> of the supplied points.</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>point1:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
 
 
 </li>
-
-<li>
+	
+	<li>
 <tt>point2:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
 
 
 </li>
-
+	
 </ul>
 
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the newly created point object
 </li>
-	
+		
 	</ul>
 
 	
-	<p>
-<b>Example</b> 
-</p>
+	<h4>Example:</h4>
 
 
-<pre class="code">var point1 = new Point(10, 100);
+<pre><code>var point1 = new Point(10, 100);
 var point2 = new Point(200, 5);
 var minPoint = Point.min(point1, point2);
-console.log(minPoint); // {x: 10, y: 5}</pre>
+console.log(minPoint); // {x: 10, y: 5}</code></pre>
 
-<p>
-<b>Example</b> &mdash; Find the minimum of multiple points:
-</p>
+<h4>Example:<span class="description">Find the minimum of multiple points:</span></h4>
 
 
-<pre class="code">var point1 = new Point(60, 100);
+<pre><code>var point1 = new Point(60, 100);
 var point2 = new Point(200, 5);
 var point3 = new Point(250, 35);
-[point1, point2, point3].reduce(Point.min) // {x: 60, y: 5}</pre>
+[point1, point2, point3].reduce(Point.min) // {x: 60, y: 5}</code></pre>
 
 </div>
 </div>
@@ -2427,57 +2375,54 @@ var point3 = new Point(250, 35);
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Returns a new point object with the largest <a href="/reference/point#x"><tt>x</tt></a> and
-<a href="/reference/point#y"><tt>y</tt></a> of the supplied points.</p>
+	<p>Returns a new point object with the largest <a href="/reference/point#x"><tt>x</tt></a> and <a href="/reference/point#y"><tt>y</tt></a> of the supplied points.</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>point1:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
 
 
 </li>
-
-<li>
+	
+	<li>
 <tt>point2:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
 
 
 </li>
-
+	
 </ul>
 
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the newly created point object
 </li>
-	
+		
 	</ul>
 
 	
-	<p>
-<b>Example</b> 
-</p>
+	<h4>Example:</h4>
 
 
-<pre class="code">var point1 = new Point(10, 100);
+<pre><code>var point1 = new Point(10, 100);
 var point2 = new Point(200, 5);
 var maxPoint = Point.max(point1, point2);
-console.log(maxPoint); // {x: 200, y: 100}</pre>
+console.log(maxPoint); // {x: 200, y: 100}</code></pre>
 
-<p>
-<b>Example</b> &mdash; Find the maximum of multiple points:
-</p>
+<h4>Example:<span class="description">Find the maximum of multiple points:</span></h4>
 
 
-<pre class="code">var point1 = new Point(60, 100);
+<pre><code>var point1 = new Point(60, 100);
 var point2 = new Point(200, 5);
 var point3 = new Point(250, 35);
-[point1, point2, point3].reduce(Point.max) // {x: 250, y: 100}</pre>
+[point1, point2, point3].reduce(Point.max) // {x: 250, y: 100}</code></pre>
 
 </div>
 </div>
@@ -2490,30 +2435,28 @@ var point3 = new Point(250, 35);
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Returns a point object with random <a href="/reference/point#x"><tt>x</tt></a> and <a href="/reference/point#y"><tt>y</tt></a> values
-between <tt>0</tt> and <tt>1</tt>.</p>
+	<p>Returns a point object with random <a href="/reference/point#x"><tt>x</tt></a> and <a href="/reference/point#y"><tt>y</tt></a> values between <code>0</code> and <code>1</code>.</p>
     
 	
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the newly created point object
 </li>
-	
+		
 	</ul>
 
 	
-	<p>
-<b>Example</b> 
-</p>
+	<h4>Example:</h4>
 
 
-<pre class="code">var maxPoint = new Point(100, 100);
+<pre><code>var maxPoint = new Point(100, 100);
 var randomPoint = Point.random();
 
 // A point between {x:0, y:0} and {x:100, y:100}:
-var point = maxPoint * randomPoint;</pre>
+var point = maxPoint * randomPoint;</code></pre>
 
 </div>
 </div>

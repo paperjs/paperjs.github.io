@@ -66,11 +66,7 @@
   <div class="reference"><div class="reference-class">
 
 
-<p>The View object wraps an HTML element and handles drawing and user
-interaction through mouse and keyboard for it. It offer means to scroll the
-view, find the currently visible bounds in project coordinates, or the
-center, both useful for constructing artwork that should appear centered on
-screen.</p>
+<p>The View object wraps an HTML element and handles drawing and user interaction through mouse and keyboard for it. It offer means to scroll the view, find the currently visible bounds in project coordinates, or the center, both useful for constructing artwork that should appear centered on screen.</p>
 
 </div>
 
@@ -96,10 +92,11 @@ screen.</p>
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<tt>HTMLCanvasElement</tt>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<tt>HTMLCanvasElement</tt>
+		</li>
 	</ul>
     
 	
@@ -117,19 +114,17 @@ screen.</p>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The ratio between physical pixels and device-independent pixels (DIPs)
-of the underlying canvas / device.</p>
-<p>It is <tt>1</tt> for normal displays, and <tt>2</tt> or more for
-high-resolution displays.</p>
+	<p>The ratio between physical pixels and device-independent pixels (DIPs) of the underlying canvas / device. It is <code>1</code> for normal displays, and <code>2</code> or more for high-resolution displays.</p>
 	
 		<p>Read only.</p>
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<tt>Number</tt>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<tt>Number</tt>
+		</li>
 	</ul>
     
 	
@@ -147,18 +142,17 @@ high-resolution displays.</p>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The resoltuion of the underlying canvas / device in pixel per inch (DPI).</p>
-<p>It is <tt>72</tt> for normal displays, and <tt>144</tt> for high-resolution
-displays with a pixel-ratio of <tt>2</tt>.</p>
+	<p>The resoltuion of the underlying canvas / device in pixel per inch (DPI). It is <code>72</code> for normal displays, and <code>144</code> for high-resolution displays with a pixel-ratio of <code>2</code>.</p>
 	
 		<p>Read only.</p>
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<tt>Number</tt>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<tt>Number</tt>
+		</li>
 	</ul>
     
 	
@@ -176,15 +170,15 @@ displays with a pixel-ratio of <tt>2</tt>.</p>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The size of the view. Changing the view's size will resize it's
-underlying element.</p>
+	<p>The size of the view. Changing the view&rsquo;s size will resize it&rsquo;s underlying element.</p>
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<a href="/reference/size"><tt>Size</tt></a>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<a href="/reference/size"><tt>Size</tt></a>
+		</li>
 	</ul>
     
 	
@@ -208,10 +202,11 @@ underlying element.</p>
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<a href="/reference/rectangle"><tt>Rectangle</tt></a>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<a href="/reference/rectangle"><tt>Rectangle</tt></a>
+		</li>
 	</ul>
     
 	
@@ -235,10 +230,11 @@ underlying element.</p>
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<a href="/reference/size"><tt>Size</tt></a>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<a href="/reference/size"><tt>Size</tt></a>
+		</li>
 	</ul>
     
 	
@@ -260,10 +256,11 @@ underlying element.</p>
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<a href="/reference/point"><tt>Point</tt></a>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<a href="/reference/point"><tt>Point</tt></a>
+		</li>
 	</ul>
     
 	
@@ -285,10 +282,11 @@ underlying element.</p>
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<tt>Number</tt>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<tt>Number</tt>
+		</li>
 	</ul>
     
 	
@@ -308,30 +306,24 @@ underlying element.</p>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>Handler function to be called on each frame of an animation.</p>
-<p>The function receives an event object which contains information about
-the frame event:</p>
+	<p>Handler function to be called on each frame of an animation. The function receives an event object which contains information about the frame event:</p>
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<tt>Function</tt>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<tt>Function</tt>
+		</li>
 	</ul>
-    <ul>
-<b>Options:</b>
-<li><tt>event.count: <tt>Number</tt></tt> &mdash; the number of times the frame event was
-fired</li>
-<li><tt>event.time: <tt>Number</tt></tt> &mdash; the total amount of time passed since the
-first frame event in seconds</li>
-<li><tt>event.delta: <tt>Number</tt></tt> &mdash; the time passed in seconds since the last
-frame event</li>
+    <ul class="member-list">
+<h4>Options:</h4>
+<li><tt>event.count: <tt>Number</tt></tt> &mdash; the number of times the frame event was fired</li>
+<li><tt>event.time: <tt>Number</tt></tt> &mdash; the total amount of time passed since the first frame event in seconds</li>
+<li><tt>event.delta: <tt>Number</tt></tt> &mdash; the time passed in seconds since the last frame event</li>
 </ul>
 	
-	<p>
-<b>Example</b> &mdash; Creating an animation:
-</p>
+	<h4>Example:<span class="description">Creating an animation:</span></h4>
 
 <div class="paperscript split">
 
@@ -371,26 +363,25 @@ view.onFrame = function(event) {
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<tt>Function</tt>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<tt>Function</tt>
+		</li>
 	</ul>
     
 	
-	<p>
-<b>Example</b> &mdash; Repositioning items when a view is resized:
-</p>
+	<h4>Example:<span class="description">Repositioning items when a view is resized:</span></h4>
 
 
-<pre class="code">// Create a circle shaped path in the center of the view:
+<pre><code>// Create a circle shaped path in the center of the view:
 var path = new Path.Circle(view.bounds.center, 30);
 path.fillColor = 'red';
 
 view.onResize = function(event) {
     // Whenever the view is resized, move the path to its center:
     path.position = view.center;
-}</pre>
+}</code></pre>
 
 </div>
 
@@ -431,17 +422,17 @@ view.onResize = function(event) {
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Checks whether the view is currently visible within the current browser
-viewport.</p>
+	<p>Checks whether the view is currently visible within the current browser viewport.</p>
     
 	
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the view is visible, <tt>false</tt> otherwise
 </li>
-	
+		
 	</ul>
 
 	
@@ -461,12 +452,13 @@ viewport.</p>
     
 	
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the view is inserted, <tt>false</tt> otherwise
 </li>
-	
+		
 	</ul>
 
 	
@@ -485,15 +477,16 @@ viewport.</p>
 	<p>Scrolls the view by the given vector.</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>point:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
 
 
 </li>
-
+	
 </ul>
 
 	
@@ -510,8 +503,7 @@ viewport.</p>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Makes all animation play by adding the view to the request animation
-loop.</p>
+	<p>Makes all animation play by adding the view to the request animation loop.</p>
     
 	
 	
@@ -528,8 +520,7 @@ loop.</p>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Makes all animation pause by removing the view to the request animation
-loop.</p>
+	<p>Makes all animation pause by removing the view to the request animation loop.</p>
     
 	
 	
@@ -546,30 +537,29 @@ loop.</p>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Updates the view if there are changes. Note that when using built-in
-event hanlders for interaction, animation and load events, this method is
-invoked for you automatically at the end.</p>
+	<p>Updates the view if there are changes. Note that when using built-in event hanlders for interaction, animation and load events, this method is invoked for you automatically at the end.</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>force:</tt> 
 <tt>Boolean</tt>
-&mdash;&nbsp;<tt>true</tt> if the view should be updated even
-if no change has happened, <tt>false</tt> otherwise
+&mdash;&nbsp;<tt>true</tt> if the view should be updated even if no change has happened, <tt>false</tt> otherwise
 &mdash;&nbsp;optional, default: <tt>false</tt>
 </li>
-
+	
 </ul>
 
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the view was updated, <tt>false</tt> otherwise
 </li>
-	
+		
 	</ul>
 
 	
@@ -585,29 +575,29 @@ if no change has happened, <tt>false</tt> otherwise
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Converts the passed point from project coordinate space to view
-coordinate space, which is measured in browser pixels in relation to the
-position of the view element.</p>
+	<p>Converts the passed point from project coordinate space to view coordinate space, which is measured in browser pixels in relation to the position of the view element.</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>point:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
 &mdash;&nbsp;the point in project coordinates to be converted
 
 </li>
-
+	
 </ul>
 
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the point converted into view coordinates
 </li>
-	
+		
 	</ul>
 
 	
@@ -623,28 +613,29 @@ position of the view element.</p>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Converts the passed point from view coordinate space to project
-coordinate space.</p>
+	<p>Converts the passed point from view coordinate space to project coordinate space.</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>point:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
 &mdash;&nbsp;the point in view coordinates to be converted
 
 </li>
-
+	
 </ul>
 
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the point converted into project coordinates
 </li>
-	
+		
 	</ul>
 
 	
@@ -663,25 +654,26 @@ coordinate space.</p>
 	<p>Determines and returns the event location in project coordinate space.</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>event:</tt> 
 <a href="/reference/event"><tt>Event</tt></a>
-&mdash;&nbsp;the native event object for which to determine the
-    location.
+&mdash;&nbsp;the native event object for which to determine the  location.
 
 </li>
-
+	
 </ul>
 
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the event point in project coordinates.
 </li>
-	
+		
 	</ul>
 
 	
@@ -702,39 +694,37 @@ coordinate space.</p>
 	<p>Attach an event handler to the view.</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>type:</tt> 
 <tt>String</tt>
-&mdash;&nbsp;the type of event: <tt>'frame'</tt>, <tt>'resize'</tt>, <tt>mousedown'</tt>, <tt>'mouseup'</tt>, <tt>'mousedrag'</tt>, <tt>'click'</tt>, <tt>'doubleclick'</tt>, <tt>'mousemove'</tt>, <tt>'mouseenter'</tt>, <tt>'mouseleave'</tt>
+&mdash;&nbsp;the type of event: <tt>&lsquo;frame&rsquo;</tt>, <tt>&lsquo;resize&rsquo;</tt>, <tt>mousedown&rsquo;</tt>, <tt>&lsquo;mouseup&rsquo;</tt>, <tt>&lsquo;mousedrag&rsquo;</tt>, <tt>&lsquo;click&rsquo;</tt>, <tt>&lsquo;doubleclick&rsquo;</tt>, <tt>&lsquo;mousemove&rsquo;</tt>, <tt>&lsquo;mouseenter&rsquo;</tt>, <tt>&lsquo;mouseleave&rsquo;</tt>
 
 </li>
-
-<li>
+	
+	<li>
 <tt>function:</tt> 
 <tt>Function</tt>
-&mdash;&nbsp;the function to be called when the event
-    occurs, receiving a <a href="/reference/mouseevent"><tt>MouseEvent</tt></a> or <a href="/reference/event"><tt>Event</tt></a> object as its
-    sole argument
+&mdash;&nbsp;the function to be called when the event  occurs, receiving a <a href="/reference/mouseevent"><tt>MouseEvent</tt></a> or <a href="/reference/event"><tt>Event</tt></a> object as its  sole argument
 
 </li>
-
+	
 </ul>
 
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><a href="/reference/view"><tt>View</tt></a></tt>&nbsp;&mdash;&nbsp;this view itself, so calls can be chained
 </li>
-	
+		
 	</ul>
 
 	
-	<p>
-<b>Example</b> &mdash; Create a rectangle shaped path with its top left point at: {x: 50, y: 25} and a size of {width: 50, height: 50}
-</p>
+	<h4>Example:<span class="description">Create a rectangle shaped path with its top left point at: {x: 50, y: 25} and a size of {width: 50, height: 50}</span></h4>
 
 <div class="paperscript split">
 
@@ -771,31 +761,30 @@ view.on('frame', frameHandler);
 	<p>Attach one or more event handlers to the view.</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>param:</tt> 
 <tt>Object</tt>
-&mdash;&nbsp;an object literal containing one or more of the
-    following properties: <tt>frame</tt>, <tt>resize</tt>
+&mdash;&nbsp;an object literal containing one or more of the  following properties: <tt>frame</tt>, <tt>resize</tt>
 
 </li>
-
+	
 </ul>
 
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><a href="/reference/view"><tt>View</tt></a></tt>&nbsp;&mdash;&nbsp;this view itself, so calls can be chained
 </li>
-	
+		
 	</ul>
 
 	
-	<p>
-<b>Example</b> &mdash; Create a rectangle shaped path with its top left point at: {x: 50, y: 25} and a size of {width: 50, height: 50}
-</p>
+	<h4>Example:<span class="description">Create a rectangle shaped path with its top left point at: {x: 50, y: 25} and a size of {width: 50, height: 50}</span></h4>
 
 <div class="paperscript split">
 
@@ -834,37 +823,37 @@ view.on({
 	<p>Detach an event handler from the view.</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>type:</tt> 
 <tt>String</tt>
-&mdash;&nbsp;the event type: <tt>'frame'</tt>, <tt>'resize'</tt>
+&mdash;&nbsp;the event type: <tt>&lsquo;frame&rsquo;</tt>, <tt>&lsquo;resize&rsquo;</tt>
 
 </li>
-
-<li>
+	
+	<li>
 <tt>function:</tt> 
 <tt>Function</tt>
 &mdash;&nbsp;the function to be detached
 
 </li>
-
+	
 </ul>
 
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><a href="/reference/view"><tt>View</tt></a></tt>&nbsp;&mdash;&nbsp;this view itself, so calls can be chained
 </li>
-	
+		
 	</ul>
 
 	
-	<p>
-<b>Example</b> &mdash; Create a rectangle shaped path with its top left point at: {x: 50, y: 25} and a size of {width: 50, height: 50}
-</p>
+	<h4>Example:<span class="description">Create a rectangle shaped path with its top left point at: {x: 50, y: 25} and a size of {width: 50, height: 50}</span></h4>
 
 <div class="paperscript split">
 
@@ -909,25 +898,26 @@ function onMouseDown(event) {
 	<p>Detach one or more event handlers from the view.</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>param:</tt> 
 <tt>Object</tt>
-&mdash;&nbsp;an object literal containing one or more of the
-    following properties: <tt>frame</tt>, <tt>resize</tt>
+&mdash;&nbsp;an object literal containing one or more of the  following properties: <tt>frame</tt>, <tt>resize</tt>
 
 </li>
-
+	
 </ul>
 
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><a href="/reference/view"><tt>View</tt></a></tt>&nbsp;&mdash;&nbsp;this view itself, so calls can be chained
 </li>
-	
+		
 	</ul>
 
 	
@@ -946,32 +936,33 @@ function onMouseDown(event) {
 	<p>Emit an event on the view.</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>type:</tt> 
 <tt>String</tt>
-&mdash;&nbsp;the event type: <tt>'frame'</tt>, <tt>'resize'</tt>
+&mdash;&nbsp;the event type: <tt>&lsquo;frame&rsquo;</tt>, <tt>&lsquo;resize&rsquo;</tt>
 
 </li>
-
-<li>
+	
+	<li>
 <tt>event:</tt> 
 <tt>Object</tt>
-&mdash;&nbsp;an object literal containing properties describing
-the event
+&mdash;&nbsp;an object literal containing properties describing the event
 
 </li>
-
+	
 </ul>
 
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the event had listeners, <tt>false</tt> otherwise
 </li>
-	
+		
 	</ul>
 
 	
@@ -990,25 +981,26 @@ the event
 	<p>Check if the view has one or more event handlers of the specified type.</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>type:</tt> 
 <tt>String</tt>
-&mdash;&nbsp;the event type: <tt>'frame'</tt>, <tt>'resize'</tt>
+&mdash;&nbsp;the event type: <tt>&lsquo;frame&rsquo;</tt>, <tt>&lsquo;resize&rsquo;</tt>
 
 </li>
-
+	
 </ul>
 
 	
-	<ul><b>Returns:</b>
-	
-		<li>
-<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the view has one or more event handlers of
-the specified type, <tt>false</tt> otherwise
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the view has one or more event handlers of the specified type, <tt>false</tt> otherwise
 </li>
-	
+		
 	</ul>
 
 	

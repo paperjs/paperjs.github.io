@@ -66,17 +66,8 @@
   <div class="reference"><div class="reference-class">
 
 
-<p>CurveLocation objects describe a location on <a href="/reference/curve"><tt>Curve</tt></a> objects, as
-    defined by the curve-time <a href="/reference/curvelocation#parameter"><tt>parameter</tt></a>, a value between <tt>0</tt>
-    (beginning of the curve) and <tt>1</tt> (end of the curve). If the curve is part
-    of a <a href="/reference/path"><tt>Path</tt></a> item, its <a href="/reference/curvelocation#index"><tt>index</tt></a> inside the <a href="/reference/path#curves"><tt>path.curves</tt></a>
-    array is also provided.</p>
-<p>The class is in use in many places, such as
-<a href="/reference/path#getlocationat-offset"><tt>path.getLocationAt(offset)</tt></a>,
-<a href="/reference/path#getlocationof-point"><tt>path.getLocationOf(point)</tt></a>,
-<a href="/reference/path#getnearestlocation-point"><tt>path.getNearestLocation(point)</tt></a>,
-<a href="/reference/pathitem#getintersections-path"><tt>pathItem.getIntersections(path)</tt></a>,
-etc.</p>
+<p>CurveLocation objects describe a location on <a href="/reference/curve"><tt>Curve</tt></a> objects, as  defined by the curve-time <a href="/reference/curvelocation#parameter"><tt>parameter</tt></a>, a value between <code>0</code>  (beginning of the curve) and <code>1</code> (end of the curve). If the curve is part  of a <a href="/reference/path"><tt>Path</tt></a> item, its <a href="/reference/curvelocation#index"><tt>index</tt></a> inside the <a href="/reference/path#curves"><tt>path.curves</tt></a>  array is also provided.</p>
+<p>The class is in use in many places, such as <a href="/reference/path#getlocationat-offset"><tt>path.getLocationAt(offset)</tt></a>, <a href="/reference/path#getlocationof-point"><tt>path.getLocationOf(point)</tt></a>, <a href="/reference/path#getnearestlocation-point"><tt>path.getNearestLocation(point)</tt></a>, <a href="/reference/pathitem#getintersections-path"><tt>pathItem.getIntersections(path)</tt></a>, etc.</p>
 
 </div>
 
@@ -94,38 +85,40 @@ etc.</p>
     <p>Creates a new CurveLocation object.</p>
     
     
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>curve:</tt> 
 <a href="/reference/curve"><tt>Curve</tt></a>
 
 
 </li>
-
-<li>
+	
+	<li>
 <tt>parameter:</tt> 
 <tt>Number</tt>
 
 
 </li>
-
-<li>
+	
+	<li>
 <tt>point:</tt> 
 <a href="/reference/point"><tt>Point</tt></a>
 
 &mdash;&nbsp;optional
 </li>
-
+	
 </ul>
 
     
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><a href="/reference/curvelocation"><tt>CurveLocation</tt></a></tt>
 </li>
-	
+		
 	</ul>
 
     
@@ -158,10 +151,11 @@ etc.</p>
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<a href="/reference/segment"><tt>Segment</tt></a>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<a href="/reference/segment"><tt>Segment</tt></a>
+		</li>
 	</ul>
     
 	
@@ -185,10 +179,11 @@ etc.</p>
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<a href="/reference/curve"><tt>Curve</tt></a>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<a href="/reference/curve"><tt>Curve</tt></a>
+		</li>
 	</ul>
     
 	
@@ -212,10 +207,11 @@ etc.</p>
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<a href="/reference/item"><tt>Item</tt></a>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<a href="/reference/item"><tt>Item</tt></a>
+		</li>
 	</ul>
     
 	
@@ -233,17 +229,17 @@ etc.</p>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The index of the <a href="/reference/curvelocation#curve"><tt>curve</tt></a> within the <a href="/reference/path#curves"><tt>path.curves</tt></a> list, if
-it is part of a <a href="/reference/path"><tt>Path</tt></a> item.</p>
+	<p>The index of the <a href="/reference/curvelocation#curve"><tt>curve</tt></a> within the <a href="/reference/path#curves"><tt>path.curves</tt></a> list, if it is part of a <a href="/reference/path"><tt>Path</tt></a> item.</p>
 	
 		<p>Read only.</p>
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<tt>Index</tt>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<tt>Index</tt>
+		</li>
 	</ul>
     
 	
@@ -261,18 +257,17 @@ it is part of a <a href="/reference/path"><tt>Path</tt></a> item.</p>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The curve-time parameter, as used by various bezier curve calculations.</p>
-<p>It is value between <tt>0</tt> (beginning of the curve) and <tt>1</tt> (end of the
-curve).</p>
+	<p>The curve-time parameter, as used by various bezier curve calculations. It is value between <code>0</code> (beginning of the curve) and <code>1</code> (end of the curve).</p>
 	
 		<p>Read only.</p>
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<tt>Number</tt>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<tt>Number</tt>
+		</li>
 	</ul>
     
 	
@@ -290,17 +285,17 @@ curve).</p>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The point which is defined by the <a href="/reference/curvelocation#curve"><tt>curve</tt></a> and
-<a href="/reference/curvelocation#parameter"><tt>parameter</tt></a>.</p>
+	<p>The point which is defined by the <a href="/reference/curvelocation#curve"><tt>curve</tt></a> and <a href="/reference/curvelocation#parameter"><tt>parameter</tt></a>.</p>
 	
 		<p>Read only.</p>
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<a href="/reference/point"><tt>Point</tt></a>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<a href="/reference/point"><tt>Point</tt></a>
+		</li>
 	</ul>
     
 	
@@ -318,18 +313,17 @@ curve).</p>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The length of the path from its beginning up to the location described
-by this object. If the curve is not part of a path, then the length
-within the curve is returned instead.</p>
+	<p>The length of the path from its beginning up to the location described by this object. If the curve is not part of a path, then the length within the curve is returned instead.</p>
 	
 		<p>Read only.</p>
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<tt>Number</tt>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<tt>Number</tt>
+		</li>
 	</ul>
     
 	
@@ -347,17 +341,17 @@ within the curve is returned instead.</p>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The length of the curve from its beginning up to the location described
-by this object.</p>
+	<p>The length of the curve from its beginning up to the location described by this object.</p>
 	
 		<p>Read only.</p>
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<tt>Number</tt>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<tt>Number</tt>
+		</li>
 	</ul>
     
 	
@@ -375,18 +369,17 @@ by this object.</p>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The curve location on the intersecting curve, if this location is the
-result of a call to <a href="/reference/pathitem#getintersections-path"><tt>pathItem.getIntersections(path)</tt></a> /
-<a href="/reference/curve#getintersections-curve"><tt>curve.getIntersections(curve)</tt></a>.</p>
+	<p>The curve location on the intersecting curve, if this location is the result of a call to <a href="/reference/pathitem#getintersections-path"><tt>pathItem.getIntersections(path)</tt></a> / <a href="/reference/curve#getintersections-curve"><tt>curve.getIntersections(curve)</tt></a>.</p>
 	
 		<p>Read only.</p>
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<a href="/reference/curvelocation"><tt>CurveLocation</tt></a>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<a href="/reference/curvelocation"><tt>CurveLocation</tt></a>
+		</li>
 	</ul>
     
 	
@@ -410,10 +403,11 @@ result of a call to <a href="/reference/pathitem#getintersections-path"><tt>path
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<a href="/reference/point"><tt>Point</tt></a>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<a href="/reference/point"><tt>Point</tt></a>
+		</li>
 	</ul>
     
 	
@@ -437,10 +431,11 @@ result of a call to <a href="/reference/pathitem#getintersections-path"><tt>path
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<a href="/reference/point"><tt>Point</tt></a>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<a href="/reference/point"><tt>Point</tt></a>
+		</li>
 	</ul>
     
 	
@@ -464,10 +459,11 @@ result of a call to <a href="/reference/pathitem#getintersections-path"><tt>path
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<tt>Number</tt>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<tt>Number</tt>
+		</li>
 	</ul>
     
 	
@@ -491,16 +487,22 @@ result of a call to <a href="/reference/pathitem#getintersections-path"><tt>path
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<tt>Number</tt>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<tt>Number</tt>
+		</li>
 	</ul>
     
 	
-	<p><b>See also:</b>
-	<tt><a href="/reference/curve#getnearestlocation-point"><tt>curve.getNearestLocation(point)</tt></a></tt>, <tt><a href="/reference/path#getnearestlocation-point"><tt>path.getNearestLocation(point)</tt></a></tt>
-	</p>
+	<ul class="member-list">
+		<h4>See also:</h4>
+		
+			<li><tt><a href="/reference/curve#getnearestlocation-point"><tt>curve.getNearestLocation(point)</tt></a></tt></li>
+		
+			<li><tt><a href="/reference/path#getnearestlocation-point"><tt>path.getNearestLocation(point)</tt></a></tt></li>
+		
+	</ul>
 
 	
 </div>
@@ -525,29 +527,29 @@ result of a call to <a href="/reference/pathitem#getintersections-path"><tt>path
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Checks whether tow CurveLocation objects are describing the same location
-on a path, by applying the same tolerances as elsewhere when dealing with
-curve time parameters.</p>
+	<p>Checks whether tow CurveLocation objects are describing the same location on a path, by applying the same tolerances as elsewhere when dealing with curve time parameters.</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>location:</tt> 
 <a href="/reference/curvelocation"><tt>CurveLocation</tt></a>
 
 
 </li>
-
+	
 </ul>
 
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the locations are equal, <tt>false</tt> otherwise
 </li>
-	
+		
 	</ul>
 
 	
@@ -567,12 +569,13 @@ curve time parameters.</p>
     
 	
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><tt>String</tt></tt>&nbsp;&mdash;&nbsp;a string representation of the curve location
 </li>
-	
+		
 	</ul>
 
 	
@@ -590,24 +593,26 @@ curve time parameters.</p>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Checks if the location is an intersection with another curve and is
-merely touching the other curve, as opposed to crossing it.</p>
+	<p>Checks if the location is an intersection with another curve and is merely touching the other curve, as opposed to crossing it.</p>
     
 	
 	
-	<ul><b>Returns:</b>
-	
-		<li>
-<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the location is an intersection that is
-merely touching another curve, <tt>false</tt> otherwise
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the location is an intersection that is merely touching another curve, <tt>false</tt> otherwise
 </li>
-	
+		
 	</ul>
 
 	
-	<p><b>See also:</b>
-	<tt><a href="/reference/curvelocation#iscrossing"><tt>isCrossing</tt></a>()</tt>
-	</p>
+	<ul class="member-list">
+		<h4>See also:</h4>
+		
+			<li><tt><a href="/reference/curvelocation#iscrossing"><tt>isCrossing</tt></a>()</tt></li>
+		
+	</ul>
 
 	
 </div>
@@ -621,24 +626,26 @@ merely touching another curve, <tt>false</tt> otherwise
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Checks if the location is an intersection with another curve and is
-crossing the other curve, as opposed to just touching it.</p>
+	<p>Checks if the location is an intersection with another curve and is crossing the other curve, as opposed to just touching it.</p>
     
 	
 	
-	<ul><b>Returns:</b>
-	
-		<li>
-<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the location is an intersection that is
-crossing another curve, <tt>false</tt> otherwise
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the location is an intersection that is crossing another curve, <tt>false</tt> otherwise
 </li>
-	
+		
 	</ul>
 
 	
-	<p><b>See also:</b>
-	<tt><a href="/reference/curvelocation#istouching"><tt>isTouching</tt></a>()</tt>
-	</p>
+	<ul class="member-list">
+		<h4>See also:</h4>
+		
+			<li><tt><a href="/reference/curvelocation#istouching"><tt>isTouching</tt></a>()</tt></li>
+		
+	</ul>
 
 	
 </div>
@@ -652,24 +659,28 @@ crossing another curve, <tt>false</tt> otherwise
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Checks if the location is an intersection with another curve and is
-part of an overlap between the two involved paths.</p>
+	<p>Checks if the location is an intersection with another curve and is part of an overlap between the two involved paths.</p>
     
 	
 	
-	<ul><b>Returns:</b>
-	
-		<li>
-<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the location is an intersection that is
-part of an overlap between the two involved paths, <tt>false</tt> otherwise
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the location is an intersection that is part of an overlap between the two involved paths, <tt>false</tt> otherwise
 </li>
-	
+		
 	</ul>
 
 	
-	<p><b>See also:</b>
-	<tt><a href="/reference/curvelocation#iscrossing"><tt>isCrossing</tt></a>()</tt>, <tt><a href="/reference/curvelocation#istouching"><tt>isTouching</tt></a>()</tt>
-	</p>
+	<ul class="member-list">
+		<h4>See also:</h4>
+		
+			<li><tt><a href="/reference/curvelocation#iscrossing"><tt>isCrossing</tt></a>()</tt></li>
+		
+			<li><tt><a href="/reference/curvelocation#istouching"><tt>isTouching</tt></a>()</tt></li>
+		
+	</ul>
 
 	
 </div>

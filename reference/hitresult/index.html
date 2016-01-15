@@ -66,9 +66,7 @@
   <div class="reference"><div class="reference-class">
 
 
-<p>A HitResult object contains information about the results of a hit
-test. It is returned by <a href="/reference/item#hittest-point"><tt>item.hitTest(point)</tt></a> and
-<a href="/reference/project#hittest-point"><tt>project.hitTest(point)</tt></a>.</p>
+<p>A HitResult object contains information about the results of a hit test. It is returned by <a href="/reference/item#hittest-point"><tt>item.hitTest(point)</tt></a> and <a href="/reference/project#hittest-point"><tt>project.hitTest(point)</tt></a>.</p>
 
 </div>
 
@@ -88,19 +86,20 @@ test. It is returned by <a href="/reference/item#hittest-point"><tt>item.hitTest
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>Describes the type of the hit result. For example, if you hit a segment
-point, the type would be <tt>'segment'</tt>.</p>
+	<p>Describes the type of the hit result. For example, if you hit a segment point, the type would be <code>&#39;segment&#39;</code>.</p>
 	
 	
-		<ul><b>Values:</b>
-		<li><tt>'segment'</tt>, <tt>'handle-in'</tt>, <tt>'handle-out'</tt>, <tt>'curve'</tt>, <tt>'stroke'</tt>, <tt>'fill'</tt>, <tt>'bounds'</tt>, <tt>'center'</tt>, <tt>'pixel'</tt></li>
+		<ul class="member-list">
+			<h4>Values:</h4>
+			<li><tt>'segment'</tt>, <tt>'handle-in'</tt>, <tt>'handle-out'</tt>, <tt>'curve'</tt>, <tt>'stroke'</tt>, <tt>'fill'</tt>, <tt>'bounds'</tt>, <tt>'center'</tt>, <tt>'pixel'</tt></li>
 		</ul>
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<tt>String</tt>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<tt>String</tt>
+		</li>
 	</ul>
     
 	
@@ -118,19 +117,20 @@ point, the type would be <tt>'segment'</tt>.</p>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>If the HitResult has a <a href="/reference/hitresult#type"><tt>hitResult.type</tt></a> of <tt>'bounds'</tt>, this
-property describes which corner of the bounding rectangle was hit.</p>
+	<p>If the HitResult has a <a href="/reference/hitresult#type"><tt>hitResult.type</tt></a> of <code>&#39;bounds&#39;</code>, this property describes which corner of the bounding rectangle was hit.</p>
 	
 	
-		<ul><b>Values:</b>
-		<li><tt>'top-left'</tt>, <tt>'top-right'</tt>, <tt>'bottom-left'</tt>, <tt>'bottom-right'</tt>, <tt>'left-center'</tt>, <tt>'top-center'</tt>, <tt>'right-center'</tt>, <tt>'bottom- center'</tt></li>
+		<ul class="member-list">
+			<h4>Values:</h4>
+			<li><tt>'top-left'</tt>, <tt>'top-right'</tt>, <tt>'bottom-left'</tt>, <tt>'bottom-right'</tt>, <tt>'left-center'</tt>, <tt>'top-center'</tt>, <tt>'right-center'</tt>, <tt>'bottom- center'</tt></li>
 		</ul>
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<tt>String</tt>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<tt>String</tt>
+		</li>
 	</ul>
     
 	
@@ -152,10 +152,11 @@ property describes which corner of the bounding rectangle was hit.</p>
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<a href="/reference/item"><tt>Item</tt></a>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<a href="/reference/item"><tt>Item</tt></a>
+		</li>
 	</ul>
     
 	
@@ -173,15 +174,15 @@ property describes which corner of the bounding rectangle was hit.</p>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>If the HitResult has a type of 'curve' or 'stroke', this property gives
-more information about the exact position that was hit on the path.</p>
+	<p>If the HitResult has a type of &lsquo;curve&rsquo; or &lsquo;stroke&rsquo;, this property gives more information about the exact position that was hit on the path.</p>
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<a href="/reference/curvelocation"><tt>CurveLocation</tt></a>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<a href="/reference/curvelocation"><tt>CurveLocation</tt></a>
+		</li>
 	</ul>
     
 	
@@ -199,15 +200,15 @@ more information about the exact position that was hit on the path.</p>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>If the HitResult has a type of 'pixel', this property refers to the color
-of the pixel on the <a href="/reference/raster"><tt>Raster</tt></a> that was hit.</p>
+	<p>If the HitResult has a type of &lsquo;pixel&rsquo;, this property refers to the color of the pixel on the <a href="/reference/raster"><tt>Raster</tt></a> that was hit.</p>
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<a href="/reference/color"><tt>Color</tt></a>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<a href="/reference/color"><tt>Color</tt></a>
+		</li>
 	</ul>
     
 	
@@ -225,16 +226,15 @@ of the pixel on the <a href="/reference/raster"><tt>Raster</tt></a> that was hit
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>If the HitResult has a type of 'stroke', 'segment', 'handle-in' or
-'handle-out', this property refers to the segment that was hit or that
-is closest to the hitResult.location on the curve.</p>
+	<p>If the HitResult has a type of &lsquo;stroke&rsquo;, &lsquo;segment&rsquo;, &lsquo;handle-in&rsquo; or &lsquo;handle-out&rsquo;, this property refers to the segment that was hit or that is closest to the hitResult.location on the curve.</p>
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<a href="/reference/segment"><tt>Segment</tt></a>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<a href="/reference/segment"><tt>Segment</tt></a>
+		</li>
 	</ul>
     
 	
@@ -252,15 +252,15 @@ is closest to the hitResult.location on the curve.</p>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>Describes the actual coordinates of the segment, handle or bounding box
-corner that was hit.</p>
+	<p>Describes the actual coordinates of the segment, handle or bounding box corner that was hit.</p>
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<a href="/reference/point"><tt>Point</tt></a>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<a href="/reference/point"><tt>Point</tt></a>
+		</li>
 	</ul>
     
 	

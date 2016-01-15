@@ -117,7 +117,7 @@ function onMouseMove(event) {
 		vector.length = length;
 		nextSegment.point = segment.point - vector;
 	}
-	path.smooth();
+	path.smooth({ type: 'continuous' });
 }
 
 function onMouseDown(event) {

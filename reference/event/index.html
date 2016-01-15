@@ -66,8 +66,7 @@
   <div class="reference"><div class="reference-class">
 
 
-<p>The Event object is the base class for any of the other event types,
-such as <a href="/reference/mouseevent"><tt>MouseEvent</tt></a>, <a href="/reference/toolevent"><tt>ToolEvent</tt></a> and <a href="/reference/keyevent"><tt>KeyEvent</tt></a>.</p>
+<p>The Event object is the base class for any of the other event types, such as <a href="/reference/mouseevent"><tt>MouseEvent</tt></a>, <a href="/reference/toolevent"><tt>ToolEvent</tt></a> and <a href="/reference/keyevent"><tt>KeyEvent</tt></a>.</p>
 
 </div>
 
@@ -93,10 +92,11 @@ such as <a href="/reference/mouseevent"><tt>MouseEvent</tt></a>, <a href="/refer
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<tt>Number</tt>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<tt>Number</tt>
+		</li>
 	</ul>
     
 	
@@ -120,16 +120,20 @@ such as <a href="/reference/mouseevent"><tt>MouseEvent</tt></a>, <a href="/refer
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<tt>object</tt>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<tt>object</tt>
+		</li>
 	</ul>
     
 	
-	<p><b>See also:</b>
-	<tt><a href="/reference/key#modifiers"><tt>Key.modifiers</tt></a></tt>
-	</p>
+	<ul class="member-list">
+		<h4>See also:</h4>
+		
+			<li><tt><a href="/reference/key#modifiers"><tt>Key.modifiers</tt></a></tt></li>
+		
+	</ul>
 
 	
 </div>
@@ -154,8 +158,7 @@ such as <a href="/reference/mouseevent"><tt>MouseEvent</tt></a>, <a href="/refer
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Cancels the event if it is cancelable, without stopping further
-propagation of the event.</p>
+	<p>Cancels the event if it is cancelable, without stopping further propagation of the event.</p>
     
 	
 	
@@ -189,11 +192,8 @@ propagation of the event.</p>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Cancels the event if it is cancelable, and stops stopping further
-propagation of the event. This is has the same effect as calling both
-<a href="/reference/event#stoppropagation"><tt>stopPropagation</tt></a>() and <a href="/reference/event#preventdefault"><tt>preventDefault</tt></a>().</p>
-<p>Any handler can also return <tt>false</tt> to indicate that <tt>stop()</tt> should be
-called right after.</p>
+	<p>Cancels the event if it is cancelable, and stops stopping further propagation of the event. This is has the same effect as calling both <a href="/reference/event#stoppropagation"><tt>stopPropagation</tt></a>() and <a href="/reference/event#preventdefault"><tt>preventDefault</tt></a>().</p>
+<p>Any handler can also return <code>false</code> to indicate that <code>stop()</code> should be called right after.</p>
     
 	
 	

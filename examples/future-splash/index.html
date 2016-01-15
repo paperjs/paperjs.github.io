@@ -190,7 +190,7 @@ function updateWave(path) {
 	for (var j = 0, l = springs.length; j < l; j++) {
 		springs[j].update();
 	}
-	path.smooth();
+	path.smooth({ type: 'continuous' });
 }
 
 function onKeyDown(event) {

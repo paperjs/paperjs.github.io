@@ -66,20 +66,10 @@
   <div class="reference"><div class="reference-class">
 
 
-<p>The <tt>PaperScope</tt> class represents the scope associated with a Paper
-    context. When working with PaperScript, these scopes are automatically
-    created for us, and through clever scoping the properties and methods of
-    the active scope seem to become part of the global scope.</p>
-<p>When working with normal JavaScript code, <tt>PaperScope</tt> objects need to be
-manually created and handled.</p>
-<p>Paper classes can only be accessed through <tt>PaperScope</tt> objects. Thus in
-PaperScript they are global, while in JavaScript, they are available on the
-global <a href="/reference/global#paper"><tt>paper</tt></a> object. For JavaScript you can use <a href="/reference/paperscope#install-scope"><tt>paperScope.install(scope)</tt></a> to install the Paper classes and objects on the
-global scope. Note that when working with more than one scope, this still
-works for classes, but not for objects like <a href="/reference/paperscope#project"><tt>paperScope.project</tt></a>, since
-they are not updated in the injected scope if scopes are switched.</p>
-<p>The global <a href="/reference/global#paper"><tt>paper</tt></a> object is simply a reference to the currently active
-<tt>PaperScope</tt>.</p>
+<p>The <code>PaperScope</code> class represents the scope associated with a Paper  context. When working with PaperScript, these scopes are automatically  created for us, and through clever scoping the properties and methods of  the active scope seem to become part of the global scope.</p>
+<p>When working with normal JavaScript code, <code>PaperScope</code> objects need to be manually created and handled.</p>
+<p>Paper classes can only be accessed through <code>PaperScope</code> objects. Thus in PaperScript they are global, while in JavaScript, they are available on the global <a href="/reference/global#paper"><tt>paper</tt></a> object. For JavaScript you can use <a href="/reference/paperscope#install-scope"><tt>paperScope.install(scope)</tt></a> to install the Paper classes and objects on the global scope. Note that when working with more than one scope, this still works for classes, but not for objects like <a href="/reference/paperscope#project"><tt>paperScope.project</tt></a>, since they are not updated in the injected scope if scopes are switched.</p>
+<p>The global <a href="/reference/global#paper"><tt>paper</tt></a> object is simply a reference to the currently active <code>PaperScope</code>.</p>
 
 </div>
 
@@ -98,12 +88,13 @@ they are not updated in the injected scope if scopes are switched.</p>
     
     
     
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><a href="/reference/paperscope"><tt>PaperScope</tt></a></tt>
 </li>
-	
+		
 	</ul>
 
     
@@ -134,10 +125,11 @@ they are not updated in the injected scope if scopes are switched.</p>
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<tt>String</tt>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<tt>String</tt>
+		</li>
 	</ul>
     
 	
@@ -155,17 +147,18 @@ they are not updated in the injected scope if scopes are switched.</p>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>Gives access to paper's configurable settings.</p>
+	<p>Gives access to paper&rsquo;s configurable settings.</p>
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<tt>Object</tt>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<tt>Object</tt>
+		</li>
 	</ul>
-    <ul>
-<b>Options:</b>
+    <ul class="member-list">
+<h4>Options:</h4>
 <li><tt>settings.applyMatrix: <tt>Boolean</tt></tt> &mdash;&nbsp;default: <tt>true</tt></li>
 <li><tt>settings.handleSize: <tt>Number</tt></tt> &mdash;&nbsp;default: <tt>4</tt></li>
 <li><tt>settings.hitTolerance: <tt>Number</tt></tt> &mdash;&nbsp;default: <tt>0</tt></li>
@@ -189,10 +182,11 @@ they are not updated in the injected scope if scopes are switched.</p>
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<a href="/reference/project"><tt>Project</tt></a>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<a href="/reference/project"><tt>Project</tt></a>
+		</li>
 	</ul>
     
 	
@@ -214,10 +208,11 @@ they are not updated in the injected scope if scopes are switched.</p>
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		Array of <a href="/reference/project"><tt>Project</tt></a> objects
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			Array of <a href="/reference/project"><tt>Project</tt></a> objects
+		</li>
 	</ul>
     
 	
@@ -235,16 +230,17 @@ they are not updated in the injected scope if scopes are switched.</p>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The reference to the active project's view.</p>
+	<p>The reference to the active project&rsquo;s view.</p>
 	
 		<p>Read only.</p>
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<a href="/reference/view"><tt>View</tt></a>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<a href="/reference/view"><tt>View</tt></a>
+		</li>
 	</ul>
     
 	
@@ -266,10 +262,11 @@ they are not updated in the injected scope if scopes are switched.</p>
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<a href="/reference/tool"><tt>Tool</tt></a>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<a href="/reference/tool"><tt>Tool</tt></a>
+		</li>
 	</ul>
     
 	
@@ -291,10 +288,11 @@ they are not updated in the injected scope if scopes are switched.</p>
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		Array of <a href="/reference/tool"><tt>Tool</tt></a> objects
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			Array of <a href="/reference/tool"><tt>Tool</tt></a> objects
+		</li>
 	</ul>
     
 	
@@ -321,35 +319,28 @@ they are not updated in the injected scope if scopes are switched.</p>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Injects the paper scope into any other given scope. Can be used for
-example to inject the currently active PaperScope into the window's
-global scope, to emulate PaperScript-style globally accessible Paper
-classes and objects.</p>
-<p><b>Please note:</b> Using this method may override native constructors
-(e.g. Path). This may cause problems when using Paper.js in conjunction
-with other libraries that rely on these constructors. Keep the library
-scoped if you encounter issues caused by this.</p>
+	<p>Injects the paper scope into any other given scope. Can be used for example to inject the currently active PaperScope into the window&rsquo;s global scope, to emulate PaperScript-style globally accessible Paper classes and objects.</p>
+<p><b>Please note:</b> Using this method may override native constructors (e.g. Path). This may cause problems when using Paper.js in conjunction with other libraries that rely on these constructors. Keep the library scoped if you encounter issues caused by this.</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>scope:</tt> 
 
 
 
 </li>
-
+	
 </ul>
 
 	
 	
-	<p>
-<b>Example</b> 
-</p>
+	<h4>Example:</h4>
 
 
-<pre class="code">paper.install(window);</pre>
+<pre><code>paper.install(window);</code></pre>
 
 </div>
 </div>
@@ -362,21 +353,19 @@ scoped if you encounter issues caused by this.</p>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Sets up an empty project for us. If a canvas is provided, it also creates
-a <a href="/reference/view"><tt>View</tt></a> for it, both linked to this scope.</p>
+	<p>Sets up an empty project for us. If a canvas is provided, it also creates a <a href="/reference/view"><tt>View</tt></a> for it, both linked to this scope.</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>element:</tt> 
-<tt>HTMLCanvasElement</tt> / <tt>String</tt>
-&mdash;&nbsp;the HTML canvas element this
-scope should be associated with, or an ID string by which to find the
-element.
+<tt>HTMLCanvasElement</tt>⟋<tt>String</tt>
+&mdash;&nbsp;the HTML canvas element this scope should be associated with, or an ID string by which to find the element.
 
 </li>
-
+	
 </ul>
 
 	
@@ -393,8 +382,7 @@ element.
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Activates this PaperScope, so all newly created items will be placed
-in its active project.</p>
+	<p>Activates this PaperScope, so all newly created items will be placed in its active project.</p>
     
 	
 	
@@ -422,15 +410,16 @@ in its active project.</p>
 	<p>Retrieves a PaperScope object with the given scope id.</p>
     
 	
-<ul><b>Parameters:</b>
-
-<li>
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
 <tt>id:</tt> 
 
 
 
 </li>
-
+	
 </ul>
 
 	

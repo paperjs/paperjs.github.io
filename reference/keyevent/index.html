@@ -68,10 +68,7 @@
 
 <p> Extends <b><a href="/reference/event"><tt>Event</tt></a></b></p>
 
-<p>The KeyEvent object is received by the <a href="/reference/tool"><tt>Tool</tt></a>'s keyboard
-handlers <a href="/reference/tool#onkeydown"><tt>tool.onKeyDown</tt></a>, <a href="/reference/tool#onkeyup"><tt>tool.onKeyUp</tt></a>. The KeyEvent object is
-the only parameter passed to these functions and contains information about
-the keyboard event.</p>
+<p>The KeyEvent object is received by the <a href="/reference/tool"><tt>Tool</tt></a>&rsquo;s keyboard handlers <a href="/reference/tool#onkeydown"><tt>tool.onKeyDown</tt></a>, <a href="/reference/tool#onkeyup"><tt>tool.onKeyUp</tt></a>. The KeyEvent object is the only parameter passed to these functions and contains information about the keyboard event.</p>
 
 </div>
 
@@ -94,15 +91,17 @@ the keyboard event.</p>
 	<p>The type of mouse event.</p>
 	
 	
-		<ul><b>Values:</b>
-		<li><tt>'keydown'</tt>, <tt>'keyup'</tt></li>
+		<ul class="member-list">
+			<h4>Values:</h4>
+			<li><tt>'keydown'</tt>, <tt>'keyup'</tt></li>
 		</ul>
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<tt>String</tt>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<tt>String</tt>
+		</li>
 	</ul>
     
 	
@@ -120,16 +119,15 @@ the keyboard event.</p>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The character representation of the key that caused this key event,
-taking into account the current key-modifiers (e.g. shift, control,
-caps-lock, etc.)</p>
+	<p>The character representation of the key that caused this key event, taking into account the current key-modifiers (e.g. shift, control, caps-lock, etc.)</p>
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<tt>String</tt>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<tt>String</tt>
+		</li>
 	</ul>
     
 	
@@ -147,19 +145,20 @@ caps-lock, etc.)</p>
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The key that caused this key event, either as a lower-case character or
-special key descriptor.</p>
+	<p>The key that caused this key event, either as a lower-case character or special key descriptor.</p>
 	
 	
-		<ul><b>Values:</b>
-		<li><tt>'enter'</tt>, <tt>'space'</tt>, <tt>'shift'</tt>, <tt>'control'</tt>, <tt>'alt'</tt>, <tt>'meta'</tt>, <tt>'caps-lock'</tt>, <tt>'left'</tt>, <tt>'up'</tt>, <tt>'right'</tt>, <tt>'down'</tt>, <tt>'escape'</tt>, <tt>'delete'</tt>, &hellip;</li>
+		<ul class="member-list">
+			<h4>Values:</h4>
+			<li><tt>'enter'</tt>, <tt>'space'</tt>, <tt>'shift'</tt>, <tt>'control'</tt>, <tt>'alt'</tt>, <tt>'meta'</tt>, <tt>'caps-lock'</tt>, <tt>'left'</tt>, <tt>'up'</tt>, <tt>'right'</tt>, <tt>'down'</tt>, <tt>'escape'</tt>, <tt>'delete'</tt>, &hellip;</li>
 		</ul>
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<tt>String</tt>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<tt>String</tt>
+		</li>
 	</ul>
     
 	
@@ -190,12 +189,13 @@ special key descriptor.</p>
     
 	
 	
-	<ul><b>Returns:</b>
-	
-		<li>
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
 <tt><tt>String</tt></tt>&nbsp;&mdash;&nbsp;a string representation of the key event
 </li>
-	
+		
 	</ul>
 
 	
@@ -228,10 +228,11 @@ special key descriptor.</p>
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<tt>Number</tt>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<tt>Number</tt>
+		</li>
 	</ul>
     
 	
@@ -255,16 +256,20 @@ special key descriptor.</p>
 	
 	
 	
-	<ul><b>Type:</b>
-	<li>
-		<tt>object</tt>
-	</li>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<tt>object</tt>
+		</li>
 	</ul>
     
 	
-	<p><b>See also:</b>
-	<tt><a href="/reference/key#modifiers"><tt>Key.modifiers</tt></a></tt>
-	</p>
+	<ul class="member-list">
+		<h4>See also:</h4>
+		
+			<li><tt><a href="/reference/key#modifiers"><tt>Key.modifiers</tt></a></tt></li>
+		
+	</ul>
 
 	
 </div>
@@ -285,8 +290,7 @@ special key descriptor.</p>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Cancels the event if it is cancelable, without stopping further
-propagation of the event.</p>
+	<p>Cancels the event if it is cancelable, without stopping further propagation of the event.</p>
     
 	
 	
@@ -320,11 +324,8 @@ propagation of the event.</p>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Cancels the event if it is cancelable, and stops stopping further
-propagation of the event. This is has the same effect as calling both
-<a href="/reference/event#stoppropagation"><tt>stopPropagation</tt></a>() and <a href="/reference/event#preventdefault"><tt>preventDefault</tt></a>().</p>
-<p>Any handler can also return <tt>false</tt> to indicate that <tt>stop()</tt> should be
-called right after.</p>
+	<p>Cancels the event if it is cancelable, and stops stopping further propagation of the event. This is has the same effect as calling both <a href="/reference/event#stoppropagation"><tt>stopPropagation</tt></a>() and <a href="/reference/event#preventdefault"><tt>preventDefault</tt></a>().</p>
+<p>Any handler can also return <code>false</code> to indicate that <code>stop()</code> should be called right after.</p>
     
 	
 	
