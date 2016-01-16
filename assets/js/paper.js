@@ -9,7 +9,7 @@
  *
  * All rights reserved.
  *
- * Date: Fri Jan 15 23:45:58 2016 +0100
+ * Date: Sat Jan 16 16:51:47 2016 +0100
  *
  ***
  *
@@ -1400,9 +1400,9 @@ var Point = Base.extend({
 						* 1e-7;
 		}
 	}
-}, Base.each(['round', 'ceil', 'floor', 'abs'], function(name) {
-	var op = Math[name];
-	this[name] = function() {
+}, Base.each(['round', 'ceil', 'floor', 'abs'], function(key) {
+	var op = Math[key];
+	this[key] = function() {
 		return new Point(op(this.x), op(this.y));
 	};
 }, {}));
@@ -1561,9 +1561,9 @@ var Size = Base.extend({
 			return new Size(Math.random(), Math.random());
 		}
 	}
-}, Base.each(['round', 'ceil', 'floor', 'abs'], function(name) {
-	var op = Math[name];
-	this[name] = function() {
+}, Base.each(['round', 'ceil', 'floor', 'abs'], function(key) {
+	var op = Math[key];
+	this[key] = function() {
 		return new Size(op(this.width), op(this.height));
 	};
 }, {}));
@@ -1907,8 +1907,8 @@ var Rectangle = Base.extend({
 		['Right', 'Center'], ['Bottom', 'Center']
 	],
 	function(parts, index) {
-		var part = parts.join('');
-		var xFirst = /^[RL]/.test(part);
+		var part = parts.join(''),
+			xFirst = /^[RL]/.test(part);
 		if (index >= 4)
 			parts[1] += xFirst ? 'Y' : 'X';
 		var x = parts[xFirst ? 0 : 1],
@@ -1954,8 +1954,8 @@ new function() {
 	var proto = Rectangle.prototype;
 
 	return Base.each(['x', 'y', 'width', 'height'], function(key) {
-		var part = Base.capitalize(key);
-		var internal = '_' + key;
+		var part = Base.capitalize(key),
+			internal = '_' + key;
 		this['get' + part] = function() {
 			return this[internal];
 		};
@@ -2393,9 +2393,9 @@ var Matrix = Base.extend({
 					this._tx, this._ty);
 		}
 	}
-}, Base.each(['a', 'c', 'b', 'd', 'tx', 'ty'], function(name) {
-	var part = Base.capitalize(name),
-		prop = '_' + name;
+}, Base.each(['a', 'c', 'b', 'd', 'tx', 'ty'], function(key) {
+	var part = Base.capitalize(key),
+		prop = '_' + key;
 	this['get' + part] = function() {
 		return this[prop];
 	};
@@ -2549,6 +2549,23 @@ var Project = PaperScopeItem.extend({
 		return Base.serialize(this._children, options, true, dictionary);
 	},
 
+	_changed: function(flags, item) {
+		if (flags & 1) {
+			this._needsUpdate = true;
+		}
+		var changes = this._changes;
+		if (changes && item) {
+			var changesById = this._changesById,
+				id = item._id,
+				entry = changesById[id];
+			if (entry) {
+				entry.flags |= flags;
+			} else {
+				changes.push(changesById[id] = { item: item, flags: flags });
+			}
+		}
+	},
+
 	clear: function() {
 		var children = this._children;
 		for (var i = children.length - 1; i >= 0; i--)
@@ -2611,29 +2628,6 @@ var Project = PaperScopeItem.extend({
 		return items;
 	},
 
-	insertChild: function(index, item, _preserve) {
-		if (item instanceof Layer) {
-			item._remove(false, true);
-			Base.splice(this._children, [item], index, 0);
-			item._setProject(this, true);
-			if (this._changes)
-				item._changed(5);
-			if (!this._activeLayer)
-				this._activeLayer = item;
-		} else if (item instanceof Item) {
-			(this._activeLayer
-				|| this.insertChild(index, new Layer(Item.NO_INSERT)))
-					.insertChild(index, item, _preserve);
-		} else {
-			item = null;
-		}
-		return item;
-	},
-
-	addChild: function(item, _preserve) {
-		return this.insertChild(undefined, item, _preserve);
-	},
-
 	_updateSelection: function(item) {
 		var id = item._id,
 			selectedItems = this._selectedItems;
@@ -2669,6 +2663,35 @@ var Project = PaperScopeItem.extend({
 			if (res) return res;
 		}
 		return null;
+	},
+
+	addLayer: function(layer) {
+		return this.insertLayer(undefined, layer);
+	},
+
+	insertLayer: function(index, layer) {
+		if (layer instanceof Layer) {
+			layer._remove(false, true);
+			Base.splice(this._children, [layer], index, 0);
+			layer._setProject(this, true);
+			if (this._changes)
+				layer._changed(5);
+			if (!this._activeLayer)
+				this._activeLayer = layer;
+		} else {
+			layer = null;
+		}
+		return layer;
+	},
+
+	_insertItem: function(index, item, _preserve, _created) {
+		item = this.insertLayer(index, item)
+				|| (this._activeLayer || this._insertItem(undefined,
+						new Layer(Item.NO_INSERT), true, true))
+						.insertChild(index, item, _preserve);
+		if (_created && item.activate)
+			item.activate();
+		return item;
 	},
 
 	getItems: function(match) {
@@ -2754,12 +2777,10 @@ var Symbol = Base.extend({
 	},
 
 	_changed: function(flags) {
-		if (flags & 8) {
+		if (flags & 8)
 			Item._clearBoundsCache(this);
-		}
-		if (flags & 1) {
-			this.project._needsUpdate = true;
-		}
+		if (flags & 1)
+			this.project._changed(flags);
 	},
 
 	getDefinition: function() {
@@ -2845,10 +2866,9 @@ var Item = Base.extend(Emitter, {
 		this._style = new Style(project._currentStyle, this, project);
 		if (internal || hasProps && props.insert === false) {
 			this._setProject(project);
-		} else if (hasProps && props.parent) {
-			props.parent.addChild(this);
 		} else {
-			this._addToProject(project);
+			(hasProps && props.parent || project)
+					._insertItem(undefined, this, true, true);
 		}
 		if (hasProps && props !== Item.NO_INSERT) {
 			this._set(props,
@@ -2856,10 +2876,6 @@ var Item = Base.extend(Emitter, {
 				true);
 		}
 		return hasProps;
-	},
-
-	_addToProject: function(project) {
-		(project._activeLayer || new Layer()).addChild(this);
 	},
 
 	_events: Base.each(['onMouseDown', 'onMouseUp', 'onMouseDrag', 'onClick',
@@ -2925,21 +2941,8 @@ var Item = Base.extend(Emitter, {
 		if (flags & 2) {
 			Item._clearBoundsCache(this);
 		}
-		if (project) {
-			if (flags & 1) {
-				project._needsUpdate = true;
-			}
-			if (project._changes) {
-				var entry = project._changesById[this._id];
-				if (entry) {
-					entry.flags |= flags;
-				} else {
-					entry = { item: this, flags: flags };
-					project._changesById[this._id] = entry;
-					project._changes.push(entry);
-				}
-			}
-		}
+		if (project)
+			project._changed(flags, this);
 		if (symbol)
 			symbol._changed(flags);
 	},
@@ -3279,11 +3282,6 @@ var Item = Base.extend(Emitter, {
 	setMatrix: function() {
 		var matrix = this._matrix;
 		matrix.initialize.apply(matrix, arguments);
-		if (this._applyMatrix) {
-			this.transform(null, true);
-		} else {
-			this._changed(9);
-		}
 	},
 
 	getGlobalMatrix: function(_dontClone) {
@@ -3461,10 +3459,6 @@ var Item = Base.extend(Emitter, {
 		this._data = data ? Base.clone(data) : null;
 		if (name)
 			this.setName(name);
-	},
-
-	copyTo: function(owner) {
-		return owner.addChild(this.clone(false));
 	},
 
 	rasterize: function(resolution, insert) {
@@ -3770,28 +3764,27 @@ var Item = Base.extend(Emitter, {
 		return items;
 	},
 
-	_insertSibling: function(index, item, _preserve) {
-		return this._parent
-				? this._parent.insertChild(index, item, _preserve)
+	_insertItem: '#insertChild',
+
+	insertAbove: function(item, _preserve) {
+		var owner = item && item._getOwner();
+		return owner ? owner._insertItem(item._index + 1, this, _preserve)
 				: null;
 	},
 
-	insertAbove: function(item, _preserve) {
-		return item._insertSibling(item._index + 1, this, _preserve);
-	},
-
 	insertBelow: function(item, _preserve) {
-		return item._insertSibling(item._index, this, _preserve);
+		var owner = item && item._getOwner();
+		return owner ? owner._insertItem(item._index, this, _preserve) : null;
 	},
 
 	sendToBack: function() {
 		var owner = this._getOwner();
-		return owner ? owner.insertChild(0, this) : null;
+		return owner ? owner._insertItem(0, this) : null;
 	},
 
 	bringToFront: function() {
 		var owner = this._getOwner();
-		return owner ? owner.addChild(this) : null;
+		return owner ? owner._insertItem(undefined, this) : null;
 	},
 
 	appendTop: '#addChild',
@@ -3803,6 +3796,10 @@ var Item = Base.extend(Emitter, {
 	moveAbove: '#insertAbove',
 
 	moveBelow: '#insertBelow',
+
+	copyTo: function(owner) {
+		return owner._insertItem(undefined, this.clone(false));
+	},
 
 	reduce: function(options) {
 		var children = this._children;
@@ -3842,20 +3839,21 @@ var Item = Base.extend(Emitter, {
 	},
 
 	_remove: function(notifySelf, notifyParent) {
-		var parent = this._parent;
-		if (parent) {
+		var owner = this._getOwner(),
+			project = this._project,
+			index = this._index;
+		if (owner && index != null) {
+			if (project._activeLayer === this)
+				project._activeLayer = this.getNextSibling()
+						|| this.getPreviousSibling();
 			if (this._name)
 				this._removeNamed();
-			if (this._index != null)
-				Base.splice(parent._children, null, this._index, 1);
+			Base.splice(owner._children, null, index, 1);
 			this._installEvents(false);
-			if (notifySelf) {
-				var project = this._project;
-				if (project && project._changes)
-					this._changed(5);
-			}
+			if (notifySelf && project._changes)
+				this._changed(5);
 			if (notifyParent)
-				parent._changed(11);
+				owner._changed(11, this);
 			this._parent = null;
 			return true;
 		}
@@ -3995,26 +3993,20 @@ var Item = Base.extend(Emitter, {
 		return false;
 	},
 
+}, Base.each(['rotate', 'scale', 'shear', 'skew'], function(key) {
+	var rotate = key === 'rotate';
+	this[key] = function() {
+		var value = (rotate ? Base : Point).read(arguments),
+			center = Point.read(arguments, 0, { readNull: true });
+		return this.transform(new Matrix()[key](value,
+				center || this.getPosition(true)));
+	};
+}, {
 	translate: function() {
 		var mx = new Matrix();
 		return this.transform(mx.translate.apply(mx, arguments));
 	},
 
-	rotate: function(angle ) {
-		return this.transform(new Matrix().rotate(angle,
-				Point.read(arguments, 1, { readNull: true })
-					|| this.getPosition(true)));
-	}
-}, Base.each(['scale', 'shear', 'skew'], function(name) {
-	this[name] = function() {
-		var point = Point.read(arguments),
-			center = Point.read(arguments, 0, { readNull: true });
-		return this.transform(new Matrix()[name](point,
-				center || this.getPosition(true)));
-	};
-}, {
-
-}), {
 	transform: function(matrix, _applyMatrix, _applyRecursively,
 			_setApplyMatrix) {
 		if (matrix && matrix.isIdentity())
@@ -4104,7 +4096,8 @@ var Item = Base.extend(Emitter, {
 					new Size(bounds.width * scale, bounds.height * scale));
 		newBounds.setCenter(rectangle.getCenter());
 		this.setBounds(newBounds);
-	},
+	}
+}), {
 
 	_setStyles: function(ctx) {
 		var style = this._style,
@@ -4277,10 +4270,10 @@ var Item = Base.extend(Emitter, {
 	_canComposite: function() {
 		return false;
 	}
-}, Base.each(['down', 'drag', 'up', 'move'], function(name) {
-	this['removeOn' + Base.capitalize(name)] = function() {
+}, Base.each(['down', 'drag', 'up', 'move'], function(key) {
+	this['removeOn' + Base.capitalize(key)] = function() {
 		var hash = {};
-		hash[name] = true;
+		hash[key] = true;
 		return this.removeOn(hash);
 	};
 }, {
@@ -4375,33 +4368,8 @@ var Layer = Group.extend({
 		Group.apply(this, arguments);
 	},
 
-	_addToProject: function(project) {
-		project.addChild(this);
-		this.activate();
-	},
-
 	_getOwner: function() {
 		return this._parent || this._index != null && this._project;
-	},
-
-	_remove: function _remove(notifySelf, notifyParent) {
-		if (this._parent)
-			return _remove.base.call(this, notifySelf, notifyParent);
-		if (this._index != null) {
-			var project = this._project;
-			if (project._activeLayer === this)
-				project._activeLayer = this.getNextSibling()
-						|| this.getPreviousSibling();
-			Base.splice(project._children, null, this._index, 1);
-			this._installEvents(false);
-			if (notifySelf && project._changes)
-				this._changed(5);
-			if (notifyParent) {
-				project._needsUpdate = true;
-			}
-			return true;
-		}
-		return false;
 	},
 
 	isInserted: function isInserted() {
@@ -4410,12 +4378,6 @@ var Layer = Group.extend({
 
 	activate: function() {
 		this._project._activeLayer = this;
-	},
-
-	_insertSibling: function _insertSibling(index, item, _preserve) {
-		return !this._parent
-				? this._project.insertChild(index, item, _preserve)
-				: _insertSibling.base.call(this, index, item, _preserve);
 	},
 
 	_hitTestSelf: function() {
@@ -8088,20 +8050,24 @@ var Path = PathItem.extend({
 
 	smooth: function(options) {
 		function getIndex(value, _default) {
-			var index = value == null
-					? _default
-					: typeof value === 'number'
-						? value
-						: value.getIndex
-							? value.getIndex()
-								+ (_default && value instanceof Curve ? 1 : 0)
-							: _default;
+			var index = value && value.index;
+			if (index != null) {
+				var path = value.path;
+				if (path && path !== that)
+					throw new Error(value._class + ' ' + index + ' of ' + path
+							+ ' is not part of ' + that);
+				if (_default && value instanceof Curve)
+					index++;
+			} else {
+				index = typeof value === 'number' ? value : _default;
+			}
 			return Math.min(index < 0 && closed
 					? index % length
 					: index < 0 ? index + length : index, length - 1);
 		}
 
-		var opts = options || {},
+		var that = this,
+			opts = options || {},
 			type = opts.type || 'asymmetric',
 			segments = this._segments,
 			length = segments.length,
@@ -9680,7 +9646,8 @@ Path.inject({
 				y1 = v[3],
 				y2 = v[5],
 				y3 = v[7];
-			if (Curve.isStraight(v)) {
+			if (Curve.isStraight(v)
+					|| y0 >= y1 === y1 >= y2 && y1 >= y2 === y2 >= y3) {
 				insertCurve(v);
 			} else {
 				var a = 3 * (y1 - y2) - y0 + y3,
@@ -11435,15 +11402,9 @@ var View = Base.extend(Emitter, {
 		}
 	},
 
-	_changed: function(flags) {
-		if (flags & 1)
-			this._project._needsUpdate = true;
-	},
-
-	_transform: function(matrix) {
-		this._matrix.concatenate(matrix);
+	_changed: function() {
+		this._project._changed(2049);
 		this._bounds = null;
-		this._update();
 	},
 
 	getElement: function() {
@@ -11470,12 +11431,12 @@ var View = Base.extend(Emitter, {
 			return;
 		this._viewSize.set(size.width, size.height);
 		this._setViewSize(size);
-		this._bounds = null;
 		this.emit('resize', {
 			size: size,
 			delta: delta
 		});
-		this._update();
+		this._changed();
+		this.update();
 	},
 
 	_setViewSize: function(size) {
@@ -11501,7 +11462,7 @@ var View = Base.extend(Emitter, {
 
 	setCenter: function() {
 		var center = Point.read(arguments);
-		this.scrollBy(center.subtract(this.getCenter()));
+		this.translate(this.getCenter().subtract(center));
 	},
 
 	getZoom: function() {
@@ -11509,9 +11470,18 @@ var View = Base.extend(Emitter, {
 	},
 
 	setZoom: function(zoom) {
-		this._transform(new Matrix().scale(zoom / this._zoom,
+		this.transform(new Matrix().scale(zoom / this._zoom,
 			this.getCenter()));
 		this._zoom = zoom;
+	},
+
+	getMatrix: function() {
+		return this._matrix;
+	},
+
+	setMatrix: function() {
+		var matrix = this._matrix;
+		matrix.initialize.apply(matrix, arguments);
 	},
 
 	isVisible: function() {
@@ -11520,12 +11490,29 @@ var View = Base.extend(Emitter, {
 
 	isInserted: function() {
 		return DomElement.isInserted(this._element);
+	}
+}, Base.each(['rotate', 'scale', 'shear', 'skew'], function(key) {
+	var rotate = key === 'rotate';
+	this[key] = function() {
+		var value = (rotate ? Base : Point).read(arguments),
+			center = Point.read(arguments, 0, { readNull: true });
+		return this.transform(new Matrix()[key](value,
+				center || this.getCenter(true)));
+	};
+}, {
+	translate: function() {
+		var mx = new Matrix();
+		return this.transform(mx.translate.apply(mx, arguments));
+	},
+
+	transform: function(matrix) {
+		this._matrix.concatenate(matrix);
 	},
 
 	scrollBy: function() {
-		this._transform(new Matrix().translate(Point.read(arguments).negate()));
-	},
-
+		this.translate(Point.read(arguments).negate());
+	}
+}), {
 	play: function() {
 		this._animate = true;
 		if (!this._requested)

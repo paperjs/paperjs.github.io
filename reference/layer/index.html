@@ -2892,44 +2892,6 @@ for (var i = 0; i < 20; i++) {
 </div>
 
 	
-<div id="copyto-owner" class="member">
-<div class="member-link">
-<a name="copyto-owner" href="#copyto-owner"><tt><b>copyTo</b>(owner)</tt></a>
-</div>
-<div class="member-description hidden">
-<div class="member-text">
-	<p>When passed a project, copies the item to the project, or duplicates it within the same project. When passed an item, copies the item into the specified item.</p>
-    
-	
-<ul class="member-list">
-	<h4>Parameters:</h4>
-	
-	<li>
-<tt>owner:</tt> 
-<a href="/reference/project"><tt>Project</tt></a>⟋<a href="/reference/layer"><tt>Layer</tt></a>⟋<a href="/reference/group"><tt>Group</tt></a>⟋<a href="/reference/compoundpath"><tt>CompoundPath</tt></a>
-&mdash;&nbsp;the item or project to copy the item to
-
-</li>
-	
-</ul>
-
-	
-	<ul class="member-list">
-		<h4>Returns:</h4>
-		
-			<li>
-<tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the new copy of the item
-</li>
-		
-	</ul>
-
-	
-	
-</div>
-</div>
-</div>
-
-	
 <div id="rasterize" class="member">
 <div class="member-link">
 <a name="rasterize" href="#rasterize"><tt><b>rasterize</b>([resolution[, insert]])</tt></a>
@@ -3622,7 +3584,7 @@ function onMouseDown(event) {
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Adds the specified item as a child of this item at the end of the its children list. You can use this function for groups, compound paths and layers.</p>
+	<p>Adds the specified item as a child of this item at the end of the its <a href="/reference/item#children"><tt>children</tt></a> list. You can use this function for groups, compound paths and layers.</p>
     
 	
 <ul class="member-list">
@@ -3669,7 +3631,7 @@ function onMouseDown(event) {
 	<li>
 <tt>index:</tt> 
 <tt>Number</tt>
-
+&mdash;&nbsp;the index at which to insert the item
 
 </li>
 	
@@ -4015,6 +3977,44 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 		
 			<li>
 <tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if it was moved, <tt>false</tt> otherwise
+</li>
+		
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+
+	
+<div id="copyto-owner" class="member">
+<div class="member-link">
+<a name="copyto-owner" href="#copyto-owner"><tt><b>copyTo</b>(owner)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>When passed a project, copies the item to the project, or duplicates it within the same project. When passed an item, copies the item into the specified item.</p>
+    
+	
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
+<tt>owner:</tt> 
+<a href="/reference/project"><tt>Project</tt></a>⟋<a href="/reference/layer"><tt>Layer</tt></a>⟋<a href="/reference/group"><tt>Group</tt></a>⟋<a href="/reference/compoundpath"><tt>CompoundPath</tt></a>
+&mdash;&nbsp;the item or project to copy the item to
+
+</li>
+	
+</ul>
+
+	
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
+<tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the new copy of the item
 </li>
 		
 	</ul>
@@ -4690,7 +4690,7 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Translates (moves) the item by the given offset point.</p>
+	<p>Translates (moves) the item by the given offset views.</p>
     
 	
 <ul class="member-list">
@@ -4719,7 +4719,7 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Rotates the item by a given angle around the given point.</p>
+	<p>Rotates the item by a given angle around the given center point.</p>
 <p>Angles are oriented clockwise and measured in degrees.</p>
     
 	
@@ -4747,7 +4747,7 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 	<ul class="member-list">
 		<h4>See also:</h4>
 		
-			<li><tt><a href="/reference/matrix#rotate"><tt>matrix.rotate</tt></a></tt></li>
+			<li><tt><a href="/reference/matrix#rotate-angle"><tt>matrix.rotate(angle[, center])</tt></a></tt></li>
 		
 	</ul>
 
@@ -4993,7 +4993,7 @@ circle.scale(3, 1);
 	<ul class="member-list">
 		<h4>See also:</h4>
 		
-			<li><tt><a href="/reference/matrix#shear"><tt>matrix.shear</tt></a></tt></li>
+			<li><tt><a href="/reference/matrix#shear-shear"><tt>matrix.shear(shear[, center])</tt></a></tt></li>
 		
 	</ul>
 
@@ -5043,7 +5043,7 @@ circle.scale(3, 1);
 	<ul class="member-list">
 		<h4>See also:</h4>
 		
-			<li><tt><a href="/reference/matrix#shear"><tt>matrix.shear</tt></a></tt></li>
+			<li><tt><a href="/reference/matrix#shear-hor-ver"><tt>matrix.shear(hor, ver[, center])</tt></a></tt></li>
 		
 	</ul>
 
@@ -5086,7 +5086,7 @@ circle.scale(3, 1);
 	<ul class="member-list">
 		<h4>See also:</h4>
 		
-			<li><tt><a href="/reference/matrix#shear"><tt>matrix.shear</tt></a></tt></li>
+			<li><tt><a href="/reference/matrix#shear-skew"><tt>matrix.shear(skew[, center])</tt></a></tt></li>
 		
 	</ul>
 
@@ -5136,7 +5136,7 @@ circle.scale(3, 1);
 	<ul class="member-list">
 		<h4>See also:</h4>
 		
-			<li><tt><a href="/reference/matrix#shear"><tt>matrix.shear</tt></a></tt></li>
+			<li><tt><a href="/reference/matrix#shear-hor-ver"><tt>matrix.shear(hor, ver[, center])</tt></a></tt></li>
 		
 	</ul>
 
