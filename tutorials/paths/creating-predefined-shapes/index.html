@@ -143,7 +143,7 @@ To create regular polygon shaped paths, we use the <tt><a href="/reference/path#
 The <tt><a href="/reference/point">center</a></tt> parameter describes the center point of the polygon, the <tt>numSides</tt> parameter describes the amount of sides the polygon has and the <tt>radius</tt> parameter describes the radius of the polygon.
 </p>
 <p>
-For example, lets create a triangle shaped path and a decahedron shaped path:
+For example, lets create a triangle shaped path and a decagon shaped path:
 </p>
 <div class="paperscript split">
 <div class="buttons">
@@ -155,10 +155,10 @@ var triangle = new Path.RegularPolygon(new Point(80, 70), 3, 50);
 triangle.fillColor = '#e9e9ff';
 triangle.selected = true;
 
-// Create a decahedron shaped path 
-var decahedron = new Path.RegularPolygon(new Point(200, 70), 10, 50);
-decahedron.fillColor = '#e9e9ff';
-decahedron.selected = true;
+// Create a decagon shaped path 
+var decagon = new Path.RegularPolygon(new Point(200, 70), 10, 50);
+decagon.fillColor = '#e9e9ff';
+decagon.selected = true;
 </script>
 <div class="canvas">
 <canvas height="138" id="canvas-4" width="538"></canvas>
