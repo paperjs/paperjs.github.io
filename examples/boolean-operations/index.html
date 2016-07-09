@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-touch-fullscreen" content="yes"/>
+  <meta name="msapplication-tap-highlight" content="no"/>
+  <link rel="stylesheet" href="/assets/css/style.css"/>
+  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon"/>
+  <link rel="shortcut icon" href="/assets/favicon.ico"/>
+  <script src="/assets/js/jquery.js"></script>
+  <script src="/assets/js/paper.js"></script>
+  <script src="/assets/js/codemirror.js"></script>
+  <script src="/assets/js/scripts.js"></script>
+  <script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-10082945-6']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  <title>Paper.js — Boolean Operations</title>
+</head>
+  <body class="fullscreen">
+    <nav>
+      <h1><a href="/">Paper.js</a></h1>
+<ul>
+  <li><a href="/about/">About</a>
+  </li>
+  <li><a href="/features/">Features</a>
+  </li>
+  <li class="spacer"></li>
+  <li><a href="/examples/">Examples</a>
+<ul>
+  <li class="active"><a href="/examples/boolean-operations/">Boolean Operations</a></li>
+  <li><a href="/examples/candy-crash/">Candy Crash</a></li>
+  <li><a href="/examples/satie-liked-to-draw/">Satie Liked To Draw</a></li>
+  <li><a href="/examples/chain/">Chain</a></li>
+  <li><a href="/examples/tadpoles/">Tadpoles</a></li>
+  <li><a href="/examples/nyan-rainbow/">Nyan Rainbow</a></li>
+  <li><a href="/examples/rounded-rectangles/">Rounded Rectangles</a></li>
+  <li><a href="/examples/radial-rainbows/">Radial Rainbows</a></li>
+  <li><a href="/examples/meta-balls/">Meta Balls</a></li>
+  <li><a href="/examples/voronoi/">Voronoi</a></li>
+  <li><a href="/examples/future-splash/">Future Splash</a></li>
+  <li><a href="/examples/smoothing/">Smoothing</a></li>
+  <li><a href="/examples/spiral-raster/">Spiral Raster</a></li>
+  <li><a href="/examples/division-raster/">Division Raster</a></li>
+  <li><a href="/examples/q-bertify/">Q-bertify</a></li>
+  <li><a href="/examples/path-intersections/">Path Intersections</a></li>
+  <li><a href="/examples/path-simplification/">Path Simplification</a></li>
+  <li><a href="/examples/hit-testing/">Hit Testing</a></li>
+  <li><a href="/examples/bouncing-balls/">Bouncing Balls</a></li>
+</ul>
+  </li>
+  <li><a href="/showcase/">Showcase</a>
+  </li>
+  <li class="spacer"></li>
+  <li><a href="/tutorials/">Tutorials</a>
+  </li>
+  <li><a href="/reference/">Reference</a>
+  </li>
+  <li><a href="http://sketch.paperjs.org/">Sketch</a>
+  </li>
+  <li class="spacer"></li>
+  <li><a href="/download/">Download</a>
+  </li>
+  <li><a href="/donation/">Donation</a>
+  </li>
+  <li><a href="/license/">License</a>
+  </li>
+  <li class="spacer"></li>
+  <li><a href="http://groups.google.com/group/paperjs" target="_blank">Mailing List</a>
+  </li>
+  <li><a href="http://twitter.com/PaperJS" target="_blank">Follow on Twitter</a>
+  </li>
+  <li><a href="http://github.com/paperjs/paper.js" target="_blank">Watch on Github</a>
+  </li>
+</ul>
+    </nav>
+<article><div class="paperscript">
+<div class="buttons">
+<div class="button run">Source</div>
+</div>
+<script type="text/paperscript" canvas="canvas-1">
+var text = new PointText({
+    position: view.center + [0, 200],
+    fillColor: 'black',
+    justification: 'center',
+    fontSize: 20
+});
+
+var originals = new Group({ insert: false }); // Don't insert in DOM.
+
+var square = new Path.Rectangle({
+    position: view.center,
+    size: 300,
+    parent: originals,
+    fillColor: 'white'
+});
+
+// Make a ring using subtraction of two circles:
+var inner = new Path.Circle({
+    center: view.center,
+    radius: 100,
+    parent: originals,
+    fillColor: 'white'
+});
+
+var outer = new Path.Circle({
+    center: view.center,
+    radius: 140,
+    parent: originals,
+    fillColor: 'white'
+});
+
+var ring = outer.subtract(inner);
+
+var operations = ['unite', 'intersect', 'subtract', 'exclude', 'divide'];
+var colors = ['red', 'green', 'blue', 'black'];
+var curIndex = -1;
+var operation, result, activeItem;
+
+// Change the mode every 3 seconds:
+setInterval(setMode, 3000);
+
+// Set the initial mode:
+setMode();
+
+function setMode() {
+    curIndex++;
+    if (curIndex == operations.length * 2)
+        curIndex = 0;
+    operation = operations[curIndex % operations.length];
+}
+
+function onMouseDown(event) {
+    var hitResult = originals.hitTest(event.point);
+    activeItem = hitResult && hitResult.item;
+}
+
+function onMouseDrag(event) {
+    if (activeItem)
+        activeItem.position = event.point;
+}
+
+function onMouseUp() {
+    activeItem = null;
+    square.position = view.center;
+}
+
+function onFrame(event) {
+    if (activeItem != ring) {
+        // Move the ring around:
+        var offset = new Point(140, 80) * [Math.sin(event.count / 60), Math.sin(event.count / 40)];
+        ring.position = view.center + offset;
+    }
+
+    // Remove the result of the last path operation:
+    if (result)
+        result.remove();
+
+    // Perform the path operation on the ring:
+    if (curIndex < operations.length) {
+        result = square[operation](ring);
+        text.content = 'square.' + operation + '(ring)';
+    } else {
+        result = ring[operation](square);
+        text.content = 'ring.' + operation + '(square)';
+    }
+    result.selected = true;
+    result.fillColor = colors[curIndex % colors.length];
+    result.moveBelow(text);
+
+    // If the result is a group, color each of its children differently:
+    if (result instanceof Group) {
+        for (var i = 0; i < result.children.length; i++) {
+            result.children[i].fillColor = colors[i];
+        }
+    }
+};
+
+function onResize() {
+    text.position = view.center + [0, 200];
+    square.position = view.center;
+}
+</script>
+<div class="canvas">
+<canvas resize="true" id="canvas-1"></canvas>
+</div>
+</div>
+</article>
+  </body>
+</html>

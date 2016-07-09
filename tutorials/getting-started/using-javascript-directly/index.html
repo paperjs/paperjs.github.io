@@ -67,7 +67,7 @@
   <h1>Using JavaScript Directly</h1>
 <section id="paper.js-architecture"><a name="paper.js-architecture" title="Paper.js Architecture" class="anchor"><h2>Paper.js Architecture</h2></a></section>
 <p>
-To understand how to work with Paper.js directly from JavaScript, without the use of the PaperScript automatisms, we first need to explain a little about the architecture of Paper.js. When working with PaperScript, each script is run in its own scope, a <tt><a href="/reference/paperscope">PaperScope</a></tt> object. The global <tt><a href="/reference/global#paper">paper</a></tt> object through which the library is exposed is also such a <tt><a href="/reference/paperscope">PaperScope</a></tt> object. It helps to think of these scopes as execution contexts.
+In order to understand how to work with Paper.js directly from JavaScript, without the use of the PaperScript automatisms, we first need to explain a little about the architecture of Paper.js. When working with PaperScript, each script is run in its own scope, a <tt><a href="/reference/paperscope">PaperScope</a></tt> object. The global <tt><a href="/reference/global#paper">paper</a></tt> object through which the library is exposed is also such a <tt><a href="/reference/paperscope">PaperScope</a></tt> object. It helps to think of these scopes as execution contexts.
 </p>
 <p>
 Scopes were introduced as a way to have separate PaperScript contexts on a page with many examples, each having its own view and project, without seeing each other but still sharing the library code. They could be seen as sandboxed &apos;plugins&apos; with shared code.

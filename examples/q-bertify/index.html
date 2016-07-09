@@ -36,6 +36,7 @@
   <li class="spacer"></li>
   <li><a href="/examples/">Examples</a>
 <ul>
+  <li><a href="/examples/boolean-operations/">Boolean Operations</a></li>
   <li><a href="/examples/candy-crash/">Candy Crash</a></li>
   <li><a href="/examples/satie-liked-to-draw/">Satie Liked To Draw</a></li>
   <li><a href="/examples/chain/">Chain</a></li>
@@ -146,13 +147,11 @@ function handleImage(image) {
 	if (group)
 		group.remove();
 
-	raster = null;
 	// As the web is asynchronous, we need to wait for the raster to
 	// load before we can perform any operation on its pixels.
-	new Raster(image).on('load', function() {
-		raster = this;
-		this.remove();
-
+	raster = new Raster(image);
+	raster.visible = false;
+	raster.on('load', function() {
 		// Transform the raster, so it fills the view:
 		raster.fitBounds(view.bounds, true);
 		group = new Group();
@@ -171,7 +170,7 @@ function handleImage(image) {
 }
 
 function onFrame(event) {
-	if (!raster)
+	if (!group)
 		return;
 	// Loop through the uncolored hexagons in the group and fill them
 	// with the average color:
@@ -205,10 +204,10 @@ function onDocumentDrag(event) {
 function onDocumentDrop(event) {
 	event.preventDefault();
 
-	var file = event.originalEvent.dataTransfer.files[0];
+	var file = event.dataTransfer.files[0];
 	var reader = new FileReader();
 
-	reader.onload = function ( event ) {
+	reader.onload = function(event) {
 		var image = document.createElement('img');
 		image.onload = function () {
 			handleImage(image);
@@ -219,11 +218,9 @@ function onDocumentDrop(event) {
 	reader.readAsDataURL(file);
 }
 
-$(document).on({
-	drop: onDocumentDrop,
-	dragover: onDocumentDrag,
-	dragleave: onDocumentDrag
-});
+document.addEventListener('drop', onDocumentDrop, false);
+document.addEventListener('dragover', onDocumentDrag, false);
+document.addEventListener('dragleave', onDocumentDrag, false);
 </script>
 <div class="canvas">
 <canvas resize="true" id="canvas-1"></canvas>

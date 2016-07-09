@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-touch-fullscreen" content="yes"/>
+  <meta name="msapplication-tap-highlight" content="no"/>
+  <link rel="stylesheet" href="/assets/css/style.css"/>
+  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon"/>
+  <link rel="shortcut icon" href="/assets/favicon.ico"/>
+  <script src="/assets/js/jquery.js"></script>
+  <script src="/assets/js/paper.js"></script>
+  <script src="/assets/js/codemirror.js"></script>
+  <script src="/assets/js/scripts.js"></script>
+  <script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-10082945-6']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  <title>Paper.js — SymbolDefinition</title>
+</head>
+  <body>
+    <nav>
+      <h1><a href="/">Paper.js</a></h1>
+<ul>
+  <li><a href="/about/">About</a>
+  </li>
+  <li><a href="/features/">Features</a>
+  </li>
+  <li class="spacer"></li>
+  <li><a href="/examples/">Examples</a>
+  </li>
+  <li><a href="/showcase/">Showcase</a>
+  </li>
+  <li class="spacer"></li>
+  <li><a href="/tutorials/">Tutorials</a>
+  </li>
+  <li><a href="/reference/">Reference</a>
+  </li>
+  <li><a href="http://sketch.paperjs.org/">Sketch</a>
+  </li>
+  <li class="spacer"></li>
+  <li><a href="/download/">Download</a>
+  </li>
+  <li><a href="/donation/">Donation</a>
+  </li>
+  <li><a href="/license/">License</a>
+  </li>
+  <li class="spacer"></li>
+  <li><a href="http://groups.google.com/group/paperjs" target="_blank">Mailing List</a>
+  </li>
+  <li><a href="http://twitter.com/PaperJS" target="_blank">Follow on Twitter</a>
+  </li>
+  <li><a href="http://github.com/paperjs/paper.js" target="_blank">Watch on Github</a>
+  </li>
+</ul>
+    </nav>
+<article>
+  <h1>SymbolDefinition</h1>
+  <div class="reference"><div class="reference-class">
+
+
+<p>Symbols allow you to place multiple instances of an item in your project. This can save memory, since all instances of a symbol simply refer to the original item and it can speed up moving around complex objects, since internal properties such as segment lists and gradient positions don&rsquo;t need to be updated with every transformation.</p>
+
+</div>
+
+<!-- =============================== constructors ========================== -->
+<div class="reference-members">
+	<h2>Constructors</h2>
+	
+		
+<div id="symboldefinition-item" class="member">
+<div class="member-link">
+<a name="symboldefinition-item" href="#symboldefinition-item"><tt><b>SymbolDefinition</b>(item[, dontCenter])</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+    <p>Creates a Symbol definition.</p>
+    
+    
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
+<tt>item:</tt> 
+<a href="/reference/item"><tt>Item</tt></a>
+&mdash;&nbsp;the source item which is removed from the scene graph  and becomes the symbol&rsquo;s definition.
+
+</li>
+	
+	<li>
+<tt>dontCenter:</tt> 
+<tt>Boolean</tt>
+
+&mdash;&nbsp;optional, default: <tt>false</tt>
+</li>
+	
+</ul>
+
+    
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
+<tt><a href="/reference/symboldefinition"><tt>SymbolDefinition</tt></a></tt>
+</li>
+		
+	</ul>
+
+    
+    <h4>Example:<span class="description">Placing 100 instances of a symbol:</span></h4>
+
+<div class="paperscript split">
+
+<div class="buttons">
+<div class="button run">Run</div>
+</div>
+
+<script type="text/paperscript" canvas="canvas-0">
+var path = new Path.Star(new Point(0, 0), 6, 5, 13);
+path.style = {
+    fillColor: 'white',
+    strokeColor: 'black'
+};
+
+// Create a symbol definition from the path:
+var definition = new SymbolDefinition(path);
+
+// Place 100 instances of the symbol definition:
+for (var i = 0; i < 100; i++) {
+    // Place an instance of the symbol definition in the project:
+    var instance = definition.place();
+
+    // Move the instance to a random position within the view:
+    instance.position = Point.random() * view.size;
+
+    // Rotate the instance by a random amount between
+    // 0 and 360 degrees:
+    instance.rotate(Math.random() * 360);
+
+    // Scale the instance between 0.25 and 1:
+    instance.scale(0.25 + Math.random() * 0.75);
+}
+</script>
+<div class="canvas"><canvas width="516" height="240" id="canvas-0"></canvas></div>
+</div>
+
+
+</div>
+</div>
+</div>
+	
+</div>
+
+
+
+
+
+<!-- ================================ properties =========================== -->
+	<div class="reference-members">
+		<h2>Properties</h2>
+		
+			
+<div id="project" class="member">
+<div class="member-link">
+<a name="project" href="#project"><tt><b>project</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The project that this symbol belongs to.</p>
+	
+		<p>Read only.</p>
+	
+	
+	
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<a href="/reference/project"><tt>Project</tt></a>
+		</li>
+	</ul>
+    
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
+<div id="item" class="member">
+<div class="member-link">
+<a name="item" href="#item"><tt><b>item</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The item used as the symbol&rsquo;s definition.</p>
+	
+	
+	
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<a href="/reference/item"><tt>Item</tt></a>
+		</li>
+	</ul>
+    
+	
+	
+</div>
+
+</div>
+</div>
+		
+	</div>
+
+
+
+
+
+<!-- ============================== methods ================================ -->
+	<div class="reference-members">
+		<h2>Methods</h2>
+		
+	
+<div id="place" class="member">
+<div class="member-link">
+<a name="place" href="#place"><tt><b>place</b>([position])</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Places in instance of the symbol in the project.</p>
+    
+	
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
+<tt>position:</tt> 
+<a href="/reference/point"><tt>Point</tt></a>
+&mdash;&nbsp;the position of the placed symbol
+&mdash;&nbsp;optional
+</li>
+	
+</ul>
+
+	
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
+<tt><a href="/reference/symbolitem"><tt>SymbolItem</tt></a></tt>
+</li>
+		
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+
+	
+<div id="clone" class="member">
+<div class="member-link">
+<a name="clone" href="#clone"><tt><b>clone</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Returns a copy of the symbol.</p>
+    
+	
+	
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
+<tt><tt>Symbol</tt></tt>
+</li>
+		
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+
+	
+<div id="equals-symbol" class="member">
+<div class="member-link">
+<a name="equals-symbol" href="#equals-symbol"><tt><b>equals</b>(symbol)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Checks whether the symbol&rsquo;s definition is equal to the supplied symbol.</p>
+    
+	
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
+<tt>symbol:</tt> 
+<tt>Symbol</tt>
+
+
+</li>
+	
+</ul>
+
+	
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
+<tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if they are equal, <tt>false</tt> otherwise
+</li>
+		
+	</ul>
+
+	
+	
+</div>
+</div>
+</div>
+
+
+		
+	</div>
+
+
+
+
+
+  </div>
+</article>
+<aside><h1>Index<span class="version text">0.10.1</span></h1>
+<div class="reference"><ul class="reference-classes"><li><a href="/reference/global">Global Scope</a></li>
+<li>
+<h2>Basic Types</h2>
+<ul>
+<li><a href="/reference/point">Point</a></li>
+<li><a href="/reference/size">Size</a></li>
+<li><a href="/reference/rectangle">Rectangle</a></li>
+<li><a href="/reference/matrix">Matrix</a></li>
+</ul>
+<li>
+<h2>Project & Items</h2>
+<ul>
+<li><a href="/reference/project">Project</a></li>
+<li><a href="/reference/item">Item</a></li>
+<li><a href="/reference/layer">Layer</a></li>
+<li><a href="/reference/group">Group</a></li>
+<li><a href="/reference/shape">Shape</a></li>
+<li><a href="/reference/raster">Raster</a></li>
+<li><hr /></li>
+<li><a href="/reference/hitresult">HitResult</a></li>
+</ul>
+<li>
+<h2>Symbols</h2>
+<ul>
+<li><a href="/reference/symboldefinition">SymbolDefinition</a></li>
+<li><a href="/reference/symbolitem">SymbolItem</a></li>
+</ul>
+<li>
+<h2>Paths</h2>
+<ul>
+<li><a href="/reference/pathitem">PathItem</a></li>
+<li><a href="/reference/path">Path</a></li>
+<li><a href="/reference/compoundpath">CompoundPath</a></li>
+<li><a href="/reference/segment">Segment</a></li>
+<li><a href="/reference/curve">Curve</a></li>
+<li><hr /></li>
+<li><a href="/reference/curvelocation">CurveLocation</a></li>
+</ul>
+<li>
+<h2>Styling</h2>
+<ul>
+<li><a href="/reference/style">Style</a></li>
+<li><a href="/reference/color">Color</a></li>
+<li><a href="/reference/gradient">Gradient</a></li>
+<li><a href="/reference/gradientstop">GradientStop</a></li>
+</ul>
+<li>
+<h2>Typography</h2>
+<ul>
+<li><a href="/reference/textitem">TextItem</a></li>
+<li><a href="/reference/pointtext">PointText</a></li>
+</ul>
+<li>
+<h2>User Interaction & Events</h2>
+<ul>
+<li><a href="/reference/view">View</a></li>
+<li><a href="/reference/event">Event</a></li>
+<li><a href="/reference/mouseevent">MouseEvent</a></li>
+<li><a href="/reference/tool">Tool</a></li>
+<li><a href="/reference/toolevent">ToolEvent</a></li>
+<li><a href="/reference/key">Key</a></li>
+<li><a href="/reference/keyevent">KeyEvent</a></li>
+</ul>
+<li>
+<h2>JavaScript</h2>
+<ul>
+<li><a href="/reference/paperscope">PaperScope</a></li>
+<li><a href="/reference/paperscript">PaperScript</a></li>
+</ul>
+</ul></div>
+
+</aside>
+  </body>
+</html>

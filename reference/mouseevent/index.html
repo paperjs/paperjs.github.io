@@ -145,7 +145,33 @@
 <div class="member-description hidden">
 
 <div class="member-text">
+	<p>The item that dispatched the event. It is different from <a href="/reference/mouseevent#currenttarget"><tt>currentTarget</tt></a> when the event handler is called during the bubbling phase of the event.</p>
 	
+	
+	
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<a href="/reference/item"><tt>Item</tt></a>
+		</li>
+	</ul>
+    
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
+<div id="currenttarget" class="member">
+<div class="member-link">
+<a name="currenttarget" href="#currenttarget"><tt><b>currentTarget</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The current target for the event, as the event traverses the scene graph. It always refers to the element the event handler has been attached to as opposed to <a href="/reference/mouseevent#target"><tt>target</tt></a> which identifies the element on which the event occurred.</p>
 	
 	
 	
@@ -363,8 +389,7 @@
 
   </div>
 </article>
-<aside>
-<h1>Index</h1>
+<aside><h1>Index<span class="version text">0.10.1</span></h1>
 <div class="reference"><ul class="reference-classes"><li><a href="/reference/global">Global Scope</a></li>
 <li>
 <h2>Basic Types</h2>
@@ -383,10 +408,14 @@
 <li><a href="/reference/group">Group</a></li>
 <li><a href="/reference/shape">Shape</a></li>
 <li><a href="/reference/raster">Raster</a></li>
-<li><a href="/reference/symbol">Symbol</a></li>
-<li><a href="/reference/placedsymbol">PlacedSymbol</a></li>
 <li><hr /></li>
 <li><a href="/reference/hitresult">HitResult</a></li>
+</ul>
+<li>
+<h2>Symbols</h2>
+<ul>
+<li><a href="/reference/symboldefinition">SymbolDefinition</a></li>
+<li><a href="/reference/symbolitem">SymbolItem</a></li>
 </ul>
 <li>
 <h2>Paths</h2>
@@ -430,8 +459,8 @@
 <li><a href="/reference/paperscope">PaperScope</a></li>
 <li><a href="/reference/paperscript">PaperScript</a></li>
 </ul>
-</ul>
-</div>
+</ul></div>
+
 </aside>
   </body>
 </html>

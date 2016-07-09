@@ -83,14 +83,18 @@
 		<h2>Static Methods</h2>
 		
 			
-<div id="compile-code-url" class="member">
+<div id="compile-code" class="member">
 <div class="member-link">
-<a name="compile-code-url" href="#compile-code-url"><tt><b>PaperScript.compile</b>(code, url)</tt></a>
+<a name="compile-code" href="#compile-code"><tt><b>PaperScript.compile</b>(code[, option])</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Compiles PaperScript code into JavaScript code.</p>
-    
+    <ul class="member-list">
+<h4>Options:</h4>
+<li><tt>options.url: <tt>String</tt></tt> &mdash; the url of the source, for source-map  generation</li>
+<li><tt>options.source: <tt>String</tt></tt> &mdash; the source to be used for the source-  mapping, in case the code that&rsquo;s passed in has already been mingled.</li>
+</ul>
 	
 <ul class="member-list">
 	<h4>Parameters:</h4>
@@ -103,10 +107,10 @@
 </li>
 	
 	<li>
-<tt>url:</tt> 
-<tt>String</tt>
-&mdash;&nbsp;the url of the source, for source-map debugging
-
+<tt>option:</tt> 
+<tt>Object</tt>
+&mdash;&nbsp;the compilation options
+&mdash;&nbsp;optional
 </li>
 	
 </ul>
@@ -116,7 +120,7 @@
 		<h4>Returns:</h4>
 		
 			<li>
-<tt><tt>String</tt></tt>&nbsp;&mdash;&nbsp;the compiled PaperScript as JavaScript code
+<tt><tt>Object</tt></tt>&nbsp;&mdash;&nbsp;an object holding the compiled PaperScript translated  into JavaScript code along with source-maps and other information.
 </li>
 		
 	</ul>
@@ -128,14 +132,18 @@
 </div>
 		
 			
-<div id="execute-code-scope-url" class="member">
+<div id="execute-code-scope" class="member">
 <div class="member-link">
-<a name="execute-code-scope-url" href="#execute-code-scope-url"><tt><b>PaperScript.execute</b>(code, scope, url)</tt></a>
+<a name="execute-code-scope" href="#execute-code-scope"><tt><b>PaperScript.execute</b>(code, scope[, option])</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Executes the parsed PaperScript code in a compiled function that receives all properties of the passed <a href="/reference/paperscope"><tt>PaperScope</tt></a> as arguments, to emulate a global scope with unaffected performance. It also installs global view and tool handlers automatically for you.</p>
-    
+	<p>Compiles the PaperScript code into a compiled function and executes it. The compiled function receives all properties of the passed <a href="/reference/paperscope"><tt>PaperScope</tt></a> as arguments, to emulate a global scope with unaffected performance. It also installs global view and tool handlers automatically on the respective objects.</p>
+    <ul class="member-list">
+<h4>Options:</h4>
+<li><tt>options.url: <tt>String</tt></tt> &mdash; the url of the source, for source-map  generation</li>
+<li><tt>options.source: <tt>String</tt></tt> &mdash; the source to be used for the source-  mapping, in case the code that&rsquo;s passed in has already been mingled.</li>
+</ul>
 	
 <ul class="member-list">
 	<h4>Parameters:</h4>
@@ -155,15 +163,24 @@
 </li>
 	
 	<li>
-<tt>url:</tt> 
-<tt>String</tt>
-&mdash;&nbsp;the url of the source, for source-map debugging
-
+<tt>option:</tt> 
+<tt>Object</tt>
+&mdash;&nbsp;the compilation options
+&mdash;&nbsp;optional
 </li>
 	
 </ul>
 
 	
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
+<tt><tt>Object</tt></tt>&nbsp;&mdash;&nbsp;an object holding the compiled PaperScript translated  into JavaScript code along with source-maps and other information.
+</li>
+		
+	</ul>
+
 	
 	
 </div>
@@ -215,8 +232,7 @@
 
   </div>
 </article>
-<aside>
-<h1>Index</h1>
+<aside><h1>Index<span class="version text">0.10.1</span></h1>
 <div class="reference"><ul class="reference-classes"><li><a href="/reference/global">Global Scope</a></li>
 <li>
 <h2>Basic Types</h2>
@@ -235,10 +251,14 @@
 <li><a href="/reference/group">Group</a></li>
 <li><a href="/reference/shape">Shape</a></li>
 <li><a href="/reference/raster">Raster</a></li>
-<li><a href="/reference/symbol">Symbol</a></li>
-<li><a href="/reference/placedsymbol">PlacedSymbol</a></li>
 <li><hr /></li>
 <li><a href="/reference/hitresult">HitResult</a></li>
+</ul>
+<li>
+<h2>Symbols</h2>
+<ul>
+<li><a href="/reference/symboldefinition">SymbolDefinition</a></li>
+<li><a href="/reference/symbolitem">SymbolItem</a></li>
 </ul>
 <li>
 <h2>Paths</h2>
@@ -282,8 +302,8 @@
 <li><a href="/reference/paperscope">PaperScope</a></li>
 <li><a href="/reference/paperscript">PaperScript</a></li>
 </ul>
-</ul>
-</div>
+</ul></div>
+
 </aside>
   </body>
 </html>

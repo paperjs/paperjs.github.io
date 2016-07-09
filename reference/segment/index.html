@@ -312,7 +312,7 @@ var path = new Path({
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>Specifies whether the <a href="/reference/segment#point"><tt>point</tt></a> of the segment is selected.</p>
+	<p>Specifies whether the segment is selected.</p>
 	
 	
 	
@@ -829,6 +829,49 @@ path.segments[2].selected = true;
 </div>
 </div>
 
+	
+<div id="interpolate-from-to-factor" class="member">
+<div class="member-link">
+<a name="interpolate-from-to-factor" href="#interpolate-from-to-factor"><tt><b>interpolate</b>(from, to, factor)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Interpolates between the two specified segments and sets the point and handles of this segment accordingly.</p>
+    
+	
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
+<tt>from:</tt> 
+<a href="/reference/segment"><tt>Segment</tt></a>
+&mdash;&nbsp;the segment defining the geometry when <code>factor</code> is  <code>0</code>
+
+</li>
+	
+	<li>
+<tt>to:</tt> 
+<a href="/reference/segment"><tt>Segment</tt></a>
+&mdash;&nbsp;the segment defining the geometry when <code>factor</code> is  <code>1</code>
+
+</li>
+	
+	<li>
+<tt>factor:</tt> 
+<tt>Number</tt>
+&mdash;&nbsp;the interpolation coefficient, typically between  <code>0</code> and <code>1</code>, but extrapolation is possible too
+
+</li>
+	
+</ul>
+
+	
+	
+	
+</div>
+</div>
+</div>
+
 
 		
 	</div>
@@ -839,8 +882,7 @@ path.segments[2].selected = true;
 
   </div>
 </article>
-<aside>
-<h1>Index</h1>
+<aside><h1>Index<span class="version text">0.10.1</span></h1>
 <div class="reference"><ul class="reference-classes"><li><a href="/reference/global">Global Scope</a></li>
 <li>
 <h2>Basic Types</h2>
@@ -859,10 +901,14 @@ path.segments[2].selected = true;
 <li><a href="/reference/group">Group</a></li>
 <li><a href="/reference/shape">Shape</a></li>
 <li><a href="/reference/raster">Raster</a></li>
-<li><a href="/reference/symbol">Symbol</a></li>
-<li><a href="/reference/placedsymbol">PlacedSymbol</a></li>
 <li><hr /></li>
 <li><a href="/reference/hitresult">HitResult</a></li>
+</ul>
+<li>
+<h2>Symbols</h2>
+<ul>
+<li><a href="/reference/symboldefinition">SymbolDefinition</a></li>
+<li><a href="/reference/symbolitem">SymbolItem</a></li>
 </ul>
 <li>
 <h2>Paths</h2>
@@ -906,8 +952,8 @@ path.segments[2].selected = true;
 <li><a href="/reference/paperscope">PaperScope</a></li>
 <li><a href="/reference/paperscript">PaperScript</a></li>
 </ul>
-</ul>
-</div>
+</ul></div>
+
 </aside>
   </body>
 </html>

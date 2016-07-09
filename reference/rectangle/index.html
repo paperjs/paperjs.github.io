@@ -860,8 +860,8 @@
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>Specifies whether an item&rsquo;s bounds are selected and will also mark the item as selected.</p>
-<p>Paper.js draws the visual bounds of selected items on top of your project. This can be useful for debugging.</p>
+	<p>Specifies whether an item&rsquo;s bounds are to appear as selected.</p>
+<p>Paper.js draws the bounds of items with selected bounds on top of your project. This is very useful when debugging.</p>
 	
 	
 	
@@ -873,7 +873,27 @@
 	</ul>
     
 	
-	
+	<h4>Example:</h4>
+
+<div class="paperscript split">
+
+<div class="buttons">
+<div class="button run">Run</div>
+</div>
+
+<script type="text/paperscript" canvas="canvas-0">
+var path = new Path.Circle({
+    center: [80, 50],
+    radius: 40,
+    selected: true
+});
+
+path.bounds.selected = true;
+</script>
+<div class="canvas"><canvas width="516" height="100" id="canvas-0"></canvas></div>
+</div>
+
+
 </div>
 
 </div>
@@ -1039,7 +1059,7 @@
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-0">
+<script type="text/paperscript" canvas="canvas-1">
 // Create a circle shaped path at {x: 80, y: 50}
 // with a radius of 30.
 var circle = new Path.Circle(new Point(80, 50), 30);
@@ -1057,7 +1077,7 @@ function onMouseMove(event) {
     }
 }
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-0"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-1"></canvas></div>
 </div>
 
 
@@ -1106,7 +1126,7 @@ function onMouseMove(event) {
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-1">
+<script type="text/paperscript" canvas="canvas-2">
 // All newly created paths will inherit these styles:
 project.currentStyle = {
     fillColor: 'green',
@@ -1138,7 +1158,7 @@ function onMouseMove(event) {
     }
 }
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-1"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-2"></canvas></div>
 </div>
 
 
@@ -1187,7 +1207,7 @@ function onMouseMove(event) {
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-2">
+<script type="text/paperscript" canvas="canvas-3">
 // All newly created paths will inherit these styles:
 project.currentStyle = {
     fillColor: 'green',
@@ -1219,7 +1239,7 @@ function onMouseMove(event) {
     }
 }
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-2"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-3"></canvas></div>
 </div>
 
 
@@ -1270,7 +1290,7 @@ function onMouseMove(event) {
 <div class="button run">Run</div>
 </div>
 
-<script type="text/paperscript" canvas="canvas-3">
+<script type="text/paperscript" canvas="canvas-4">
 // Create two rectangles that overlap each other
 var size = new Size(50, 50);
 var rectangle1 = new Rectangle(new Point(25, 15), size);
@@ -1297,7 +1317,7 @@ new Path.Rectangle(rectangle2);
 var intersectionPath = new Path.Rectangle(intersected);
 intersectionPath.fillColor = 'red';
 </script>
-<div class="canvas"><canvas width="516" height="100" id="canvas-3"></canvas></div>
+<div class="canvas"><canvas width="516" height="100" id="canvas-4"></canvas></div>
 </div>
 
 
@@ -1513,8 +1533,7 @@ intersectionPath.fillColor = 'red';
 
   </div>
 </article>
-<aside>
-<h1>Index</h1>
+<aside><h1>Index<span class="version text">0.10.1</span></h1>
 <div class="reference"><ul class="reference-classes"><li><a href="/reference/global">Global Scope</a></li>
 <li>
 <h2>Basic Types</h2>
@@ -1533,10 +1552,14 @@ intersectionPath.fillColor = 'red';
 <li><a href="/reference/group">Group</a></li>
 <li><a href="/reference/shape">Shape</a></li>
 <li><a href="/reference/raster">Raster</a></li>
-<li><a href="/reference/symbol">Symbol</a></li>
-<li><a href="/reference/placedsymbol">PlacedSymbol</a></li>
 <li><hr /></li>
 <li><a href="/reference/hitresult">HitResult</a></li>
+</ul>
+<li>
+<h2>Symbols</h2>
+<ul>
+<li><a href="/reference/symboldefinition">SymbolDefinition</a></li>
+<li><a href="/reference/symbolitem">SymbolItem</a></li>
 </ul>
 <li>
 <h2>Paths</h2>
@@ -1580,8 +1603,8 @@ intersectionPath.fillColor = 'red';
 <li><a href="/reference/paperscope">PaperScope</a></li>
 <li><a href="/reference/paperscript">PaperScript</a></li>
 </ul>
-</ul>
-</div>
+</ul></div>
+
 </aside>
   </body>
 </html>

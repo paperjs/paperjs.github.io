@@ -267,6 +267,34 @@ raster.rotate(10);
 </div>
 		
 			
+<div id="loaded" class="member">
+<div class="member-link">
+<a name="loaded" href="#loaded"><tt><b>loaded</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The loading state of the raster image.</p>
+	
+		<p>Read only.</p>
+	
+	
+	
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<tt>Boolean</tt>
+		</li>
+	</ul>
+    
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
 <div id="resolution" class="member">
 <div class="member-link">
 <a name="resolution" href="#resolution"><tt><b>resolution</b></tt></a>
@@ -302,14 +330,14 @@ raster.rotate(10);
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The HTMLImageElement of the raster, if one is associated.</p>
+	<p>The HTMLImageElement or Canvas element of the raster, if one is associated. Note that for consistency, a <a href="/reference/raster#onload"><tt>onLoad</tt></a> event will be triggered on the raster even if the image has already finished loading before, or if we are setting the raster to a canvas.</p>
 	
 	
 	
 	<ul class="member-list">
 		<h4>Type:</h4>
 		<li>
-			<tt>HTMLImageElement</tt>⟋<tt>Canvas</tt>
+			<tt>HTMLImageElement</tt>⟋<tt>HTMLCanvasElement</tt>
 		</li>
 	</ul>
     
@@ -335,7 +363,7 @@ raster.rotate(10);
 	<ul class="member-list">
 		<h4>Type:</h4>
 		<li>
-			<tt>Canvas</tt>
+			<tt>HTMLCanvasELement</tt>
 		</li>
 	</ul>
     
@@ -380,7 +408,7 @@ raster.rotate(10);
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The source of the raster, which can be set using a DOM Image, a Canvas, a data url, a string describing the URL to load the image from, or the ID of a DOM element to get the image from (either a DOM Image or a Canvas). Reading this property will return the url of the source image or a data-url.</p>
+	<p>The source of the raster, which can be set using a DOM Image, a Canvas, a data url, a string describing the URL to load the image from, or the ID of a DOM element to get the image from (either a DOM Image or a Canvas). Reading this property will return the url of the source image or a data-url. Note that for consistency, a <a href="/reference/raster#onload"><tt>onLoad</tt></a> event will be triggered on the raster even if the image has already finished loading before.</p>
 	
 	
 	
@@ -478,6 +506,77 @@ console.log(view.element.toDataURL('image/png').substring(0, 32));
 </div>
 </div>
 		
+			
+	<h3>Event Handlers</h3>
+
+<div id="onload" class="member">
+<div class="member-link">
+<a name="onload" href="#onload"><tt><b>onLoad</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The event handler function to be called when the underlying image has finished loading and is ready to be used. This is also triggered when the image is already loaded, or when a canvas is used instead of an image.</p>
+	
+	
+	
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<tt>Function</tt>
+		</li>
+	</ul>
+    
+	
+	<h4>Example:</h4>
+
+
+<pre><code>var url = 'http://assets.paperjs.org/images/marilyn.jpg';
+var raster = new Raster(url);
+
+// If you create a Raster using a url, you can use the onLoad
+// handler to do something once it is loaded:
+raster.onLoad = function() {
+    console.log('The image has finished loading.');
+};
+
+// As with all events in paper.js, you can also use this notation instead
+// to install multiple handlers:
+raster.on('load', function() {
+    console.log('Now the image is definitely ready.');
+});</code></pre>
+
+</div>
+
+</div>
+</div>
+		
+			
+<div id="onerror" class="member">
+<div class="member-link">
+<a name="onerror" href="#onerror"><tt><b>onError</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The event handler function to be called when there is an error loading the underlying image.</p>
+	
+	
+	
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<tt>Function</tt>
+		</li>
+	</ul>
+    
+	
+	
+</div>
+
+</div>
+</div>
+		
 	</div>
 
 
@@ -515,7 +614,7 @@ console.log(view.element.toDataURL('image/png').substring(0, 32));
 		<h4>Returns:</h4>
 		
 			<li>
-<tt><tt>Canvas</tt></tt>&nbsp;&mdash;&nbsp;the sub image as a Canvas object
+<tt><tt>HTMLCanvasELement</tt></tt>&nbsp;&mdash;&nbsp;the sub image as a Canvas object
 </li>
 		
 	</ul>
@@ -605,7 +704,7 @@ console.log(view.element.toDataURL('image/png').substring(0, 32));
 	
 	<li>
 <tt>image:</tt> 
-<tt>HTMLImageELement</tt>⟋<tt>Canvas</tt>
+<tt>HTMLImageELement</tt>⟋<tt>HTMLCanvasELement</tt>
 
 
 </li>
@@ -993,7 +1092,7 @@ console.log(view.element.toDataURL('image/png').substring(0, 32));
 	
 		<ul class="member-list">
 			<h4>Values:</h4>
-			<li><tt>'Group'</tt>, <tt>'Layer'</tt>, <tt>'Path'</tt>, <tt>'CompoundPath'</tt>, <tt>'Shape'</tt>, <tt>'Raster'</tt>, <tt>'PlacedSymbol'</tt>, <tt>'PointText'</tt></li>
+			<li><tt>'Group'</tt>, <tt>'Layer'</tt>, <tt>'Path'</tt>, <tt>'CompoundPath'</tt>, <tt>'Shape'</tt>, <tt>'Raster'</tt>, <tt>'SymbolItem'</tt>, <tt>'PointText'</tt></li>
 		</ul>
 	
 	
@@ -1762,6 +1861,34 @@ circle.position.x += 100;
 
 <div class="member-text">
 	<p>The item&rsquo;s global transformation matrix in relation to the global project coordinate space. Note that the view&rsquo;s transformations resulting from zooming and panning are not factored in.</p>
+	
+		<p>Read only.</p>
+	
+	
+	
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<a href="/reference/matrix"><tt>Matrix</tt></a>
+		</li>
+	</ul>
+    
+	
+	
+</div>
+
+</div>
+</div>
+
+	
+<div id="viewmatrix" class="member">
+<div class="member-link">
+<a name="viewmatrix" href="#viewmatrix"><tt><b>viewMatrix</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The item&rsquo;s global matrix in relation to the view coordinate space. This means that the view&rsquo;s transformations resulting from zooming and panning are factored in.</p>
 	
 		<p>Read only.</p>
 	
@@ -2891,7 +3018,7 @@ path.onFrame = function(event) {
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The function to be called when the mouse button is pushed down on the item. The function receives a <a href="/reference/mouseevent"><tt>MouseEvent</tt></a> object which contains information about the mouse event.</p>
+	<p>The function to be called when the mouse button is pushed down on the item. The function receives a <a href="/reference/mouseevent"><tt>MouseEvent</tt></a> object which contains information about the mouse event. Note that such mouse events bubble up the scene graph hierarchy and will reach the view, unless they are stopped with <a href="/reference/event#stoppropagation"><tt>event.stopPropagation</tt></a>() or by returning <code>false</code> from the handler.</p>
 	
 	
 	
@@ -2903,6 +3030,13 @@ path.onFrame = function(event) {
 	</ul>
     
 	
+	<ul class="member-list">
+		<h4>See also:</h4>
+		
+			<li><tt><a href="/reference/view#onmousedown"><tt>view.onMouseDown</tt></a></tt></li>
+		
+	</ul>
+
 	<h4>Example:<span class="description">Press the mouse button down on the circle shaped path, to make it red:</span></h4>
 
 <div class="paperscript split">
@@ -2972,7 +3106,7 @@ for (var i = 0; i < 30; i++) {
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The function to be called when the mouse position changes while the mouse is being dragged over the item. The function receives a <a href="/reference/mouseevent"><tt>MouseEvent</tt></a> object which contains information about the mouse event.</p>
+	<p>The function to be called when the mouse position changes while the mouse is being dragged over the item. The function receives a <a href="/reference/mouseevent"><tt>MouseEvent</tt></a> object which contains information about the mouse event. Note that such mouse events bubble up the scene graph hierarchy and will reach the view, unless they are stopped with <a href="/reference/event#stoppropagation"><tt>event.stopPropagation</tt></a>() or by returning <code>false</code> from the handler.</p>
 	
 	
 	
@@ -2984,6 +3118,13 @@ for (var i = 0; i < 30; i++) {
 	</ul>
     
 	
+	<ul class="member-list">
+		<h4>See also:</h4>
+		
+			<li><tt><a href="/reference/view#onmousedrag"><tt>view.onMouseDrag</tt></a></tt></li>
+		
+	</ul>
+
 	<h4>Example:<span class="description">Press and drag the mouse on the blue circle to move it:</span></h4>
 
 <div class="paperscript split">
@@ -3022,7 +3163,7 @@ path.onMouseDrag = function(event) {
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The function to be called when the mouse button is released over the item. The function receives a <a href="/reference/mouseevent"><tt>MouseEvent</tt></a> object which contains information about the mouse event.</p>
+	<p>The function to be called when the mouse button is released over the item. The function receives a <a href="/reference/mouseevent"><tt>MouseEvent</tt></a> object which contains information about the mouse event. Note that such mouse events bubble up the scene graph hierarchy and will reach the view, unless they are stopped with <a href="/reference/event#stoppropagation"><tt>event.stopPropagation</tt></a>() or by returning <code>false</code> from the handler.</p>
 	
 	
 	
@@ -3034,6 +3175,13 @@ path.onMouseDrag = function(event) {
 	</ul>
     
 	
+	<ul class="member-list">
+		<h4>See also:</h4>
+		
+			<li><tt><a href="/reference/view#onmouseup"><tt>view.onMouseUp</tt></a></tt></li>
+		
+	</ul>
+
 	<h4>Example:<span class="description">Release the mouse button over the circle shaped path, to make it red:</span></h4>
 
 <div class="paperscript split">
@@ -3073,7 +3221,7 @@ path.onMouseUp = function(event) {
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The function to be called when the mouse clicks on the item. The function receives a <a href="/reference/mouseevent"><tt>MouseEvent</tt></a> object which contains information about the mouse event.</p>
+	<p>The function to be called when the mouse clicks on the item. The function receives a <a href="/reference/mouseevent"><tt>MouseEvent</tt></a> object which contains information about the mouse event. Note that such mouse events bubble up the scene graph hierarchy and will reach the view, unless they are stopped with <a href="/reference/event#stoppropagation"><tt>event.stopPropagation</tt></a>() or by returning <code>false</code> from the handler.</p>
 	
 	
 	
@@ -3085,6 +3233,13 @@ path.onMouseUp = function(event) {
 	</ul>
     
 	
+	<ul class="member-list">
+		<h4>See also:</h4>
+		
+			<li><tt><a href="/reference/view#onclick"><tt>view.onClick</tt></a></tt></li>
+		
+	</ul>
+
 	<h4>Example:<span class="description">Click on the circle shaped path, to make it red:</span></h4>
 
 <div class="paperscript split">
@@ -3154,7 +3309,7 @@ for (var i = 0; i < 30; i++) {
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The function to be called when the mouse double clicks on the item. The function receives a <a href="/reference/mouseevent"><tt>MouseEvent</tt></a> object which contains information about the mouse event.</p>
+	<p>The function to be called when the mouse double clicks on the item. The function receives a <a href="/reference/mouseevent"><tt>MouseEvent</tt></a> object which contains information about the mouse event. Note that such mouse events bubble up the scene graph hierarchy and will reach the view, unless they are stopped with <a href="/reference/event#stoppropagation"><tt>event.stopPropagation</tt></a>() or by returning <code>false</code> from the handler.</p>
 	
 	
 	
@@ -3166,6 +3321,13 @@ for (var i = 0; i < 30; i++) {
 	</ul>
     
 	
+	<ul class="member-list">
+		<h4>See also:</h4>
+		
+			<li><tt><a href="/reference/view#ondoubleclick"><tt>view.onDoubleClick</tt></a></tt></li>
+		
+	</ul>
+
 	<h4>Example:<span class="description">Double click on the circle shaped path, to make it red:</span></h4>
 
 <div class="paperscript split">
@@ -3235,7 +3397,7 @@ for (var i = 0; i < 30; i++) {
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The function to be called repeatedly when the mouse moves on top of the item. The function receives a <a href="/reference/mouseevent"><tt>MouseEvent</tt></a> object which contains information about the mouse event.</p>
+	<p>The function to be called repeatedly while the mouse moves over the item. The function receives a <a href="/reference/mouseevent"><tt>MouseEvent</tt></a> object which contains information about the mouse event. Note that such mouse events bubble up the scene graph hierarchy and will reach the view, unless they are stopped with <a href="/reference/event#stoppropagation"><tt>event.stopPropagation</tt></a>() or by returning <code>false</code> from the handler.</p>
 	
 	
 	
@@ -3247,6 +3409,13 @@ for (var i = 0; i < 30; i++) {
 	</ul>
     
 	
+	<ul class="member-list">
+		<h4>See also:</h4>
+		
+			<li><tt><a href="/reference/view#onmousemove"><tt>view.onMouseMove</tt></a></tt></li>
+		
+	</ul>
+
 	<h4>Example:<span class="description">Move over the circle shaped path, to change its opacity:</span></h4>
 
 <div class="paperscript split">
@@ -3286,7 +3455,7 @@ path.onMouseMove = function(event) {
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The function to be called when the mouse moves over the item. This function will only be called again, once the mouse moved outside of the item first. The function receives a <a href="/reference/mouseevent"><tt>MouseEvent</tt></a> object which contains information about the mouse event.</p>
+	<p>The function to be called when the mouse moves over the item. This function will only be called again, once the mouse moved outside of the item first. The function receives a <a href="/reference/mouseevent"><tt>MouseEvent</tt></a> object which contains information about the mouse event. Note that such mouse events bubble up the scene graph hierarchy and will reach the view, unless they are stopped with <a href="/reference/event#stoppropagation"><tt>event.stopPropagation</tt></a>() or by returning <code>false</code> from the handler.</p>
 	
 	
 	
@@ -3298,6 +3467,13 @@ path.onMouseMove = function(event) {
 	</ul>
     
 	
+	<ul class="member-list">
+		<h4>See also:</h4>
+		
+			<li><tt><a href="/reference/view#onmouseenter"><tt>view.onMouseEnter</tt></a></tt></li>
+		
+	</ul>
+
 	<h4>Example:<span class="description">When you move the mouse over the item, its fill color is set to red. When you move the mouse outside again, its fill color is set back to black.</span></h4>
 
 <div class="paperscript split">
@@ -3375,7 +3551,7 @@ function onMouseDown(event) {
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The function to be called when the mouse moves out of the item. The function receives a <a href="/reference/mouseevent"><tt>MouseEvent</tt></a> object which contains information about the mouse event.</p>
+	<p>The function to be called when the mouse moves out of the item. The function receives a <a href="/reference/mouseevent"><tt>MouseEvent</tt></a> object which contains information about the mouse event. Note that such mouse events bubble up the scene graph hierarchy and will reach the view, unless they are stopped with <a href="/reference/event#stoppropagation"><tt>event.stopPropagation</tt></a>() or by returning <code>false</code> from the handler.</p>
 	
 	
 	
@@ -3387,6 +3563,13 @@ function onMouseDown(event) {
 	</ul>
     
 	
+	<ul class="member-list">
+		<h4>See also:</h4>
+		
+			<li><tt><a href="/reference/view#onmouseleave"><tt>view.onMouseLeave</tt></a></tt></li>
+		
+	</ul>
+
 	<h4>Example:<span class="description">Move the mouse over the circle shaped path and then move it out of it again to set its fill color to red:</span></h4>
 
 <div class="paperscript split">
@@ -3488,21 +3671,25 @@ circle.set({
 	
 <div id="clone" class="member">
 <div class="member-link">
-<a name="clone" href="#clone"><tt><b>clone</b>([insert])</tt></a>
+<a name="clone" href="#clone"><tt><b>clone</b>([options])</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Clones the item within the same project and places the copy above the item.</p>
-    
+    <ul class="member-list">
+<h4>Options:</h4>
+<li><tt>insert: undefined</tt> &mdash; specifies whether the copy should be  inserted into the scene graph. When set to <code>true</code>, it is inserted  above the original &mdash;&nbsp;default: <tt>true</tt></li>
+<li><tt>deep: undefined</tt> &mdash; specifies whether the item&rsquo;s children should also be  cloned &mdash;&nbsp;default: <tt>true</tt></li>
+</ul>
 	
 <ul class="member-list">
 	<h4>Parameters:</h4>
 	
 	<li>
-<tt>insert:</tt> 
-<tt>Boolean</tt>
-&mdash;&nbsp;specifies whether the copy should be  inserted into the scene graph. When set to <code>true</code>, it is inserted  above the original
-&mdash;&nbsp;optional, default: <tt>true</tt>
+<tt>options:</tt> 
+<tt>Object</tt>
+
+&mdash;&nbsp;optional, default: <tt>{ insert: true, deep: true }</tt>
 </li>
 	
 </ul>
@@ -3688,6 +3875,8 @@ raster.scale(5);
 </div>
 
 	
+<h3>Geometric Tests</h3>
+
 <div id="contains-point" class="member">
 <div class="member-link">
 <a name="contains-point" href="#contains-point"><tt><b>contains</b>(point)</tt></a>
@@ -3825,23 +4014,26 @@ function onMouseDown(event) {
 </div>
 
 	
+<h3>Hit-testing, Fetching and Matching Items</h3>
+
 <div id="hittest-point" class="member">
 <div class="member-link">
 <a name="hittest-point" href="#hittest-point"><tt><b>hitTest</b>(point[, options])</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Perform a hit-test on the item (and its children, if it is a <a href="/reference/group"><tt>Group</tt></a> or <a href="/reference/layer"><tt>Layer</tt></a>) at the location of the specified point.</p>
-<p>The options object allows you to control the specifics of the hit-test and may contain a combination of the following values:</p>
+	<p>Performs a hit-test on the item and its children (if it is a <a href="/reference/group"><tt>Group</tt></a> or <a href="/reference/layer"><tt>Layer</tt></a>) at the location of the specified point, returning the first found hit.</p>
+<p>The options object allows you to control the specifics of the hit- test and may contain a combination of the following values:</p>
     <ul class="member-list">
 <h4>Options:</h4>
 <li><tt>options.tolerance: <tt>Number</tt></tt> &mdash; the tolerance of the hit-test &mdash;&nbsp;default: <tt><a href="/reference/paperscope#settings"><tt>paperScope.settings</tt></a>.hitTolerance</tt></li>
-<li><tt>options.class: <tt>Function</tt></tt> &mdash; only hit-test again a certain item class  and its sub-classes: <tt>Group</tt>, <tt>Layer</tt>, <tt>Path</tt>, <tt>CompoundPath</tt>, <tt>Shape</tt>, <tt>Raster</tt>, <tt>PlacedSymbol</tt>, <tt>PointText</tt>, &hellip;</li>
-<li><tt>options.fill: <tt>Boolean</tt></tt> &mdash; hit-test the fill of items</li>
-<li><tt>options.stroke: <tt>Boolean</tt></tt> &mdash; hit-test the stroke of path items,  taking into account the setting of stroke color and width</li>
-<li><tt>options.segments: <tt>Boolean</tt></tt> &mdash; hit-test for <a href="/reference/segment#point"><tt>segment.point</tt></a> of  <a href="/reference/path"><tt>Path</tt></a> items</li>
+<li><tt>options.class: <tt>Function</tt></tt> &mdash; only hit-test again a certain item  class and its sub-classes: <tt>Group</tt>, <tt>Layer</tt>, <tt>Path</tt>, <tt>CompoundPath</tt>, <tt>Shape</tt>, <tt>Raster</tt>, <tt>SymbolItem</tt>, <tt>PointText</tt>, &hellip;</li>
+<li><tt>options.match: <tt>Function</tt></tt> &mdash; a match function to be called for each  found hit result: Return <code>true</code> to return the result, <code>false</code> to keep  searching</li>
+<li><tt>options.fill: <tt>Boolean</tt></tt> &mdash; hit-test the fill of items &mdash;&nbsp;default: <tt>true</tt></li>
+<li><tt>options.stroke: <tt>Boolean</tt></tt> &mdash; hit-test the stroke of path  items, taking into account the setting of stroke color and width &mdash;&nbsp;default: <tt>true</tt></li>
+<li><tt>options.segments: <tt>Boolean</tt></tt> &mdash; hit-test for <a href="/reference/segment#point"><tt>segment.point</tt></a> of <a href="/reference/path"><tt>Path</tt></a> items &mdash;&nbsp;default: <tt>true</tt></li>
 <li><tt>options.curves: <tt>Boolean</tt></tt> &mdash; hit-test the curves of path items,  without taking the stroke color or width into account</li>
-<li><tt>options.handles: <tt>Boolean</tt></tt> &mdash; hit-test for the handles (<a href="/reference/segment#handlein"><tt>segment.handleIn</tt></a> / <a href="/reference/segment#handleout"><tt>segment.handleOut</tt></a>) of path segments</li>
+<li><tt>options.handles: <tt>Boolean</tt></tt> &mdash; hit-test for the handles (<a href="/reference/segment#handlein"><tt>segment.handleIn</tt></a> / <a href="/reference/segment#handleout"><tt>segment.handleOut</tt></a>) of path segments.</li>
 <li><tt>options.ends: <tt>Boolean</tt></tt> &mdash; only hit-test for the first or last  segment points of open path items</li>
 <li><tt>options.bounds: <tt>Boolean</tt></tt> &mdash; hit-test the corners and side-centers of  the bounding rectangle of items (<a href="/reference/item#bounds"><tt>item.bounds</tt></a>)</li>
 <li><tt>options.center: <tt>Boolean</tt></tt> &mdash; hit-test the <a href="/reference/rectangle#center"><tt>rectangle.center</tt></a> of  the bounding rectangle of items (<a href="/reference/item#bounds"><tt>item.bounds</tt></a>)</li>
@@ -3863,7 +4055,7 @@ function onMouseDown(event) {
 <tt>options:</tt> 
 <tt>Object</tt>
 
-&mdash;&nbsp;optional, default: <tt>{ fill: true, stroke: true, segments: true,  tolerance: 2 }</tt>
+&mdash;&nbsp;optional, default: <tt>{ fill: true, stroke: true, segments: true,  tolerance: settings.hitTolerance }</tt>
 </li>
 	
 </ul>
@@ -3873,7 +4065,7 @@ function onMouseDown(event) {
 		<h4>Returns:</h4>
 		
 			<li>
-<tt><a href="/reference/hitresult"><tt>HitResult</tt></a></tt>&nbsp;&mdash;&nbsp;a hit result object that contains more information  about what exactly was hit or <code>null</code> if nothing was hit
+<tt><a href="/reference/hitresult"><tt>HitResult</tt></a></tt>&nbsp;&mdash;&nbsp;a hit result object describing what exactly was hit  or <code>null</code> if nothing was hit
 </li>
 		
 	</ul>
@@ -3885,23 +4077,74 @@ function onMouseDown(event) {
 </div>
 
 	
-<h3>Fetching and matching items</h3>
-
-<div id="matches-match" class="member">
+<div id="hittestall-point" class="member">
 <div class="member-link">
-<a name="matches-match" href="#matches-match"><tt><b>matches</b>(match)</tt></a>
+<a name="hittestall-point" href="#hittestall-point"><tt><b>hitTestAll</b>(point[, options])</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Checks whether the item matches the criteria described by the given object, by iterating over all of its properties and matching against their values through <a href="/reference/item#matches-name-compare"><tt>matches(name, compare)</tt></a>.</p>
-<p>See <a href="/reference/project#getitems-match"><tt>project.getItems(match)</tt></a> for a selection of illustrated examples.</p>
+	<p>Performs a hit-test on the item and its children (if it is a <a href="/reference/group"><tt>Group</tt></a> or <a href="/reference/layer"><tt>Layer</tt></a>) at the location of the specified point, returning all found hits.</p>
+<p>The options object allows you to control the specifics of the hit- test. See <a href="/reference/item#hittest-point"><tt>hitTest(point[, options])</tt></a> for a list of all options.</p>
     
 	
 <ul class="member-list">
 	<h4>Parameters:</h4>
 	
 	<li>
-<tt>match:</tt> 
+<tt>point:</tt> 
+<a href="/reference/point"><tt>Point</tt></a>
+&mdash;&nbsp;the point where the hit-test should be performed
+
+</li>
+	
+	<li>
+<tt>options:</tt> 
+<tt>Object</tt>
+
+&mdash;&nbsp;optional, default: <tt>{ fill: true, stroke: true, segments: true,  tolerance: settings.hitTolerance }</tt>
+</li>
+	
+</ul>
+
+	
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
+<tt>Array of <a href="/reference/hitresult"><tt>HitResult</tt></a> objects</tt>&nbsp;&mdash;&nbsp;hit result objects for all hits, describing what  exactly was hit or <code>null</code> if nothing was hit
+</li>
+		
+	</ul>
+
+	
+	<ul class="member-list">
+		<h4>See also:</h4>
+		
+			<li><tt><a href="/reference/item#hittest-point"><tt>hitTest(point[, options])</tt></a>;</tt></li>
+		
+	</ul>
+
+	
+</div>
+</div>
+</div>
+
+	
+<div id="matches-options" class="member">
+<div class="member-link">
+<a name="matches-options" href="#matches-options"><tt><b>matches</b>(options)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Checks whether the item matches the criteria described by the given object, by iterating over all of its properties and matching against their values through <a href="/reference/item#matches-name-compare"><tt>matches(name, compare)</tt></a>.</p>
+<p>See <a href="/reference/project#getitems-options"><tt>project.getItems(options)</tt></a> for a selection of illustrated examples.</p>
+    
+	
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
+<tt>options:</tt> 
 <tt>Object</tt>⟋<tt>Function</tt>
 &mdash;&nbsp;the criteria to match against
 
@@ -3923,7 +4166,7 @@ function onMouseDown(event) {
 	<ul class="member-list">
 		<h4>See also:</h4>
 		
-			<li><tt><a href="/reference/item#getitems-match"><tt>getItems(match)</tt></a></tt></li>
+			<li><tt><a href="/reference/item#getitems-options"><tt>getItems(options)</tt></a></tt></li>
 		
 	</ul>
 
@@ -3940,7 +4183,7 @@ function onMouseDown(event) {
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Checks whether the item matches the given criteria. Extended matching is possible by providing a compare function or a regular expression. Matching points, colors only work as a comparison of the full object, not partial matching (e.g. only providing the x-coordinate to match all points with that x-value). Partial matching does work for <a href="/reference/item#data"><tt>item.data</tt></a>.</p>
-<p>See <a href="/reference/project#getitems-match"><tt>project.getItems(match)</tt></a> for a selection of illustrated examples.</p>
+<p>See <a href="/reference/project#getitems-options"><tt>project.getItems(options)</tt></a> for a selection of illustrated examples.</p>
     
 	
 <ul class="member-list">
@@ -3976,7 +4219,7 @@ function onMouseDown(event) {
 	<ul class="member-list">
 		<h4>See also:</h4>
 		
-			<li><tt><a href="/reference/item#getitems-match"><tt>getItems(match)</tt></a></tt></li>
+			<li><tt><a href="/reference/item#getitems-options"><tt>getItems(options)</tt></a></tt></li>
 		
 	</ul>
 
@@ -3986,29 +4229,29 @@ function onMouseDown(event) {
 </div>
 
 	
-<div id="getitems-match" class="member">
+<div id="getitems-options" class="member">
 <div class="member-link">
-<a name="getitems-match" href="#getitems-match"><tt><b>getItems</b>(match)</tt></a>
+<a name="getitems-options" href="#getitems-options"><tt><b>getItems</b>(options)</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
 	<p>Fetch the descendants (children or children of children) of this item that match the properties in the specified object. Extended matching is possible by providing a compare function or regular expression. Matching points, colors only work as a comparison of the full object, not partial matching (e.g. only providing the x- coordinate to match all points with that x-value). Partial matching does work for <a href="/reference/item#data"><tt>item.data</tt></a>.</p>
-<p>Matching items against a rectangular area is also possible, by setting either <code>match.inside</code> or <code>match.overlapping</code> to a rectangle describing the area in which the items either have to be fully or partly contained.</p>
-<p>See <a href="/reference/project#getitems-match"><tt>project.getItems(match)</tt></a> for a selection of illustrated examples.</p>
+<p>Matching items against a rectangular area is also possible, by setting either <code>options.inside</code> or <code>options.overlapping</code> to a rectangle describing the area in which the items either have to be fully or partly contained.</p>
+<p>See <a href="/reference/project#getitems-options"><tt>project.getItems(options)</tt></a> for a selection of illustrated examples.</p>
     <ul class="member-list">
 <h4>Options:</h4>
-<li><tt>match.recursive: <tt>Boolean</tt></tt> &mdash; whether to loop recursively  through all children, or stop at the current level &mdash;&nbsp;default: <tt>true</tt></li>
-<li><tt>match.match: <tt>Function</tt></tt> &mdash; a match function to be called for each  item, allowing the definition of more flexible item checks that are  not bound to properties. If no other match properties are defined,  this function can also be passed instead of the <code>match</code> object</li>
-<li><tt>match.class: <tt>Function</tt></tt> &mdash; the constructor function of the item type  to match against</li>
-<li><tt>match.inside: <a href="/reference/rectangle"><tt>Rectangle</tt></a></tt> &mdash; the rectangle in which the items need to  be fully contained</li>
-<li><tt>match.overlapping: <a href="/reference/rectangle"><tt>Rectangle</tt></a></tt> &mdash; the rectangle with which the items  need to at least partly overlap</li>
+<li><tt>options.recursive: <tt>Boolean</tt></tt> &mdash; whether to loop recursively  through all children, or stop at the current level &mdash;&nbsp;default: <tt>true</tt></li>
+<li><tt>options.match: <tt>Function</tt></tt> &mdash; a match function to be called for each  item, allowing the definition of more flexible item checks that are  not bound to properties. If no other match properties are defined,  this function can also be passed instead of the <code>options</code> object</li>
+<li><tt>options.class: <tt>Function</tt></tt> &mdash; the constructor function of the item type  to match against</li>
+<li><tt>options.inside: <a href="/reference/rectangle"><tt>Rectangle</tt></a></tt> &mdash; the rectangle in which the items need to  be fully contained</li>
+<li><tt>options.overlapping: <a href="/reference/rectangle"><tt>Rectangle</tt></a></tt> &mdash; the rectangle with which the items  need to at least partly overlap</li>
 </ul>
 	
 <ul class="member-list">
 	<h4>Parameters:</h4>
 	
 	<li>
-<tt>match:</tt> 
+<tt>options:</tt> 
 <tt>Object</tt>⟋<tt>Function</tt>
 &mdash;&nbsp;the criteria to match against
 
@@ -4030,7 +4273,7 @@ function onMouseDown(event) {
 	<ul class="member-list">
 		<h4>See also:</h4>
 		
-			<li><tt><a href="/reference/item#matches-match"><tt>matches(match)</tt></a></tt></li>
+			<li><tt><a href="/reference/item#matches-options"><tt>matches(options)</tt></a></tt></li>
 		
 	</ul>
 
@@ -4212,10 +4455,10 @@ function onMouseDown(event) {
     <ul class="member-list">
 <h4>Options:</h4>
 <li><tt>options.expandShapes: <tt>Boolean</tt></tt> &mdash; whether imported shape  items should be expanded to path items &mdash;&nbsp;default: <tt>false</tt></li>
-<li>[options.onLoad] {Function} the callback function to call once
-    the SVG content is loaded from the given URL. Only required when
-    loading from external files.</li>
-<li><tt>options.applyMatrix: <tt>Boolean</tt></tt> &mdash; whether imported items should have their transformation  matrices applied to their contents or not &mdash;&nbsp;default: <tt><a href="/reference/paperscope#settings"><tt>paperScope.settings</tt></a>.applyMatrix</tt></li>
+<li><tt>options.onLoad: <tt>Function</tt></tt> &mdash; the callback function to call once the  SVG content is loaded from the given URL receiving two arguments: the  converted <code>item</code> and the original <code>svg</code> data as a string. Only  required when loading from external resources.</li>
+<li><tt>options.onError: <tt>Function</tt></tt> &mdash; the callback function to call if an  error occurs during loading. Only required when loading from external  resources.</li>
+<li><tt>options.insert: <tt>Boolean</tt></tt> &mdash; whether the imported items should  be added to the item that <code>importSVG()</code> is called on &mdash;&nbsp;default: <tt>true</tt></li>
+<li><tt>options.applyMatrix: <tt>Boolean</tt></tt> &mdash; whether the imported items should have their transformation  matrices applied to their contents or not &mdash;&nbsp;default: <tt><a href="/reference/paperscope#settings"><tt>paperScope.settings</tt></a>.applyMatrix</tt></li>
 </ul>
 	
 <ul class="member-list">
@@ -4276,7 +4519,7 @@ function onMouseDown(event) {
 	<li>
 <tt>onLoad:</tt> 
 <tt>Function</tt>
-&mdash;&nbsp;the callback function to call once the SVG  content is loaded from the given URL.
+&mdash;&nbsp;the callback function to call once the SVG  content is loaded from the given URL receiving two arguments: the  converted <code>item</code> and the original <code>svg</code> data as a string. Only  required when loading from external files.
 
 </li>
 	
@@ -6749,6 +6992,59 @@ function onMouseDown(event) {
 </div>
 </div>
 
+	
+<div id="hittestall-point" class="member">
+<div class="member-link">
+<a name="hittestall-point" href="#hittestall-point"><tt><b>hitTestAll</b>(point[, options])</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Performs a hit-test on the item and its children (if it is a <a href="/reference/group"><tt>Group</tt></a> or <a href="/reference/layer"><tt>Layer</tt></a>) at the location of the specified point, returning all found hits.</p>
+<p>The options object allows you to control the specifics of the hit- test. See <a href="/reference/item#hittest-point"><tt>hitTest(point[, options])</tt></a> for a list of all options.</p>
+    
+	
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
+<tt>point:</tt> 
+<a href="/reference/point"><tt>Point</tt></a>
+&mdash;&nbsp;the point where the hit-test should be performed
+
+</li>
+	
+	<li>
+<tt>options:</tt> 
+<tt>Object</tt>
+
+&mdash;&nbsp;optional, default: <tt>{ fill: true, stroke: true, segments: true,  tolerance: settings.hitTolerance }</tt>
+</li>
+	
+</ul>
+
+	
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
+<tt>Array of <a href="/reference/hitresult"><tt>HitResult</tt></a> objects</tt>&nbsp;&mdash;&nbsp;hit result objects for all hits, describing what  exactly was hit or <code>null</code> if nothing was hit
+</li>
+		
+	</ul>
+
+	
+	<ul class="member-list">
+		<h4>See also:</h4>
+		
+			<li><tt><a href="/reference/item#hittest-point"><tt>hitTest(point[, options])</tt></a>;</tt></li>
+		
+	</ul>
+
+	
+</div>
+</div>
+</div>
+
 </div>
 
 
@@ -6756,8 +7052,7 @@ function onMouseDown(event) {
 
   </div>
 </article>
-<aside>
-<h1>Index</h1>
+<aside><h1>Index<span class="version text">0.10.1</span></h1>
 <div class="reference"><ul class="reference-classes"><li><a href="/reference/global">Global Scope</a></li>
 <li>
 <h2>Basic Types</h2>
@@ -6776,10 +7071,14 @@ function onMouseDown(event) {
 <li><a href="/reference/group">Group</a></li>
 <li><a href="/reference/shape">Shape</a></li>
 <li><a href="/reference/raster">Raster</a></li>
-<li><a href="/reference/symbol">Symbol</a></li>
-<li><a href="/reference/placedsymbol">PlacedSymbol</a></li>
 <li><hr /></li>
 <li><a href="/reference/hitresult">HitResult</a></li>
+</ul>
+<li>
+<h2>Symbols</h2>
+<ul>
+<li><a href="/reference/symboldefinition">SymbolDefinition</a></li>
+<li><a href="/reference/symbolitem">SymbolItem</a></li>
 </ul>
 <li>
 <h2>Paths</h2>
@@ -6823,8 +7122,8 @@ function onMouseDown(event) {
 <li><a href="/reference/paperscope">PaperScope</a></li>
 <li><a href="/reference/paperscript">PaperScript</a></li>
 </ul>
-</ul>
-</div>
+</ul></div>
+
 </aside>
   </body>
 </html>
