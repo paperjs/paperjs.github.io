@@ -107,8 +107,11 @@
 			<li>
 <tt><a href="/reference/project"><tt>Project</tt></a></tt>
 </li>
+
 		
 	</ul>
+
+
 
     
     
@@ -385,6 +388,8 @@ var path2 = new Path.Circle(new Point(175, 50), 20);
     
 	
 	
+
+
 	
 	
 </div>
@@ -402,6 +407,8 @@ var path2 = new Path.Circle(new Point(175, 50), 20);
     
 	
 	
+
+
 	
 	
 </div>
@@ -425,8 +432,11 @@ var path2 = new Path.Circle(new Point(175, 50), 20);
 			<li>
 <tt></tt>&nbsp;&mdash;&nbsp;Boolean
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -445,6 +455,8 @@ var path2 = new Path.Circle(new Point(175, 50), 20);
     
 	
 	
+
+
 	
 	
 </div>
@@ -462,6 +474,8 @@ var path2 = new Path.Circle(new Point(175, 50), 20);
     
 	
 	
+
+
 	
 	
 </div>
@@ -479,6 +493,8 @@ var path2 = new Path.Circle(new Point(175, 50), 20);
     
 	
 	
+
+
 	
 	
 </div>
@@ -516,8 +532,11 @@ var path2 = new Path.Circle(new Point(175, 50), 20);
 			<li>
 <tt><a href="/reference/layer"><tt>Layer</tt></a></tt>&nbsp;&mdash;&nbsp;the added layer, or <code>null</code> if adding was not possible
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -561,8 +580,11 @@ var path2 = new Path.Circle(new Point(175, 50), 20);
 			<li>
 <tt><a href="/reference/layer"><tt>Layer</tt></a></tt>&nbsp;&mdash;&nbsp;the added layer, or <code>null</code> if adding was not possible
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -584,7 +606,7 @@ var path2 = new Path.Circle(new Point(175, 50), 20);
     <ul class="member-list">
 <h4>Options:</h4>
 <li><tt>options.tolerance: <tt>Number</tt></tt> &mdash; the tolerance of the hit-test &mdash;&nbsp;default: <tt><a href="/reference/paperscope#settings"><tt>paperScope.settings</tt></a>.hitTolerance</tt></li>
-<li><tt>options.class: <tt>Function</tt></tt> &mdash; only hit-test again a certain item  class and its sub-classes: <tt>Group</tt>, <tt>Layer</tt>, <tt>Path</tt>, <tt>CompoundPath</tt>, <tt>Shape</tt>, <tt>Raster</tt>, <tt>SymbolItem</tt>, <tt>PointText</tt>, &hellip;</li>
+<li><tt>options.class: <tt>Function</tt></tt> &mdash; only hit-test against a specific item  class, or any of its sub-classes, by providing the constructor  function against which an <code>instanceof</code> check is performed:  <tt>Group</tt>, <tt>Layer</tt>, <tt>Path</tt>, <tt>CompoundPath</tt>, <tt>Shape</tt>, <tt>Raster</tt>, <tt>SymbolItem</tt>, <tt>PointText</tt>, &hellip;</li>
 <li><tt>options.match: <tt>Function</tt></tt> &mdash; a match function to be called for each  found hit result: Return <code>true</code> to return the result, <code>false</code> to keep  searching</li>
 <li><tt>options.fill: <tt>Boolean</tt></tt> &mdash; hit-test the fill of items &mdash;&nbsp;default: <tt>true</tt></li>
 <li><tt>options.stroke: <tt>Boolean</tt></tt> &mdash; hit-test the stroke of path  items, taking into account the setting of stroke color and width &mdash;&nbsp;default: <tt>true</tt></li>
@@ -624,10 +646,69 @@ var path2 = new Path.Circle(new Point(175, 50), 20);
 			<li>
 <tt><a href="/reference/hitresult"><tt>HitResult</tt></a></tt>&nbsp;&mdash;&nbsp;a hit result object that contains more information  about what exactly was hit or <code>null</code> if nothing was hit
 </li>
+
 		
 	</ul>
 
+
+
 	
+	
+</div>
+</div>
+</div>
+
+	
+<div id="hittestall-point" class="member">
+<div class="member-link">
+<a name="hittestall-point" href="#hittestall-point"><tt><b>hitTestAll</b>(point[, options])</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Performs a hit-test on the item and its children (if it is a <a href="/reference/group"><tt>Group</tt></a> or <a href="/reference/layer"><tt>Layer</tt></a>) at the location of the specified point, returning all found hits.</p>
+<p>The options object allows you to control the specifics of the hit- test. See <a href="/reference/project#hittest-point"><tt>hitTest(point[, options])</tt></a> for a list of all options.</p>
+    
+	
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
+<tt>point:</tt> 
+<a href="/reference/point"><tt>Point</tt></a>
+&mdash;&nbsp;the point where the hit-test should be performed
+
+</li>
+	
+	<li>
+<tt>options:</tt> 
+<tt>Object</tt>
+
+&mdash;&nbsp;optional, default: <tt>{ fill: true, stroke: true, segments: true,  tolerance: settings.hitTolerance }</tt>
+</li>
+	
+</ul>
+
+	
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
+<tt>Array of <a href="/reference/hitresult"><tt>HitResult</tt></a> objects</tt>&nbsp;&mdash;&nbsp;hit result objects for all hits, describing what  exactly was hit or <code>null</code> if nothing was hit
+</li>
+
+		
+	</ul>
+
+
+
+	
+	<ul class="member-list">
+		<h4>See also:</h4>
+		
+			<li><tt><a href="/reference/project#hittest-point"><tt>hitTest(point[, options])</tt></a>;</tt></li>
+		
+	</ul>
+
 	
 </div>
 </div>
@@ -671,8 +752,11 @@ var path2 = new Path.Circle(new Point(175, 50), 20);
 			<li>
 <tt>Array of <a href="/reference/item"><tt>Item</tt></a> objects</tt>&nbsp;&mdash;&nbsp;the list of matching items contained in the project
 </li>
+
 		
 	</ul>
+
+
 
 	
 	<ul class="member-list">
@@ -1001,8 +1085,11 @@ for (var i = 0; i < items.length; i++) {
 			<li>
 <tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the first item in the project matching the given criteria
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -1045,8 +1132,11 @@ for (var i = 0; i < items.length; i++) {
 			<li>
 <tt><tt>String</tt></tt>&nbsp;&mdash;&nbsp;the exported JSON data
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -1077,6 +1167,8 @@ for (var i = 0; i < items.length; i++) {
 </ul>
 
 	
+
+
 	
 	
 </div>
@@ -1118,8 +1210,11 @@ for (var i = 0; i < items.length; i++) {
 			<li>
 <tt><tt>SVGElement</tt></tt>&nbsp;&mdash;&nbsp;the project converted to an SVG node
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -1170,8 +1265,11 @@ for (var i = 0; i < items.length; i++) {
 			<li>
 <tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the newly created Paper.js item containing the converted  SVG content
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -1215,8 +1313,11 @@ for (var i = 0; i < items.length; i++) {
 			<li>
 <tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the newly created Paper.js item containing the converted  SVG content
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -1234,7 +1335,7 @@ for (var i = 0; i < items.length; i++) {
 
   </div>
 </article>
-<aside><h1>Index<span class="version text">0.10.2</span></h1>
+<aside><h1>Index<span class="version text">0.10.3</span></h1>
 <div class="reference"><ul class="reference-classes"><li><a href="/reference/global">Global Scope</a></li>
 <li>
 <h2>Basic Types</h2>

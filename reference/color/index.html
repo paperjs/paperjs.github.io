@@ -165,8 +165,11 @@ circle.fillColor = '#ff0000';
 			<li>
 <tt><a href="/reference/color"><tt>Color</tt></a></tt>
 </li>
+
 		
 	</ul>
+
+
 
     
     <h4>Example:<span class="description">Creating a RGB Color:</span></h4>
@@ -229,8 +232,11 @@ circle.fillColor = new Color(1, 0, 0.5);
 			<li>
 <tt><a href="/reference/color"><tt>Color</tt></a></tt>
 </li>
+
 		
 	</ul>
+
+
 
     
     <h4>Example:<span class="description">Creating a gray Color:</span></h4>
@@ -278,7 +284,7 @@ circle.fillColor = new Color(0.5);
 <li><tt>gradient.gradient: <a href="/reference/gradient"><tt>Gradient</tt></a></tt> &mdash; the gradient object that  describes the color stops and type of gradient to be used</li>
 <li><tt>gradient.origin: <a href="/reference/point"><tt>Point</tt></a></tt> &mdash; the origin point of the gradient</li>
 <li><tt>gradient.destination: <a href="/reference/point"><tt>Point</tt></a></tt> &mdash; the destination point of the  gradient</li>
-<li><tt>gradient.stops: undefined</tt> &mdash; {GradientStop[]} the gradient stops describing  the gradient, as an alternative to providing a gradient object</li>
+<li><tt>gradient.stops: Array of <a href="/reference/gradientstop"><tt>GradientStop</tt></a> objects</tt> &mdash; the gradient stops describing  the gradient, as an alternative to providing a gradient object</li>
 <li><tt>gradient.radial: <tt>Boolean</tt></tt> &mdash; controls whether the gradient is  radial, as an alternative to providing a gradient object</li>
 </ul>
     
@@ -301,8 +307,11 @@ circle.fillColor = new Color(0.5);
 			<li>
 <tt><a href="/reference/color"><tt>Color</tt></a></tt>
 </li>
+
 		
 	</ul>
+
+
 
     
     <h4>Example:<span class="description">Creating a HSB Color:</span></h4>
@@ -431,8 +440,11 @@ var path = new Path.Rectangle({
 			<li>
 <tt><a href="/reference/color"><tt>Color</tt></a></tt>
 </li>
+
 		
 	</ul>
+
+
 
     
     <h4>Example:<span class="description">Applying a linear gradient color containing evenly distributed color stops:</span></h4>
@@ -555,8 +567,11 @@ path.fillColor = gradientColor;
 			<li>
 <tt><a href="/reference/color"><tt>Color</tt></a></tt>&nbsp;&mdash;&nbsp;the addition of the color and the value as a new color
 </li>
+
 		
 	</ul>
+
+
 
 		
 		<h4>Example:</h4>
@@ -592,8 +607,11 @@ console.log(result); // { red: 1, blue: 1, green: 1 }</code></pre>
 			<li>
 <tt><a href="/reference/color"><tt>Color</tt></a></tt>&nbsp;&mdash;&nbsp;the addition of the two colors as a new color
 </li>
+
 		
 	</ul>
+
+
 
 		
 		<h4>Example:</h4>
@@ -640,8 +658,11 @@ console.log(result); // { red: 1, blue: 1, green: 1 }</code></pre>
 			<li>
 <tt><a href="/reference/color"><tt>Color</tt></a></tt>&nbsp;&mdash;&nbsp;the subtraction of the color and the value as a new color
 </li>
+
 		
 	</ul>
+
+
 
 		
 		<h4>Example:</h4>
@@ -677,8 +698,11 @@ console.log(result); // { red: 0, blue: 0, green: 0 }</code></pre>
 			<li>
 <tt><a href="/reference/color"><tt>Color</tt></a></tt>&nbsp;&mdash;&nbsp;the subtraction of the two colors as a new color
 </li>
+
 		
 	</ul>
+
+
 
 		
 		<h4>Example:</h4>
@@ -725,8 +749,11 @@ console.log(result); // { red: 0, blue: 1, green: 1 }</code></pre>
 			<li>
 <tt><a href="/reference/color"><tt>Color</tt></a></tt>&nbsp;&mdash;&nbsp;the multiplication of the color and the value as a new color
 </li>
+
 		
 	</ul>
+
+
 
 		
 		<h4>Example:</h4>
@@ -762,8 +789,11 @@ console.log(result); // { red: 0.25, blue: 0.5, green: 0.5 }</code></pre>
 			<li>
 <tt><a href="/reference/color"><tt>Color</tt></a></tt>&nbsp;&mdash;&nbsp;the multiplication of the two colors as a new color
 </li>
+
 		
 	</ul>
+
+
 
 		
 		<h4>Example:</h4>
@@ -810,8 +840,11 @@ console.log(result); // { red: 0, blue: 0, green: 0.5 }</code></pre>
 			<li>
 <tt><a href="/reference/color"><tt>Color</tt></a></tt>&nbsp;&mdash;&nbsp;the division of the color and the value as a new color
 </li>
+
 		
 	</ul>
+
+
 
 		
 		<h4>Example:</h4>
@@ -847,8 +880,11 @@ console.log(result); // { red: 0.25, blue: 0.5, green: 0.5 }</code></pre>
 			<li>
 <tt><a href="/reference/color"><tt>Color</tt></a></tt>&nbsp;&mdash;&nbsp;the division of the two colors as a new color
 </li>
+
 		
 	</ul>
+
+
 
 		
 		<h4>Example:</h4>
@@ -922,7 +958,7 @@ console.log(color.type); // 'rgb'</code></pre>
 	<ul class="member-list">
 		<h4>Type:</h4>
 		<li>
-			<tt>Number</tt>
+			Array of <tt>Number</tt>s
 		</li>
 	</ul>
     
@@ -1393,6 +1429,25 @@ function onMouseMove(event) {
 		<h2>Methods</h2>
 		
 	
+<div id="set" class="member">
+<div class="member-link">
+<a name="set" href="#set"><tt><b>set</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Sets the color to the passed values. Note that any sequence of parameters that is supported by the various <a href="/reference/color"><tt>Color</tt></a>() constructors also work for calls of <code>set()</code>.</p>
+    
+	
+	
+
+
+	
+	
+</div>
+</div>
+</div>
+
+	
 <div id="convert-type" class="member">
 <div class="member-link">
 <a name="convert-type" href="#convert-type"><tt><b>convert</b>(type)</tt></a>
@@ -1421,8 +1476,11 @@ function onMouseMove(event) {
 			<li>
 <tt><a href="/reference/color"><tt>Color</tt></a></tt>&nbsp;&mdash;&nbsp;the converted color as a new instance
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -1447,8 +1505,11 @@ function onMouseMove(event) {
 			<li>
 <tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the color has an alpha value, <tt>false</tt> otherwise
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -1485,8 +1546,11 @@ function onMouseMove(event) {
 			<li>
 <tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the colors are the same, <tt>false</tt> otherwise
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -1511,8 +1575,11 @@ function onMouseMove(event) {
 			<li>
 <tt><a href="/reference/color"><tt>Color</tt></a></tt>&nbsp;&mdash;&nbsp;a copy of the color object
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -1539,8 +1606,11 @@ function onMouseMove(event) {
 			<li>
 <tt><tt>String</tt></tt>&nbsp;&mdash;&nbsp;a string representation of the color
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -1577,8 +1647,11 @@ function onMouseMove(event) {
 			<li>
 <tt><tt>String</tt></tt>&nbsp;&mdash;&nbsp;a CSS string representation of the color
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -1609,6 +1682,8 @@ function onMouseMove(event) {
 </ul>
 
 	
+
+
 	
 	
 </div>
@@ -1649,8 +1724,11 @@ function onMouseMove(event) {
 			<li>
 <tt><a href="/reference/color"><tt>Color</tt></a></tt>&nbsp;&mdash;&nbsp;the addition of the color and the value as a new color
 </li>
+
 		
 	</ul>
+
+
 
 	
 	<h4>Example:</h4>
@@ -1693,8 +1771,11 @@ console.log(result); // { red: 1, blue: 1, green: 1 }</code></pre>
 			<li>
 <tt><a href="/reference/color"><tt>Color</tt></a></tt>&nbsp;&mdash;&nbsp;the addition of the two colors as a new color
 </li>
+
 		
 	</ul>
+
+
 
 	
 	<h4>Example:</h4>
@@ -1741,8 +1822,11 @@ console.log(result); // { red: 1, blue: 1, green: 1 }</code></pre>
 			<li>
 <tt><a href="/reference/color"><tt>Color</tt></a></tt>&nbsp;&mdash;&nbsp;the subtraction of the color and the value as a new color
 </li>
+
 		
 	</ul>
+
+
 
 	
 	<h4>Example:</h4>
@@ -1785,8 +1869,11 @@ console.log(result); // { red: 0, blue: 0, green: 0 }</code></pre>
 			<li>
 <tt><a href="/reference/color"><tt>Color</tt></a></tt>&nbsp;&mdash;&nbsp;the subtraction of the two colors as a new color
 </li>
+
 		
 	</ul>
+
+
 
 	
 	<h4>Example:</h4>
@@ -1833,8 +1920,11 @@ console.log(result); // { red: 0, blue: 1, green: 1 }</code></pre>
 			<li>
 <tt><a href="/reference/color"><tt>Color</tt></a></tt>&nbsp;&mdash;&nbsp;the multiplication of the color and the value as a new color
 </li>
+
 		
 	</ul>
+
+
 
 	
 	<h4>Example:</h4>
@@ -1877,8 +1967,11 @@ console.log(result); // { red: 0.25, blue: 0.5, green: 0.5 }</code></pre>
 			<li>
 <tt><a href="/reference/color"><tt>Color</tt></a></tt>&nbsp;&mdash;&nbsp;the multiplication of the two colors as a new color
 </li>
+
 		
 	</ul>
+
+
 
 	
 	<h4>Example:</h4>
@@ -1925,8 +2018,11 @@ console.log(result); // { red: 0, blue: 0, green: 0.5 }</code></pre>
 			<li>
 <tt><a href="/reference/color"><tt>Color</tt></a></tt>&nbsp;&mdash;&nbsp;the division of the color and the value as a new color
 </li>
+
 		
 	</ul>
+
+
 
 	
 	<h4>Example:</h4>
@@ -1969,8 +2065,11 @@ console.log(result); // { red: 0.25, blue: 0.5, green: 0.5 }</code></pre>
 			<li>
 <tt><a href="/reference/color"><tt>Color</tt></a></tt>&nbsp;&mdash;&nbsp;the division of the two colors as a new color
 </li>
+
 		
 	</ul>
+
+
 
 	
 	<h4>Example:</h4>
@@ -1996,7 +2095,7 @@ console.log(result); // { red: 0, blue: 0, green: 1 }</code></pre>
 
   </div>
 </article>
-<aside><h1>Index<span class="version text">0.10.2</span></h1>
+<aside><h1>Index<span class="version text">0.10.3</span></h1>
 <div class="reference"><ul class="reference-classes"><li><a href="/reference/global">Global Scope</a></li>
 <li>
 <h2>Basic Types</h2>

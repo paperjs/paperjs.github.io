@@ -105,8 +105,11 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 			<li>
 <tt><a href="/reference/group"><tt>Group</tt></a></tt>
 </li>
+
 		
 	</ul>
+
+
 
     
     <h4>Example:<span class="description">Create a group containing two paths:</span></h4>
@@ -185,7 +188,7 @@ function onFrame(event) {
 	<li>
 <tt>object:</tt> 
 <tt>Object</tt>
-&mdash;&nbsp;an object literal containing the properties to be set on the group
+&mdash;&nbsp;an object containing the properties to be set on  the group
 
 </li>
 	
@@ -198,8 +201,11 @@ function onFrame(event) {
 			<li>
 <tt><a href="/reference/group"><tt>Group</tt></a></tt>
 </li>
+
 		
 	</ul>
+
+
 
     
     <h4>Example:</h4>
@@ -1046,7 +1052,7 @@ circle.position.x += 100;
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The current rotation angle of the item, as described by its <a href="/reference/item#matrix"><tt>matrix</tt></a>.</p>
+	<p>The current rotation angle of the item, as described by its <a href="/reference/item#matrix"><tt>matrix</tt></a>. Please note that this only returns meaningful values for items with <a href="/reference/item#applymatrix"><tt>applyMatrix</tt></a> set to <code>false</code>, meaning they do not directly bake transformations into their content.</p>
 	
 	
 	
@@ -1072,7 +1078,7 @@ circle.position.x += 100;
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>The current scale factor of the item, as described by its <a href="/reference/item#matrix"><tt>matrix</tt></a>.</p>
+	<p>The current scale factor of the item, as described by its <a href="/reference/item#matrix"><tt>matrix</tt></a>. Please note that this only returns meaningful values for items with <a href="/reference/item#applymatrix"><tt>applyMatrix</tt></a> set to <code>false</code>, meaning they do not directly bake transformations into their content.</p>
 	
 	
 	
@@ -1337,7 +1343,7 @@ console.log(path.parent == group); // true</code></pre>
 console.log(path.parent == project.activeLayer); // true
 
 var group = new Group();
-group.parent = path;
+path.parent = group;
 
 // Now the parent of the path has become the group:
 console.log(path.parent == group); // true
@@ -2877,7 +2883,7 @@ path.onMouseLeave = function(event) {
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Sets those properties of the passed object literal on this item to the values defined in the object literal, if the item has property of the given name (or a setter defined for it).</p>
+	<p>Sets the properties of the passed object literal on this item to the values defined in the object literal, if the item has property of the given name (or a setter defined for it).</p>
     
 	
 <ul class="member-list">
@@ -2899,8 +2905,11 @@ path.onMouseLeave = function(event) {
 			<li>
 <tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the item itself
 </li>
+
 		
 	</ul>
+
+
 
 	
 	<h4>Example:<span class="description">Setting properties through an object literal</span></h4>
@@ -2965,8 +2974,11 @@ circle.set({
 			<li>
 <tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the newly cloned item
 </li>
+
 		
 	</ul>
+
+
 
 	
 	<h4>Example:<span class="description">Cloning items:</span></h4>
@@ -3023,6 +3035,8 @@ for (var i = 0; i < 20; i++) {
 </ul>
 
 	
+
+
 	
 	
 </div>
@@ -3059,6 +3073,8 @@ for (var i = 0; i < 20; i++) {
 </ul>
 
 	
+
+
 	
 	
 </div>
@@ -3101,8 +3117,11 @@ for (var i = 0; i < 20; i++) {
 			<li>
 <tt><a href="/reference/raster"><tt>Raster</tt></a></tt>&nbsp;&mdash;&nbsp;the newly created raster item
 </li>
+
 		
 	</ul>
+
+
 
 	
 	<h4>Example:<span class="description">Rasterizing an item:</span></h4>
@@ -3163,6 +3182,8 @@ raster.scale(5);
 </ul>
 
 	
+
+
 	
 	<h4>Example:<span class="description">Click within and outside the star below Create a star shaped path:</span></h4>
 
@@ -3230,8 +3251,11 @@ function onMouseDown(event) {
 			<li>
 <tt><tt>Boolean</tt></tt>
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -3268,8 +3292,11 @@ function onMouseDown(event) {
 			<li>
 <tt><tt>Boolean</tt></tt>
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -3291,7 +3318,7 @@ function onMouseDown(event) {
     <ul class="member-list">
 <h4>Options:</h4>
 <li><tt>options.tolerance: <tt>Number</tt></tt> &mdash; the tolerance of the hit-test &mdash;&nbsp;default: <tt><a href="/reference/paperscope#settings"><tt>paperScope.settings</tt></a>.hitTolerance</tt></li>
-<li><tt>options.class: <tt>Function</tt></tt> &mdash; only hit-test again a certain item  class and its sub-classes: <tt>Group</tt>, <tt>Layer</tt>, <tt>Path</tt>, <tt>CompoundPath</tt>, <tt>Shape</tt>, <tt>Raster</tt>, <tt>SymbolItem</tt>, <tt>PointText</tt>, &hellip;</li>
+<li><tt>options.class: <tt>Function</tt></tt> &mdash; only hit-test against a specific item  class, or any of its sub-classes, by providing the constructor  function against which an <code>instanceof</code> check is performed:  <tt>Group</tt>, <tt>Layer</tt>, <tt>Path</tt>, <tt>CompoundPath</tt>, <tt>Shape</tt>, <tt>Raster</tt>, <tt>SymbolItem</tt>, <tt>PointText</tt>, &hellip;</li>
 <li><tt>options.match: <tt>Function</tt></tt> &mdash; a match function to be called for each  found hit result: Return <code>true</code> to return the result, <code>false</code> to keep  searching</li>
 <li><tt>options.fill: <tt>Boolean</tt></tt> &mdash; hit-test the fill of items &mdash;&nbsp;default: <tt>true</tt></li>
 <li><tt>options.stroke: <tt>Boolean</tt></tt> &mdash; hit-test the stroke of path  items, taking into account the setting of stroke color and width &mdash;&nbsp;default: <tt>true</tt></li>
@@ -3331,8 +3358,11 @@ function onMouseDown(event) {
 			<li>
 <tt><a href="/reference/hitresult"><tt>HitResult</tt></a></tt>&nbsp;&mdash;&nbsp;a hit result object describing what exactly was hit  or <code>null</code> if nothing was hit
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -3377,8 +3407,11 @@ function onMouseDown(event) {
 			<li>
 <tt>Array of <a href="/reference/hitresult"><tt>HitResult</tt></a> objects</tt>&nbsp;&mdash;&nbsp;hit result objects for all hits, describing what  exactly was hit or <code>null</code> if nothing was hit
 </li>
+
 		
 	</ul>
+
+
 
 	
 	<ul class="member-list">
@@ -3423,8 +3456,11 @@ function onMouseDown(event) {
 			<li>
 <tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the item matches all the criteria, <tt>false</tt> otherwise
 </li>
+
 		
 	</ul>
+
+
 
 	
 	<ul class="member-list">
@@ -3476,8 +3512,11 @@ function onMouseDown(event) {
 			<li>
 <tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the item matches the state, <tt>false</tt> otherwise
 </li>
+
 		
 	</ul>
+
+
 
 	
 	<ul class="member-list">
@@ -3530,8 +3569,11 @@ function onMouseDown(event) {
 			<li>
 <tt>Array of <a href="/reference/item"><tt>Item</tt></a> objects</tt>&nbsp;&mdash;&nbsp;the list of matching descendant items
 </li>
+
 		
 	</ul>
+
+
 
 	
 	<ul class="member-list">
@@ -3575,8 +3617,11 @@ function onMouseDown(event) {
 			<li>
 <tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the first descendant item matching the given criteria
 </li>
+
 		
 	</ul>
+
+
 
 	
 	<ul class="member-list">
@@ -3626,8 +3671,11 @@ function onMouseDown(event) {
 			<li>
 <tt><tt>String</tt></tt>&nbsp;&mdash;&nbsp;the exported JSON data
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -3658,6 +3706,8 @@ function onMouseDown(event) {
 </ul>
 
 	
+
+
 	
 	
 </div>
@@ -3699,8 +3749,11 @@ function onMouseDown(event) {
 			<li>
 <tt><tt>SVGElement</tt></tt>&nbsp;&mdash;&nbsp;the item converted to an SVG node
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -3751,8 +3804,11 @@ function onMouseDown(event) {
 			<li>
 <tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the newly created Paper.js item containing the converted  SVG content
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -3796,8 +3852,11 @@ function onMouseDown(event) {
 			<li>
 <tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the newly created Paper.js item containing the converted  SVG content
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -3836,8 +3895,11 @@ function onMouseDown(event) {
 			<li>
 <tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the added item, or <code>null</code> if adding was not possible
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -3881,8 +3943,11 @@ function onMouseDown(event) {
 			<li>
 <tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the inserted item, or <code>null</code> if inserting was not possible
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -3919,8 +3984,11 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 			<li>
 <tt>Array of <a href="/reference/item"><tt>Item</tt></a> objects</tt>&nbsp;&mdash;&nbsp;the added items, or <code>null</code> if adding was not possible
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -3964,8 +4032,11 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 			<li>
 <tt>Array of <a href="/reference/item"><tt>Item</tt></a> objects</tt>&nbsp;&mdash;&nbsp;the inserted items, or <code>null</code> if inserted was not  possible
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -4002,8 +4073,11 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 			<li>
 <tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the inserted item, or <code>null</code> if inserting was not possible
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -4040,8 +4114,11 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 			<li>
 <tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the inserted item, or <code>null</code> if inserting was not possible
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -4060,6 +4137,8 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
     
 	
 	
+
+
 	
 	
 </div>
@@ -4077,6 +4156,8 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
     
 	
 	
+
+
 	
 	
 </div>
@@ -4106,6 +4187,8 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 </ul>
 
 	
+
+
 	
 	
 </div>
@@ -4135,6 +4218,8 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 </ul>
 
 	
+
+
 	
 	
 </div>
@@ -4170,8 +4255,11 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 			<li>
 <tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if it was moved, <tt>false</tt> otherwise
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -4208,8 +4296,11 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 			<li>
 <tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if it was moved, <tt>false</tt> otherwise
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -4246,8 +4337,11 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 			<li>
 <tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the new copy of the item
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -4284,8 +4378,11 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 			<li>
 <tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;the reduced item
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -4310,8 +4407,11 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 			<li>
 <tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the item was removed, <tt>false</tt> otherwise
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -4348,8 +4448,11 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 			<li>
 <tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the item was replaced, <tt>false</tt> otherwise
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -4374,8 +4477,11 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 			<li>
 <tt>Array of <a href="/reference/item"><tt>Item</tt></a> objects</tt>&nbsp;&mdash;&nbsp;an array containing the removed items
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -4419,8 +4525,11 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 			<li>
 <tt>Array of <a href="/reference/item"><tt>Item</tt></a> objects</tt>&nbsp;&mdash;&nbsp;an array containing the removed items
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -4439,6 +4548,8 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
     
 	
 	
+
+
 	
 	
 </div>
@@ -4464,8 +4575,11 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 			<li>
 <tt></tt>&nbsp;&mdash;&nbsp;Boolean
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -4492,8 +4606,11 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 			<li>
 <tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the item has a fill, <tt>false</tt> otherwise
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -4518,8 +4635,11 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 			<li>
 <tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the item has a stroke, <tt>false</tt> otherwise
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -4544,8 +4664,11 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 			<li>
 <tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the item has a shadow, <tt>false</tt> otherwise
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -4572,8 +4695,11 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 			<li>
 <tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> it has one or more children, <tt>false</tt> otherwise
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -4598,8 +4724,11 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 			<li>
 <tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the item is inserted into the scene graph, <tt>false</tt> otherwise
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -4636,8 +4765,11 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 			<li>
 <tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if it is above the specified item, <tt>false</tt> otherwise
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -4674,8 +4806,11 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 			<li>
 <tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if it is below the specified item, <tt>false</tt> otherwise
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -4712,8 +4847,11 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 			<li>
 <tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if it is the parent of the item, <tt>false</tt> otherwise
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -4750,8 +4888,11 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 			<li>
 <tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> it is a child of the item, <tt>false</tt> otherwise
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -4788,8 +4929,11 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 			<li>
 <tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if it is inside the specified item, <tt>false</tt> otherwise
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -4826,8 +4970,11 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 			<li>
 <tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the item is an ancestor of the specified item, <tt>false</tt> otherwise
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -4864,8 +5011,11 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 			<li>
 <tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the item is aa sibling of the specified item, <tt>false</tt> otherwise
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -4902,8 +5052,11 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 			<li>
 <tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the items are grouped together, <tt>false</tt> otherwise
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -4936,6 +5089,8 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 </ul>
 
 	
+
+
 	
 	
 </div>
@@ -4973,6 +5128,8 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 </ul>
 
 	
+
+
 	
 	<ul class="member-list">
 		<h4>See also:</h4>
@@ -5070,6 +5227,8 @@ function onFrame(event) {
 </ul>
 
 	
+
+
 	
 	<h4>Example:<span class="description">Scaling an item from its center point:</span></h4>
 
@@ -5160,6 +5319,8 @@ circle.scale(1.5, circle.bounds.bottomLeft);
 </ul>
 
 	
+
+
 	
 	<h4>Example:<span class="description">Scaling an item horizontally by 300%:</span></h4>
 
@@ -5219,6 +5380,8 @@ circle.scale(3, 1);
 </ul>
 
 	
+
+
 	
 	<ul class="member-list">
 		<h4>See also:</h4>
@@ -5269,6 +5432,8 @@ circle.scale(3, 1);
 </ul>
 
 	
+
+
 	
 	<ul class="member-list">
 		<h4>See also:</h4>
@@ -5312,6 +5477,8 @@ circle.scale(3, 1);
 </ul>
 
 	
+
+
 	
 	<ul class="member-list">
 		<h4>See also:</h4>
@@ -5362,6 +5529,8 @@ circle.scale(3, 1);
 </ul>
 
 	
+
+
 	
 	<ul class="member-list">
 		<h4>See also:</h4>
@@ -5398,6 +5567,8 @@ circle.scale(3, 1);
 </ul>
 
 	
+
+
 	
 	
 </div>
@@ -5433,8 +5604,11 @@ circle.scale(3, 1);
 			<li>
 <tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the transformed point as a new instance
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -5471,8 +5645,11 @@ circle.scale(3, 1);
 			<li>
 <tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the transformed point as a new instance
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -5509,8 +5686,11 @@ circle.scale(3, 1);
 			<li>
 <tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the transformed point as a new instance
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -5547,8 +5727,11 @@ circle.scale(3, 1);
 			<li>
 <tt><a href="/reference/point"><tt>Point</tt></a></tt>&nbsp;&mdash;&nbsp;the transformed point as a new instance
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -5586,6 +5769,8 @@ circle.scale(3, 1);
 </ul>
 
 	
+
+
 	
 	<h4>Example:<span class="description">Fitting an item to the bounding rectangle of another item's bounding rectangle:</span></h4>
 
@@ -5717,8 +5902,11 @@ path.fitBounds(view.bounds);
 			<li>
 <tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;this item itself, so calls can be chained
 </li>
+
 		
 	</ul>
+
+
 
 	
 	<h4>Example:<span class="description">Change the fill color of the path to red when the mouse enters its shape and back to black again, when it leaves its shape.</span></h4>
@@ -5771,7 +5959,7 @@ path.on('mouseleave', function() {
 	<li>
 <tt>object:</tt> 
 <tt>Object</tt>
-&mdash;&nbsp;an object literal containing one or more of the  following properties: <tt>frame</tt>, <tt>mousedown</tt>, <tt>mouseup</tt>, <tt>mousedrag</tt>, <tt>click</tt>, <tt>doubleclick</tt>, <tt>mousemove</tt>, <tt>mouseenter</tt>, <tt>mouseleave</tt>
+&mdash;&nbsp;an object containing one or more of the following  properties: <tt>frame</tt>, <tt>mousedown</tt>, <tt>mouseup</tt>, <tt>mousedrag</tt>, <tt>click</tt>, <tt>doubleclick</tt>, <tt>mousemove</tt>, <tt>mouseenter</tt>, <tt>mouseleave</tt>
 
 </li>
 	
@@ -5784,8 +5972,11 @@ path.on('mouseleave', function() {
 			<li>
 <tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;this item itself, so calls can be chained
 </li>
+
 		
 	</ul>
+
+
 
 	
 	<h4>Example:<span class="description">Change the fill color of the path to red when the mouse enters its shape and back to black again, when it leaves its shape.</span></h4>
@@ -5893,8 +6084,11 @@ function onMouseDown(event) {
 			<li>
 <tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;this item itself, so calls can be chained
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -5918,7 +6112,7 @@ function onMouseDown(event) {
 	<li>
 <tt>object:</tt> 
 <tt>Object</tt>
-&mdash;&nbsp;an object literal containing one or more of the  following properties: <tt>frame</tt>, <tt>mousedown</tt>, <tt>mouseup</tt>, <tt>mousedrag</tt>, <tt>click</tt>, <tt>doubleclick</tt>, <tt>mousemove</tt>, <tt>mouseenter</tt>, <tt>mouseleave</tt>
+&mdash;&nbsp;an object containing one or more of the following  properties: <tt>frame</tt>, <tt>mousedown</tt>, <tt>mouseup</tt>, <tt>mousedrag</tt>, <tt>click</tt>, <tt>doubleclick</tt>, <tt>mousemove</tt>, <tt>mouseenter</tt>, <tt>mouseleave</tt>
 
 </li>
 	
@@ -5931,8 +6125,11 @@ function onMouseDown(event) {
 			<li>
 <tt><a href="/reference/item"><tt>Item</tt></a></tt>&nbsp;&mdash;&nbsp;this item itself, so calls can be chained
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -5976,8 +6173,11 @@ function onMouseDown(event) {
 			<li>
 <tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the event had listeners, <tt>false</tt> otherwise
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -6014,8 +6214,11 @@ function onMouseDown(event) {
 			<li>
 <tt><tt>Boolean</tt></tt>&nbsp;&mdash;&nbsp;<tt>true</tt> if the item has one or more event handlers of the specified type, <tt>false</tt> otherwise
 </li>
+
 		
 	</ul>
+
+
 
 	
 	
@@ -6054,6 +6257,8 @@ function onMouseDown(event) {
 </ul>
 
 	
+
+
 	
 	<h4>Example:<span class="description">Click and drag below:</span></h4>
 
@@ -6099,6 +6304,8 @@ function onMouseDrag(event) {
     
 	
 	
+
+
 	
 	<h4>Example:<span class="description">Move your mouse below:</span></h4>
 
@@ -6141,6 +6348,8 @@ function onMouseMove(event) {
     
 	
 	
+
+
 	
 	<h4>Example:<span class="description">Click a few times below:</span></h4>
 
@@ -6183,6 +6392,8 @@ function onMouseDown(event) {
     
 	
 	
+
+
 	
 	<h4>Example:<span class="description">Click and drag below:</span></h4>
 
@@ -6225,6 +6436,8 @@ function onMouseDrag(event) {
     
 	
 	
+
+
 	
 	<h4>Example:<span class="description">Click a few times below:</span></h4>
 
@@ -6256,59 +6469,6 @@ function onMouseDown(event) {
 </div>
 </div>
 
-	
-<div id="hittestall-point" class="member">
-<div class="member-link">
-<a name="hittestall-point" href="#hittestall-point"><tt><b>hitTestAll</b>(point[, options])</tt></a>
-</div>
-<div class="member-description hidden">
-<div class="member-text">
-	<p>Performs a hit-test on the item and its children (if it is a <a href="/reference/group"><tt>Group</tt></a> or <a href="/reference/layer"><tt>Layer</tt></a>) at the location of the specified point, returning all found hits.</p>
-<p>The options object allows you to control the specifics of the hit- test. See <a href="/reference/item#hittest-point"><tt>hitTest(point[, options])</tt></a> for a list of all options.</p>
-    
-	
-<ul class="member-list">
-	<h4>Parameters:</h4>
-	
-	<li>
-<tt>point:</tt> 
-<a href="/reference/point"><tt>Point</tt></a>
-&mdash;&nbsp;the point where the hit-test should be performed
-
-</li>
-	
-	<li>
-<tt>options:</tt> 
-<tt>Object</tt>
-
-&mdash;&nbsp;optional, default: <tt>{ fill: true, stroke: true, segments: true,  tolerance: settings.hitTolerance }</tt>
-</li>
-	
-</ul>
-
-	
-	<ul class="member-list">
-		<h4>Returns:</h4>
-		
-			<li>
-<tt>Array of <a href="/reference/hitresult"><tt>HitResult</tt></a> objects</tt>&nbsp;&mdash;&nbsp;hit result objects for all hits, describing what  exactly was hit or <code>null</code> if nothing was hit
-</li>
-		
-	</ul>
-
-	
-	<ul class="member-list">
-		<h4>See also:</h4>
-		
-			<li><tt><a href="/reference/item#hittest-point"><tt>hitTest(point[, options])</tt></a>;</tt></li>
-		
-	</ul>
-
-	
-</div>
-</div>
-</div>
-
 </div>
 
 
@@ -6316,7 +6476,7 @@ function onMouseDown(event) {
 
   </div>
 </article>
-<aside><h1>Index<span class="version text">0.10.2</span></h1>
+<aside><h1>Index<span class="version text">0.10.3</span></h1>
 <div class="reference"><ul class="reference-classes"><li><a href="/reference/global">Global Scope</a></li>
 <li>
 <h2>Basic Types</h2>

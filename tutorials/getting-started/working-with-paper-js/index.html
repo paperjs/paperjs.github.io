@@ -161,7 +161,10 @@ function onResize(event) {
 }
 </pre>
 <p>
-<b><tt>keepalive=&quot;true&quot;</tt></b>: To conserve battery power and cpu usage, Paper.js normally stops all animation events when the window is not focused. If you want it to keep playing animations, even if the window is in the background, set <tt>keepalive=&quot;true&quot;</tt> in your canvas tag. And again for validation, <tt>data-paper-keepalive=&quot;true&quot;</tt> works as well.
+<b><tt>hidpi=&quot;off&quot;</tt></b>: By default, Paper.js renders into a hi-res Canvas on Hi-DPI (Retina) screens to match their native resolution, and handles all the additional transformations for you transparently. If this behavior is not desired, e.g. for lower memory footprint, or higher rendering performance, you can turn it off, by setting <tt>hidpi=&quot;off&quot;</tt> in your canvas tag. For proper validation, <tt>data-paper-hidpi=&quot;off&quot;</tt> works just as well.
+</p>
+<p>
+<b><tt>keepalive=&quot;true&quot;</tt></b>: To conserve battery power and CPU usage, Paper.js normally stops all animation events when the window is not focused. If you want it to keep playing animations, even if the window is in the background, set <tt>keepalive=&quot;true&quot;</tt> in your canvas tag. And again for validation, <tt>data-paper-keepalive=&quot;true&quot;</tt> works as well.
 </p>
 </article>
 <aside>
