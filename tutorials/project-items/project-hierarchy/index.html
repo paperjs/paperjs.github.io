@@ -131,7 +131,7 @@ project.activeLayer.lastChild.fillColor = 'blue';
 </div>
 <section id="accessing-children-by-name"><a name="accessing-children-by-name" title="Accessing Children By Name" class="anchor"><h2>Accessing Children By Name</h2></a></section>
 <p>
-If an item has a name, it can be accessed by name through its parent&apos;s children list:
+If an item has a name, it can be accessed by name through its parent&#x27;s children list:
 </p>
 <div class="paperscript split">
 <div class="buttons">
@@ -216,7 +216,7 @@ project.activeLayer.fillColor = 'red';
 <p>
 In the same way that a folder can be contained within another folder, groups can be contained within other groups.
 </p>
-<section id="the-difference-between-them"><a name="the-difference-between-them" title="The Difference Between Them" class="anchor"><h2>Difference Between Layers &amp; Groups</h2></a></section>
+<section id="the-difference-between-them"><a name="the-difference-between-them" title="The Difference Between Them" class="anchor"><h2>Difference Between Layers &#x26; Groups</h2></a></section>
 <p>
 <tt><a href="/reference/layer">Layer</a></tt> and <tt><a href="/reference/group">Group</a></tt> items are almost the same. The main difference being that a layer item can be activated, meaning that any new items created are automatically placed within it. Whenever you create a new <tt><a href="/reference/layer">Layer</a></tt>, it becomes the <tt><a href="/reference/project#activelayer">project.activeLayer</a></tt> of the project:
 </p>
@@ -251,10 +251,10 @@ secondPath.fillColor = 'green';
 </div>
 <section id="adding-children-to-groups"><a name="adding-children-to-groups" title="Adding Children to Groups" class="anchor"><h2>Adding Children to Groups</h2></a></section>
 <p>
-When you create a group, it doesn&apos;t have any children yet. You can add children to groups in a few different ways.
+When you create a group, it doesn&#x27;t have any children yet. You can add children to groups in a few different ways.
 </p>
 <p>
-The first way we will look at, is by passing an array of items to the <tt><a href="/reference/group#group-children">new Group(children)</a></tt> constructor. The items passed to the constructor are placed in the group&apos;s <tt><a href="/reference/item#children">item.children</a></tt> array:
+The first way we will look at, is by passing an array of items to the <tt><a href="/reference/group#group-children">new Group(children)</a></tt> constructor. The items passed to the constructor are placed in the group&#x27;s <tt><a href="/reference/item#children">item.children</a></tt> array:
 </p>
 <div class="paperscript split">
 <div class="buttons">
@@ -307,7 +307,7 @@ group.fillColor = 'green';
 To insert in a child into a group or layer at a specific index, you can use the <tt><a href="/reference/item#insertchild-index-item">item.insertChild(index, item)</a></tt> function.
 </p>
 <p>
-In the following example we create a red and a green circle. Since the green path was created after the red path, it covers the red circle. We move it to the start of the active layer&apos;s children array using <tt><a href="/reference/item#insertchild-index-item">item.insertChild(index, item)</a></tt>:
+In the following example we create a red and a green circle. Since the green path was created after the red path, it covers the red circle. We move it to the start of the active layer&#x27;s children array using <tt><a href="/reference/item#insertchild-index-item">item.insertChild(index, item)</a></tt>:
 </p>
 <div class="paperscript split">
 <div class="buttons">
@@ -352,13 +352,13 @@ greenPath.insertBelow(redPath);
 </div>
 <section id="removing-items-and-children"><a name="removing-items-and-children" title="Removing Items and Children" class="anchor"><h2>Removing Items and Children</h2></a></section>
 <p>
-To remove an item from your Paper.js document, you call its <tt><a href="/reference/item#remove">item.remove()</a></tt> function. This doesn&apos;t destroy the item, it is only removed from the structure of the project and won&apos;t be drawn. You can add the item back to your project at any time.
+To remove an item from your Paper.js document, you call its <tt><a href="/reference/item#remove">item.remove()</a></tt> function. This doesn&#x27;t destroy the item, it is only removed from the structure of the project and won&#x27;t be drawn. You can add the item back to your project at any time.
 </p>
 <p>
 If the item has children (i.e. it is a layer, group or other type of item that has children), all its children are also removed from the project.
 </p>
 <p>
-As an example let&apos;s create a path and remove it straight away. When you execute the following code, nothing will appear in your document, since we remove the path right after creating it. When you click in the view, the item will be added back to the active layer of the document.
+As an example let&#x27;s create a path and remove it straight away. When you execute the following code, nothing will appear in your document, since we remove the path right after creating it. When you click in the view, the item will be added back to the active layer of the document.
 </p>
 <div class="paperscript split">
 <div class="buttons">

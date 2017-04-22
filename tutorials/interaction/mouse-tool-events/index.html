@@ -68,7 +68,7 @@
 The mouse handler functions receive an event object which contains information about the mouse event. In this tutorial we will go through the different properties that it contains.
 </p>
 <div class="note"><h4>Please note:</h4><p>
-We advise you to read the <a href="/tutorials/interaction/creating-mouse-tools/">Creating Mouse Tools</a> first, if you haven&apos;t done so yet.
+We advise you to read the <a href="/tutorials/interaction/creating-mouse-tools/">Creating Mouse Tools</a> first, if you haven&#x27;t done so yet.
 </p><div class="text-end"></div></div>
 <section id="mouse-position"><a name="mouse-position" title="Mouse Position" class="anchor"><h2>Mouse Position</h2></a></section>
 <p>
@@ -83,16 +83,16 @@ For example, if we would want to create a tool that draws a line between the pos
 <pre class="code">
 var path;
 function onMouseDown(event) {
-	// Create a path:
-	path = new Path();
-	path.strokeColor = &apos;black&apos;;
-	// Add the mouse down position:
-	path.add(event.point);
+&#x9;// Create a path:
+&#x9;path = new Path();
+&#x9;path.strokeColor = &#x27;black&#x27;;
+&#x9;// Add the mouse down position:
+&#x9;path.add(event.point);
 }
 
 function onMouseUp(event) {
-	// Add the mouse up position:
-	path.add(event.point);
+&#x9;// Add the mouse up position:
+&#x9;path.add(event.point);
 }
 </pre>
 <p>
@@ -126,14 +126,14 @@ function onMouseUp(event) {
 </p>
 <pre class="code">
 function onMouseUp(event) {
-	// Create a path:
-	var path = new Path();
+&#x9;// Create a path:
+&#x9;var path = new Path();
 
-	// Add the mouse down position:
-	path.add(event.downPoint);
+&#x9;// Add the mouse down position:
+&#x9;path.add(event.downPoint);
 
-	// Add the mouse up position:
-	path.add(event.point);
+&#x9;// Add the mouse up position:
+&#x9;path.add(event.point);
 }
 </pre>
 <p>
@@ -154,18 +154,18 @@ You can read more about vectors in the <a href="/tutorials/geometry/vector-geome
 tool.minDistance = 10;
 
 function onMouseDrag(event) {
-	var path = new Path();
-	path.strokeColor = &apos;black&apos;;
-	var vector = event.delta;
+&#x9;var path = new Path();
+&#x9;path.strokeColor = &#x27;black&#x27;;
+&#x9;var vector = event.delta;
 
-	// rotate the vector by 90 degrees:
-	vector.angle += 90;
+&#x9;// rotate the vector by 90 degrees:
+&#x9;vector.angle += 90;
 
-	// change its length to 5 pt:
-	vector.length = 5;
-	
-	path.add(event.middlePoint + vector);
-	path.add(event.middlePoint - vector);
+&#x9;// change its length to 5 pt:
+&#x9;vector.length = 5;
+&#x9;
+&#x9;path.add(event.middlePoint + vector);
+&#x9;path.add(event.middlePoint - vector);
 }
 </pre>
 <p>
@@ -204,9 +204,9 @@ The following example creates circles while you drag the mouse. Their size depen
 </p>
 <pre class="code">
 function onMouseDrag(event) {
-	var radius = event.delta.length / 2;
-	var circle = new Path.Circle(event.middlePoint, radius);
-	circle.fillColor = &apos;black&apos;;
+&#x9;var radius = event.delta.length / 2;
+&#x9;var circle = new Path.Circle(event.middlePoint, radius);
+&#x9;circle.fillColor = &#x27;black&#x27;;
 }
 </pre>
 <div class="paperscript">
@@ -230,19 +230,19 @@ function onMouseDrag(event) {
 </p>
 <pre class="code">
 function onMouseDown(event) {
-	// The amount of times the mouse has been pressed:
-	console.log(event.count);
+&#x9;// The amount of times the mouse has been pressed:
+&#x9;console.log(event.count);
 }
 
 function onMouseDrag(event) {
-	// The amount of drag events fired since the mouse
-	// was pressed:
-	console.log(event.count);
+&#x9;// The amount of drag events fired since the mouse
+&#x9;// was pressed:
+&#x9;console.log(event.count);
 }
 
 function onMouseUp(event) {
-	// The amount of times the mouse has been released:
-	console.log(event.count);
+&#x9;// The amount of times the mouse has been released:
+&#x9;console.log(event.count);
 }
 </pre>
 </article>

@@ -115,7 +115,7 @@ function onMouseUp(event) {
 </div>
 <section id="drawing-a-line-while-dragging"><a name="drawing-a-line-while-dragging" title="Drawing a Line while Dragging" class="anchor"><h2>Drawing a Line while Dragging</h2></a></section>
 <p>
-We&apos;ll start by making a simple mouse tool that creates a new path when you click in the view and then adds segments to it when you drag the mouse:
+We&#x27;ll start by making a simple mouse tool that creates a new path when you click in the view and then adds segments to it when you drag the mouse:
 </p>
 <p>
 Click and drag below to try it out:
@@ -179,19 +179,19 @@ tool.minDistance = 10;
 var path;
 
 function onMouseDown(event) {
-	// Create a new path and select it:
-	path = new Path();
-	path.strokeColor = &apos;#00000&apos;;
+&#x9;// Create a new path and select it:
+&#x9;path = new Path();
+&#x9;path.strokeColor = &#x27;#00000&#x27;;
 
-	// Add a segment to the path where
-	// you clicked:
-	path.add(event.point);
+&#x9;// Add a segment to the path where
+&#x9;// you clicked:
+&#x9;path.add(event.point);
 }
 
 function onMouseDrag(event) {
-	// Every drag event, add a segment
-	// to the path at the position of the mouse:
-	path.add(event.point);
+&#x9;// Every drag event, add a segment
+&#x9;// to the path at the position of the mouse:
+&#x9;path.add(event.point);
 }
 </pre>
 <section id="using-the-speed-of-the-mouse"><a name="using-the-speed-of-the-mouse" title="Using the Speed of the Mouse" class="anchor"><h2>Using the Speed of the Mouse</h2></a></section>
@@ -208,7 +208,7 @@ Thus, the difference in position between these points describe the amount that t
 In the <a href="/tutorials/geometry/vector-geometry/#points-and-vectors">Points and Vectors</a> chapter of the Vector Geometry tutorial, we introduced the notion of a vector; an amount of distance to move in a certain direction.
 </p>
 <p>
-You could say that all these little drag movements are vectors. The mouse handler <tt><a href="/reference/toolevent">event</a></tt> object includes a reference to the mouse movement vector, so we don&apos;t have to calculate it ourselves and can easily use it in our tools: <tt><a href="/reference/toolevent#delta">event.delta</a></tt>
+You could say that all these little drag movements are vectors. The mouse handler <tt><a href="/reference/toolevent">event</a></tt> object includes a reference to the mouse movement vector, so we don&#x27;t have to calculate it ourselves and can easily use it in our tools: <tt><a href="/reference/toolevent#delta">event.delta</a></tt>
 </p>
   </div>
 </div>
@@ -274,7 +274,7 @@ function onMouseDrag(event) {
   <div class="left"><img src="/tutorials/interaction/working-with-mouse-vectors/Middlepoint.gif" width="303" height="217"></img>
   </div>
   <div class="right"><p>
-As you can see in the movie above, the skeleton lines don&apos;t start at the position of the mouse, but in the middle between the current position and the last position of the mouse.
+As you can see in the movie above, the skeleton lines don&#x27;t start at the position of the mouse, but in the middle between the current position and the last position of the mouse.
 </p>
 <p>
 The mouse handler  <tt><a href="/reference/toolevent">event</a></tt> object includes a reference to this middle point, to save us from calculating ourselves: <tt><a href="/reference/toolevent#middlepoint">event.middlePoint</a></tt>
@@ -306,25 +306,25 @@ tool.minDistance = 10;
 var path;
 
 function onMouseDown(event) {
-	path = new Path();
-	path.strokeColor = &apos;#00000&apos;;
+&#x9;path = new Path();
+&#x9;path.strokeColor = &#x27;#00000&#x27;;
 
-	path.add(event.point);
+&#x9;path.add(event.point);
 }
 
 function onMouseDrag(event) {
-	path.add(event.point);
+&#x9;path.add(event.point);
 
-	var step = event.delta;
-	step.angle += 90;
+&#x9;var step = event.delta;
+&#x9;step.angle += 90;
 
-	var top = event.middlePoint + step;
-	var bottom = event.middlePoint - step;
-	
-	var line = new Path();
-	line.strokeColor = &apos;#000000&apos;;
-	line.add(top);
-	line.add(bottom);
+&#x9;var top = event.middlePoint + step;
+&#x9;var bottom = event.middlePoint - step;
+&#x9;
+&#x9;var line = new Path();
+&#x9;line.strokeColor = &#x27;#000000&#x27;;
+&#x9;line.add(top);
+&#x9;line.add(bottom);
 }
 </pre>
 <p>
@@ -349,7 +349,7 @@ Next we create a new path, change its stroke color and add the <tt>top</tt> and 
 </p>
 <pre class="code" start="22">
 var line = new Path();
-line.strokeColor = &apos;#000000&apos;;
+line.strokeColor = &#x27;#000000&#x27;;
 line.add(top);
 line.add(bottom);
 </pre>
@@ -405,27 +405,27 @@ tool.maxDistance = 45;
 var path;
 
 function onMouseDown(event) {
-	path = new Path();
-	path.strokeColor = &apos;#00000&apos;;
-	path.selected = true;
+&#x9;path = new Path();
+&#x9;path.strokeColor = &#x27;#00000&#x27;;
+&#x9;path.selected = true;
 
-	path.add(event.point);
+&#x9;path.add(event.point);
 }
 
 function onMouseDrag(event) {
-	var step = event.delta;
-	step.angle += 90;
+&#x9;var step = event.delta;
+&#x9;step.angle += 90;
 
-	var top = event.middlePoint + step;
-	var bottom = event.middlePoint - step;
-	
-	var line = new Path();
-	line.strokeColor = &apos;#000000&apos;;
-	line.add(top);
-	line.add(bottom);
+&#x9;var top = event.middlePoint + step;
+&#x9;var bottom = event.middlePoint - step;
+&#x9;
+&#x9;var line = new Path();
+&#x9;line.strokeColor = &#x27;#000000&#x27;;
+&#x9;line.add(top);
+&#x9;line.add(bottom);
 
-	path.add(top);
-	path.insert(0, bottom);
+&#x9;path.add(top);
+&#x9;path.insert(0, bottom);
 }
 </pre>
 <p>
@@ -504,42 +504,42 @@ tool.maxDistance = 45;
 var path;
 
 function onMouseDown(event) {
-	path = new Path();
-	path.fillColor = {
-		hue: Math.random() * 360,
-		saturation: 1,
-		brightness: 1
-	};
+&#x9;path = new Path();
+&#x9;path.fillColor = {
+&#x9;&#x9;hue: Math.random() * 360,
+&#x9;&#x9;saturation: 1,
+&#x9;&#x9;brightness: 1
+&#x9;};
 
-	path.add(event.point);
+&#x9;path.add(event.point);
 }
 
 function onMouseDrag(event) {
-	var step = event.delta / 2;
-	step.angle += 90;
-	
-	var top = event.middlePoint + step;
-	var bottom = event.middlePoint - step;
-	
-	path.add(top);
-	path.insert(0, bottom);
-	path.smooth();
+&#x9;var step = event.delta / 2;
+&#x9;step.angle += 90;
+&#x9;
+&#x9;var top = event.middlePoint + step;
+&#x9;var bottom = event.middlePoint - step;
+&#x9;
+&#x9;path.add(top);
+&#x9;path.insert(0, bottom);
+&#x9;path.smooth();
 }
 
 function onMouseUp(event) {
-	path.add(event.point);
-	path.closed = true;
-	path.smooth();
+&#x9;path.add(event.point);
+&#x9;path.closed = true;
+&#x9;path.smooth();
 }
 </pre>
 <p>
-After creating the path in the <tt>onMouseDown</tt> event handler function, we fill it with a color by changing it&apos;s <tt><a href="/reference/path#fillcolor">path.fillColor</a></tt> property. To have a different color each time, we create an HSB (Hue, Saturation, Brightness) color with a hue varying between 0 and 360:
+After creating the path in the <tt>onMouseDown</tt> event handler function, we fill it with a color by changing it&#x27;s <tt><a href="/reference/path#fillcolor">path.fillColor</a></tt> property. To have a different color each time, we create an HSB (Hue, Saturation, Brightness) color with a hue varying between 0 and 360:
 </p>
 <pre class="code" start="8">
 path.fillColor = {
-	hue: Math.random() * 360,
-	saturation: 1,
-	brightness: 1
+&#x9;hue: Math.random() * 360,
+&#x9;saturation: 1,
+&#x9;brightness: 1
 };
 </pre>
 <p>
@@ -552,13 +552,13 @@ You can find out more about the <tt><a href="/reference/path#smooth">path.smooth
 We smooth our <tt>path</tt> in the onMouseDrag event handler function:
 </p>
 <pre class="code" start="26">
-	path.smooth();
+&#x9;path.smooth();
 </pre>
 <p>
 And also in the onMouseUp function:
 </p>
 <pre class="code" start="32">
-	path.smooth();
+&#x9;path.smooth();
 </pre>
 <section id="adding-brush-stroke-ends"><a name="adding-brush-stroke-ends" title="Adding Brush Stroke Ends" class="anchor"><h2>Adding Brush Stroke Ends</h2></a></section>
 <div class="paperscript">
@@ -636,57 +636,57 @@ var path;
 var strokeEnds = 6;
 
 function onMouseDown(event) {
-	path = new Path();
-	path.fillColor = {
-		hue: Math.random() * 360,
-		saturation: 1,
-		brightness: 1
-	};
+&#x9;path = new Path();
+&#x9;path.fillColor = {
+&#x9;&#x9;hue: Math.random() * 360,
+&#x9;&#x9;saturation: 1,
+&#x9;&#x9;brightness: 1
+&#x9;};
 }
 
 var lastPoint;
 function onMouseDrag(event) {
-	// If this is the first drag event,
-	// add the strokes at the start:
-	if(event.count == 0) {
-		addStrokes(event.middlePoint, event.delta * -1);
-	} else {
-		var step = event.delta / 2;
-		step.angle += 90;
+&#x9;// If this is the first drag event,
+&#x9;// add the strokes at the start:
+&#x9;if(event.count == 0) {
+&#x9;&#x9;addStrokes(event.middlePoint, event.delta * -1);
+&#x9;} else {
+&#x9;&#x9;var step = event.delta / 2;
+&#x9;&#x9;step.angle += 90;
 
-		var top = event.middlePoint + step;
-		var bottom = event.middlePoint - step;
+&#x9;&#x9;var top = event.middlePoint + step;
+&#x9;&#x9;var bottom = event.middlePoint - step;
 
-		path.add(top);
-		path.insert(0, bottom);
-	}
-	path.smooth();
-	
-	lastPoint = event.middlePoint;
+&#x9;&#x9;path.add(top);
+&#x9;&#x9;path.insert(0, bottom);
+&#x9;}
+&#x9;path.smooth();
+&#x9;
+&#x9;lastPoint = event.middlePoint;
 }
 
 function onMouseUp(event) {
-	var delta = event.point - lastPoint;
-	delta.length = tool.maxDistance;
-	addStrokes(event.point, delta);
-	path.closed = true;
-	path.smooth();
+&#x9;var delta = event.point - lastPoint;
+&#x9;delta.length = tool.maxDistance;
+&#x9;addStrokes(event.point, delta);
+&#x9;path.closed = true;
+&#x9;path.smooth();
 }
 
 function addStrokes(point, delta) {
-	var step = delta.rotate(90);
-	var strokePoints = strokeEnds * 2 + 1;
-	point -= step / 2;
-	step /= strokePoints - 1;
-	for(var i = 0; i &lt; strokePoints; i++) {
-		var strokePoint = point + step * i;
-		var offset = delta * (Math.random() * 0.3 + 0.1);
-		if(i % 2) {
-			offset *= -1;
-		}
-		strokePoint += offset;
-		path.insert(0, strokePoint);
-	}
+&#x9;var step = delta.rotate(90);
+&#x9;var strokePoints = strokeEnds * 2 + 1;
+&#x9;point -= step / 2;
+&#x9;step /= strokePoints - 1;
+&#x9;for(var i = 0; i &#x3C; strokePoints; i++) {
+&#x9;&#x9;var strokePoint = point + step * i;
+&#x9;&#x9;var offset = delta * (Math.random() * 0.3 + 0.1);
+&#x9;&#x9;if(i % 2) {
+&#x9;&#x9;&#x9;offset *= -1;
+&#x9;&#x9;}
+&#x9;&#x9;strokePoint += offset;
+&#x9;&#x9;path.insert(0, strokePoint);
+&#x9;}
 }
 </pre>
 </article>

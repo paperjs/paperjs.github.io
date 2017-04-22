@@ -115,14 +115,14 @@ The example above uses the <tt><a href="/reference/keyevent#key">event.key</a></
 <tt><a href="/reference/keyevent#key">event.character</a></tt>: the character that the key press generated. This will, for example show a capitalized A when both shift and a are pressed.
 </p>
 <p>
-<tt><a href="/reference/keyevent#key">event.type</a></tt>: the type of key event, either <tt>&apos;keydown&apos;</tt> or <tt>&apos;keyup&apos;</tt>
+<tt><a href="/reference/keyevent#key">event.type</a></tt>: the type of key event, either <tt>&#x27;keydown&#x27;</tt> or <tt>&#x27;keyup&#x27;</tt>
 </p>
 <section id="is-that-key-pressed"><a name="is-that-key-pressed" title="Is that Key Pressed?" class="anchor"><h2>Checking Whether a Key is Pressed</h2></a></section>
 <p>
 To check whether a key is currently being held down, we can use the <tt><a href="/reference/key#key-isdown-key">Key.isDown(key)</a></tt> function.
 </p>
 <p>
-In the following example we create a path and add segments to it while the user drags the mouse. When the &apos;a&apos; key is pressed while dragging, instead of adding new segments, we move the last segment to the position of the mouse.
+In the following example we create a path and add segments to it while the user drags the mouse. When the &#x27;a&#x27; key is pressed while dragging, instead of adding new segments, we move the last segment to the position of the mouse.
 </p>
 <div class="paperscript split">
 <div class="buttons">
@@ -154,16 +154,16 @@ function onMouseDrag(event) {
 </div>
 <section id="modifier-keys"><a name="modifier-keys" title="Modifier Keys" class="anchor"><h2>Modifier Keys</h2></a></section>
 <p>
-The <tt><a href="/reference/toolevent">event</a></tt> object that is passed to mouse event handlers such as <tt><a href="/reference/tool#onmousedown">onMouseDown</a></tt> also contain information about which modifier keys were pressed. Modifier keys are keys that don&apos;t directly produce a character: <tt>capsLock, command, control, option, shift</tt>
+The <tt><a href="/reference/toolevent">event</a></tt> object that is passed to mouse event handlers such as <tt><a href="/reference/tool#onmousedown">onMouseDown</a></tt> also contain information about which modifier keys were pressed. Modifier keys are keys that don&#x27;t directly produce a character: <tt>capsLock, command, control, option, shift</tt>
 </p>
 <p>
 The <tt><a href="/reference/toolevent#modifiers">event.modifiers</a></tt> property is an object with boolean values for the different modifier keys. So for example, to check if the shift key is down you would do:
 </p>
 <pre class="code">
 function onMouseDrag(event) {
-	if (event.modifiers.shift) {
-		// Do something when the shift key is down
-	}
+&#x9;if (event.modifiers.shift) {
+&#x9;&#x9;// Do something when the shift key is down
+&#x9;}
 }
 </pre>
 <p>

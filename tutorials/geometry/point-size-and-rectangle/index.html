@@ -68,7 +68,7 @@
 In Paper.js, basic types such as <tt><a href="/reference/point">Point</a></tt>, <tt><a href="/reference/size">Size</a></tt> and <tt><a href="/reference/rectangle">Rectangle</a></tt> are objects that describe geometric attributes of graphical items. They are an abstract representation of geometric values such as location and dimension, but do not directly represent a graphical item within a project.
 </p>
 <div class="note"><h4>Please note:</h4><p>
-Graphical items in a Paper.js project are items that appear in the layer list and visually in the project. An analogy can be drawn to &apos;physical&apos; items in the real world. To describe their location and dimension, Paper.js deploys different basic types, which are merely containers for numeric values that describe their geometric qualities.
+Graphical items in a Paper.js project are items that appear in the layer list and visually in the project. An analogy can be drawn to &#x27;physical&#x27; items in the real world. To describe their location and dimension, Paper.js deploys different basic types, which are merely containers for numeric values that describe their geometric qualities.
 </p><div class="text-end"></div></div>
 <p>
 This means that when we create a <tt><a href="/reference/point">Point</a></tt> object in code, we are in fact only creating a description of a location in the view, but we are not creating a path item that contains this point as a segment:
@@ -85,10 +85,10 @@ var myPath = new Path();
 myPath.add(myPoint);
 </pre>
 <p>
-Running this script would produce a &apos;physical&apos; path item in the Paper.js project with one segment at the location of <tt>myPoint</tt>.
+Running this script would produce a &#x27;physical&#x27; path item in the Paper.js project with one segment at the location of <tt>myPoint</tt>.
 </p>
 <div class="note"><h4>Please note:</h4><p>
-Again, the &apos;physically&apos; appearing segment of <tt>myPath</tt> and the point called <tt>myPoint</tt> are not the same. <tt>myPoint</tt> is simply describing the coordinates that were used to produce the first segment of <tt>myPath</tt>. Modifying <tt>myPoint</tt> would not change that segment after it was created.
+Again, the &#x27;physically&#x27; appearing segment of <tt>myPath</tt> and the point called <tt>myPoint</tt> are not the same. <tt>myPoint</tt> is simply describing the coordinates that were used to produce the first segment of <tt>myPath</tt>. Modifying <tt>myPoint</tt> would not change that segment after it was created.
 </p><div class="text-end"></div></div>
 <section id="point"><a name="point" title="Point" class="anchor"><h2>Point</h2></a></section>
 <p>
@@ -104,7 +104,7 @@ Here we are creating a new point without providing values for <tt>x</tt> and <tt
 var myPoint = new Point();
 console.log(myPoint); // { x: 0, y: 0 }
 
-// Now let&apos;s change the x coordinate to 10...
+// Now let&#x27;s change the x coordinate to 10...
 myPoint.x = 10;
 
 // ...and the y coordinate to x + 10
@@ -160,7 +160,7 @@ var firstPoint = new Point(20, 40);
 var secondPoint = firstPoint.clone();
 </pre><div class="text-end"></div></div>
 <p>
-The Point object offers an alternative numeric way of describing the location, in opposition to the cartesian coordinate <tt>x</tt>, <tt>y</tt>: The properties <tt><a href="/reference/point#angle">angle</a></tt> and <tt><a href="/reference/point#length">length</a></tt>, which describe the location in the polar coordinate system, defined by the distance (length) and angle to the coordinate sytstem&apos;s origin.
+The Point object offers an alternative numeric way of describing the location, in opposition to the cartesian coordinate <tt>x</tt>, <tt>y</tt>: The properties <tt><a href="/reference/point#angle">angle</a></tt> and <tt><a href="/reference/point#length">length</a></tt>, which describe the location in the polar coordinate system, defined by the distance (length) and angle to the coordinate sytstem&#x27;s origin.
 </p>
 <section id="size"><a name="size" title="Size" class="anchor"><h2>Size</h2></a></section>
 <p>
@@ -220,7 +220,7 @@ Newly created basic types do not necessarily need to be put into named variables
 </p>
 <pre class="code">
 var rect = new Rectangle(new Point(10, 120),
-		new Point(210, 20));
+&#x9;&#x9;new Point(210, 20));
 </pre><div class="text-end"></div></div>
 <section id="rectangle-properties"><a name="rectangle-properties" title="Rectangle Properties" class="anchor"><h2>Rectangle Properties</h2></a></section>
 <p>
@@ -243,7 +243,7 @@ rect.center = new Point(100, 100);
 console.log(rect); // { x: 50, y: 0, width: 100, height: 200 }
 </pre>
 <p>
-As an alternative numeric way to define the rectangle&apos;s dimensions, the Rectangle object also exposes the following properties, in opposition to <tt>x</tt>, <tt>y</tt>, <tt>width</tt> and <tt>height</tt>: <tt><a href="/reference/rectangle#left">left</a></tt>, <tt><a href="/reference/rectangle#top">top</a></tt>, <tt><a href="/reference/rectangle#right">right</a></tt> and <tt><a href="/reference/rectangle#bottom">bottom</a></tt>:
+As an alternative numeric way to define the rectangle&#x27;s dimensions, the Rectangle object also exposes the following properties, in opposition to <tt>x</tt>, <tt>y</tt>, <tt>width</tt> and <tt>height</tt>: <tt><a href="/reference/rectangle#left">left</a></tt>, <tt><a href="/reference/rectangle#top">top</a></tt>, <tt><a href="/reference/rectangle#right">right</a></tt> and <tt><a href="/reference/rectangle#bottom">bottom</a></tt>:
 </p>
 <pre class="code">
 var rect = new Rectangle();

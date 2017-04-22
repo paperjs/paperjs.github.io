@@ -69,7 +69,7 @@ Using Paper.js you can easily work with the colors of individual pixels of <tt><
 </p>
 <section id="raster-size"><a name="raster-size" title="Raster Size" class="anchor"><h2>Raster Size</h2></a></section>
 <p>
-The <tt><a href="/reference/raster#size">raster.size</a></tt> property of a raster specifies its size in pixels as a <tt><a href="/reference/size">Size</a></tt> object. It doesn&apos;t matter if you transform an image, its size in pixels will stay the same. Changing this size means that the image will be re-interpolated. This will come in handy later when we want to iterate through the individual pixels of an image, since the average size of an image contains way too many pixels.
+The <tt><a href="/reference/raster#size">raster.size</a></tt> property of a raster specifies its size in pixels as a <tt><a href="/reference/size">Size</a></tt> object. It doesn&#x27;t matter if you transform an image, its size in pixels will stay the same. Changing this size means that the image will be re-interpolated. This will come in handy later when we want to iterate through the individual pixels of an image, since the average size of an image contains way too many pixels.
 </p>
 <div class="paperscript split">
 <div class="buttons">
@@ -213,7 +213,7 @@ raster.on('load', function() {
 </div>
 </div>
 <p>
-This code is very similar to the example above, but this time we don&apos;t fill the paths with the color we find when we call <tt><a href="/reference/raster#raster-getpixel-x-y">Raster.getPixel(x, y)</a></tt>. Instead, we look at how dark the color is using <tt><a href="/reference/color#gray">color.gray</a></tt>, which is a value between <tt>0</tt> (white) and <tt>1</tt> (black) and use it to scale the paths.
+This code is very similar to the example above, but this time we don&#x27;t fill the paths with the color we find when we call <tt><a href="/reference/raster#raster-getpixel-x-y">Raster.getPixel(x, y)</a></tt>. Instead, we look at how dark the color is using <tt><a href="/reference/color#gray">color.gray</a></tt>, which is a value between <tt>0</tt> (white) and <tt>1</tt> (black) and use it to scale the paths.
 </p>
 <p>
 <img class="hidden" id="mona" src="/tutorials/images/using-pixel-colors/mona.jpg" width="595" height="436"></img>

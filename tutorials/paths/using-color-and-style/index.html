@@ -180,7 +180,7 @@ myPath.strokeWidth = 10;
 </div>
 <section id="stroke-cap"><a name="stroke-cap" title="Stroke Cap" class="anchor"><h2>Stroke Cap</h2></a></section>
 <p>
-To change the shape of the start and the end of a path, you can change its <tt><a href="/reference/item#strokecap">strokeCap</a></tt> property to either <tt>&apos;round&apos;</tt>, <tt>&apos;square&apos;</tt> or <tt>&apos;butt&apos;</tt>:
+To change the shape of the start and the end of a path, you can change its <tt><a href="/reference/item#strokecap">strokeCap</a></tt> property to either <tt>&#x27;round&#x27;</tt>, <tt>&#x27;square&#x27;</tt> or <tt>&#x27;butt&#x27;</tt>:
 </p>
 <div class="paperscript split">
 <div class="buttons">
@@ -203,7 +203,7 @@ myPath.strokeCap = 'round';
 </div>
 <section id="stroke-join"><a name="stroke-join" title="Stroke Join" class="anchor"><h2>Stroke Join</h2></a></section>
 <p>
-To change the shape of the corners in a path, you can change its <tt><a href="/reference/item#strokejoin">strokeJoin</a></tt> property to either <tt>&apos;miter&apos;</tt>, <tt>&apos;round&apos;</tt> or <tt>&apos;bevel&apos;</tt>:
+To change the shape of the corners in a path, you can change its <tt><a href="/reference/item#strokejoin">strokeJoin</a></tt> property to either <tt>&#x27;miter&#x27;</tt>, <tt>&#x27;round&#x27;</tt> or <tt>&#x27;bevel&#x27;</tt>:
 </p>
 <div class="paperscript split">
 <div class="buttons">
@@ -285,7 +285,7 @@ secondPath.style = firstPath.style;
 The <tt><a href="/reference/item#style">item.style</a></tt> property also comes in handy for setting multiple style properties in one go.
 </p>
 <p>
-In the following example we create an object containing a number of style properties and pass it to the item&apos;s style property to set them all in one go:
+In the following example we create an object containing a number of style properties and pass it to the item&#x27;s style property to set them all in one go:
 </p>
 <div class="paperscript split">
 <div class="buttons">
@@ -314,10 +314,10 @@ To remove any kind of path style, just pass <tt>null</tt> to the property:
 </p>
 <pre class="code">
 var path = new Path.Circle({
-	center: new Point(50, 50),
-	radius: 50
+&#x9;center: new Point(50, 50),
+&#x9;radius: 50
 });
-path.fillColor = &apos;red&apos;;
+path.fillColor = &#x27;red&#x27;;
 
 // Set the fillColor to null to remove it:
 path.fillColor = null;
@@ -327,8 +327,8 @@ To remove all style settings from a path, pass <tt>null</tt> to its style proper
 </p>
 <pre class="code">
 var path = new Path.Circle({
-	center: [50, 50],
-	radius: 50
+&#x9;center: [50, 50],
+&#x9;radius: 50
 });
 path.style = null;
 </pre>

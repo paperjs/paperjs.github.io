@@ -272,11 +272,11 @@ var vector = vector1 - vector2;
   </div>
 </div>
 <div class="note"><h4>Please note:</h4><p>
-The results of these operations is the same as the addition or subtraction of each vector&apos;s x and y coordinates. It would not work however to add or subtract the length or angle values.
+The results of these operations is the same as the addition or subtraction of each vector&#x27;s x and y coordinates. It would not work however to add or subtract the length or angle values.
 </p><div class="text-end"></div></div>
 <section id="multiplication-and-division"><a name="multiplication-and-division" title="Multiplication and Division" class="anchor"><h2>Vector Multiplication and Division</h2></a></section>
 <p>
-It is quite easy to imagine what a multiplication or division with a numerical value would do to a vector: Instead of saying &quot;go 10 meters into that direction&quot;, it would for example correspond to &quot;3 times 10 meters into that direction&quot;. A multiplied vector does not change its angle. But its length is changed, by the amount of the multiplied value.
+It is quite easy to imagine what a multiplication or division with a numerical value would do to a vector: Instead of saying &#x22;go 10 meters into that direction&#x22;, it would for example correspond to &#x22;3 times 10 meters into that direction&#x22;. A multiplied vector does not change its angle. But its length is changed, by the amount of the multiplied value.
 </p>
 <div class="block">
   <div class="left"><img src="/tutorials/geometry/vector-geometry/Vector-Multiplication.gif" width="200" height="122"></img>
@@ -299,7 +299,7 @@ Due to a limitation of Javascript, we need to make sure that the vector to be mu
 <pre class="code">
 var bigVector = 3 * smallVector;
 </pre><div class="text-end"></div></div>
-<section id="changing-a-vector-apos-s-length"><a name="changing-a-vector-apos-s-length" title="Changing a Vector&apos;s Length" class="anchor"><h2>Changing a Vector&apos;s Length</h2></a></section>
+<section id="changing-a-vector-x27-s-length"><a name="changing-a-vector-x27-s-length" title="Changing a Vector&#x27;s Length" class="anchor"><h2>Changing a Vector&#x27;s Length</h2></a></section>
 <p>
 So we learned that multiplying or dividing a vector changes its length without modifying its angle. But we can also change the <tt>length</tt> property on vector objects directly:
 </p>
@@ -315,7 +315,7 @@ console.log(vector.length);
 // 64.62198
 </pre>
 <p>
-Now we change the vector&apos;s length property. This is similar to the multiplication in the previous example, but modifies the object directly:
+Now we change the vector&#x27;s length property. This is similar to the multiplication in the previous example, but modifies the object directly:
 </p>
 <pre class="code" start="4">
 vector.length = vector.length * 3;
@@ -336,10 +336,10 @@ vector.length = 100;
   </div>
 </div>
 <p>
-Another way to change the vector&apos;s length is the <tt><a href="/reference/point#normalize">point.normalize()</a></tt> method. In Mathematics to normalize a vector means to resize it so its length is 1. <tt>normalize()</tt> handles that for us, and also accepts an optional parameter that defines the length to normalize to, if we would like it to be other than 1.
+Another way to change the vector&#x27;s length is the <tt><a href="/reference/point#normalize">point.normalize()</a></tt> method. In Mathematics to normalize a vector means to resize it so its length is 1. <tt>normalize()</tt> handles that for us, and also accepts an optional parameter that defines the length to normalize to, if we would like it to be other than 1.
 </p>
 <p>
-We start with the same vector as in the example above on line 1. Let&apos;s look at the normalized version of this vector:
+We start with the same vector as in the example above on line 1. Let&#x27;s look at the normalized version of this vector:
 </p>
 <pre class="code">
 var vector = new Point(24, 60); 
@@ -376,12 +376,12 @@ Rotating vectors is a powerful tool for constructing paths and shapes, as it all
   <div class="left"><img src="/tutorials/geometry/vector-geometry/Angles.gif" width="200" height="200"></img>
   </div>
   <div class="right"><p>
-All angles in Paper.js are measured in degrees, and are oriented clockwise. The angle values start from the horizontal axis and expand downwards. At 180&deg; they flip to -180&deg;, which is the same, since going halfway around a circle in the left or right direction results in the same position. This does not prevent you from setting angles to something higher than 180&deg; though.
+All angles in Paper.js are measured in degrees, and are oriented clockwise. The angle values start from the horizontal axis and expand downwards. At 180&#xB0; they flip to -180&#xB0;, which is the same, since going halfway around a circle in the left or right direction results in the same position. This does not prevent you from setting angles to something higher than 180&#xB0; though.
 </p>
   </div>
 </div>
 <p>
-There are two ways to change the angle of a vector. The obvious one is by setting the vector&apos;s <tt>angle</tt> property to a new value. Let&apos;s first set up a vector that points 100 coordinates down and 100 to the right, and log its angle and length:
+There are two ways to change the angle of a vector. The obvious one is by setting the vector&#x27;s <tt>angle</tt> property to a new value. Let&#x27;s first set up a vector that points 100 coordinates down and 100 to the right, and log its angle and length:
 </p>
 <div class="block">
   <div class="left"><img src="/tutorials/geometry/vector-geometry/Rotating-Vectors-01.gif" width="312" height="139"></img>
@@ -393,7 +393,7 @@ console.log(vector.angle);
 // 45
 </pre>
 <p>
-Since we are going in equal amounts down and to the right, it has an angle of 45&deg;. Let&apos;s log it&apos;s length so we can check it after we have rotated the vector:
+Since we are going in equal amounts down and to the right, it has an angle of 45&#xB0;. Let&#x27;s log it&#x27;s length so we can check it after we have rotated the vector:
 </p>
 <pre class="code">
 console.log(vector.length);
@@ -405,7 +405,7 @@ console.log(vector.length);
   <div class="left"><img src="/tutorials/geometry/vector-geometry/Rotating-Vectors-02.gif" width="312" height="139"></img>
   </div>
   <div class="right"><p>
-Now we rotate it by 90&deg; clockwise by setting its angle to 45&deg; + 90&deg; = 135&deg; and log the length again:
+Now we rotate it by 90&#xB0; clockwise by setting its angle to 45&#xB0; + 90&#xB0; = 135&#xB0; and log the length again:
 </p>
 <pre class="code">
 vector.angle = 135;
@@ -413,7 +413,7 @@ console.log(vector.length);
 // 141.42136
 </pre>
 <p>
-Note how the length has not changed. All we changed is the vector&apos;s direction. If we log the whole vector again, we will see that its coordinates are not the same anymore:
+Note how the length has not changed. All we changed is the vector&#x27;s direction. If we log the whole vector again, we will see that its coordinates are not the same anymore:
 </p>
 <pre class="code">
 console.log(vector);
@@ -425,7 +425,7 @@ console.log(vector);
   <div class="left"><img src="/tutorials/geometry/vector-geometry/Rotating-Vectors-03.gif" width="312" height="139"></img>
   </div>
   <div class="right"><p>
-Instead of setting the angle directly to 135, we could have also explicitly increase it by 90&deg;:
+Instead of setting the angle directly to 135, we could have also explicitly increase it by 90&#xB0;:
 </p>
 <pre class="code">
 vector.angle = vector.angle + 90;
@@ -444,10 +444,10 @@ Note that mathematical operations (addition, subtraction, multiplication and div
 </p>
 <pre class="code">
 var point = event.middlePoint
-		+ event.delta.rotate(90);
+&#x9;&#x9;+ event.delta.rotate(90);
 </pre>
 <p>
-Changing a vector&apos;s <tt>angle</tt> or <tt>length</tt> on the other hand directly modifies the vector object, and can only be used outside of such expressions. Since we are directly modifying objects, we need to be careful about what we modify and use the <tt>clone()</tt> function when the original object shall not be modified.
+Changing a vector&#x27;s <tt>angle</tt> or <tt>length</tt> on the other hand directly modifies the vector object, and can only be used outside of such expressions. Since we are directly modifying objects, we need to be careful about what we modify and use the <tt>clone()</tt> function when the original object shall not be modified.
 </p>
 <pre class="code">
 var delta = event.delta.clone();

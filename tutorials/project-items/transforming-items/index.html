@@ -75,7 +75,7 @@ To be able to show the difference before and after transforming items in the fol
 You can move an item around in the project by changing its <tt><a href="/reference/item#position">item.position</a></tt> property. This moves the item by its center point.
 </p>
 <p>
-For example let&apos;s make a path and then move it to another position:
+For example let&#x27;s make a path and then move it to another position:
 </p>
 <div class="paperscript split">
 <div class="buttons">
@@ -97,7 +97,7 @@ copy.position = new Point(100, 100);
 </div>
 </div>
 <p>
-Let&apos;s quickly go through the code above. In the first line we create a circle shaped path with its center point at <tt>{x: 50, y: 50}</tt> with a radius of 25 pt. In the second line we change the position (the center point) of the circle shaped path to <tt>{x: 100, y: 100}</tt>
+Let&#x27;s quickly go through the code above. In the first line we create a circle shaped path with its center point at <tt>{x: 50, y: 50}</tt> with a radius of 25 pt. In the second line we change the position (the center point) of the circle shaped path to <tt>{x: 100, y: 100}</tt>
 </p>
 <p>
 We can also move an item by a certain amount using the <tt>+=</tt> operator.
@@ -107,7 +107,7 @@ The following example creates the same path as above, but instead of moving it t
 </p>
 <pre class="code">
 var circlePath = new Path.Circle(new Point(50, 50), 25);
-circlePath.fillColor = &apos;black&apos;
+circlePath.fillColor = &#x27;black&#x27;
 circlePath.position += new Point(10, 20);
 </pre>
 <p>
@@ -171,7 +171,7 @@ console.log(circlePath.bounds.bottomLeft); // { x: 25.0, y: 75.0 }
 To scale both the width and height of an item by the same amount, you can call the <tt><a href="/reference/item#scale-scale">item.scale(scale)</a></tt> of the item.
 </p>
 <p>
-Let&apos;s make a path and then scale it by 50%:
+Let&#x27;s make a path and then scale it by 50%:
 </p>
 <div class="paperscript split">
 <div class="buttons">
@@ -200,7 +200,7 @@ copy.scale(0.5);
 By default the <tt><a href="/reference/item#scale-scale">item.scale(scale)</a></tt> function scales an item around its center point. If you want to scale around a specific position, you can pass the scale function an optional center point: <tt><a href="/reference/item#scale-scale">item.scale(scale, point)</a></tt>.
 </p>
 <p>
-Let&apos;s make a path and then scale it by 50% from <tt>{x: 0, y: 0}</tt>:
+Let&#x27;s make a path and then scale it by 50% from <tt>{x: 0, y: 0}</tt>:
 </p>
 <div class="paperscript split">
 <div class="buttons">
@@ -286,7 +286,7 @@ copy.scale(5, 1.5);
 To rotate an item we call the <tt><a href="/reference/item#rotate-angle">item.rotate(angle)</a></tt> function and pass it the angle we want to rotate by in degrees. This will rotate the item by the angle in a clockwise direction.
 </p>
 <p>
-Now, let&apos;s create a rectangle shaped path and rotate it by 45 degrees:
+Now, let&#x27;s create a rectangle shaped path and rotate it by 45 degrees:
 </p>
 <div class="paperscript split">
 <div class="buttons">
@@ -367,7 +367,7 @@ function onFrame(event) {
 In the same way as you can pass a point to the scale function to scale around, you can also pass a point to the rotate function to rotate around.
 </p>
 <p>
-For example, let&apos;s rotate around the bottom left point of the bounding rectangle:
+For example, let&#x27;s rotate around the bottom left point of the bounding rectangle:
 </p>
 <div class="paperscript split">
 <div class="buttons">
@@ -427,15 +427,15 @@ for(var i = 0; i < clones; i++) {
 </div>
 </div>
 <p>
-Let&apos;s go through this script line by line.
+Let&#x27;s go through this script line by line.
 </p>
 <p>
 First we create the path that we will be cloning and we make a variable called <tt>clones</tt> where we store the amount of clones that we want:
 </p>
 <pre class="code">
 var circlePath = new Path.Circle(new Point(150, 150), 25);
-circlePath.strokeColor = &apos;black&apos;;
-circlePath.fillColor = &apos;white&apos;;
+circlePath.strokeColor = &#x27;black&#x27;;
+circlePath.fillColor = &#x27;white&#x27;;
 var clones = 30;
 </pre>
 <p>
@@ -448,7 +448,7 @@ var angle = 360 / clones;
 Next, we loop the amount of times we defined in the <tt>clones</tt> variable:
 </p>
 <pre class="code" start="8">
-for (var i = 0; i &lt; clones; i++) {
+for (var i = 0; i &#x3C; clones; i++) {
 </pre>
 <p>
 Basically what this line does is make a variable called <tt>i</tt> and start it with <tt>0</tt>. Then it executes the block of code that is in between the { } brackets. After executing, it adds <tt>1</tt> to <tt>i</tt> and compares <tt>i</tt> to the <tt>clones</tt> variable. If <tt>i</tt> is still smaller then the <tt>clones</tt> variable, it executes the code block again.
@@ -457,8 +457,8 @@ Basically what this line does is make a variable called <tt>i</tt> and start it 
 Within the loop we clone the path using <tt><a href="/reference/item#clone">item.clone()</a></tt> and rotate it by <tt>angle * i</tt> from the top left point of its bounding rectangle. This means that when <tt>i</tt> is <tt>0</tt>, the cloned path is rotated by <tt>0</tt> * <tt>angle</tt> and when <tt>i</tt> is <tt>5</tt> it  rotates the cloned path by <tt>5</tt> * <tt>angle</tt>:
 </p>
 <pre class="code" start="9">
-	var clonedPath = circlePath.clone();
-	clonedPath.rotate(angle * i, circlePath.bounds.topLeft);
+&#x9;var clonedPath = circlePath.clone();
+&#x9;clonedPath.rotate(angle * i, circlePath.bounds.topLeft);
 </pre>
 </article>
 <aside>

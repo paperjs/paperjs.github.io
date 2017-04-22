@@ -103,15 +103,15 @@ To see when the different handler functions are called, copy-paste the following
 </p>
 <pre class="code">
 function onMouseDown(event) {
-	console.log(&apos;You pressed the mouse!&apos;);
+&#x9;console.log(&#x27;You pressed the mouse!&#x27;);
 }
 
 function onMouseDrag(event) {
-	console.log(&apos;You dragged the mouse!&apos;);
+&#x9;console.log(&#x27;You dragged the mouse!&#x27;);
 }
 
 function onMouseUp(event) {
-	console.log(&apos;You released the mouse!&apos;);
+&#x9;console.log(&#x27;You released the mouse!&#x27;);
 }
 </pre>
 <section id="the-event-object"><a name="the-event-object" title="The Event Object" class="anchor"><h2>The Event Object</h2></a></section>
@@ -188,8 +188,8 @@ When the mouse is released, the <tt><a href="/reference/tool#onmouseup">onMouseU
 In the <tt><a href="/reference/tool#onmouseup">onMouseUp</a></tt> handler we create a new path and give it a black stroke:
 </p>
 <pre class="code" start="2">
-	var myPath = new Path();
-	myPath.strokeColor = &apos;black&apos;;
+&#x9;var myPath = new Path();
+&#x9;myPath.strokeColor = &#x27;black&#x27;;
 </pre>
 <p>
 Then we add two segments to it using the <tt><a href="/reference/path#add-segment">path.add(segment)</a></tt> function.
@@ -198,13 +198,13 @@ Then we add two segments to it using the <tt><a href="/reference/path#add-segmen
 First, we add a segment at <tt><a href="/reference/toolevent#toolevent-downpoint">event.downPoint</a></tt>, which is the position where the mouse button was pressed:
 </p>
 <pre class="code" start="4">
-	myPath.add(event.downPoint);
+&#x9;myPath.add(event.downPoint);
 </pre>
 <p>
 Then, we add a segment at <tt><a href="/reference/toolevent#toolevent-point">event.point</a></tt>, which is the position where the mouse button was released:
 </p>
 <pre class="code" start="5">
-	myPath.add(event.point);
+&#x9;myPath.add(event.point);
 </pre>
 <section id="click-drag-release"><a name="click-drag-release" title="Click, Drag, Release" class="anchor"><h2>Click, Drag and Release Example</h2></a></section>
 <p>
@@ -261,7 +261,7 @@ In the <tt><a href="/reference/tool#onmousedown">onMouseDown</a></tt> handler we
 </p>
 <pre class="code" start="3">
 function onMouseDown(event) {
-	myPath = new Path();
+&#x9;myPath = new Path();
 }
 </pre>
 <p>
@@ -269,8 +269,8 @@ In the <tt><a href="/reference/tool#onmousedrag">onMouseDrag</a></tt> handler we
 </p>
 <pre class="code" start="7">
 function onMouseDrag(event) {
-	myPath.add(event.point);
-	myPath.strokeColor = &apos;black&apos;;
+&#x9;myPath.add(event.point);
+&#x9;myPath.strokeColor = &#x27;black&#x27;;
 }
 </pre>
 <p>
@@ -278,12 +278,12 @@ In the <tt><a href="/reference/tool#onmouseup">onMouseUp</a></tt> handler we cre
 </p>
 <pre class="code" start="12">
 function onMouseUp(event) {
-	var myCircle = new Path.Circle({
-		center: event.point,
-		radius: 10
-	});
-	myCircle.strokeColor = &apos;black&apos;;
-	myCircle.fillColor = &apos;white&apos;;
+&#x9;var myCircle = new Path.Circle({
+&#x9;&#x9;center: event.point,
+&#x9;&#x9;radius: 10
+&#x9;});
+&#x9;myCircle.strokeColor = &#x27;black&#x27;;
+&#x9;myCircle.fillColor = &#x27;white&#x27;;
 }
 </pre>
 <section id="distance-of-mouse-movement"><a name="distance-of-mouse-movement" title="Distance of Mouse Movement" class="anchor"><h2>Using the Distance that the Mouse has Moved</h2></a></section>

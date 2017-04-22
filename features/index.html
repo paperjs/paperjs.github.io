@@ -72,7 +72,7 @@ Standing on the shoulders of Scriptographer and making use of HTML5 standards, P
 Paper.js provides a Document Object Model (also called a Scene Graph) that is very easy to work with. Create a project and populate it with layers, groups, paths, rasters etc. Groups and layers can contain other items and even other groups.
 </p>
 <p>
-If you&apos;ve never heard of a Document Object Model before, you can think of it as the layers palette of applications such as Adobe Illustrator &amp; Adobe Photoshop.
+If you&#x27;ve never heard of a Document Object Model before, you can think of it as the layers palette of applications such as Adobe Illustrator &#x26; Adobe Photoshop.
 </p>
 <div class="block">
   <div class="left"><img src="/features/Layers.gif" width="248" height="168"></img>
@@ -112,7 +112,7 @@ var secondPath = new Path.Circle({
 <p>
 Learn more about the Document Object Model in the <a href="http://www.scriptographer.org/tutorials/document-items/document-hierarchy/" target="_blank">Document Hierarchy</a> tutorial. 
 </p>
-<section id="paths-amp-segments"><a name="paths-amp-segments" title="Paths &amp; Segments" class="anchor"><h2>Paths &amp; Segments</h2></a></section>
+<section id="paths-x26-segments"><a name="paths-x26-segments" title="Paths &#x26; Segments" class="anchor"><h2>Paths &#x26; Segments</h2></a></section>
 <p>
 Paper.js makes it very easy to create paths and add segments to them. After adding, the segments can be easily inspected, manipulated, moved around, removed etc.
 </p>
@@ -210,15 +210,15 @@ Read more about mouse handlers in the <a href="http://scriptographer.org/tutoria
 </p>
 <pre class="code">
 function onMouseDown(event) {
-	// Code executed when the user presses the mouse
+&#x9;// Code executed when the user presses the mouse
 }
 
 function onMouseDrag(event) {
-	// Code executed when the user drags the mouse
+&#x9;// Code executed when the user drags the mouse
 }
 
 function onMouseUp(event) {
-	// Code executed when the user releases the mouse
+&#x9;// Code executed when the user releases the mouse
 }
 </pre>
 <p>
@@ -273,14 +273,14 @@ Learn more about keyboard interaction in the <a href="/tutorials/interaction/key
 </p>
 <pre class="code">
 function onKeyDown(event) {
-	// Code executed when the user presses a key
+&#x9;// Code executed when the user presses a key
 }
 
 function onMouseDrag(event) {
-	if (Key.isDown(&apos;space&apos;)) {
-		// Do something if the space bar is pressed
-		// while dragging:
-	}
+&#x9;if (Key.isDown(&#x27;space&#x27;)) {
+&#x9;&#x9;// Do something if the space bar is pressed
+&#x9;&#x9;// while dragging:
+&#x9;}
 }
 </pre>
 <p>
@@ -679,7 +679,7 @@ Learn more about working with images in the <a href="/tutorials/images/">Images<
 </p>
 <section id="symbols"><a name="symbols" title="Symbols" class="anchor"><h2>Symbols</h2></a></section>
 <p>
-Symbols allow you to place multiple instances of an item in your project. This can save memory, since all instances of a symbol simply refer to the original item and it can speed up moving around complex objects, since internal properties such as segment lists and gradient positions don&apos;t need to be updated with every transformation.
+Symbols allow you to place multiple instances of an item in your project. This can save memory, since all instances of a symbol simply refer to the original item and it can speed up moving around complex objects, since internal properties such as segment lists and gradient positions don&#x27;t need to be updated with every transformation.
 </p>
 <div class="paperscript">
 <div class="buttons">
@@ -767,7 +767,7 @@ function keepInView(item) {
 </div>
 <section id="selection-outlines"><a name="selection-outlines" title="Selection Outlines" class="anchor"><h2>Selection Outlines</h2></a></section>
 <p>
-When you select items or path segment points &amp; handles in your code, Paper.js draws the visual outlines of them on top of your project. This is very useful for debugging, as it allows you to see the construction of paths, position of path curves, individual segment points and bounding boxes of symbol and raster items:
+When you select items or path segment points &#x26; handles in your code, Paper.js draws the visual outlines of them on top of your project. This is very useful for debugging, as it allows you to see the construction of paths, position of path curves, individual segment points and bounding boxes of symbol and raster items:
 </p>
 <div class="paperscript split">
 <div class="buttons">
