@@ -116,7 +116,7 @@ path.selected = true;
 </div>
 <section id="rounded-rectangles"><a name="rounded-rectangles" title="Rounded Rectangles" class="anchor"><h2>Rectangular Shaped Paths with Rounded Corners</h2></a></section>
 <p>
-To create rectangular shaped paths with rounded corners, we use the <tt><a href="/reference/path#path-roundedrectangle-rect-size">new Path.RoundedRectangle(rect, size)</a></tt> constructor. The <tt>rect</tt> parameter describes the <tt><a href="/reference/rectangle">Rectangle</a></tt> and the <tt>size</tt> parameter describes the <tt><a href="/reference/size">Size</a></tt> of the rounded corners.
+To create rectangular shaped paths with rounded corners, we use the <tt><a href="/reference/path#path-rectangle-rectangle">new Path.Rectangle(rectangle, radius)</a></tt> constructor. The <tt>rectangle</tt> parameter describes the <tt><a href="/reference/rectangle">Rectangle</a></tt> and the <tt>radius</tt> parameter describes the <tt><a href="/reference/size">Size</a></tt> of the rounded corners.
 </p>
 <p>
 For example, the following script creates a rectangular shaped path with 20 pt * 20 pt corners:
@@ -127,8 +127,8 @@ For example, the following script creates a rectangular shaped path with 20 pt *
 </div>
 <script type="text/paperscript" canvas="canvas-3">
 var rectangle = new Rectangle(new Point(50, 50), new Point(150, 100));
-var cornerSize = new Size(20, 20);
-var path = new Path.RoundRectangle(rectangle, cornerSize);
+var radius = new Size(20, 20);
+var path = new Path.Rectangle(rectangle, radius);
 path.fillColor = 'black';
 </script>
 <div class="canvas">
@@ -137,10 +137,10 @@ path.fillColor = 'black';
 </div>
 <section id="regular-polygon-shaped-paths"><a name="regular-polygon-shaped-paths" title="Regular Polygon Shaped Paths" class="anchor"><h2>Regular Polygon Shaped Paths</h2></a></section>
 <p>
-To create regular polygon shaped paths, we use the <tt><a href="/reference/path#path-regularpolygon-center-numsides-radius">new Path.RegularPolygon(center, numSides, radius)</a></tt> constructor.
+To create regular polygon shaped paths, we use the <tt><a href="/reference/path#path-regularpolygon-center-sides-radius">new Path.RegularPolygon(center, sides, radius)</a></tt> constructor.
 </p>
 <p>
-The <tt><a href="/reference/point">center</a></tt> parameter describes the center point of the polygon, the <tt>numSides</tt> parameter describes the amount of sides the polygon has and the <tt>radius</tt> parameter describes the radius of the polygon.
+The <tt><a href="/reference/point">center</a></tt> parameter describes the center point of the polygon, the <tt>sides</tt> parameter describes the amount of sides the polygon has and the <tt>radius</tt> parameter describes the radius of the polygon.
 </p>
 <p>
 For example, lets create a triangle shaped path and a decagon shaped path:
