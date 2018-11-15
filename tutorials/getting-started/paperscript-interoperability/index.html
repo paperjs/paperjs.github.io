@@ -65,7 +65,67 @@
     </nav>
 <article class="tutorial">
   <h1>PaperScript Interoperability</h1><p>
-Coming soon!
+Both PaperScript and JavaScript have access to the Window scope, therefore you can use <tt>window.globals&#x3C;code&#x3E; from the JavaScript and &#x3C;code&#x3E;globals&#x3C;code&#x3E; from PaperScript to pass information back and forth.
+</p>
+<p>
+&#x3C;title&#x3E;JavaScript &#x3C;=&#x3E; PaperScript example&#x3C;/title&#x3E;
+</p>
+<p>
+&#x3C;code mode=&#x22;text/html&#x22;&#x3E;<br>
+&#x3C;!DOCTYPE html&#x3E;<br>
+&#x3C;html&#x3E;<br>
+&#x3C;head&#x3E;<br>
+&#x3C;script type=&#x22;text/javascript&#x22; src=&#x22;js/paper.js&#x22;&#x3E;&#x3C;/script&#x3E;<br>
+&#x3C;script type=&#x22;text/paperscript&#x22; canvas=&#x22;myCanvas&#x22;&#x3E;<br>
+&#x9;// Create a Paper.js Path to draw a line into it:<br>
+&#x9;var path = new Path();<br>
+&#x9;path.strokeColor = &#x27;black&#x27;;<br>
+&#x9;var start = new Point(100, 100);<br>
+&#x9;path.moveTo(start);
+</p>
+<p>
+  // Use the global variables a and b defined in the JavaScript<br>
+&#x9;path.lineTo(start + [ globals.a, globals.b ]);
+</p>
+<p>
+  // Define a global function inside the window scope.<br>
+  globals.lineTo = function(c,d) {<br>
+  &#x9;path.lineTo(new Point(c, d));<br>
+  }<br>
+&#x3C;/script&#x3E;
+</p>
+<p>
+&#x3C;script type=&#x22;text/javascript&#x22;&#x3E;<br>
+  // To avoid race problem, the following should not be in window.onload as the PaperScript might run before.<br>
+  window.globals = { a:50, b:-50 };
+</p>
+<p>
+  // Update the path from the JavaScript code.<br>
+  window.onload = function() {<br>
+    document.getElementById(&#x27;lineToBtn&#x27;).onclick = function() {<br>
+      let x = Number(document.getElementById(&#x27;x&#x27;).value);<br>
+      let y = Number(document.getElementById(&#x27;y&#x27;).value);<br>
+      window.globals.lineTo(x,y);<br>
+    };<br>
+  };<br>
+&#x3C;/script&#x3E;<br>
+&#x3C;/head&#x3E;<br>
+&#x3C;body&#x3E;<br>
+  &#x3C;input type=&#x22;range&#x22; id=&#x22;x&#x22; from=&#x22;0&#x22; to=&#x22;150&#x22; default=&#x22;75&#x22;&#x3E;&#x3C;/input&#x3E;<br>
+  &#x3C;input type=&#x22;range&#x22; id=&#x22;y&#x22; from=&#x22;0&#x22; to=&#x22;150&#x22; default=&#x22;75&#x22; &#x3E;&#x3C;/input&#x3E;<br>
+  &#x3C;button type=&#x22;number&#x22; id=&#x22;lineToBtn&#x22;&#x3E;LineTo&#x3C;/button&#x3E;<br>
+  &#x3C;br&#x3E;<br>
+  &#x3C;canvas id=&#x22;myCanvas&#x22; resize&#x3E;&#x3C;/canvas&#x3E;<br>
+&#x3C;/body&#x3E;<br>
+&#x3C;/html&#x3E;<br>
+</tt>
+</p>
+<section id="limitations"><a name="limitations" title="Limitations" class="anchor"><h2>Limitations</h2></a></section>
+<p>
+The scopes of multiple PaperScript is different and can collides. If you create two functions with the same name in two PaperScripts, the second will overwrite the first one.
+</p>
+<p>
+Thus you might want to create another variable in the window for each PaperScript running to avoid the confusion.
 </p>
 </article>
 <aside>
@@ -123,6 +183,10 @@ Coming soon!
 </ul>
   </li>
 </ul>
+<div class="sticky">
+  <h1>Content</h1>
+  <ul class="toc"></ul>
+</div>
 </aside>
   </body>
 </html>
