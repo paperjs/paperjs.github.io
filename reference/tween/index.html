@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-touch-fullscreen" content="yes"/>
+  <meta name="msapplication-tap-highlight" content="no"/>
+  <link rel="stylesheet" href="/assets/css/style.css"/>
+  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon"/>
+  <link rel="shortcut icon" href="/assets/favicon.ico"/>
+  <script src="/assets/js/jquery.js"></script>
+  <script src="/assets/js/paper.js"></script>
+  <script src="/assets/js/codemirror.js"></script>
+  <script src="/assets/js/scripts.js"></script>
+  <script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-10082945-6']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  <title>Paper.js — Tween</title>
+</head>
+  <body>
+    <nav>
+      <h1><a href="/">Paper.js</a></h1>
+<ul>
+  <li><a href="/about/">About</a>
+  </li>
+  <li><a href="/features/">Features</a>
+  </li>
+  <li class="spacer"></li>
+  <li><a href="/examples/">Examples</a>
+  </li>
+  <li><a href="/showcase/">Showcase</a>
+  </li>
+  <li class="spacer"></li>
+  <li><a href="/tutorials/">Tutorials</a>
+  </li>
+  <li><a href="/reference/">Reference</a>
+  </li>
+  <li><a href="http://sketch.paperjs.org/">Sketch</a>
+  </li>
+  <li class="spacer"></li>
+  <li><a href="/download/">Download</a>
+  </li>
+  <li><a href="/donation/">Donation</a>
+  </li>
+  <li><a href="/license/">License</a>
+  </li>
+  <li class="spacer"></li>
+  <li><a href="http://groups.google.com/group/paperjs" target="_blank">Mailing List</a>
+  </li>
+  <li><a href="http://twitter.com/PaperJS" target="_blank">Follow on Twitter</a>
+  </li>
+  <li><a href="http://github.com/paperjs/paper.js" target="_blank">Watch on Github</a>
+  </li>
+</ul>
+    </nav>
+<article>
+  <h1>Tween</h1>
+  <div class="reference"><div class="reference-class">
+
+
+<p>Allows tweening <code>Object</code> properties between two states for a given duration. To tween properties on Paper.js <a href="/reference/item"><tt>Item</tt></a> instances, <a href="/reference/item#tween-from-to-options"><tt>item.tween(from, to, options)</tt></a> can be used, which returns created tween instance.</p>
+
+</div>
+
+<!-- =============================== constructors ========================== -->
+<div class="reference-members">
+	<h2>Constructors</h2>
+	
+		
+<div id="tween-object-from-to-duration" class="member">
+<div class="member-link">
+<a name="tween-object-from-to-duration" href="#tween-object-from-to-duration"><tt><b>Tween</b>(object, from, to, duration[, easing[, start]])</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+    <p>Creates a new tween.</p>
+    
+    
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
+<tt>object:</tt> 
+<tt>Object</tt>
+&mdash;&nbsp;the object to tween the properties on
+
+</li>
+	
+	<li>
+<tt>from:</tt> 
+<tt>Object</tt>
+&mdash;&nbsp;the state at the start of the tweening
+
+</li>
+	
+	<li>
+<tt>to:</tt> 
+<tt>Object</tt>
+&mdash;&nbsp;the state at the end of the tweening
+
+</li>
+	
+	<li>
+<tt>duration:</tt> 
+<tt>Number</tt>
+&mdash;&nbsp;the duration of the tweening
+
+</li>
+	
+	<li>
+<tt>easing:</tt> 
+<tt>String</tt>⟋<tt>Function</tt>
+&mdash;&nbsp;the type of the easing  function or the easing function
+&mdash;&nbsp;optional, default: <tt>&lsquo;linear&rsquo;</tt>
+</li>
+	
+	<li>
+<tt>start:</tt> 
+<tt>Boolean</tt>
+&mdash;&nbsp;whether to start tweening automatically
+&mdash;&nbsp;optional, default: <tt>true</tt>
+</li>
+	
+</ul>
+
+    
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
+<tt><a href="/reference/tween"><tt>Tween</tt></a></tt>&nbsp;&mdash;&nbsp;the newly created tween
+</li>
+
+		
+	</ul>
+
+
+
+    
+    
+</div>
+</div>
+</div>
+	
+</div>
+
+
+
+
+
+<!-- ================================ properties =========================== -->
+	<div class="reference-members">
+		<h2>Properties</h2>
+		
+			
+	<h3>Event Handlers</h3>
+
+<div id="onupdate" class="member">
+<div class="member-link">
+<a name="onupdate" href="#onupdate"><tt><b>onUpdate</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The function to be called when the tween is updated. It receives an object as its sole argument, containing the current progress of the tweening and the factor calculated by the easing function.</p>
+	
+	
+	
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<tt>Function</tt>
+		</li>
+	</ul>
+    
+	
+	<h4>Example:<span class="description">Display tween progression values:</span></h4>
+
+<div class="paperscript split">
+
+<div class="buttons">
+<div class="button run">Run</div>
+</div>
+
+<script type="text/paperscript" canvas="canvas-0">
+var circle = new Path.Circle({
+    center: view.center,
+    radius: 40,
+    fillColor: 'blue'
+});
+var tween = circle.tweenTo(
+    { fillColor: 'red' },
+    {
+        duration: 2000,
+        easing: 'easeInCubic'
+    }
+);
+var progressText = new PointText(view.center + [60, -10]);
+var factorText = new PointText(view.center + [60, 10]);
+
+// Install event using onUpdate() property:
+tween.onUpdate = function(event) {
+    progressText.content = 'progress: ' + event.progress.toFixed(2);
+};
+
+// Install event using on('update') method:
+tween.on('update', function(event) {
+    factorText.content = 'factor: ' + event.factor.toFixed(2);
+});
+</script>
+<div class="canvas"><canvas width="516" height="100" id="canvas-0"></canvas></div>
+</div>
+
+
+</div>
+
+</div>
+</div>
+		
+	</div>
+
+
+
+
+
+<!-- ============================== methods ================================ -->
+	<div class="reference-members">
+		<h2>Methods</h2>
+		
+	
+<div id="then-function" class="member">
+<div class="member-link">
+<a name="then-function" href="#then-function"><tt><b>then</b>(function)</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Set a function that will be executed when the tween completes.</p>
+    
+	
+<ul class="member-list">
+	<h4>Parameters:</h4>
+	
+	<li>
+<tt>function:</tt> 
+<tt>Function</tt>
+&mdash;&nbsp;the function to execute when the tween  completes
+
+</li>
+	
+</ul>
+
+	
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
+<tt><a href="/reference/tween"><tt>Tween</tt></a></tt>
+</li>
+
+		
+	</ul>
+
+
+
+	
+	<h4>Example:<span class="description">Tweens chaining: var circle = new</span></h4>
+
+<div class="paperscript split">
+
+<div class="buttons">
+<div class="button run">Run</div>
+</div>
+
+<script type="text/paperscript" canvas="canvas-1">
+Path.Circle({center: view.center, radius: 40, fillColor: 'blue'
+});
+// Tween color from blue to red.
+var tween = item.tweenTo({ fillColor: 'red' }, 2000);
+// When the first tween completes...
+tween.then(function() {
+    // ...tween color back to blue.
+    item.tweenTo({ fillColor: 'blue' }, 2000);
+});
+</script>
+<div class="canvas"><canvas width="516" height="100" id="canvas-1"></canvas></div>
+</div>
+
+
+</div>
+</div>
+</div>
+
+	
+<div id="start" class="member">
+<div class="member-link">
+<a name="start" href="#start"><tt><b>start</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Start tweening.</p>
+    
+	
+	
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
+<tt><a href="/reference/tween"><tt>Tween</tt></a></tt>
+</li>
+
+		
+	</ul>
+
+
+
+	
+	<h4>Example:<span class="description">Manually start tweening.</span></h4>
+
+<div class="paperscript split">
+
+<div class="buttons">
+<div class="button run">Run</div>
+</div>
+
+<script type="text/paperscript" canvas="canvas-2">
+var circle = new Path.Circle({
+    center: view.center,
+    radius: 40,
+    fillColor: 'blue'
+});
+var tween = circle.tweenTo(
+    { fillColor: 'red' },
+    { duration: 2000, start: false }
+);
+tween.start();
+</script>
+<div class="canvas"><canvas width="516" height="100" id="canvas-2"></canvas></div>
+</div>
+
+
+</div>
+</div>
+</div>
+
+	
+<div id="stop" class="member">
+<div class="member-link">
+<a name="stop" href="#stop"><tt><b>stop</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Stop tweening.</p>
+    
+	
+	
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
+<tt><a href="/reference/tween"><tt>Tween</tt></a></tt>
+</li>
+
+		
+	</ul>
+
+
+
+	
+	<h4>Example:<span class="description">Stop a tween before it completes.</span></h4>
+
+<div class="paperscript split">
+
+<div class="buttons">
+<div class="button run">Run</div>
+</div>
+
+<script type="text/paperscript" canvas="canvas-3">
+var circle = new Path.Circle({
+    center: view.center,
+    radius: 40,
+    fillColor: 'blue'
+});
+// Start tweening from blue to red for 2 seconds.
+var tween = circle.tweenTo({ fillColor: 'red' }, 2000);
+// After 1 second...
+setTimeout(function(){
+    // ...stop tweening.
+    tween.stop();
+}, 1000);
+</script>
+<div class="canvas"><canvas width="516" height="100" id="canvas-3"></canvas></div>
+</div>
+
+
+</div>
+</div>
+</div>
+
+
+		
+	</div>
+
+
+
+
+
+  </div>
+</article>
+<aside><h1>Index<span class="version text">0.12.0</span></h1>
+<div class="reference"><ul class="reference-classes"><li><a href="/reference/global">Global Scope</a></li>
+<li>
+<h2>Basic Types</h2>
+<ul>
+<li><a href="/reference/point">Point</a></li>
+<li><a href="/reference/size">Size</a></li>
+<li><a href="/reference/rectangle">Rectangle</a></li>
+<li><a href="/reference/matrix">Matrix</a></li>
+</ul>
+<li>
+<h2>Project & Items</h2>
+<ul>
+<li><a href="/reference/project">Project</a></li>
+<li><a href="/reference/item">Item</a></li>
+<li><a href="/reference/layer">Layer</a></li>
+<li><a href="/reference/group">Group</a></li>
+<li><a href="/reference/shape">Shape</a></li>
+<li><a href="/reference/raster">Raster</a></li>
+<li><hr /></li>
+<li><a href="/reference/hitresult">HitResult</a></li>
+</ul>
+<li>
+<h2>Paths</h2>
+<ul>
+<li><a href="/reference/pathitem">PathItem</a></li>
+<li><a href="/reference/path">Path</a></li>
+<li><a href="/reference/compoundpath">CompoundPath</a></li>
+<li><a href="/reference/segment">Segment</a></li>
+<li><a href="/reference/curve">Curve</a></li>
+<li><hr /></li>
+<li><a href="/reference/curvelocation">CurveLocation</a></li>
+</ul>
+<li>
+<h2>Symbols</h2>
+<ul>
+<li><a href="/reference/symboldefinition">SymbolDefinition</a></li>
+<li><a href="/reference/symbolitem">SymbolItem</a></li>
+</ul>
+<li>
+<h2>Styling</h2>
+<ul>
+<li><a href="/reference/style">Style</a></li>
+<li><a href="/reference/color">Color</a></li>
+<li><a href="/reference/gradient">Gradient</a></li>
+<li><a href="/reference/gradientstop">GradientStop</a></li>
+</ul>
+<li>
+<h2>Animation</h2>
+<ul>
+<li><a href="/reference/tween">Tween</a></li>
+</ul>
+<li>
+<h2>Typography</h2>
+<ul>
+<li><a href="/reference/textitem">TextItem</a></li>
+<li><a href="/reference/pointtext">PointText</a></li>
+</ul>
+<li>
+<h2>User Interaction & Events</h2>
+<ul>
+<li><a href="/reference/view">View</a></li>
+<li><a href="/reference/event">Event</a></li>
+<li><a href="/reference/mouseevent">MouseEvent</a></li>
+<li><a href="/reference/tool">Tool</a></li>
+<li><a href="/reference/toolevent">ToolEvent</a></li>
+<li><a href="/reference/key">Key</a></li>
+<li><a href="/reference/keyevent">KeyEvent</a></li>
+</ul>
+<li>
+<h2>JavaScript</h2>
+<ul>
+<li><a href="/reference/paperscope">PaperScope</a></li>
+<li><a href="/reference/paperscript">PaperScript</a></li>
+</ul>
+</ul></div>
+
+</aside>
+  </body>
+</html>
