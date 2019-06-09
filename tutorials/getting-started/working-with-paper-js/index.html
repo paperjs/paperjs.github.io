@@ -65,7 +65,7 @@
     </nav>
 <article class="tutorial">
   <h1>Working with Paper.js</h1><p>
-Paper.js offers different approaches for its integration in the browser. The simplest way is to use PaperScript, our extension of JavaScript that facilitates a few things along the way. For more advances users or bigger projects it might be preferable to work directly with JavaScript, as described in the tutorial about <a href="/tutorials/getting-started/using-javascript-directly/">Using JavaScript Directly</a>.
+Paper.js offers different approaches for its integration in the browser. The simplest way is to use PaperScript, our extension of JavaScript that facilitates a few things along the way. For more advanced users or bigger projects it might be preferable to work directly with JavaScript, as described in the tutorial about <a href="/tutorials/getting-started/using-javascript-directly/">Using JavaScript Directly</a>.
 </p>
 <section id="what-is-paperscript"><a name="what-is-paperscript" title="What is PaperScript?" class="anchor"><h2>What is PaperScript?</h2></a></section>
 <p>
@@ -107,7 +107,7 @@ PaperScript code is loaded just like any other JavaScript using the <tt>&#x3C;sc
 &#x3C;/html&#x3E;
 </pre>
 <p>
-If we copy the inlined code to a file called <em>js/myScript.js</em> we can rewrite the above example to load the external file instead. 
+If we copy the inlined code to a file called <em>js/myScript.js</em> we can rewrite the above example to load the external file instead.
 </p>
 <pre class="code" mode="text/html">
 &#x3C;!DOCTYPE html&#x3E;
@@ -141,8 +141,20 @@ When including more than one PaperScript in a page, each script will run in its 
 Paper.js can be configured in a few different ways by adding attributes to the canvas tag:
 </p>
 <p>
-<b><tt>resize=&#x22;true&#x22;</tt></b>: Makes the canvas object as high and wide as the Browser window and resizes it whenever the user resizes the window. When the window is resized, the size of your <tt><a href="/reference/global#view">global.view</a></tt> is also automatically adjusted. If validation is a concern, <tt>data-paper-resize=&#x22;true&#x22;</tt> is supported too.
+<b><tt>resize=&#x22;true&#x22;</tt></b>: Makes the canvas object as high and wide as the Browser window and resizes it whenever the user resizes the window. When the window is resized, the size of your <tt><a href="/reference/global#view">global.view</a></tt> is also automatically adjusted. If validation is a concern, <tt>data-paper-resize=&#x22;true&#x22;</tt> is supported too. You need to make sure to include the following CSS declarations for the automatic resizing to work correctly:
 </p>
+<pre class="code">
+html,
+body {
+    height: 100%;
+}
+
+/* Scale canvas with resize attribute to full size */
+canvas[resize] {
+    width: 100%;
+    height: 100%;
+}
+</pre>
 <p>
 Your code can respond to any resizing of the window by creating a <tt><a href="/reference/view#onresize">onResize</a></tt> function handler. For example, let&#x27;s say you create a circle shaped path at the center of the view, and you want it to be centered after resizing:
 </p>
