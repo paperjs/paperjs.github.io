@@ -1746,7 +1746,7 @@ if (path2.fullySelected) {
 	
 <div id="add-segment" class="member">
 <div class="member-link">
-<a name="add-segment" href="#add-segment"><tt><b>add</b>(segment)</tt></a>
+<a name="add-segment" href="#add-segment"><tt><b>add</b>(...segment)</tt></a>
 </div>
 <div class="member-description hidden">
 <div class="member-text">
@@ -1758,7 +1758,7 @@ if (path2.fullySelected) {
 	
 	<li>
 <tt>segment:</tt> 
-<a href="/reference/segment"><tt>Segment</tt></a>⟋<a href="/reference/point"><tt>Point</tt></a>
+(<a href="/reference/segment"><tt>Segment</tt></a>⟋<a href="/reference/point"><tt>Point</tt></a>⟋<tt>Number</tt>[])
 &mdash;&nbsp;the segment or point to be added.
 
 </li>
@@ -1770,7 +1770,7 @@ if (path2.fullySelected) {
 		<h4>Returns:</h4>
 		
 			<li>
-<tt><a href="/reference/segment"><tt>Segment</tt></a></tt>&nbsp;&mdash;&nbsp;the added segment. This is not necessarily the same object, e.g. if the segment to be added already belongs to another path
+<tt><a href="/reference/segment"><tt>Segment</tt></a>⟋Array of <a href="/reference/segment"><tt>Segment</tt></a> objects</tt>&nbsp;&mdash;&nbsp;the added segment(s). This is not necessarily the same object, e.g. if the segment to be added already belongs to another path.
 </li>
 
 		
@@ -3368,7 +3368,7 @@ for (var i = 0; i < amount + 1; i++) {
 		<h4>Returns:</h4>
 		
 			<li>
-<tt>Array of <tt>Number</tt>s</tt>&nbsp;&mdash;&nbsp;path offsets where the path is tangential to the provided tangent
+<tt>Array of <tt>Numbers</tt></tt>&nbsp;&mdash;&nbsp;path offsets where the path is tangential to the provided tangent
 </li>
 
 		
@@ -3930,7 +3930,7 @@ path.selected = true; // Select the path
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>Specifies whether the item defines a clip mask. This can only be set on paths, compound paths, and text frame objects, and only if the item is already contained within a clipping group.</p>
+	<p>Specifies whether the item defines a clip mask. This can only be set on paths and compound paths, and only if the item is already contained within a clipping group.</p>
 	
 	
 	
@@ -4182,6 +4182,33 @@ circle.position.x += 100;
 
 <div class="member-text">
 	<p>The bounding rectangle of the item including handles.</p>
+	
+	
+	
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<a href="/reference/rectangle"><tt>Rectangle</tt></a>
+		</li>
+	</ul>
+    
+	
+	
+</div>
+
+</div>
+</div>
+
+	
+<div id="internalbounds" class="member">
+<div class="member-link">
+<a name="internalbounds" href="#internalbounds"><tt><b>internalBounds</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The bounding rectangle of the item without any matrix transformations.</p>
+<p>Typical use case would be drawing a frame around the object where you want to draw something of the same size, position, rotation, and scaling, like a selection frame.</p>
 	
 	
 	
@@ -5076,7 +5103,7 @@ path3.strokeJoin = 'bevel';
 	<ul class="member-list">
 		<h4>Type:</h4>
 		<li>
-			Array of <tt>Number</tt>s
+			Array of <tt>Numbers</tt>
 		</li>
 	</ul>
     
@@ -7614,7 +7641,7 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 		<h4>Returns:</h4>
 		
 			<li>
-<tt></tt>&nbsp;&mdash;&nbsp;Boolean
+<tt>Boolean
 </li>
 
 		
@@ -11793,7 +11820,7 @@ path.smooth();
 
   </div>
 </article>
-<aside><h1>Index<span class="version text">0.12.2</span></h1>
+<aside><h1>Index<span class="version text">0.12.3</span></h1>
 <div class="reference"><ul class="reference-classes"><li><a href="/reference/global">Global Scope</a></li>
 <li>
 <h2>Basic Types</h2>

@@ -775,7 +775,7 @@ path.selected = true; // Select the path
 <div class="member-description hidden">
 
 <div class="member-text">
-	<p>Specifies whether the item defines a clip mask. This can only be set on paths, compound paths, and text frame objects, and only if the item is already contained within a clipping group.</p>
+	<p>Specifies whether the item defines a clip mask. This can only be set on paths and compound paths, and only if the item is already contained within a clipping group.</p>
 	
 	
 	
@@ -1027,6 +1027,33 @@ circle.position.x += 100;
 
 <div class="member-text">
 	<p>The bounding rectangle of the item including handles.</p>
+	
+	
+	
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<a href="/reference/rectangle"><tt>Rectangle</tt></a>
+		</li>
+	</ul>
+    
+	
+	
+</div>
+
+</div>
+</div>
+
+	
+<div id="internalbounds" class="member">
+<div class="member-link">
+<a name="internalbounds" href="#internalbounds"><tt><b>internalBounds</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The bounding rectangle of the item without any matrix transformations.</p>
+<p>Typical use case would be drawing a frame around the object where you want to draw something of the same size, position, rotation, and scaling, like a selection frame.</p>
 	
 	
 	
@@ -1921,7 +1948,7 @@ path3.strokeJoin = 'bevel';
 	<ul class="member-list">
 		<h4>Type:</h4>
 		<li>
-			Array of <tt>Number</tt>s
+			Array of <tt>Numbers</tt>
 		</li>
 	</ul>
     
@@ -4500,7 +4527,7 @@ Array of <a href="/reference/item"><tt>Item</tt></a> objects
 		<h4>Returns:</h4>
 		
 			<li>
-<tt></tt>&nbsp;&mdash;&nbsp;Boolean
+<tt>Boolean
 </li>
 
 		
@@ -6868,7 +6895,7 @@ function onFrame(event) {
 
   </div>
 </article>
-<aside><h1>Index<span class="version text">0.12.2</span></h1>
+<aside><h1>Index<span class="version text">0.12.3</span></h1>
 <div class="reference"><ul class="reference-classes"><li><a href="/reference/global">Global Scope</a></li>
 <li>
 <h2>Basic Types</h2>
