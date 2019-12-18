@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-touch-fullscreen" content="yes"/>
+  <meta name="msapplication-tap-highlight" content="no"/>
+  <link rel="stylesheet" href="/assets/css/style.css"/>
+  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon"/>
+  <link rel="shortcut icon" href="/assets/favicon.ico"/>
+  <script src="/assets/js/jquery.js"></script>
+  <script src="/assets/js/paper.js"></script>
+  <script src="/assets/js/codemirror.js"></script>
+  <script src="/assets/js/scripts.js"></script>
+  <script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-10082945-6']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  <title>Paper.js — ToolEvent</title>
+</head>
+  <body>
+    <nav>
+      <h1><a href="/">Paper.js</a></h1>
+<ul>
+  <li><a href="/about/">About</a>
+  </li>
+  <li><a href="/features/">Features</a>
+  </li>
+  <li class="spacer"></li>
+  <li><a href="/examples/">Examples</a>
+  </li>
+  <li><a href="/showcase/">Showcase</a>
+  </li>
+  <li class="spacer"></li>
+  <li><a href="/tutorials/">Tutorials</a>
+  </li>
+  <li><a href="/reference/">Reference</a>
+  </li>
+  <li><a href="http://sketch.paperjs.org/">Sketch</a>
+  </li>
+  <li class="spacer"></li>
+  <li><a href="/download/">Download</a>
+  </li>
+  <li><a href="/donation/">Donation</a>
+  </li>
+  <li><a href="/license/">License</a>
+  </li>
+  <li class="spacer"></li>
+  <li><a href="http://groups.google.com/group/paperjs" target="_blank">Mailing List</a>
+  </li>
+  <li><a href="http://twitter.com/PaperJS" target="_blank">Follow on Twitter</a>
+  </li>
+  <li><a href="http://github.com/paperjs/paper.js" target="_blank">Watch on Github</a>
+  </li>
+</ul>
+    </nav>
+<article>
+  <h1>ToolEvent</h1>
+  <div class="reference"><div class="reference-class">
+
+
+<p> Extends <b><a href="/reference/event"><tt>Event</tt></a></b></p>
+
+<p>ToolEvent The ToolEvent object is received by the <a href="/reference/tool"><tt>Tool</tt></a>&rsquo;s mouse event handlers <a href="/reference/tool#onmousedown"><tt>tool.onMouseDown</tt></a>, <a href="/reference/tool#onmousedrag"><tt>tool.onMouseDrag</tt></a>, <a href="/reference/tool#onmousemove"><tt>tool.onMouseMove</tt></a> and <a href="/reference/tool#onmouseup"><tt>tool.onMouseUp</tt></a>. The ToolEvent object is the only parameter passed to these functions and contains information about the mouse event.</p>
+
+</div>
+
+
+
+
+
+<!-- ================================ properties =========================== -->
+	<div class="reference-members">
+		<h2>Properties</h2>
+		
+			
+<div id="type" class="member">
+<div class="member-link">
+<a name="type" href="#type"><tt><b>type</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The type of tool event.</p>
+	
+	
+		<ul class="member-list">
+			<h4>Values:</h4>
+			<li><tt>'mousedown'</tt>, <tt>'mouseup'</tt>, <tt>'mousemove'</tt>, <tt>'mousedrag'</tt></li>
+		</ul>
+	
+	
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<tt>String</tt>
+		</li>
+	</ul>
+    
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
+<div id="point" class="member">
+<div class="member-link">
+<a name="point" href="#point"><tt><b>point</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The position of the mouse in project coordinates when the event was fired.</p>
+	
+	
+	
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<a href="/reference/point"><tt>Point</tt></a>
+		</li>
+	</ul>
+    
+	
+	<h4>Example:</h4>
+
+
+<pre><code>function onMouseDrag(event) {
+    // the position of the mouse when it is dragged
+    console.log(event.point);
+}
+
+function onMouseUp(event) {
+    // the position of the mouse when it is released
+    console.log(event.point);
+}</code></pre>
+
+</div>
+
+</div>
+</div>
+		
+			
+<div id="lastpoint" class="member">
+<div class="member-link">
+<a name="lastpoint" href="#lastpoint"><tt><b>lastPoint</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The position of the mouse in project coordinates when the previous event was fired.</p>
+	
+	
+	
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<a href="/reference/point"><tt>Point</tt></a>
+		</li>
+	</ul>
+    
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
+<div id="downpoint" class="member">
+<div class="member-link">
+<a name="downpoint" href="#downpoint"><tt><b>downPoint</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The position of the mouse in project coordinates when the mouse button was last clicked.</p>
+	
+	
+	
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<a href="/reference/point"><tt>Point</tt></a>
+		</li>
+	</ul>
+    
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
+<div id="middlepoint" class="member">
+<div class="member-link">
+<a name="middlepoint" href="#middlepoint"><tt><b>middlePoint</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The point in the middle between <a href="/reference/toolevent#lastpoint"><tt>lastPoint</tt></a> and <a href="/reference/toolevent#point"><tt>point</tt></a>. This is a useful position to use when creating artwork based on the moving direction of the mouse, as returned by <a href="/reference/toolevent#delta"><tt>delta</tt></a>.</p>
+	
+	
+	
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<a href="/reference/point"><tt>Point</tt></a>
+		</li>
+	</ul>
+    
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
+<div id="delta" class="member">
+<div class="member-link">
+<a name="delta" href="#delta"><tt><b>delta</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The difference between the current position and the last position of the mouse when the event was fired. In case of the mouseup event, the difference to the mousedown position is returned.</p>
+	
+	
+	
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<a href="/reference/point"><tt>Point</tt></a>
+		</li>
+	</ul>
+    
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
+<div id="count" class="member">
+<div class="member-link">
+<a name="count" href="#count"><tt><b>count</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The number of times the mouse event was fired.</p>
+	
+	
+	
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<tt>Number</tt>
+		</li>
+	</ul>
+    
+	
+	
+</div>
+
+</div>
+</div>
+		
+			
+<div id="item" class="member">
+<div class="member-link">
+<a name="item" href="#item"><tt><b>item</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The item at the position of the mouse (if any).</p>
+<p>If the item is contained within one or more <a href="/reference/group"><tt>Group</tt></a> or <a href="/reference/compoundpath"><tt>CompoundPath</tt></a> items, the most top level group or compound path that it is contained within is returned.</p>
+	
+	
+	
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<a href="/reference/item"><tt>Item</tt></a>
+		</li>
+	</ul>
+    
+	
+	
+</div>
+
+</div>
+</div>
+		
+	</div>
+
+
+
+
+
+<!-- ============================== methods ================================ -->
+	<div class="reference-members">
+		<h2>Methods</h2>
+		
+	
+<div id="tostring" class="member">
+<div class="member-link">
+<a name="tostring" href="#tostring"><tt><b>toString</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	
+    
+	
+	
+	<ul class="member-list">
+		<h4>Returns:</h4>
+		
+			<li>
+<tt><tt>String</tt></tt>&nbsp;&mdash;&nbsp;a string representation of the tool event
+</li>
+
+		
+	</ul>
+
+
+
+	
+	
+</div>
+</div>
+</div>
+
+
+		
+	</div>
+
+
+
+
+<!-- =========================== inherited properties ====================== -->
+<div class="reference-members"><h2>Properties inherited from <a href="/reference/event"><tt>Event</tt></a></h2>
+
+	
+<div id="timestamp" class="member">
+<div class="member-link">
+<a name="timestamp" href="#timestamp"><tt><b>timeStamp</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The time at which the event was created, in milliseconds since the epoch.</p>
+	
+		<p>Read only.</p>
+	
+	
+	
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<tt>Number</tt>
+		</li>
+	</ul>
+    
+	
+	
+</div>
+
+</div>
+</div>
+
+	
+<div id="modifiers" class="member">
+<div class="member-link">
+<a name="modifiers" href="#modifiers"><tt><b>modifiers</b></tt></a>
+</div>
+<div class="member-description hidden">
+
+<div class="member-text">
+	<p>The current state of the keyboard modifiers.</p>
+	
+		<p>Read only.</p>
+	
+	
+	
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			<tt>object</tt>
+		</li>
+	</ul>
+    
+	
+	<ul class="member-list">
+		<h4>See also:</h4>
+		
+			<li><tt><a href="/reference/key#modifiers"><tt>Key.modifiers</tt></a></tt></li>
+		
+	</ul>
+
+	
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+<!-- =========================== inherited methods ========================= -->
+<div class="reference-members"><h2>Methods inherited from <a href="/reference/event"><tt>Event</tt></a></h2>
+
+	
+<div id="preventdefault" class="member">
+<div class="member-link">
+<a name="preventdefault" href="#preventdefault"><tt><b>preventDefault</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Cancels the event if it is cancelable, without stopping further propagation of the event.</p>
+    
+	
+	
+
+
+	
+	
+</div>
+</div>
+</div>
+
+	
+<div id="stoppropagation" class="member">
+<div class="member-link">
+<a name="stoppropagation" href="#stoppropagation"><tt><b>stopPropagation</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Prevents further propagation of the current event.</p>
+    
+	
+	
+
+
+	
+	
+</div>
+</div>
+</div>
+
+	
+<div id="stop" class="member">
+<div class="member-link">
+<a name="stop" href="#stop"><tt><b>stop</b>()</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+	<p>Cancels the event if it is cancelable, and stops stopping further propagation of the event. This is has the same effect as calling both <a href="/reference/event#stoppropagation"><tt>stopPropagation</tt></a>() and <a href="/reference/event#preventdefault"><tt>preventDefault</tt></a>().</p>
+<p>Any handler can also return <code>false</code> to indicate that <code>stop()</code> should be called right after.</p>
+    
+	
+	
+
+
+	
+	
+</div>
+</div>
+</div>
+
+</div>
+
+
+
+
+  </div>
+</article>
+<aside><h1>Index<span class="version text">0.12.4</span></h1>
+<div class="reference"><ul class="reference-classes"><li><a href="/reference/global">Global Scope</a></li>
+<li>
+<h2>Basic Types</h2>
+<ul>
+<li><a href="/reference/point">Point</a></li>
+<li><a href="/reference/size">Size</a></li>
+<li><a href="/reference/rectangle">Rectangle</a></li>
+<li><a href="/reference/matrix">Matrix</a></li>
+</ul>
+<li>
+<h2>Project & Items</h2>
+<ul>
+<li><a href="/reference/project">Project</a></li>
+<li><a href="/reference/item">Item</a></li>
+<li><a href="/reference/layer">Layer</a></li>
+<li><a href="/reference/group">Group</a></li>
+<li><a href="/reference/shape">Shape</a></li>
+<li><a href="/reference/raster">Raster</a></li>
+<li><hr /></li>
+<li><a href="/reference/hitresult">HitResult</a></li>
+</ul>
+<li>
+<h2>Paths</h2>
+<ul>
+<li><a href="/reference/pathitem">PathItem</a></li>
+<li><a href="/reference/path">Path</a></li>
+<li><a href="/reference/compoundpath">CompoundPath</a></li>
+<li><a href="/reference/segment">Segment</a></li>
+<li><a href="/reference/curve">Curve</a></li>
+<li><hr /></li>
+<li><a href="/reference/curvelocation">CurveLocation</a></li>
+</ul>
+<li>
+<h2>Symbols</h2>
+<ul>
+<li><a href="/reference/symboldefinition">SymbolDefinition</a></li>
+<li><a href="/reference/symbolitem">SymbolItem</a></li>
+</ul>
+<li>
+<h2>Styling</h2>
+<ul>
+<li><a href="/reference/style">Style</a></li>
+<li><a href="/reference/color">Color</a></li>
+<li><a href="/reference/gradient">Gradient</a></li>
+<li><a href="/reference/gradientstop">GradientStop</a></li>
+</ul>
+<li>
+<h2>Animation</h2>
+<ul>
+<li><a href="/reference/tween">Tween</a></li>
+</ul>
+<li>
+<h2>Typography</h2>
+<ul>
+<li><a href="/reference/textitem">TextItem</a></li>
+<li><a href="/reference/pointtext">PointText</a></li>
+</ul>
+<li>
+<h2>User Interaction & Events</h2>
+<ul>
+<li><a href="/reference/view">View</a></li>
+<li><a href="/reference/event">Event</a></li>
+<li><a href="/reference/mouseevent">MouseEvent</a></li>
+<li><a href="/reference/tool">Tool</a></li>
+<li><a href="/reference/toolevent">ToolEvent</a></li>
+<li><a href="/reference/key">Key</a></li>
+<li><a href="/reference/keyevent">KeyEvent</a></li>
+</ul>
+<li>
+<h2>JavaScript</h2>
+<ul>
+<li><a href="/reference/paperscope">PaperScope</a></li>
+<li><a href="/reference/paperscript">PaperScript</a></li>
+</ul>
+</ul></div>
+
+</aside>
+  </body>
+</html>
