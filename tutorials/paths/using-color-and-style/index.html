@@ -248,7 +248,7 @@ myPath.dashArray = [10, 12];
 <canvas height="198" id="canvas-8" width="538"></canvas>
 </div>
 </div>
-<section id="the-pathstyle-object"><a name="the-pathstyle-object" title="The PathStyle Object" class="anchor"><h2>The PathStyle Object</h2></a></section>
+<section id="the-style-object"><a name="the-style-object" title="The Style Object" class="anchor"><h2>The Style Object</h2></a></section>
 <p>
 Every item also has an <tt><a href="/reference/item#style">item.style</a></tt> property which is an object containing only style properties.
 </p>
@@ -337,7 +337,7 @@ path.style = null;
 As I mentioned earlier, all newly created items automatically receive the currently active path style properties as defined in the Illustrator interface. We can also change these through code by using <tt><a href="/reference/project/currentstyle">currentStyle</a></tt>.
 </p>
 <p>
-<tt><a href="/reference/project/currentstyle">currentStyle</a></tt> is the <tt><a href="/reference/pathstyle">PathStyle</a></tt> object of the project and contains the currently active style properties such as <tt>fillColor</tt> and <tt>strokeColor</tt>.
+<tt><a href="/reference/project/currentstyle">currentStyle</a></tt> is the <tt><a href="/reference/style">Style</a></tt> object of the project and contains the currently active style properties such as <tt>fillColor</tt> and <tt>strokeColor</tt>.
 </p>
 <p>
 The following example changes the current style of the project, then creates a path which inherits that style. Then it changes the <tt>strokeWidth</tt> and <tt>fillColor</tt> and creates another path.
