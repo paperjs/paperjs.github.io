@@ -125,6 +125,39 @@ If we copy the inlined code to a file called <em>js/myScript.js</em> we can rewr
 &#x3C;/html&#x3E;
 </pre>
 <p>
+Depending on your installation method of paper.js, ES6 syntax might not work correctly. To fix this, you need to load a version of acorn.js that supports ES6 syntax:
+</p>
+<pre class="code" mode="text/html">
+&#x3C;!DOCTYPE html&#x3E;
+&#x3C;html&#x3E;
+&#x3C;head&#x3E;
+&#x3C;!-- Load the Paper.js library --&#x3E;
+&#x3C;script type=&#x22;text/javascript&#x22; src=&#x22;js/paper.js&#x22;&#x3E;&#x3C;/script&#x3E;
+&#x3C;!-- Override the acorn.js being used --&#x3E;
+&#x3C;script src=&#x27;https://cdnjs.cloudflare.com/ajax/libs/acorn/8.8.2/acorn.js&#x27;&#x3E;&#x3C;/script&#x3E;
+&#x3C;!-- Define inlined PaperScript associate it with myCanvas --&#x3E;
+&#x3C;script type=&#x22;text/paperscript&#x22; canvas=&#x22;myCanvas&#x22;&#x3E;
+&#x9;// Create a Paper.js Path to draw a line into it:
+&#x9;const path = new Path();
+&#x9;// Give the stroke a color
+&#x9;path.strokeColor = &#x27;black&#x27;;
+&#x9;const start = new Point(100, 100);
+&#x9;// Move to start and draw a line from there
+&#x9;path.moveTo(start);
+&#x9;// Note the plus operator on Point objects.
+&#x9;// PaperScript does that for us, and much more!
+&#x9;path.lineTo(start + [ 100, -50 ]);
+&#x3C;/script&#x3E;
+&#x3C;/head&#x3E;
+&#x3C;body&#x3E;
+&#x9;&#x3C;canvas id=&#x22;myCanvas&#x22; resize&#x3E;&#x3C;/canvas&#x3E;
+&#x3C;/body&#x3E;
+&#x3C;/html&#x3E;
+</pre>
+<p>
+The above example fetches acorn.js from the internet. You may also install acorn.js locally and import it from a file.
+</p>
+<p>
 These attributes are supported in PaperScript <tt>&#x3C;script&#x3E;</tt> tags:
 </p>
 <p>
