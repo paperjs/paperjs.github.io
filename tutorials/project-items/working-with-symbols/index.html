@@ -74,10 +74,10 @@ Symbols allow you to place multiple instances of an item in your project. This c
 </p>
 <section id="creating-symbols"><a name="creating-symbols" title="Creating Symbols" class="anchor"><h2>Creating Symbols</h2></a></section>
 <p>
-To create a symbol from an item, just pass the item to the <tt><a href="/reference/symbol#symbol-item">new Symbol(item)</a></tt> constructor. When you create a symbol using an item, that item is automatically removed from the document.
+To create a symbol from an item, just pass the item to the <tt><a href="/reference/symboldefinition#symboldefinition-item">new SymbolDefinition(item)</a></tt> constructor. When you create a symbol definition using an item, that item is automatically removed from the document.
 </p>
 <p>
-To place instances of the symbol in your project, you can call <tt><a href="/reference/symbol#place-position">symbol.place(position)</a></tt> on it, with the position where you want to place it.
+To place instances of the symbol in your project, you can call <tt><a href="/reference/symboldefinition#place">symbolDefinition.place(position)</a></tt> on it, with the position where you want to place it.
 </p>
 <p>
 For example, lets create a circle shaped path and place a few instances of it:
@@ -90,12 +90,12 @@ For example, lets create a circle shaped path and place a few instances of it:
 var path = new Path.Circle(new Point(20, 20), 30);
 path.fillColor = 'red';
 
-// Create a symbol from the path:
-var symbol = new Symbol(path);
+// Create a symbol definition from the path:
+var definition = new SymbolDefinition(path);
 
 // Place two instances of the symbol:
-symbol.place(new Point(80, 50));
-symbol.place(new Point(150, 50));
+definition.place(new Point(80, 50));
+definition.place(new Point(150, 50));
 </script>
 <div class="canvas">
 <canvas height="98" id="canvas-1" width="538"></canvas>
@@ -103,7 +103,7 @@ symbol.place(new Point(150, 50));
 </div>
 <section id="placed-symbols"><a name="placed-symbols" title="Placed Symbols" class="anchor"><h2>Placed Symbols</h2></a></section>
 <p>
-A placed instance of a symbol is a <tt><a href="/reference/placedsymbol">PlacedSymbol</a></tt> and can be manipulated like any other <tt><a href="/reference/item">Item</a></tt>.
+A placed instance of a symbol is a <tt><a href="/reference/symbolitem">SymbolItem</a></tt> and can be manipulated like any other <tt><a href="/reference/item">Item</a></tt>.
 </p>
 <div class="paperscript split">
 <div class="buttons">
@@ -113,9 +113,9 @@ A placed instance of a symbol is a <tt><a href="/reference/placedsymbol">PlacedS
 var path = new Path.Circle(new Point(20, 20), 30);
 path.fillColor = 'red';
 
-var symbol = new Symbol(path);
+var definition = new SymbolDefinition(path);
 
-var placed = symbol.place(new Point(80, 50));
+var placed = definition.place(new Point(80, 50));
 
 // Scale the place symbol by 50% in y direction:
 placed.scale(1, 0.5);
@@ -129,7 +129,7 @@ placed.rotate(45);
 </div>
 <section id="selecting-placed-symbols"><a name="selecting-placed-symbols" title="Selecting Placed Symbols" class="anchor"><h2>Selecting Placed Symbols</h2></a></section>
 <p>
-When you select a <tt><a href="/reference/placedsymbol">PlacedSymbol</a></tt> by setting <tt><a href="/reference/item#selected">item.selected</a></tt> to <tt>true</tt>, Paper.js draws its bounding box. This allows you to see how it has been transformed.
+When you select a <tt><a href="/reference/symbolitem">SymbolItem</a></tt> by setting <tt><a href="/reference/item#selected">item.selected</a></tt> to <tt>true</tt>, Paper.js draws its bounding box. This allows you to see how it has been transformed.
 </p>
 <div class="paperscript split">
 <div class="buttons">
@@ -139,11 +139,11 @@ When you select a <tt><a href="/reference/placedsymbol">PlacedSymbol</a></tt> by
 var path = new Path.Circle(new Point(20, 20), 30);
 path.fillColor = 'red';
 
-// Create a symbol from the path:
-var symbol = new Symbol(path);
+// Create a symbol definition from the path:
+var definition = new SymbolDefinition(path);
 
 // Place an instance of the symbol at the center of the view:
-var placed = symbol.place(view.center);
+var placed = definition.place(view.center);
 
 // Select the placed symbol:
 placed.selected = true;
@@ -157,7 +157,7 @@ placed.rotate(45);
 </div>
 <section id="symbol-definition"><a name="symbol-definition" title="Symbol Definition" class="anchor"><h2>Symbol Definition</h2></a></section>
 <p>
-When you create a symbol from an item, that item becomes the definition of the symbol. Editing the definition of a symbol is reflected in all its <tt><a href="/reference/placedsymbol">PlacedSymbol</a></tt> instances.
+When you create a symbol definition from an item, that item becomes its <tt><a href="/reference/symboldefinition#item">symbolDefinition.item</a></tt>. Editing the item is reflected in all its <tt><a href="/reference/symbolitem">SymbolItem</a></tt> instances.
 </p>
 <div class="paperscript split">
 <div class="buttons">
@@ -171,23 +171,23 @@ path.style = {
 	strokeCap: 'round'
 };
 
-// Create a symbol from the path:
-var symbol = new Symbol(path);
+// Create a symbol definition from the path:
+var definition = new SymbolDefinition(path);
 
 // Place 30 instances of the symbol in the project in random
 // positions in the view:
 for (var i = 0; i < 30; i++) {
 	var position = view.size * Point.random();
-	var placed = symbol.place(position);
+	var placed = definition.place(position);
 }
 
 function onFrame(event) {
-	// Each frame, rotate the definition
-	// of the symbol by 1 degree:
-	symbol.definition.rotate(1);
+	// Each frame, rotate the item of the
+	// symbol definition by 1 degree:
+	definition.item.rotate(1);
 	
 	// Add 0.2 degrees to the stroke color's hue:
-	symbol.definition.strokeColor.hue += 0.2;
+	definition.item.strokeColor.hue += 0.2;
 }
 </script>
 <div class="canvas">
