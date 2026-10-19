@@ -676,6 +676,8 @@
 <div class="member-text">
 	<p>The bounding rectangle of the curve including handles.</p>
 	
+		<p>Read only.</p>
+	
 	
 	
 	<ul class="member-list">
@@ -1418,7 +1420,7 @@
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Calculates the curve location at the specified offset on the curve.</p>
+	<p>Calculates the curve location at the specified offset on the curve, or <code>null</code> if the offset exceeds the length of the curve.</p>
     
 	
 <ul class="member-list">
@@ -1459,7 +1461,7 @@
 </div>
 <div class="member-description hidden">
 <div class="member-text">
-	<p>Calculates the curve location at the specified curve-time parameter on the curve.</p>
+	<p>Calculates the curve location at the specified curve-time parameter on the curve, or <code>null</code> if the parameter lies outside of <code>0..1</code>.</p>
     
 	
 <ul class="member-list">
@@ -1527,7 +1529,7 @@
 		<h4>Returns:</h4>
 		
 			<li>
-<tt><tt>Number</tt></tt>&nbsp;&mdash;&nbsp;the curve-time parameter at the specified location
+<tt><tt>Number</tt></tt>&nbsp;&mdash;&nbsp;the curve-time parameter at the specified location, or  <code>null</code> if the offset exceeds the length of the curve
 </li>
 
 		
@@ -1650,7 +1652,7 @@
 		<h4>Returns:</h4>
 		
 			<li>
-<tt><a href="/reference/curvelocation"><tt>CurveLocation</tt></a></tt>&nbsp;&mdash;&nbsp;the curve location of the specified point
+<tt><a href="/reference/curvelocation"><tt>CurveLocation</tt></a>⟋<tt>null</tt></tt>&nbsp;&mdash;&nbsp;the curve location of the specified point
 </li>
 
 		
@@ -1691,7 +1693,7 @@
 		<h4>Returns:</h4>
 		
 			<li>
-<tt><tt>Number</tt></tt>&nbsp;&mdash;&nbsp;the length of the path up to the specified point
+<tt><tt>Number</tt>⟋<tt>null</tt></tt>&nbsp;&mdash;&nbsp;the length of the path up to the specified point
 </li>
 
 		
@@ -1732,7 +1734,7 @@
 		<h4>Returns:</h4>
 		
 			<li>
-<tt><tt>Number</tt></tt>&nbsp;&mdash;&nbsp;the curve-time parameter of the specified point
+<tt><tt>Number</tt>⟋<tt>null</tt></tt>&nbsp;&mdash;&nbsp;the curve-time parameter of the specified point
 </li>
 
 		
@@ -2371,7 +2373,7 @@
 
   </div>
 </article>
-<aside><h1>Index<span class="version text">0.12.20</span></h1>
+<aside><h1>Index<span class="version text">0.13.0</span></h1>
 <div class="reference"><ul class="reference-classes"><li><a href="/reference/global">Global Scope</a></li>
 <li>
 <h2>Basic Types</h2>
