@@ -72,12 +72,14 @@
 
 
 <p>The Point object represents a point in the two dimensional space of the Paper.js project. It is also used to represent two dimensional vector objects.</p>
+<p>Wherever a point is the only argument of a function, it can also be passed as two numbers, e.g. <code>point.add(10, 20)</code> or <code>item.translate(10, 20)</code>.</p>
 <h4>Example:<span class="description">Create a point at x: 10, y: 5</span></h4>
 
 
 <pre><code>var point = new Point(10, 5);
 console.log(point.x); // 10
 console.log(point.y); // 5</code></pre>
+
 
 </div>
 
@@ -243,6 +245,15 @@ path.fillColor = 'red';</code></pre>
     angle: 90
 });
 console.log(point.length); // 10
+console.log(point.angle); // 90</code></pre>
+
+<h4>Example:<span class="description">The angle can also be specified in radians:</span></h4>
+
+
+<pre><code>var point = new Point({
+    length: 10,
+    angleInRadians: Math.PI / 2
+});
 console.log(point.angle); // 90</code></pre>
 
 <h4>Example:<span class="description">Creating a point at x: 10, y: 20 using an object literal:</span></h4>
@@ -1142,7 +1153,7 @@ path.position.selected = true;
 	
 	<li>
 <tt>point:</tt> 
-<a href="/reference/point"><tt>Point</tt></a>
+<a href="/reference/point"><tt>Point</tt></a>⟋Array of <tt>Numbers</tt>
 
 
 </li>
@@ -2869,7 +2880,7 @@ var point = maxPoint * randomPoint;</code></pre>
 
   </div>
 </article>
-<aside><h1>Index<span class="version text">0.14.0</span></h1>
+<aside><h1>Index<span class="version text">0.15.0</span></h1>
 <div class="reference"><ul class="reference-classes"><li><a href="/reference/global">Global Scope</a></li>
 <li>
 <h2>Basic Types</h2>
